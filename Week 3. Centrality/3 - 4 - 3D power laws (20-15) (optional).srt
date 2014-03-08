@@ -1,0 +1,1180 @@
+
+1
+00:00:00,000 --> 00:00:04,518
+I'm glad you've chosen to learn a little
+bit more about power laws.
+
+2
+00:00:04,518 --> 00:00:10,544
+It's important that if you're going to
+claim that your network has a power law
+
+3
+00:00:10,544 --> 00:00:13,556
+degree distribution, that it actually
+does.
+
+4
+00:00:13,556 --> 00:00:02,228
+Because if it has a power law degree
+distribution with an exponent, you know,
+
+5
+00:00:18,160 --> 00:00:23,025
+between two and three,
+This means that things are going to spread
+
+6
+00:00:23,025 --> 00:00:28,763
+very effectively, they're going to be
+different strategies and immunizing the
+
+7
+00:00:28,763 --> 00:00:34,839
+network and the resilience of the network
+to node failure as we'll learn in a little
+
+8
+00:00:34,839 --> 00:00:40,331
+bit, is going to be affected as well, so
+we don't want to clean that, our network
+
+9
+00:00:40,331 --> 00:00:45,193
+is power law if it's really not.
+So let's see what power laws are about.
+
+10
+00:00:45,193 --> 00:00:50,650
+Power laws are different from the normal
+distribution, the normal distribution
+
+11
+00:00:50,650 --> 00:00:56,246
+looks something like this, you have the
+average height for a human male, and some
+
+12
+00:00:56,246 --> 00:01:01,283
+are taller and some are shorter.
+And if you look at the max to min ratio
+
+13
+00:01:01,283 --> 00:01:07,090
+even looking at the Guinness Book of World
+Records, the tallest man is only several
+
+14
+00:01:07,090 --> 00:01:14,279
+times taller than the shortest man On the
+other hand if you look at a city like New
+
+15
+00:01:14,279 --> 00:01:20,820
+York City, it's 150 times, a 150,000
+times, larger than a small town of
+
+16
+00:01:20,820 --> 00:01:24,405
+Deerfield, Virgina.
+We have seen this before.
+
+17
+00:01:24,405 --> 00:01:28,758
+This is the power law distribution on a
+log, log scale.
+
+18
+00:01:28,758 --> 00:01:34,723
+Oh sorry, this is it on a linear scale.
+Where we see, like, this very sharp L.
+
+19
+00:01:34,723 --> 00:01:39,881
+And here it is on a log, log scale.
+And we see that straight line.
+
+20
+00:01:39,881 --> 00:01:45,443
+That's going to be our signature.
+You see these distributions in many
+
+21
+00:01:45,443 --> 00:01:47,094
+different.
+Domains.
+
+22
+00:01:47,094 --> 00:01:51,852
+And here, I should just say, these are
+cumulative distributions.
+
+23
+00:01:51,852 --> 00:01:57,839
+So rather than looking at the probability
+that, for example, in the first graph,
+
+24
+00:01:57,839 --> 00:02:03,672
+that a word occurs, exactly, 200 times.
+We're going to be looking at the
+
+25
+00:02:03,672 --> 00:02:07,509
+proportion of words that occur 200 times
+or fewer.
+
+26
+00:02:07,509 --> 00:02:10,963
+And if your distribution is really power
+law.
+
+27
+00:02:10,963 --> 00:02:17,256
+Then this cumulative distribution, which
+is going to be its integral, is also power
+
+28
+00:02:17,256 --> 00:02:20,250
+law with its exponent being alpha-1.
+So.
+
+29
+00:02:20,250 --> 00:02:25,695
+If we see a power law in the cumulative
+distribution we're actually seeing a, a
+
+30
+00:02:25,695 --> 00:02:29,906
+power law distribution.
+And so you can see if you look at word
+
+31
+00:02:29,906 --> 00:02:35,860
+frequency, that is how many times in Moby
+Dick did the word whale occur versus the
+
+32
+00:02:35,860 --> 00:02:40,709
+world the, the word the.
+Citations, how many citations did each
+
+33
+00:02:40,709 --> 00:02:47,222
+scientific paper receive, web hits, this
+is the data set that I analyzed back when
+
+34
+00:02:47,222 --> 00:02:51,409
+I was a grad student, books sold, among
+best sellers.
+
+35
+00:02:51,409 --> 00:02:57,456
+Telephone calls received, now you might
+imagine that this is some sort of call
+
+36
+00:02:57,456 --> 00:03:03,582
+center that received you know, over a
+hundred thousand calls in a single day
+
+37
+00:03:03,814 --> 00:03:09,320
+earthquakes, many, many small earthquakes,
+a few really large earthquakes.
+
+38
+00:03:09,320 --> 00:03:16,047
+Yet more power loss greater diameter Peak
+intensity of solar flares.
+
+39
+00:03:16,047 --> 00:03:22,718
+Casualties in wars lots of small
+skirmishes and then, a few really large
+
+40
+00:03:22,718 --> 00:03:28,298
+very costly in terms of human life wars.
+Income distribution.
+
+41
+00:03:28,298 --> 00:03:32,319
+A few very rich people and lots of
+not-so-rich people.
+
+42
+00:03:32,542 --> 00:03:37,977
+Name frequency, lots and lots of Smiths
+and not that many, I don't know.
+
+43
+00:03:37,977 --> 00:03:42,667
+[laugh] You know, lots of people have
+less, less common names.
+
+44
+00:03:42,890 --> 00:03:46,464
+Populations of cities.
+We just talked about that.
+
+45
+00:03:46,464 --> 00:03:49,740
+A few mega-cities and many, many small
+towns.
+
+46
+00:03:49,740 --> 00:03:55,220
+The para-law distribution written out.
+We've seen this before, is that the
+
+47
+00:03:55,220 --> 00:04:01,751
+probability of X, say a word occurring 100
+times is equal to some constant times X to
+
+48
+00:04:01,751 --> 00:04:06,480
+the minus alpha where alpha is typically
+between two and three.
+
+49
+00:04:06,480 --> 00:04:12,636
+And if we take the log of both sides, as
+if we were plotting on a log-log scale, we
+
+50
+00:04:12,636 --> 00:04:18,867
+indeed see a linear relationship between
+the log of the probability of observing X
+
+51
+00:04:18,867 --> 00:04:25,545
+and the log of the value X itself.
+We often hear power law networks refer to
+
+52
+00:04:25,545 --> 00:04:30,724
+as being scale-free.
+What this means is that the power law
+
+53
+00:04:30,724 --> 00:04:37,903
+looks the same no matter what scale we
+look at, so whether it's in the range of
+
+54
+00:04:37,903 --> 00:04:44,099
+two to 50 or 200 to 5000.
+And this is only true of a power law
+
+55
+00:04:44,099 --> 00:04:50,771
+distribution because if you change x by
+some multiplicative constant that
+
+56
+00:04:50,771 --> 00:04:55,970
+probability is just going to have another
+constant in front.
+
+57
+00:04:55,970 --> 00:05:01,115
+You also hear power laws sometimes
+referred to as Zipf distributions.
+
+58
+00:05:01,115 --> 00:05:06,618
+George Kingsley Zipf was a Harvard
+linguistics professor who first looked at
+
+59
+00:05:06,618 --> 00:05:10,834
+the distribution of frequencies of
+different words in text.
+
+60
+00:05:10,834 --> 00:05:16,480
+And some words are much more common than
+others and there are all sorts of fun
+
+61
+00:05:16,480 --> 00:05:22,412
+models trying to figure out why this is.
+And one such model is that you're throwing
+
+62
+00:05:22,412 --> 00:05:28,415
+down letters at random but you also have,
+you include the space and so the words are
+
+63
+00:05:28,415 --> 00:05:33,419
+generated.
+As just random letters, and, And
+
+64
+00:05:33,419 --> 00:05:39,290
+terminated by stasis and that actually
+gets pretty close but turns out to not be
+
+65
+00:05:39,290 --> 00:05:44,002
+the correct model.
+But when Zipf was looking at say, for
+
+66
+00:05:44,002 --> 00:05:49,365
+example distribution of, of words and
+texts or the sizes of cities, another
+
+67
+00:05:49,365 --> 00:05:53,714
+subject he studied.
+He turned it in terms of the size of the
+
+68
+00:05:53,714 --> 00:05:58,353
+Rth largest city and so he got power loss
+with an exponent data.
+
+69
+00:05:58,353 --> 00:06:04,832
+And you can actually match the two
+exponents because saying the Rth largest
+
+70
+00:06:04,832 --> 00:06:11,962
+city has uninhabitance means that R cities
+have n or more inhabitants, right?
+
+71
+00:06:11,962 --> 00:06:18,658
+All the others are smaller, so this is in
+fact our cumulative distribution.
+
+72
+00:06:18,658 --> 00:06:26,137
+And so you can flip things around and find
+that beta is actually equal to one over
+
+73
+00:06:26,137 --> 00:06:27,790
+alpha minus one.
+So.
+
+74
+00:06:27,790 --> 00:06:33,587
+If you have a power law distribution with
+an exponent alpha of two.
+
+75
+00:06:33,587 --> 00:06:39,645
+This is true of the number of unique
+visitors from AOL to websites.
+
+76
+00:06:39,645 --> 00:06:46,568
+This is a very old data set, I think 1997
+or so that I studied as a, as a grad
+
+77
+00:06:46,568 --> 00:06:52,341
+student, When you plot the ranked plot,
+you're going to get an exponent beta of
+
+78
+00:06:52,341 --> 00:06:54,790
+one.
+Exactly as you would expect.
+
+79
+00:06:54,790 --> 00:07:01,972
+There is also a, a kind of a 80-20, rule,
+so,
+
+80
+00:07:03,090 --> 00:07:09,651
+Using the exponent alpha you can actually
+figure out whether it's 80-20 or 90-10 or
+
+81
+00:07:09,651 --> 00:07:14,103
+whatever else.
+And this is just the amount of wealth that
+
+82
+00:07:14,103 --> 00:07:19,180
+is in the hands of the richest P
+proportion of the population.
+
+83
+00:07:19,180 --> 00:07:25,741
+And for example, for wealth distribution
+in the US, which is getting more and more
+
+84
+00:07:25,741 --> 00:07:32,614
+skewed, the alpha exponent's 2.1, meaning
+that the richest twenty% of the population
+
+85
+00:07:32,614 --> 00:07:37,775
+holds about 86% of the wealth.
+Now let's get to the meat of the matter
+
+86
+00:07:37,775 --> 00:07:41,249
+which is how do you fit power law
+distributions?
+
+87
+00:07:41,249 --> 00:07:46,388
+How do you know that the degree
+distribution that you measured on your
+
+88
+00:07:46,388 --> 00:07:51,223
+network is actually power law? And.
+What you start out with is this histogram.
+
+89
+00:07:51,223 --> 00:07:53,935
+You know?
+I have this many nodes with degree one,
+
+90
+00:07:53,935 --> 00:07:57,495
+this many nodes with degree two.
+Blah, blah, blah, blah, blah, right?
+
+91
+00:07:57,495 --> 00:08:01,846
+And you may think, well, it's supposed to
+be a straight line on a log, log plot.
+
+92
+00:08:01,846 --> 00:08:05,575
+So, what I'm going to do is I'm going to
+plot it on a log, log plot.
+
+93
+00:08:05,575 --> 00:08:08,062
+And I'm just gonna try and fit a line to
+it.
+
+94
+00:08:08,062 --> 00:08:11,565
+And this is problematic, Well, we'll see
+how its problematic.
+
+95
+00:08:11,565 --> 00:08:15,690
+Let's first see what it looks like on an
+artificially generated data set.
+
+96
+00:08:15,690 --> 00:08:21,829
+So I just generated, lots and lots of
+random variables but I generated them in
+
+97
+00:08:21,829 --> 00:08:27,938
+such a way that they're distributed
+according to an alpha exponent of 2.5, so
+
+98
+00:08:27,938 --> 00:08:34,047
+we're going to know that a fitting method
+that gets close to 2.5 is actually,
+
+99
+00:08:34,047 --> 00:08:39,012
+actually a, a better one.
+So we're going to start with our little
+
+100
+00:08:39,012 --> 00:08:44,870
+linear scale plot and you see it already
+seems to zero out by the times it gets to
+
+101
+00:08:44,870 --> 00:08:48,398
+twenty.
+And over the whole range you see this L
+
+102
+00:08:48,398 --> 00:08:54,256
+which isn't very informative and this is
+it on a log, log plot and here actually
+
+103
+00:08:54,256 --> 00:08:57,714
+looks pretty good.
+It looks like we can plot this.
+
+104
+00:08:57,714 --> 00:09:02,654
+There is a basic problem which is that
+here we have 10's of 1000's of
+
+105
+00:09:02,654 --> 00:09:06,818
+observations right.
+This is something like a 100,000 of the
+
+106
+00:09:06,818 --> 00:09:12,140
+data points that are.
+Generated were, you know, the number.
+
+107
+00:09:13,110 --> 00:09:16,430
+I guess this might be three.
+Right?
+
+108
+00:09:16,430 --> 00:09:22,995
+But then where we get into numbers that
+are over a 1000 right there many (missing
+
+109
+00:09:22,995 --> 00:09:29,170
+bins) right because we just didn't get any
+number of, you know, 2300 and 73 or
+
+110
+00:09:29,170 --> 00:09:34,016
+something like that.
+Maybe we didn't see that in this data set
+
+111
+00:09:34,016 --> 00:09:38,940
+and so we have a zero.
+Which, you know, you can't take the log
+
+112
+00:09:38,940 --> 00:09:44,724
+off so it's just missing on this plot.
+And each of these points becomes an
+
+113
+00:09:44,724 --> 00:09:50,430
+idividual observation versus we have a
+100.000 data points going into.
+
+114
+00:09:50,430 --> 00:09:54,994
+Here, meaning that you know, we should be
+weighting this more.
+
+115
+00:09:54,994 --> 00:09:58,616
+But we're not if we do a simple linear
+regression.
+
+116
+00:09:58,616 --> 00:10:04,484
+And in fact, what you see happening is if
+you do a best regression fit, it's going
+
+117
+00:10:04,484 --> 00:10:10,569
+to be totally misled by these points out
+here and you know, the missing data that
+
+118
+00:10:10,569 --> 00:10:14,771
+isn't represented.
+And you're going to get an alpha fitted
+
+119
+00:10:14,771 --> 00:10:17,544
+exponent that's way too low.
+Alright.
+
+120
+00:10:17,544 --> 00:10:24,523
+And so here it's actually, saying oh the
+alpha may be something like 1.6.
+
+121
+00:10:24,523 --> 00:10:31,130
+Which, you know, it's not right?
+We know that the data has, came from a
+
+122
+00:10:31,130 --> 00:10:36,764
+distribution where Alpha equals 2.5.
+And this is just reiterating.
+
+123
+00:10:36,764 --> 00:10:43,537
+You, few bins here, many bins here but you
+know we actually have more, more data here
+
+124
+00:10:43,537 --> 00:10:47,167
+than out here.
+So the first solution is to bend
+
+125
+00:10:47,167 --> 00:10:51,302
+logarithmically.
+That is, you want to actually get more
+
+126
+00:10:51,302 --> 00:10:55,820
+data here so you're going to have wider
+and wider bends.
+
+127
+00:10:56,049 --> 00:11:01,946
+And they're going to start you know, one,
+two, four, eight, sixteen, 32, or you can,
+
+128
+00:11:01,946 --> 00:11:08,072
+you can decide what exponent you want.
+And then you get these nice evenly spaced
+
+129
+00:11:08,302 --> 00:11:14,198
+data points which you can then fit.
+And if we do this we get an alpha of 2.41
+
+130
+00:11:14,198 --> 00:11:18,640
+which is actually pretty decent.
+But what it's doing as.
+
+131
+00:11:18,640 --> 00:11:23,589
+Well, this is kind of smoothing out the
+data and losing some information, right?
+
+132
+00:11:23,589 --> 00:11:26,571
+When you aggregate into these bins, you
+don't...
+
+133
+00:11:26,571 --> 00:11:31,774
+There may be interesting features that you
+just kind of smoothen out and that you
+
+134
+00:11:31,774 --> 00:11:35,407
+won't recognize.
+So the second solution is to do cumulative
+
+135
+00:11:35,407 --> 00:11:40,460
+bending, like all those pots I've showed
+you with solar flares and family names and
+
+136
+00:11:40,460 --> 00:11:42,773
+so on.
+Those were cumulatively bent.
+
+137
+00:11:42,773 --> 00:11:49,453
+There's no loss of information because
+Each value captures, you know, how many,
+
+138
+00:11:49,778 --> 00:11:56,681
+exactly do you observe, You know how many
+observations do you have of this value or
+
+139
+00:11:56,681 --> 00:11:59,533
+lower?
+And so you don't have kind of zeros that
+
+140
+00:11:59,533 --> 00:12:05,409
+are falling off or something like that.
+And so, you can do just the regression and
+
+141
+00:12:05,409 --> 00:12:11,569
+get this, cumulative exponent, which is
+going to be alpha minus one, so you'll
+
+142
+00:12:11,569 --> 00:12:18,197
+have alpha, and that's also a fine way to
+do it, and here, we get alpha minus one is
+
+143
+00:12:18,197 --> 00:12:21,784
+1.43, and that's much closer to the actual
+2.5.
+
+144
+00:12:21,784 --> 00:12:28,257
+So that's, that's, perfectly fine.
+There's also the question of where do you
+
+145
+00:12:28,257 --> 00:12:32,546
+want to start fitting.
+Now, I drew from a pure power-law
+
+146
+00:12:32,546 --> 00:12:36,326
+distribution.
+Because I was generating thick data.
+
+147
+00:12:36,326 --> 00:12:40,091
+[laugh].
+But in reality, you know, data isn't going
+
+148
+00:12:40,091 --> 00:12:44,854
+to be so pure so there may be some
+deviation on the lower end.
+
+149
+00:12:44,854 --> 00:12:51,781
+For example, if you look at The number of
+links that different university websites
+
+150
+00:12:51,781 --> 00:12:55,916
+get, Each university gets at least a
+minimum number of links.
+
+151
+00:12:55,916 --> 00:13:00,729
+So you're not going to get, like, the,
+the, I guess from your point of view, you
+
+152
+00:13:00,729 --> 00:13:04,655
+know, lots of universities with only one
+link to their website.
+
+153
+00:13:04,655 --> 00:13:08,328
+I mean, they wouldn't be a university if
+that was the case.
+
+154
+00:13:08,328 --> 00:13:11,557
+So you may see something that's somewhat
+like this.
+
+155
+00:13:11,557 --> 00:13:16,623
+So really you just want to fit out here,
+you want to fit the power law there, but
+
+156
+00:13:16,623 --> 00:13:21,120
+not be mislead by the low value.
+So you can establish an xmin, a minimum
+
+157
+00:13:21,120 --> 00:13:24,169
+value.
+The load which you're not going to be
+
+158
+00:13:24,169 --> 00:13:27,472
+fitting.
+So if we look at, for example citations,
+
+159
+00:13:27,472 --> 00:13:33,093
+maybe the power lies only evident for
+papers that were cited at least 100 times.
+
+160
+00:13:33,093 --> 00:13:37,590
+And so you can set, X-Men two to be 100
+and then fit the tale.
+
+161
+00:13:37,867 --> 00:13:41,848
+There is the very, very best [laugh],
+method.
+
+162
+00:13:41,848 --> 00:13:49,162
+Which is this max likelihood method.
+That calculates using every one of your
+
+163
+00:13:49,440 --> 00:13:53,569
+Data points.
+What is, you know the observation that you
+
+164
+00:13:53,569 --> 00:13:59,075
+have, the data points that you have, what
+is the most likely distribution?
+
+165
+00:13:59,075 --> 00:14:05,040
+What exponent would it have that would
+have produced the data that you see.
+
+166
+00:14:05,040 --> 00:14:08,127
+And if you want to use this kind of
+method.
+
+167
+00:14:08,343 --> 00:14:14,877
+You can download, and I'm going to provide
+the link separately, from Aaron Clauset's
+
+168
+00:14:15,093 --> 00:14:18,180
+site.
+And it's basically Python and R codes
+
+169
+00:14:18,180 --> 00:14:21,627
+that, you know, you can use either one.
+[laugh].
+
+170
+00:14:21,627 --> 00:14:25,505
+You don't have to use both.
+Even that lab code, I think.
+
+171
+00:14:25,720 --> 00:14:30,460
+That, given a data set, we'll do.
+Well, we'll first evaluate, you know.
+
+172
+00:14:30,460 --> 00:14:35,506
+Does this is this a good candidate for a
+power law fit versus another kind of
+
+173
+00:14:35,506 --> 00:14:39,991
+distribution such as the log normal or the
+stretch exponential etcetera.
+
+174
+00:14:39,991 --> 00:14:44,788
+And then if it is a good candidate for a
+power law fit, what is the power law.
+
+175
+00:14:44,788 --> 00:14:49,834
+So if you're getting really serious about
+characterizing your network I would
+
+176
+00:14:49,834 --> 00:14:54,320
+recommend doing it properly.
+And this is the way it's done these days.
+
+177
+00:14:54,320 --> 00:14:57,952
+So here is some exponents for real word
+data.
+
+178
+00:14:58,194 --> 00:15:05,216
+You can see that most of them tend to be
+between two and three, but drop a little
+
+179
+00:15:05,216 --> 00:15:08,928
+bit below two.
+Now this is weird because these
+
+180
+00:15:08,928 --> 00:15:15,143
+distributions would have, you know, the
+kinda infinite variance, so most likely
+
+181
+00:15:15,143 --> 00:15:21,277
+they have a drop off you know, the power
+law can't extent indefinitely.
+
+182
+00:15:21,520 --> 00:15:27,922
+So those are different assets that word
+networks, many real world networks are
+
+183
+00:15:27,922 --> 00:15:32,355
+power loss.
+So if you look at film actors this network
+
+184
+00:15:32,355 --> 00:15:39,743
+is who has acted with whom in a movie and
+this is, there's a funny story around this
+
+185
+00:15:39,990 --> 00:15:45,711
+Which is that the Sun Belt Conference
+which is the annual social networking
+
+186
+00:15:45,711 --> 00:15:51,582
+conference had a data analysis challenge
+which was to take the Internet movie
+
+187
+00:15:51,582 --> 00:15:58,022
+database and plot out the network, all the
+actors who has co starred with whom And
+
+188
+00:15:58,022 --> 00:16:02,822
+calculate things such as who're the most
+central actors.
+
+189
+00:16:02,822 --> 00:16:10,280
+And little did they realize that there's a
+certain kind of movie, namely pornography,
+
+190
+00:16:10,537 --> 00:16:17,311
+that produced very high centrality actors
+because A single actor can, kind of, star
+
+191
+00:16:17,311 --> 00:16:21,984
+in many, many movies, right?
+They're made at a very rapid pace, and so
+
+192
+00:16:21,984 --> 00:16:25,192
+they...
+Until the, the, the, people participating
+
+193
+00:16:25,192 --> 00:16:30,841
+in the challenge, you know, met up at the
+sundown conference and started comparing
+
+194
+00:16:30,841 --> 00:16:36,280
+notes, you know, no one really expected
+that the porn industry would be so very
+
+195
+00:16:36,280 --> 00:16:42,094
+central in the movie collaboration graph.
+Anyway there's the telephone call back
+
+196
+00:16:42,094 --> 00:16:46,173
+which we already talked about right and
+who calls whom.
+
+197
+00:16:46,384 --> 00:16:51,941
+Email networks, sexual contact networks
+which we talked about as well, the world
+
+198
+00:16:51,941 --> 00:16:57,357
+wide web we talked about, the physical
+internet also paralyze some very large
+
+199
+00:16:57,357 --> 00:17:03,148
+hubs Peer-to-peer networks, for example
+for file exchanges, some, some computers
+
+200
+00:17:03,148 --> 00:17:08,170
+tend to be very central in these networks.
+And then different kinds of.
+
+201
+00:17:08,170 --> 00:17:13,829
+Biological networks where you have either
+metabolites or proteins interacting with
+
+202
+00:17:13,829 --> 00:17:17,257
+each other.
+But it's important to note that not
+
+203
+00:17:17,257 --> 00:17:21,944
+everything is power law.
+So bird species abundance is not power
+
+204
+00:17:21,944 --> 00:17:25,068
+law.
+Size of wildfires is not power law.
+
+205
+00:17:25,068 --> 00:17:29,456
+Even though some wildfires are very big
+and many are small.
+
+206
+00:17:29,680 --> 00:17:36,959
+Even networks that appear power law at
+first, especially the social ones, for
+
+207
+00:17:36,959 --> 00:17:41,632
+example, email.
+If you just take who has emailed whom
+
+208
+00:17:41,632 --> 00:17:45,199
+ever, excuse me.
+You may get a power law.
+
+209
+00:17:45,199 --> 00:17:50,511
+But once they start restricting that like,
+the other person actually replied or maybe
+
+210
+00:17:50,511 --> 00:17:54,885
+there was a little bit of back and forth
+like some actual interaction.
+
+211
+00:17:54,885 --> 00:17:57,759
+It ends up being not power law because
+people.
+
+212
+00:17:57,759 --> 00:18:02,945
+You know there really limits to how many
+relationships you can maintain and so you
+
+213
+00:18:02,945 --> 00:18:07,382
+lose the power law property.
+The electrical power grid, not power law.
+
+214
+00:18:07,570 --> 00:18:13,079
+I guess the thesaurus, there isn't really
+a word that could be a synonym for every
+
+215
+00:18:13,079 --> 00:18:16,708
+other word.
+The networks of company directors, so this
+
+216
+00:18:16,708 --> 00:18:21,828
+is if you look at the boards of directors
+of different companies, so, how, on how
+
+217
+00:18:21,828 --> 00:18:26,625
+many, you know, how many other people did
+you jointly sit on boards with?
+
+218
+00:18:26,625 --> 00:18:32,328
+And even very, you know, hardworking, very
+prominent individuals only sit on so many
+
+219
+00:18:32,328 --> 00:18:37,060
+boards, and so they only have, you know, a
+limited degree in such a network.
+
+220
+00:18:37,060 --> 00:18:44,792
+So here's just an example on the AOL
+visitor's data set and if we try to fit it
+
+221
+00:18:44,792 --> 00:18:53,243
+directly we get an alpha that's way to low
+if we do exponentially wider bins, we get
+
+222
+00:18:53,243 --> 00:19:00,163
+a seemingly reasonable slope of 2.1 But
+you know there's, it's real data so if we
+
+223
+00:19:00,163 --> 00:19:06,459
+do this kind of exponential bending we may
+lose information about you know, there's
+
+224
+00:19:06,459 --> 00:19:12,755
+actually a little bit, a deviation from a
+parallel where we don't have that, as many
+
+225
+00:19:12,755 --> 00:19:18,576
+sights as you would expect with, With very
+low numbers of visitors.
+
+226
+00:19:18,576 --> 00:19:24,823
+And then again in the tail it doesn't
+quite match up to the power law.
+
+227
+00:19:25,080 --> 00:19:32,176
+And so you know, what you may end up doing
+is fitting a power law with an exponential
+
+228
+00:19:32,176 --> 00:19:35,967
+cut-off, which just says up to this value
+kappa.
+
+229
+00:19:35,967 --> 00:19:42,015
+It's a nice power law and then after that
+it starts to decay exponentially.
+
+230
+00:19:42,015 --> 00:19:46,370
+And there could just be different reasons
+for this.
+
+231
+00:19:46,370 --> 00:19:52,580
+For example, constraints such as how many
+people you could ever interact with.
+
+232
+00:19:52,821 --> 00:19:57,580
+Or you know, you can only there only so
+many individuals.
+
+233
+00:19:57,580 --> 00:20:03,980
+Available to connect to, et cetera, right
+there could be different reasons for these
+
+234
+00:20:03,980 --> 00:20:06,107
+cut offs.
+So, just to wrap up.
+
+235
+00:20:06,107 --> 00:20:12,091
+Power laws are cool and intriguing, but
+you should make sure that your data is
+
+236
+00:20:12,091 --> 00:20:15,620
+actually power law, before you boast to
+others.

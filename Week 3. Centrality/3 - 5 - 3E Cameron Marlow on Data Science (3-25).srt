@@ -1,0 +1,255 @@
+
+1
+00:00:00,197 --> 00:00:05,589
+For our next short video segment, it's my
+pleasure to introduce Cameron Marlow, who
+
+2
+00:00:05,589 --> 00:00:08,811
+is the head of the data science team at
+Facebook.
+
+3
+00:00:09,008 --> 00:00:12,230
+Hi.
+And so the first question to you is how
+
+4
+00:00:12,230 --> 00:00:15,320
+did you first get into social network
+analysis?
+
+5
+00:00:15,715 --> 00:00:20,910
+I first got into social network analysis
+by taking a course with Keith Hampton,
+
+6
+00:00:20,910 --> 00:00:25,658
+At MIT on social network analysis.
+It was an introductory course in 2001.
+
+7
+00:00:25,841 --> 00:00:29,554
+And it was the, frankly I think the best
+course of my life.
+
+8
+00:00:29,554 --> 00:00:33,328
+I don't know if it was the subject matter,
+the teacher or both.
+
+9
+00:00:33,328 --> 00:00:37,894
+But ever since then I've been interested
+in studying social networks.
+
+10
+00:00:37,894 --> 00:00:40,302
+So That's where I got my start.
+Cool.
+
+11
+00:00:40,302 --> 00:00:44,914
+And so then, you started applying it, but
+not immediately at Facebook.
+
+12
+00:00:45,118 --> 00:00:47,356
+Mm.
+So what was the path there?
+
+13
+00:00:47,763 --> 00:00:49,730
+What was the path?
+So, yeah.
+
+14
+00:00:49,730 --> 00:00:53,121
+So I've always been interested in social
+networks.
+
+15
+00:00:53,121 --> 00:00:57,666
+But, you know, it's difficult to measure,
+measure them.
+
+16
+00:00:57,666 --> 00:01:01,600
+So, you know, one, source of data has
+always been the web.
+
+17
+00:01:01,600 --> 00:01:06,685
+And so, I've always been interested in, in
+sort of extracting social networks from,
+
+18
+00:01:06,867 --> 00:01:12,255
+from different social media and online
+communities, so I studied web blogs for my
+
+19
+00:01:12,437 --> 00:01:15,828
+for my PhD thesis.
+And went on to Yahoo research where I
+
+20
+00:01:15,828 --> 00:01:20,732
+studied communities such as Flickr and
+Delicious, but I really like was attracted
+
+21
+00:01:20,913 --> 00:01:25,757
+to come to Facebook because here the
+social norms, the site have produced a, a
+
+22
+00:01:25,757 --> 00:01:30,540
+network which very closely resembles the
+real, sort of the real social network of,
+
+23
+00:01:30,540 --> 00:01:33,567
+of humans.
+So, a lot of the work that we do here, we
+
+24
+00:01:33,567 --> 00:01:36,460
+can.
+We can sort of ex-, extrapolate, you know,
+
+25
+00:01:36,460 --> 00:01:39,370
+more general phenomena about how human
+social networks work.
+
+26
+00:01:39,605 --> 00:01:45,727
+Okay, so can you extend a little bit on
+that, what role does the social network
+
+27
+00:01:45,727 --> 00:01:49,181
+play at Facebook,
+How it operates. so its hard to under,
+
+28
+00:01:49,417 --> 00:01:56,024
+estimate the importance of social networks
+in the way that people at Facebook think.
+
+29
+00:01:56,024 --> 00:01:59,064
+So,
+I would say that I was unique in my
+
+30
+00:01:59,064 --> 00:02:04,744
+research and the people that I interacted
+with when, I was at, you know, at, at
+
+31
+00:02:04,744 --> 00:02:08,626
+Yahoo Research.
+But here, everyone really thinks and
+
+32
+00:02:08,626 --> 00:02:14,810
+operates on, concepts of social networks.
+So just to give an example, You know, the
+
+33
+00:02:14,810 --> 00:02:20,921
+way that we fundamentally store data here,
+and, and access it for, like, all parts of
+
+34
+00:02:20,921 --> 00:02:26,846
+the, the site are, You know is as a graph.
+So, most, most of Facebook's data is,
+
+35
+00:02:27,067 --> 00:02:32,730
+represented as nodes and edges in, in a
+very large, graph of people and, and
+
+36
+00:02:32,730 --> 00:02:35,892
+objects.
+And, and, and, conversations.
+
+37
+00:02:35,892 --> 00:02:40,600
+So, that, you know, it's sort of part of
+everyone's everyday life.
+
+38
+00:02:40,766 --> 00:02:45,108
+You know, and, and some of the social
+network concepts that you deal with, in,
+
+39
+00:02:45,108 --> 00:02:48,949
+in courses like, a lot has come up you
+know, in, in every day work.
+
+40
+00:02:48,949 --> 00:02:53,180
+So, you know, this idea that the degree
+distribution has a very high variance.
+
+41
+00:02:53,180 --> 00:02:56,798
+And there are some people with, like, lots
+and lots of connections.
+
+42
+00:02:56,798 --> 00:02:59,692
+And like, most people have, you know, some
+connections.
+
+43
+00:02:59,859 --> 00:03:04,201
+You can't really build a service, you
+know, or you can't really build a, a
+
+44
+00:03:04,201 --> 00:03:07,668
+product in Facebook without.
+Taking this into to account.
+
+45
+00:03:07,668 --> 00:03:12,531
+Because some of your users are just going
+to have such an enormously different
+
+46
+00:03:12,531 --> 00:03:18,256
+experience with their 5,000 friends, which
+we sometimes call whales here, than the
+
+47
+00:03:18,256 --> 00:03:21,150
+average user that has 150 or, or 200
+friends.
+
+48
+00:03:21,296 --> 00:03:21,929
+Okay.
+Yeah.
+
+49
+00:03:22,075 --> 00:03:22,806
+Thanks.
+Sure.
+
+50
+00:03:22,952 --> 00:03:25,974
+I guess that's, that, and stay tuned for
+more of these clips.
+
+51
+00:03:26,120 --> 00:03:27,435
+Yeah.
+Thanks Cameron.

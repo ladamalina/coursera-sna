@@ -1,0 +1,850 @@
+
+1
+00:00:00,000 --> 00:00:05,584
+Welcome to Social Network Analysis.
+My name is Lada Adamic I'm an associate
+
+2
+00:00:05,584 --> 00:00:10,334
+professor at the University of Michigan.
+I'm affiliated with the School of
+
+3
+00:00:10,334 --> 00:00:15,533
+Information, The Center for the Study of
+Complex Systems and the Computer Science
+
+4
+00:00:15,533 --> 00:00:19,188
+Department.
+What I'd like to show you in this course
+
+5
+00:00:19,188 --> 00:00:24,007
+is what we can get out of modeling the
+world around us as networks.
+
+6
+00:00:24,007 --> 00:00:28,970
+Now the world is very complex and once you
+represent it as a network,
+
+7
+00:00:28,970 --> 00:00:34,952
+It may not really look any less complex,
+But indeed, we can gain very useful
+
+8
+00:00:34,952 --> 00:00:39,101
+insights.
+We can start to understand how information
+
+9
+00:00:39,101 --> 00:00:44,286
+diffuses in social networks.
+We can also understand how resilient
+
+10
+00:00:44,286 --> 00:00:50,747
+different infrastructure networks, such as
+roads, or the electrical power grid are,
+
+11
+00:00:50,747 --> 00:00:57,053
+to random or intentional builders.
+Here's one example I'd like to start with.
+
+12
+00:00:57,053 --> 00:01:01,933
+These are hand drawn networks made by the
+artist Mark Lombardi.
+
+13
+00:01:01,933 --> 00:01:07,743
+He constructed them by pouring over news
+articles in the 1980's and 1990's,
+
+14
+00:01:07,743 --> 00:01:13,166
+Making connections between political
+entities and different financial
+
+15
+00:01:13,166 --> 00:01:18,217
+institutions and corporations.
+When you leave them out, you could see
+
+16
+00:01:18,217 --> 00:01:24,104
+connections that might not otherwise be
+obvious just by reading the news articles
+
+17
+00:01:24,104 --> 00:01:27,837
+one by one.
+Here's Michael Kimmelman a columnist for
+
+18
+00:01:27,837 --> 00:01:33,796
+the New York Times commenting on having
+encounters a few folks from the Department
+
+19
+00:01:33,796 --> 00:01:37,960
+of Homeland Security at an exhibit of Mark
+Lombardi's art.
+
+20
+00:01:38,280 --> 00:01:42,509
+They found the work revelatory,
+Not because the financial and political
+
+21
+00:01:42,509 --> 00:01:46,976
+connections he mapped were new to them,
+But because Lombardi showed them an
+
+22
+00:01:46,976 --> 00:01:51,146
+elegant way to array this spread
+information, and make sense of things,
+
+23
+00:01:51,146 --> 00:01:54,780
+Which they thought might be useful to
+their security efforts.
+
+24
+00:01:54,780 --> 00:02:00,365
+Now, in this class I'm not going to make
+you do hand-drawn network layouts, even
+
+25
+00:02:00,365 --> 00:02:06,473
+though there really hard to beat, but Mark
+Lombardi would spend days drawing these
+
+26
+00:02:06,473 --> 00:02:12,356
+over and over until they were perfect.
+Instead, what we are going to be doing is
+
+27
+00:02:12,356 --> 00:02:16,900
+using automated layout algorithms, in
+software such as Gephi.
+
+28
+00:02:16,900 --> 00:02:22,111
+Now, here is a nice example of how
+automated layout algorithms make things
+
+29
+00:02:22,111 --> 00:02:25,914
+very apparent.
+All they're doing is placing nodes that
+
+30
+00:02:25,914 --> 00:02:30,984
+are connected through edges close together
+and, other nodes are repelled.
+
+31
+00:02:30,984 --> 00:02:36,125
+Actually, all nodes experience a
+reflection force so that they're not all
+
+32
+00:02:36,337 --> 00:02:40,069
+clumped together unless the ties bring
+them together.
+
+33
+00:02:40,069 --> 00:02:45,562
+This is a data set of political blogs
+prior to the 2004 presidential election
+
+34
+00:02:45,562 --> 00:02:50,070
+and this is who follows who,
+Who, who has whom on their blog roll.
+
+35
+00:02:50,070 --> 00:02:53,543
+The Liberals are colored in blue, the
+Liberal blogs.
+
+36
+00:02:53,543 --> 00:02:58,106
+The Conservatives are colored red.
+Liberal to Liberal ties are blue,
+
+37
+00:02:58,106 --> 00:03:03,009
+Conservative to Conservative are red.
+Liberal to Conservative are purple,
+
+38
+00:03:03,009 --> 00:03:09,129
+Conservative to Liberal, orangish yellow.
+And what is apparent right away is that to
+
+39
+00:03:09,129 --> 00:03:12,388
+some extent, there's an echo chamber
+effect,
+
+40
+00:03:12,388 --> 00:03:18,527
+Where Liberals are primarily talking to
+Liberals and Conservatives are primarily
+
+41
+00:03:18,527 --> 00:03:23,378
+talking to Conservatives,
+And all I really had to do was run one
+
+42
+00:03:23,378 --> 00:03:27,471
+layer algorithm.
+I did not have, in this case, although we
+
+43
+00:03:27,471 --> 00:03:32,398
+did do this in our study,
+To even do any calculations for this
+
+44
+00:03:32,398 --> 00:03:38,070
+pattern to be to be apparent.
+Now here is another example of the data
+
+45
+00:03:38,070 --> 00:03:43,086
+set I have gathered, This is an
+organization of Hewlett-Packard labs, so a
+
+46
+00:03:43,086 --> 00:03:46,915
+bunch of researchers,
+And what we looked at were, was there
+
+47
+00:03:46,915 --> 00:03:50,809
+e-mail communication.
+If two people had exchanged at least a
+
+48
+00:03:50,809 --> 00:03:56,089
+couple of emails back and forth over the
+period of a few months they get a gray
+
+49
+00:03:56,089 --> 00:03:59,501
+etch.
+I've overlaid here black edges, which
+
+50
+00:03:59,501 --> 00:04:04,000
+represent the formal organization, who
+reports to whom.
+
+51
+00:04:04,000 --> 00:04:08,396
+Now, what is immediately apparent from
+this visualization, and what we confirmed
+
+52
+00:04:08,396 --> 00:04:12,088
+in the study,
+Is that the email communication is more
+
+53
+00:04:12,088 --> 00:04:17,884
+likely to occur between individuals who
+are closer together in the organizational
+
+54
+00:04:17,884 --> 00:04:21,560
+hierarchy.
+But there are enough shortcuts across the
+
+55
+00:04:21,560 --> 00:04:27,426
+organization that any two individuals are
+connected through a short number of hops.
+
+56
+00:04:27,426 --> 00:04:33,010
+But the fact that those hops roughly
+follow the organizational hierarchy makes
+
+57
+00:04:33,010 --> 00:04:39,626
+the e-mail network navigable.
+So informal collaboration getting the job
+
+58
+00:04:39,626 --> 00:04:48,111
+done, it's reflected in this network.
+This network is my Facebook network and
+
+59
+00:04:48,111 --> 00:04:53,720
+what I've done here is I've used an
+automated community detection algorithm,
+
+60
+00:04:53,720 --> 00:04:59,254
+in addition to an automated layout
+algorithm [laugh] to layout my Facebook
+
+61
+00:04:59,254 --> 00:05:02,759
+friends.
+And what the automated community detection
+
+62
+00:05:02,759 --> 00:05:08,268
+algorithm did was it said, oh, there seem
+to be some people in your network who are,
+
+63
+00:05:08,268 --> 00:05:13,753
+tied together and" more so, they're
+connected more than they are to the rest
+
+64
+00:05:13,753 --> 00:05:18,324
+of your network.
+And indeed, once you're working with this
+
+65
+00:05:18,324 --> 00:05:24,953
+data, within an automized version of this
+data, you'll see that the different groups
+
+66
+00:05:24,953 --> 00:05:31,506
+roughly corresponds to different context
+in, which I've met people from school to
+
+67
+00:05:31,506 --> 00:05:35,240
+work, to outside of school and work
+activities.
+
+68
+00:05:35,240 --> 00:05:39,326
+And this you can just tell without, you
+know, without really knowing anything
+
+69
+00:05:39,326 --> 00:05:43,520
+about my life, you can look at my network
+and, and understand quite a bit of it.
+
+70
+00:05:43,780 --> 00:05:48,117
+The final network is one of ingredients,
+recipe ingredients.
+
+71
+00:05:48,117 --> 00:05:54,072
+We analyzed tens of thousands of recipes
+to figure out which ingredients go well
+
+72
+00:05:54,072 --> 00:05:59,880
+together and then we made a network.
+In fact, we made several networks and in
+
+73
+00:05:59,880 --> 00:06:04,855
+this one you can see that there are two
+main communities. One of savorier
+
+74
+00:06:04,855 --> 00:06:07,716
+ingredients, and one of sweeter
+ingredients.
+
+75
+00:06:07,716 --> 00:06:13,039
+And actually, at the very top, there's a
+smaller community, and you'll, you'll play
+
+76
+00:06:13,039 --> 00:06:17,231
+with this data in time.
+That is the mixed drink community, where
+
+77
+00:06:17,231 --> 00:06:20,824
+you have ingredients such as vodka and,
+and lime juice.
+
+78
+00:06:20,824 --> 00:06:26,080
+So, what I've shown you so far is that,
+you know, even just visualization can buy
+
+79
+00:06:26,080 --> 00:06:31,470
+you a lot in understanding what the myriad
+of connections that we know are there,
+
+80
+00:06:31,936 --> 00:06:36,528
+Can, can represent,
+But that might be rather invisible to us
+
+81
+00:06:36,528 --> 00:06:42,988
+untill we represent them as this network
+where they're all connected together and
+
+82
+00:06:42,988 --> 00:06:46,880
+this is where we're going to get the nice
+insight.
+
+83
+00:06:47,980 --> 00:06:53,427
+I am going to be using maybe somewhat
+inconsistent terminology, so I may
+
+84
+00:06:53,427 --> 00:06:56,908
+alternate between the words network and
+graph.
+
+85
+00:06:57,135 --> 00:07:03,642
+Graph is the terminology where, you know,
+it all started in the field of mathematic,
+
+86
+00:07:03,642 --> 00:07:09,846
+but I'm more likely to use the word
+network for example the new emerging field
+
+87
+00:07:09,846 --> 00:07:15,827
+now is network science and it doesn't make
+a network any less of a graph, it's just
+
+88
+00:07:15,827 --> 00:07:20,531
+that you can use both terms.
+Similarly, I'm going to primarily use the
+
+89
+00:07:20,531 --> 00:07:26,594
+words nodes." and esges,
+However, nodes can also be referred to as
+
+90
+00:07:26,594 --> 00:07:31,191
+vertices. if you're talking, bbout
+sociological phenomenon.
+
+91
+00:07:31,191 --> 00:07:35,165
+Are you talking to a sociologist?
+They might use the word, actor.
+
+92
+00:07:35,165 --> 00:07:39,516
+Similarly, for ties, a sociologist might
+say, ties, [laugh] or relations.
+
+93
+00:07:39,705 --> 00:07:44,561
+A physicist might talk about sites and
+bonds, although physicists who work on
+
+94
+00:07:44,561 --> 00:07:49,039
+networks do say, nodes and edges.
+And finally, in computer science, you
+
+95
+00:07:49,039 --> 00:07:54,148
+might be talking about links, especially
+if you're talking about networks, such as
+
+96
+00:07:54,148 --> 00:07:57,668
+the World Wide Web.
+So we have a variety of terminology, it's,
+
+97
+00:07:57,668 --> 00:08:02,227
+it's very easy to, get used to it, and all
+we're talking about in the end is that you
+
+98
+00:08:02,227 --> 00:08:06,287
+have different entities and the
+connections between those entities, and
+
+99
+00:08:06,287 --> 00:08:12,910
+that is what we're going to analyze.
+Let me get to the goals in this course.
+
+100
+00:08:12,910 --> 00:08:20,033
+In addition to making pretty pictures we
+need to really understand what the
+
+101
+00:08:20,033 --> 00:08:24,292
+structure of a network is.
+So we're going to do some measurement and
+
+102
+00:08:24,292 --> 00:08:29,490
+in this measurement, we're going to look
+at whether nodes are connected through the
+
+103
+00:08:29,490 --> 00:08:32,621
+network.
+We're going to look at how far apart they
+
+104
+00:08:32,621 --> 00:08:36,504
+are in the network.
+How many hops does it take following these
+
+105
+00:08:36,504 --> 00:08:40,700
+different connections?
+We're going to look at whether some nodes
+
+106
+00:08:40,700 --> 00:08:44,959
+are more important than others due to
+their position in the network.
+
+107
+00:08:44,959 --> 00:08:51,204
+And we're going to look at whether there
+are these communities in the network, that
+
+108
+00:08:51,204 --> 00:08:55,450
+is, sets of nodes that are especially
+densely connected.
+
+109
+00:08:57,200 --> 00:09:01,799
+We are not going to be satisfied just
+knowing that there's this structure.
+
+110
+00:09:01,799 --> 00:09:05,031
+We want to know where does this structure
+come from?
+
+111
+00:09:05,031 --> 00:09:09,880
+What kinds of processes shape a network?
+So we're going to start with randomly
+
+112
+00:09:09,880 --> 00:09:14,666
+generated networks, where you're just
+throwing edges at random and connecting
+
+113
+00:09:14,666 --> 00:09:18,333
+different minutes.
+Then we're going to look at preferential
+
+114
+00:09:18,333 --> 00:09:21,690
+attachment where it's a phenomenon of rich
+get richer.
+
+115
+00:09:21,690 --> 00:09:26,476
+As new edges are added, they're more
+likely to be added to the nodes that are
+
+116
+00:09:26,476 --> 00:09:30,330
+already popular, in a sense.
+They already have many other edges.
+
+117
+00:09:30,330 --> 00:09:36,136
+We're going to be looking at small world
+networks as well so you might have
+
+118
+00:09:36,136 --> 00:09:42,631
+processes, such as a friend of a friend is
+likely to be a friend because friends tend
+
+119
+00:09:42,631 --> 00:09:48,819
+to introduce their friends to each other.
+And yet any two people in the world are
+
+120
+00:09:48,819 --> 00:09:55,084
+connected through a short number of hops.
+So recently a Facebook study showed that
+
+121
+00:09:55,084 --> 00:10:01,120
+any two people in the Facebook graph are
+connected with an average of 4.7 hops.
+
+122
+00:10:01,350 --> 00:10:07,507
+We're going to see how certain processes
+might shape such small-world structure,
+
+123
+00:10:07,507 --> 00:10:12,993
+for example, how do small worlds arise out
+of optimization, for example, airline
+
+124
+00:10:12,993 --> 00:10:18,448
+networks might be optimized to ferry
+passengers back and forth in a way that is
+
+125
+00:10:18,448 --> 00:10:21,800
+efficient and doesn't cost the airlines
+much money.
+
+126
+00:10:21,800 --> 00:10:26,992
+You might also have strategic network
+formation at the level of the individual,
+
+127
+00:10:26,992 --> 00:10:31,922
+so the individual is getting something out
+of participating in the network.
+
+128
+00:10:31,922 --> 00:10:35,800
+And so they may choose to connect to some
+nodes and not others.
+
+129
+00:10:36,620 --> 00:10:38,100
+Okay.
+So,
+
+130
+00:10:38,100 --> 00:10:41,258
+We're going, we've described the network
+structure.
+
+131
+00:10:41,258 --> 00:10:44,732
+We figured out where that network
+structure comes from.
+
+132
+00:10:44,732 --> 00:10:49,659
+And the final goal is to understand how
+that network structure now influences
+
+133
+00:10:49,659 --> 00:10:53,450
+different processes occurring on the
+networking [inaudible].
+
+134
+00:10:53,450 --> 00:10:58,372
+So for example, we're going to learn how
+information diffusion is affected by the
+
+135
+00:10:58,372 --> 00:11:01,837
+network structure.
+If any two people are, are connected
+
+136
+00:11:01,837 --> 00:11:06,455
+through a short number of pops does this
+mean that information will readily
+
+137
+00:11:06,455 --> 00:11:09,251
+diffuse.
+Sometimes it's not information that's
+
+138
+00:11:09,251 --> 00:11:13,505
+diffusing but something that we don't want
+to diffuse such as a virus.
+
+139
+00:11:13,505 --> 00:11:18,996
+So, how does the social network actually
+influence how quickly a virus is going to
+
+140
+00:11:18,996 --> 00:11:24,300
+spread, and what immunization strategies
+can you use once you know what the
+
+141
+00:11:24,300 --> 00:11:29,085
+structure of the network is?
+We may study the process, or we are going
+
+142
+00:11:29,085 --> 00:11:32,241
+to study processes such as opinion
+formation.
+
+143
+00:11:32,241 --> 00:11:38,412
+This can be, kind of a consensus, that can
+be reached across the network as
+
+144
+00:11:38,412 --> 00:11:44,023
+individuals continuously update their
+beliefs or it may be just a single shot,
+
+145
+00:11:44,023 --> 00:11:49,773
+You, you, you form your opinion only once,
+But it is influenced by what your friends
+
+146
+00:11:49,773 --> 00:11:52,578
+think.
+We're also going to be looking at
+
+147
+00:11:52,578 --> 00:11:57,628
+coordination and cooperation.
+If you have a certain task that you'd like
+
+148
+00:11:57,628 --> 00:12:01,447
+to do, but it,
+But it depends on increments from the
+
+149
+00:12:01,447 --> 00:12:06,496
+nodes that you're tied to, how quickly can
+you accomplish the task?
+
+150
+00:12:06,496 --> 00:12:11,889
+And finally, we're going to look at
+resilience to attack, so if for some
+
+151
+00:12:11,889 --> 00:12:17,300
+reason, a certain, subset of the nodes,
+are removed from the network, can the
+
+152
+00:12:17,300 --> 00:12:22,747
+network still function?
+Now, I filled in the first six weeks, so
+
+153
+00:12:22,747 --> 00:12:27,836
+you might be wondering what we're going to
+be doing in weeks seven and eight.
+
+154
+00:12:28,034 --> 00:12:33,652
+In week seven, we're going to look at cool
+and unusual applications of social network
+
+155
+00:12:33,652 --> 00:12:36,956
+analysis.
+We're going to be looking at things such
+
+156
+00:12:36,956 --> 00:12:41,120
+as recipe ingredient networks for
+predicting recipe ratings.
+
+157
+00:12:41,120 --> 00:12:46,665
+We're going to be looking at the social
+networks of dolphins and, we're also going
+
+158
+00:12:46,665 --> 00:12:51,559
+to look at, economic development.
+So if you have the network of countries
+
+159
+00:12:51,559 --> 00:12:56,843
+and the products that they produce, can
+you actually make predictions about which
+
+160
+00:12:56,843 --> 00:13:01,671
+products the countries are going to
+produce in the future and how rapidly
+
+161
+00:13:01,671 --> 00:13:04,934
+those countries are going to develop
+economically.
+
+162
+00:13:04,934 --> 00:13:11,263
+In the final week, we're going to look at
+how a social network analysis is used by
+
+163
+00:13:11,263 --> 00:13:17,499
+companies such as Google, Facebook,
+Linkedin, Twitter, CouchSurfing, to
+
+164
+00:13:17,774 --> 00:13:24,652
+enhance their product offerings.
+So what kind of social network analysis do
+
+165
+00:13:24,652 --> 00:13:28,871
+they do?
+What kinds of research have they done?
+
+166
+00:13:28,871 --> 00:13:33,090
+And, how has this impacted and, benefited,
+the,
+
+167
+00:13:33,090 --> 00:13:38,176
+The features of the social networks that
+they enable?
+
+168
+00:13:38,448 --> 00:13:42,627
+So those are that's the outline of the
+course.
+
+169
+00:13:42,627 --> 00:13:50,165
+In the next video I'm going to dive right
+into it and we are going to visualize
+
+170
+00:13:50,165 --> 00:13:54,690
+some,
+Some networks and see what it's all about.

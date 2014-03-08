@@ -1,0 +1,1555 @@
+
+1
+00:00:00,012 --> 00:00:04,422
+So far, we've discussed how networks might
+grow in ways that differ from the
+
+2
+00:00:04,422 --> 00:00:08,287
+Erdos-Renyi random graph.
+What I'd like to talk about next is how
+
+3
+00:00:08,287 --> 00:00:13,047
+growth, specifically in networks, can lead
+to some of the skewed distributions,
+
+4
+00:00:13,047 --> 00:00:17,038
+skewed degree distributions that we see in
+real-world networks.
+
+5
+00:00:17,039 --> 00:00:22,222
+Here's an example of one such network.
+It's the Java Forum, an online question
+
+6
+00:00:22,222 --> 00:00:27,604
+and answer forum that my collaborator and
+I explored to see if we can automatically
+
+7
+00:00:27,604 --> 00:00:32,267
+identified experts.
+It turns out that identifying the experts
+
+8
+00:00:32,267 --> 00:00:36,416
+was super simple.
+All we had to do was look for people who
+
+9
+00:00:36,416 --> 00:00:42,379
+had replied to lots of others, and these
+indeed ended up being the most expert
+
+10
+00:00:42,379 --> 00:00:47,166
+users as identified by humans actually
+reading their replies.
+
+11
+00:00:47,166 --> 00:00:51,612
+Here, I've also colored the nodes by
+whether they have an edge to another
+
+12
+00:00:51,612 --> 00:00:56,570
+person because they replied to their
+question or because they posted a question
+
+13
+00:00:56,570 --> 00:01:00,452
+and received a reply.
+So, the repliers are colored in red and
+
+14
+00:01:00,452 --> 00:01:05,042
+the askers are colored in blue.
+We can look at the degree distribution and
+
+15
+00:01:05,042 --> 00:01:10,252
+see that it's highly skewed.
+It's more skewed in the case of the
+
+16
+00:01:10,252 --> 00:01:17,952
+replier because you see that some repliers
+have replied to upwards of a thousand
+
+17
+00:01:17,952 --> 00:01:24,992
+other users but it's rare for an
+individual to have received replies from
+
+18
+00:01:24,992 --> 00:01:29,505
+more than a couple of dozen different
+helpers.
+
+19
+00:01:29,506 --> 00:01:34,502
+In this case, the distribution that I've
+plotted is the cumulative degree
+
+20
+00:01:34,502 --> 00:01:38,623
+distribution.
+And this means that we're not looking at
+
+21
+00:01:38,623 --> 00:01:44,575
+the probability that you had interacted
+with exactly k other people, but k or
+
+22
+00:01:44,575 --> 00:01:48,599
+fewer other.
+There people in any case we do see some
+
+23
+00:01:48,599 --> 00:01:54,869
+deviation from a straight line but over
+all especially for the repliers we see a
+
+24
+00:01:54,869 --> 00:01:59,518
+very high skew.
+This isn't the only instance of seeing a
+
+25
+00:01:59,518 --> 00:02:06,334
+very highly skewed degree distribution.
+Another example is the network of ah,human
+
+26
+00:02:06,334 --> 00:02:10,427
+sexual contacts.
+And even though men do tend to report
+
+27
+00:02:10,427 --> 00:02:16,683
+having had more partners than women do in
+both cases, the degree distribution for
+
+28
+00:02:16,683 --> 00:02:22,613
+both men and women is highly skewed.
+And this has interesting implications, for
+
+29
+00:02:22,613 --> 00:02:26,870
+example, for the spread of sexually
+transmitted diseases.
+
+30
+00:02:26,870 --> 00:02:32,344
+Now, in a little while, like next week,
+we'll focus more on identifying the true
+
+31
+00:02:32,344 --> 00:02:36,595
+power laws from the fakes.
+But for now, let's just assume that we're
+
+32
+00:02:36,595 --> 00:02:41,706
+seeing a true power law distribution.
+The way that we're going to recognize it
+
+33
+00:02:41,706 --> 00:02:45,786
+is that we're going to have a straight
+line on a log-log plot.
+
+34
+00:02:45,786 --> 00:02:51,468
+Now, if we had plotted the same power-law
+distribution on a linear scale, we, we
+
+35
+00:02:51,468 --> 00:02:56,310
+would hardly even see it.
+We would see this very sharp drop off,
+
+36
+00:02:56,310 --> 00:03:02,313
+basically like an L-shape, and we wouldn't
+be able to tell whether, you know, a node
+
+37
+00:03:02,313 --> 00:03:07,551
+had any chance of having degree 40, when
+most other nodes have degree 1.
+
+38
+00:03:07,551 --> 00:03:13,290
+But, if we look at the log-log scale, we
+can see that even though it's not very
+
+39
+00:03:13,290 --> 00:03:19,387
+likely just a fraction of a percent that
+someone would have degree 40, it's, it's
+
+40
+00:03:19,387 --> 00:03:23,201
+not negligible.
+And in fact, this is what is called a
+
+41
+00:03:23,201 --> 00:03:28,385
+heavy tail, that is a probability drops
+but it doesn't drop exponentially it
+
+42
+00:03:28,385 --> 00:03:32,150
+doesn't do this.
+Instead, it keeps going decade after
+
+43
+00:03:32,150 --> 00:03:36,411
+decade, we can contrast this with the
+Poisson distribution.
+
+44
+00:03:36,411 --> 00:03:42,627
+Which if, if you remember, this is a
+distribution that describes the degrees in
+
+45
+00:03:42,627 --> 00:03:47,750
+an Erdos-Renyi random graph.
+Here, I've even been generous and I made
+
+46
+00:03:47,750 --> 00:03:52,540
+the average degree be 10.
+And now, we might ask the same question,
+
+47
+00:03:52,540 --> 00:03:56,296
+what is the probability that someone has
+degree 40?
+
+48
+00:03:56,296 --> 00:04:02,374
+Well, on the linear scale, it looks zero,
+like it did for, for the power log
+
+49
+00:04:02,374 --> 00:04:06,622
+distribution.
+But, if we now plot on a log-log scale and
+
+50
+00:04:06,622 --> 00:04:12,173
+we look around 40, we see that the
+probability is actually very small,
+
+51
+00:04:12,173 --> 00:04:18,205
+something like 10 to the minus 10.
+And by the time you're over 50, right?
+
+52
+00:04:18,205 --> 00:04:23,488
+This is [laugh] 10 to the minus 64 so this
+is, this is actually 100.
+
+53
+00:04:23,488 --> 00:04:28,614
+There's no chance that someone would have
+degree 100, no matter how large the
+
+54
+00:04:28,614 --> 00:04:33,692
+network is, it's an Erdos-Renyi random
+graph with an average degree of 10.
+
+55
+00:04:33,692 --> 00:04:38,472
+So, there's a very stark contrast between
+the Poisson distribution of the
+
+56
+00:04:38,472 --> 00:04:43,878
+Erdos-Renyi and the power law distribution
+that we see in many real world networks.
+
+57
+00:04:43,878 --> 00:04:47,025
+So, let's look at this power law
+distribution.
+
+58
+00:04:47,025 --> 00:04:52,317
+What we saw essentially was a line, a
+log-log plot which means that the log of
+
+59
+00:04:52,317 --> 00:04:57,861
+the probability of having degree k is
+equal to some constant minus alpha this is
+
+60
+00:04:57,861 --> 00:05:01,540
+our power law exponent time the log of the
+degree k.
+
+61
+00:05:01,541 --> 00:05:07,447
+And so, if we exponentiate both sides, we
+get the, the probability of having degree
+
+62
+00:05:07,447 --> 00:05:12,481
+k is equal to another constant times the
+degree k to the minus alpha.
+
+63
+00:05:12,481 --> 00:05:18,241
+So, let's check if we understand what's
+going on, as the exponent alpha increases.
+
+64
+00:05:18,241 --> 00:05:23,579
+So this, we're not talking about minus
+alpha, we're talking about the, the
+
+65
+00:05:23,579 --> 00:05:27,294
+exponent alpha.
+The downward slope of the line on a
+
+66
+00:05:27,294 --> 00:05:31,847
+log-log plot, what does it do?
+Does it stay the same, become milder?
+
+67
+00:05:31,847 --> 00:05:36,775
+So, from your point of view, does it do
+this, or does it become steeper, does it
+
+68
+00:05:36,775 --> 00:05:40,062
+do this?
+Given that many real world networks seem
+
+69
+00:05:40,062 --> 00:05:45,422
+to display power-law degree distributions,
+what we'd like to do is come up with a
+
+70
+00:05:45,422 --> 00:05:49,596
+network model that can produce these
+distributions as well.
+
+71
+00:05:49,596 --> 00:05:54,957
+And for this, we're going to need two
+ingredients, the first of which is that
+
+72
+00:05:54,957 --> 00:05:59,630
+the network grows over time.
+So, as time goes on, you have more and
+
+73
+00:05:59,630 --> 00:06:03,679
+more nodes added to the network and more
+and more edges.
+
+74
+00:06:03,680 --> 00:06:09,088
+There are many networks for which this
+seems plausible, for example if you look
+
+75
+00:06:09,088 --> 00:06:13,383
+at citation networks.
+When a new paper is written, it will cite
+
+76
+00:06:13,383 --> 00:06:18,542
+papers that have come before it.
+Although social networks are not power
+
+77
+00:06:18,542 --> 00:06:23,822
+law, and this is not so much that people
+don't want to connect to very popular
+
+78
+00:06:23,822 --> 00:06:27,192
+people.
+But practically speaking, we can't keep up
+
+79
+00:06:27,192 --> 00:06:31,557
+in a meaningful way with thousands or tens
+of thousands of friends.
+
+80
+00:06:31,558 --> 00:06:36,072
+So even though social networks are not
+parallel, you can imagine a similar
+
+81
+00:06:36,072 --> 00:06:41,184
+dynamic where Individuals join the network
+over time, whether through birth [laugh]
+
+82
+00:06:41,184 --> 00:06:45,044
+or another process that they land in a
+given social network.
+
+83
+00:06:45,044 --> 00:06:49,810
+And then, they're going to start forming
+edges to other individuals with, within
+
+84
+00:06:49,810 --> 00:06:53,479
+that network.
+There's going to be a second component,
+
+85
+00:06:53,479 --> 00:06:58,834
+which is that when you come into the
+network, you're going to have some edges
+
+86
+00:06:58,834 --> 00:07:03,066
+that are allocated.
+For example, if you're a new paper, you're
+
+87
+00:07:03,066 --> 00:07:08,596
+going to have say, 30 or a hundred [laugh]
+or who knows how many the citations that
+
+88
+00:07:08,596 --> 00:07:12,650
+you're going to give to the papers that
+have come before you.
+
+89
+00:07:12,650 --> 00:07:17,693
+So, in the social network context, what
+you're deciding between, or I guess, let's
+
+90
+00:07:17,693 --> 00:07:21,086
+stick to the papers.
+In the papers context, what you're
+
+91
+00:07:21,086 --> 00:07:25,982
+deciding between is citing a paper that no
+one else has cited or citing a paper that
+
+92
+00:07:25,982 --> 00:07:31,194
+lots of other people have cited.
+In the social network context, you might
+
+93
+00:07:31,194 --> 00:07:37,882
+be deciding between connecting to someone
+who doesn't have many if any other, if any
+
+94
+00:07:37,882 --> 00:07:43,778
+other connections or connecting to some
+one who is popular and has lots of social
+
+95
+00:07:43,778 --> 00:07:47,110
+ties.
+And if you put forth the person who has
+
+96
+00:07:47,110 --> 00:07:51,099
+lots of social ties.
+In fact, if you prefer him in or her in
+
+97
+00:07:51,099 --> 00:07:56,607
+proportion to the number of ties that they
+have, then this is called preferential
+
+98
+00:07:56,607 --> 00:08:01,908
+attachment or cumulative advantage.
+Let's first look at the first factor,
+
+99
+00:08:01,908 --> 00:08:07,038
+which is that the network is growing.
+So here, I've used net logo to grow a
+
+100
+00:08:07,038 --> 00:08:11,996
+network where each new node comes in with
+two edges that it allocates.
+
+101
+00:08:11,996 --> 00:08:16,611
+So, you can see that some nodes have more
+edges than, than others.
+
+102
+00:08:16,611 --> 00:08:21,763
+But, it's still relatively evenly
+distributed, the edges are between the
+
+103
+00:08:21,763 --> 00:08:25,032
+nodes.
+We can derive some properties of the
+
+104
+00:08:25,032 --> 00:08:30,056
+degree distribution here.
+And in order to do this, we're just going
+
+105
+00:08:30,056 --> 00:08:35,175
+to look at what's going on.
+And what's going is that at each time step
+
+106
+00:08:35,175 --> 00:08:40,755
+you have one new node coming in with m
+edges to allocate, which means that at
+
+107
+00:08:40,755 --> 00:08:46,699
+time step t you're going to have t nodes.
+Now, let's look at a node that's born at
+
+108
+00:08:46,699 --> 00:08:52,586
+time i, and we'll call its degree k sub i.
+We know that k sub i on average is going
+
+109
+00:08:52,586 --> 00:08:56,250
+to be changing at a rate of m over t.
+Why m over t?
+
+110
+00:08:56,250 --> 00:09:02,144
+Well, at each time set, the new node comes
+in and it has m edges to give, but it's
+
+111
+00:09:02,144 --> 00:09:08,492
+going to allocate them among the t nodes
+that are already there, so each individual
+
+112
+00:09:08,492 --> 00:09:12,668
+node is competing with those t others for
+the m edges.
+
+113
+00:09:12,669 --> 00:09:20,046
+We can then see what happens, you know,
+over the lifetime of that node since time
+
+114
+00:09:20,046 --> 00:09:25,876
+i when it was born, to time t.
+How many edges do we ex, expect that it
+
+115
+00:09:25,876 --> 00:09:29,785
+has?
+So we integrate the change in, in its
+
+116
+00:09:29,785 --> 00:09:34,993
+degree from i to t, and we add the m edges
+that it had up front.
+
+117
+00:09:34,993 --> 00:09:40,113
+And this is just k sub i t is equal to m
+plus m log t over i.
+
+118
+00:09:40,113 --> 00:09:46,327
+From this, we can see that on average
+nodes that were born earlier are going to
+
+119
+00:09:46,327 --> 00:09:50,070
+have more edges than node that are born
+later.
+
+120
+00:09:50,070 --> 00:09:56,916
+They've simply been around longer and have
+been accumulating and accumulating these
+
+121
+00:09:56,916 --> 00:10:00,474
+edges.
+What I like you to think about isn't which
+
+122
+00:10:00,474 --> 00:10:05,257
+way this is realistic or not.
+So, if you think about social networks,
+
+123
+00:10:05,257 --> 00:10:10,652
+what other modifications to the, to the
+model might you make in order to make it
+
+124
+00:10:10,652 --> 00:10:12,381
+more realistic?
+Okay.
+
+125
+00:10:12,381 --> 00:10:17,847
+Back to our very simple model though with
+no modifications, we just have nodes
+
+126
+00:10:17,847 --> 00:10:21,554
+arriving over time.
+Now, we want to derive the degree
+
+127
+00:10:21,554 --> 00:10:25,484
+distribution.
+And for this, we're going to be using the
+
+128
+00:10:25,484 --> 00:10:31,062
+fact that nodes that are born later are
+going to have lower degree on average.
+
+129
+00:10:31,062 --> 00:10:36,723
+So, for example, if you want to know what
+is the property that a node has degree a
+
+130
+00:10:36,723 --> 00:10:42,030
+hundred or less, we are going to figure
+out at what time a node with average
+
+131
+00:10:42,030 --> 00:10:46,529
+degree hundred was born.
+We'll call that time tau and then the
+
+132
+00:10:46,529 --> 00:10:52,358
+fraction of nodes that have lower degree
+are just going to be the ones who are born
+
+133
+00:10:52,358 --> 00:10:56,764
+afterwards.
+So, this is t minus tau over t is that
+
+134
+00:10:56,764 --> 00:11:02,186
+fraction.
+And we have the solution for the degree of
+
+135
+00:11:02,186 --> 00:11:06,431
+a node that was born at time tau from
+before.
+
+136
+00:11:06,431 --> 00:11:13,781
+So, we're just going to solve for tau from
+this equation and derive an exponential
+
+137
+00:11:13,781 --> 00:11:18,753
+distribution for, or, for the degree of,
+of the nodes.
+
+138
+00:11:18,753 --> 00:11:24,105
+So, given that this is an exponential
+distribution, what I'd like you to answer
+
+139
+00:11:24,105 --> 00:11:29,127
+is, what do you expect to this degree
+distribution to look like on a log-log
+
+140
+00:11:29,127 --> 00:11:32,196
+plot?
+Is it going to be a curved line or is it
+
+141
+00:11:32,196 --> 00:11:36,506
+going to be a straight line?
+The second ingredient we need is that of
+
+142
+00:11:36,506 --> 00:11:40,053
+preferential attachment.
+That is when the new node comes in,
+
+143
+00:11:40,053 --> 00:11:43,849
+they're, they're not going to just connect
+to any node at random.
+
+144
+00:11:43,849 --> 00:11:48,746
+They're going to prefer some over others
+and in fact, the ones that they are going
+
+145
+00:11:48,746 --> 00:11:52,125
+to prefer are the ones that already have a
+lot of edges.
+
+146
+00:11:52,125 --> 00:11:56,955
+This kind of process is also known as
+accumulative advantage process, a rich get
+
+147
+00:11:56,955 --> 00:12:01,911
+richer phenomenon, or the Matthew effect.
+That is, those nodes who already have a
+
+148
+00:12:01,911 --> 00:12:05,595
+lot of edges are going to get even more
+disproportionately.
+
+149
+00:12:05,595 --> 00:12:11,646
+In fact, it's going to be proportional to
+the number of edges that they already
+
+150
+00:12:11,646 --> 00:12:15,119
+have.
+The first such law proposed for networks
+
+151
+00:12:15,119 --> 00:12:18,502
+was proposed by Price for citation
+networks.
+
+152
+00:12:18,502 --> 00:12:23,903
+In his model, you have papers coming in,
+and each paper is going to site m, other
+
+153
+00:12:23,903 --> 00:12:27,984
+papers on average.
+But instead of just citing any old paper
+
+154
+00:12:27,984 --> 00:12:33,560
+can find, it's going to cite other papers
+in proportion to the number of citations
+
+155
+00:12:33,560 --> 00:12:38,802
+the paper already receives plus 1.
+That plus 1 is a little trick that makes
+
+156
+00:12:38,802 --> 00:12:44,526
+the model works because a lot of papers
+start out with no citations at all.
+
+157
+00:12:44,526 --> 00:12:50,562
+So, if you were citing in proportion to
+number of citations you'd have cold start
+
+158
+00:12:50,562 --> 00:12:54,796
+problem.
+So, this kind of helps the process along.
+
+159
+00:12:54,796 --> 00:12:59,905
+The process generates a very nice degree
+distribution which has a power law
+
+160
+00:12:59,905 --> 00:13:02,977
+exponents with alpha equal to 2 plus 1
+over m.
+
+161
+00:13:02,977 --> 00:13:08,897
+A lot of the real-world citation networks
+do have power law exponents slightly above
+
+162
+00:13:08,897 --> 00:13:11,598
+2.
+So, it's just a, a very nice match and a
+
+163
+00:13:11,598 --> 00:13:17,268
+very nice description of reality, where a
+few papers get lots and lots of citations,
+
+164
+00:13:17,268 --> 00:13:22,418
+thousands, tens of thousands, but most
+papers are relatively neglected.
+
+165
+00:13:22,418 --> 00:13:25,620
+They get no citations at all or just a
+couple.
+
+166
+00:13:25,621 --> 00:13:29,963
+It, you might think, well, preferential
+attachment makes sense for social
+
+167
+00:13:29,963 --> 00:13:33,126
+networks.
+If this little node is coming in and he's
+
+168
+00:13:33,126 --> 00:13:36,272
+saying, well, who's going to be a good
+friend to have?
+
+169
+00:13:36,272 --> 00:13:40,607
+Well, the person who has no friends.
+Well, they can't introduce me to anyone
+
+170
+00:13:40,607 --> 00:13:43,145
+else.
+Maybe they're not such a good friend to
+
+171
+00:13:43,145 --> 00:13:45,823
+have.
+But this person here, oh, they're so
+
+172
+00:13:45,823 --> 00:13:49,920
+popular, let me connect to them.
+Now, how does this translate to papers,
+
+173
+00:13:49,920 --> 00:13:53,121
+why would you want to cite papers that
+already well cited?
+
+174
+00:13:53,121 --> 00:13:58,529
+Well, you know, for one, they're probably
+better but there's also a lot of anecdotal
+
+175
+00:13:58,529 --> 00:14:02,764
+evidence that it's a little bit of, of the
+luck of the draw, alright?
+
+176
+00:14:02,764 --> 00:14:07,929
+You can have two scientists making pretty
+much the same discovery, but one paper
+
+177
+00:14:07,929 --> 00:14:12,247
+gets a lot of attention and the other one
+is, is relatively unknown.
+
+178
+00:14:12,247 --> 00:14:16,568
+So, how can this happen.
+Well, one way in which it happens it's, is
+
+179
+00:14:16,568 --> 00:14:21,788
+through a copying mechanism.
+So, when I'm reading a paper that I think
+
+180
+00:14:21,788 --> 00:14:27,134
+is rela, relevant to my research, I'm
+going to look at the references and the
+
+181
+00:14:27,134 --> 00:14:30,831
+papers that it cites.
+And then, I might copy one of those
+
+182
+00:14:30,831 --> 00:14:34,608
+references, after I read it, [laugh] of
+course, right?
+
+183
+00:14:34,608 --> 00:14:39,998
+I might copy that into my, my own paper.
+And if you think about it, the chance that
+
+184
+00:14:39,998 --> 00:14:44,786
+I encounter a citation to a paper is
+proportional to the number of papers who
+
+185
+00:14:44,786 --> 00:14:47,760
+cite it.
+Now, there could be other mechanisms.
+
+186
+00:14:47,760 --> 00:14:52,996
+For example, the better cited a paper is,
+the more likely it is that the authors are
+
+187
+00:14:52,996 --> 00:14:58,424
+invited to give talks, which in turn means
+that more people find out about the paper
+
+188
+00:14:58,425 --> 00:15:00,881
+etc.
+Attachment mechanism.
+
+189
+00:15:00,881 --> 00:15:07,092
+Now, what really set off a lot of research
+in complex networks was the model proposed
+
+190
+00:15:07,092 --> 00:15:12,476
+by Barabasi and Albert, which is similar
+to the Price model, but not quite.
+
+191
+00:15:12,476 --> 00:15:17,213
+And what they were aiming to do was to
+describe why there is a power law
+
+192
+00:15:17,213 --> 00:15:22,050
+distribution in the number of n links that
+different pages receive.
+
+193
+00:15:22,050 --> 00:15:27,428
+So, in their model, you have new web pages
+arriving over time and they each going to
+
+194
+00:15:27,428 --> 00:15:31,743
+link with m links on average to web pages
+that are already there.
+
+195
+00:15:31,743 --> 00:15:38,494
+And the probability of linking to an
+existing page is going to be proportional
+
+196
+00:15:38,494 --> 00:15:43,362
+to the number of other pages that already
+link to that page.
+
+197
+00:15:43,362 --> 00:15:49,216
+And so, this probability here.
+That a given node is node is going to, a
+
+198
+00:15:49,216 --> 00:15:55,456
+given new node is going to connect to node
+i, i is going to be proport, is going to
+
+199
+00:15:55,456 --> 00:16:01,312
+be equal to m, which is a number of new
+things that it has to add the degree of
+
+200
+00:16:01,312 --> 00:16:05,836
+node i over the sum of the degrees of all
+the other notes.
+
+201
+00:16:05,836 --> 00:16:11,302
+And this results in a power law exponent
+of 3, which is a little bit problematic
+
+202
+00:16:11,302 --> 00:16:16,678
+because the web degree distributions are
+much closer to two and three is a
+
+203
+00:16:16,678 --> 00:16:22,642
+relatively steep a power law exponent
+meaning that you don't get the, the most
+
+204
+00:16:22,642 --> 00:16:27,905
+popular websites would not be as popular
+as you would see in the real world.
+
+205
+00:16:27,905 --> 00:16:33,307
+So but you can correct for this in various
+ways, and Barabasi and Albert did indeed
+
+206
+00:16:33,307 --> 00:16:38,475
+do this later by introducing different
+fitness for different sites meaning that
+
+207
+00:16:38,475 --> 00:16:41,744
+some sites are just a little bit more
+interesting.
+
+208
+00:16:41,744 --> 00:16:45,849
+And so, they get more links.
+But let's see how this model works.
+
+209
+00:16:45,850 --> 00:16:51,814
+So, if we were to simulate it, we would
+start say with a connected component of 3
+
+210
+00:16:51,814 --> 00:16:57,241
+nodes who all link to each other.
+And now, we're going to add new nodes one
+
+211
+00:16:57,241 --> 00:17:00,624
+by one.
+But we want to keep track of the degree of
+
+212
+00:17:00,624 --> 00:17:03,988
+each node.
+And so, for each edge, we're going to
+
+213
+00:17:03,988 --> 00:17:07,784
+record the end points and enter them into
+a flat list.
+
+214
+00:17:07,784 --> 00:17:13,485
+And then, when a new node comes in, so say
+4 comes in, it's going to choose from this
+
+215
+00:17:13,485 --> 00:17:17,534
+list of 1, 1 2, 2 3, 3.
+But now, if it happens to choose 3, now 3
+
+216
+00:17:17,534 --> 00:17:22,900
+has degree 3, and is represented 3 times.
+And, so now, when 5 comes in, it's a
+
+217
+00:17:22,900 --> 00:17:28,990
+little bit more likely that it's going to
+choose 3 as well over 1 or 2 actually over
+
+218
+00:17:28,990 --> 00:17:33,873
+1 which has degree 1 still.
+So, that's the basic mechanism, and I've
+
+219
+00:17:33,873 --> 00:17:38,681
+implemented it in that logo as well so
+you'll get to play with that.
+
+220
+00:17:38,681 --> 00:17:44,866
+After a while, in that logo what you see
+is a network such as this one, where
+
+221
+00:17:44,866 --> 00:17:50,349
+hopefully when you compare it with the
+purely random growth model.
+
+222
+00:17:50,349 --> 00:17:56,379
+You're seeing bigger hubs emerging
+relative to here with the random growth,
+
+223
+00:17:56,379 --> 00:18:00,473
+you have the older nodes are accumulating
+more links.
+
+224
+00:18:00,473 --> 00:18:06,111
+But not nearly in kind of a skewed
+fashion, as is happening in the prefern,
+
+225
+00:18:06,111 --> 00:18:12,200
+preferential attachment model.
+So, we can also examine this analytically,
+
+226
+00:18:12,200 --> 00:18:17,543
+as Barabasi and Albert did.
+So again, we're just looking at how the
+
+227
+00:18:17,543 --> 00:18:23,419
+degree of a node i changes over time and
+we've already specified this.
+
+228
+00:18:23,419 --> 00:18:29,761
+So, at each time step, there are m new
+links going around, and they're going to
+
+229
+00:18:29,761 --> 00:18:35,998
+be allocated in proportion to the degree
+of the node divided by the sum of the
+
+230
+00:18:35,998 --> 00:18:40,114
+degrees.
+And here, it's just t times m edges, and
+
+231
+00:18:40,114 --> 00:18:45,966
+you have 2 end points for each edge so
+it's just t, t times m times 2.
+
+232
+00:18:45,966 --> 00:18:52,472
+And what we'll see again is that if we
+want to figure out what the probability is
+
+233
+00:18:52,472 --> 00:18:58,672
+that a node has degree, say k prime or
+less, what we want to figure out is that
+
+234
+00:18:58,672 --> 00:19:04,231
+what time point tau was the node with
+average-degree k prime born.
+
+235
+00:19:04,231 --> 00:19:10,439
+And then, we know that everyone born after
+that will on average have had lower
+
+236
+00:19:10,439 --> 00:19:14,910
+degree.
+And so, following a similar derivation, we
+
+237
+00:19:14,910 --> 00:19:22,155
+have this distribution that says, the
+probability that a node had degree k is 2m
+
+238
+00:19:22,155 --> 00:19:27,227
+squared over k to the 3rd.
+So, this is your power law exponent of
+
+239
+00:19:27,227 --> 00:19:30,268
+three.
+So, besides this nice power law
+
+240
+00:19:30,268 --> 00:19:36,218
+distribution, other properties of this
+network would, this one actually holds for
+
+241
+00:19:36,218 --> 00:19:41,400
+the growth model as well is that it's just
+a single connected component.
+
+242
+00:19:41,400 --> 00:19:47,185
+And this is simply due to the mechanism
+which is that we're adding a node at a
+
+243
+00:19:47,185 --> 00:19:50,486
+time.
+And it's linking to the nodes that are
+
+244
+00:19:50,486 --> 00:19:55,654
+already there, who link to the nodes that
+are already there and so everything ends
+
+245
+00:19:55,654 --> 00:19:59,186
+up being connected.
+If you remember, we also looked at a
+
+246
+00:19:59,186 --> 00:20:03,746
+growth model where new nodes were being
+added, but the new edges were not
+
+247
+00:20:03,746 --> 00:20:08,490
+necessarily coming from the new node.
+And in that case, of course, you don't
+
+248
+00:20:08,490 --> 00:20:11,521
+necessarily get everyone in the same
+component.
+
+249
+00:20:11,521 --> 00:20:17,463
+So, for some graphs, it might make sense.
+So for example, for web pages, you might
+
+250
+00:20:17,463 --> 00:20:22,629
+assume that may be the links are only
+added when the web created, and then not
+
+251
+00:20:22,629 --> 00:20:27,243
+added after the fact.
+But for other networks, it might make more
+
+252
+00:20:27,243 --> 00:20:32,573
+sense, you know, if you have social
+network, may be initially a person who's
+
+253
+00:20:32,573 --> 00:20:38,313
+come to a new city doesn't know anyone but
+they get to know someone and may get more
+
+254
+00:20:38,313 --> 00:20:40,972
+people.
+So, it really depends, right?
+
+255
+00:20:40,972 --> 00:20:45,489
+For citation network, this seems to be a
+very appropriate model.
+
+256
+00:20:45,489 --> 00:20:51,567
+And the, the final observation which is
+also consistent with the random growth
+
+257
+00:20:51,567 --> 00:20:56,604
+model is that, again, you have the older
+nodes having more edges.
+
+258
+00:20:56,605 --> 00:21:00,942
+And the newer nodes, the, the young ones,
+actually don't really have a chance to
+
+259
+00:21:00,942 --> 00:21:03,721
+catch up.
+Because they're born much later, and so
+
+260
+00:21:03,721 --> 00:21:08,162
+they're born with you know, when they're
+born, they have very few edges.
+
+261
+00:21:08,162 --> 00:21:12,392
+The older nodes have been around longer
+and some of them have gotten really big,
+
+262
+00:21:12,392 --> 00:21:14,839
+so they're going to continue to
+accumulate.
+
+263
+00:21:14,839 --> 00:21:21,417
+So, if we look at these two nodes, this
+one was born at time equals 5, and this
+
+264
+00:21:21,417 --> 00:21:27,395
+was born at time equals 95.
+And so, you can see that they're both kind
+
+265
+00:21:27,395 --> 00:21:34,734
+of tracking in terms of their growth.
+And since this is a log scale, really at
+
+266
+00:21:34,734 --> 00:21:38,741
+the point that the older node has over
+100.
+
+267
+00:21:38,742 --> 00:21:43,617
+Edges this younger node just has a few
+dozen, right?
+
+268
+00:21:43,617 --> 00:21:50,648
+And it's not, it's not really catching up.
+So, you'll have the opportunity to try
+
+269
+00:21:50,648 --> 00:21:55,332
+this yourself.
+So let me see if I can switch to the
+
+270
+00:21:55,332 --> 00:21:59,612
+model, not this one.
+This one, not this one.
+
+271
+00:21:59,612 --> 00:22:03,550
+Okay, please be this one.
+Okay, great.
+
+272
+00:22:03,551 --> 00:22:08,926
+So sorry about that.
+So here in this model you can use
+
+273
+00:22:08,926 --> 00:22:13,915
+preferential attachments, so let me do
+that.
+
+274
+00:22:13,916 --> 00:22:17,447
+So hopefully, you observed lots of hubs
+here.
+
+275
+00:22:17,447 --> 00:22:23,405
+Now, if we have the probability of
+preferential attachment, B serum, and you
+
+276
+00:22:23,405 --> 00:22:28,451
+can use anything in between as well.
+So, we're going to set this up.
+
+277
+00:22:28,451 --> 00:22:33,619
+And so it might seem similar at first, but
+the thing to do is to look at the degree
+
+278
+00:22:33,619 --> 00:22:38,407
+distribution, and also look at the size of
+the nodes to see if you can spot the
+
+279
+00:22:38,407 --> 00:22:43,275
+difference in the two networks.
+Again, they're both growing but one has
+
+280
+00:22:43,275 --> 00:22:46,943
+preferential attachment and the other one
+does not.
+
+281
+00:22:46,943 --> 00:22:54,118
+So, just to test your understanding
+relative to the random growth model, the
+
+282
+00:22:54,118 --> 00:23:01,394
+degree distribution in the preferential
+attachment model is going to resemble a
+
+283
+00:23:01,394 --> 00:23:07,696
+power-law distribution less or more?
+So, just to summarize the, the growth
+
+284
+00:23:07,696 --> 00:23:13,744
+models the reason for doing growth model
+is that most networks aren't born they're
+
+285
+00:23:13,744 --> 00:23:17,074
+made.
+They, they grow over time and this means
+
+286
+00:23:17,074 --> 00:23:22,031
+that some nodes, the older nodes might
+accumulate more than others.
+
+287
+00:23:22,031 --> 00:23:26,720
+But, if you have this additional
+ingredient of preferential attachment,
+
+288
+00:23:26,720 --> 00:23:31,752
+then nodes that for whatever reason end up
+with more edges as the network grows are
+
+289
+00:23:31,752 --> 00:23:37,197
+going to accumulate even more for edges at
+the expense of other less fortunate nodes.
+
+290
+00:23:37,197 --> 00:23:42,063
+Now, for the assignment this week, what
+you'll be doing is looking at the
+
+291
+00:23:42,063 --> 00:23:45,224
+implications of these models for
+diffusion.
+
+292
+00:23:45,224 --> 00:23:50,122
+And so, even if you're mostly just
+listening to the lectures, I think that,
+
+293
+00:23:50,122 --> 00:23:55,494
+you know, doing this assignment will be,
+you know, it will be a cinch and it'll be
+
+294
+00:23:55,494 --> 00:24:00,700
+interactive in the sense that you'll be
+playing with these net logo apps.
+
+295
+00:24:00,700 --> 00:24:05,500
+So, I encourage you to do it even if you,
+you know, even if don't turn in the
+
+296
+00:24:05,500 --> 00:24:11,255
+assignment, I think it will be worthwhile.
+So the, the one part of it will be looking
+
+297
+00:24:11,255 --> 00:24:14,666
+at, let's see if this is the case.
+Oh, nope.
+
+298
+00:24:14,666 --> 00:24:21,315
+We'll be looking at the Erdos-Renyi random
+graph, and here you'll be looking at what
+
+299
+00:24:21,315 --> 00:24:27,457
+does it mean to have a giant component
+that doesn't occupy the whole network for
+
+300
+00:24:27,458 --> 00:24:32,708
+how are diseases going to spread.
+So, you're going to have one node
+
+301
+00:24:32,708 --> 00:24:38,377
+infected, and then that one node is going
+to start infecting others.
+
+302
+00:24:38,377 --> 00:24:44,265
+And then, those, those nodes will be
+affecting others in turn, and you'll see
+
+303
+00:24:44,265 --> 00:24:48,699
+what happens.
+And in another part, you'll be looking at
+
+304
+00:24:48,699 --> 00:24:54,939
+how quickly information or disease or
+other things can spread on the network,
+
+305
+00:24:54,939 --> 00:25:01,275
+depending on whether the network grows
+randomly or grow with preferential
+
+306
+00:25:01,275 --> 00:25:04,654
+attachment.
+So hopefully, it's this one.
+
+307
+00:25:04,654 --> 00:25:08,775
+Okay, great.
+So, you'll be setting up your network and
+
+308
+00:25:08,775 --> 00:25:15,853
+here it's non non-preferential attachment.
+And then, you're going to start spreading
+
+309
+00:25:15,853 --> 00:25:22,201
+and you're going to see how long it takes
+for the information or disease or whatever
+
+310
+00:25:22,201 --> 00:25:26,579
+to spread.
+So, I hope that'll be fun and that, this
+
+311
+00:25:26,579 --> 00:25:28,727
+is the end of Week 2.
+Thanks.

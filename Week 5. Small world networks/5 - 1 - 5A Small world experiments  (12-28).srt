@@ -1,0 +1,730 @@
+
+1
+00:00:00,000 --> 00:00:03,507
+Here we are in week five of Social Network
+Analysis.
+
+2
+00:00:03,507 --> 00:00:07,555
+This week we're going to be looking at
+small world networks.
+
+3
+00:00:07,555 --> 00:00:12,816
+The concepts this week are going to be
+combining what we learned about random
+
+4
+00:00:12,816 --> 00:00:16,526
+graphs, in particular, error differing you
+random graphs.
+
+5
+00:00:16,526 --> 00:00:21,254
+What we found interesting about those is
+that those can really grow.
+
+6
+00:00:21,254 --> 00:00:27,308
+You can get networks of millions of nodes
+and yet, the average shortest path, which
+
+7
+00:00:27,308 --> 00:00:33,510
+scales just as the logarithm of the number
+of nodes will then be, you know, something
+
+8
+00:00:33,510 --> 00:00:37,350
+on the order of ten and that seems quite
+remarkable.
+
+9
+00:00:37,350 --> 00:00:44,058
+Then we looked at some real world networks
+and discovered that they had interesting
+
+10
+00:00:44,058 --> 00:00:50,448
+community structure that is on somewhat
+more, on a somewhat more localized scale,
+
+11
+00:00:50,448 --> 00:00:56,038
+their, the structure is not random.
+But we haven't yet really delved into the
+
+12
+00:00:56,038 --> 00:01:00,830
+very local structure.
+No, the structure of the network around
+
+13
+00:01:00,830 --> 00:01:05,782
+the particular node.
+So what we're going to be doing this week
+
+14
+00:01:05,782 --> 00:01:09,931
+is filling the gap.
+You know, is it possible for real world
+
+15
+00:01:09,931 --> 00:01:15,329
+networks to have small world properties,
+like random networks do and at the same
+
+16
+00:01:15,329 --> 00:01:20,660
+time, can we recognized the interesting
+structure they have at the local, you
+
+17
+00:01:20,660 --> 00:01:24,985
+know, at the local level.
+So just to outline, I'm going to start
+
+18
+00:01:24,985 --> 00:01:30,325
+with Milgram's famous small world
+experiment which established that it's a
+
+19
+00:01:30,325 --> 00:01:33,530
+small world, when you look at social
+networks.
+
+20
+00:01:33,530 --> 00:01:39,439
+Then I'm going to be looking at some local
+structure and metrics, starting with the
+
+21
+00:01:39,439 --> 00:01:43,498
+clustering co-efficient and then delving
+into motif analysis.
+
+22
+00:01:43,498 --> 00:01:50,841
+I'm going to then present some models, the
+very famous small world model by Watts &
+
+23
+00:01:50,841 --> 00:01:57,483
+Strogatz, that reconciles networks having
+clustering and at the same time having
+
+24
+00:01:57,483 --> 00:02:02,216
+short path lengths.
+And then, we're going to look at a few
+
+25
+00:02:02,216 --> 00:02:08,859
+other small world, models, having to do
+with geography or having to do with
+
+26
+00:02:08,859 --> 00:02:13,629
+hierarchical groups.
+And finally, we are going to look at, you
+
+27
+00:02:13,629 --> 00:02:19,616
+know, now just take these small world
+networks for granted, but say, where does
+
+28
+00:02:19,616 --> 00:02:24,281
+the structure arise from?
+You know, what, why do we get small world
+
+29
+00:02:24,281 --> 00:02:28,013
+networks?
+And then, next week, we'll be looking at
+
+30
+00:02:28,013 --> 00:02:33,222
+some of the consequences.
+What does small world structure meant for
+
+31
+00:02:33,222 --> 00:02:36,954
+diffusion, for learning and for
+coordination?
+
+32
+00:02:36,954 --> 00:02:41,655
+So, you know, that's still to come.
+Okay. On to Milgram.
+
+33
+00:02:41,655 --> 00:02:48,930
+Stanley Milgram is a Harvard sociologist
+who wanted to know how many hops is it
+
+34
+00:02:48,930 --> 00:02:52,305
+between any two individuals and the United
+States.
+
+35
+00:02:52,305 --> 00:02:54,735
+So he recruited,
+I think he put some,
+
+36
+00:02:54,735 --> 00:02:59,055
+An add in the newspaper.
+Individuals in Nebraska and actually in,
+
+37
+00:02:59,055 --> 00:03:04,050
+in Massachusetts as well, but the
+Nebraskans are the more interesting sudd
+
+38
+00:03:04,050 --> 00:03:08,056
+and he gave them a task.
+He said here's this stockbroker in
+
+39
+00:03:08,056 --> 00:03:12,139
+Massachusetts.
+I want you to mail this pamphlet to him,
+
+40
+00:03:12,139 --> 00:03:17,355
+But you can't do it directly, you can't
+just you know, stick it in the, in the
+
+41
+00:03:17,355 --> 00:03:20,983
+mail.
+You're supposed to mail it to someone that
+
+42
+00:03:20,983 --> 00:03:24,385
+you know, whom you know on a first name
+basis.
+
+43
+00:03:24,385 --> 00:03:30,130
+And they're going to mail it to someone
+who they know on a first name basis.
+
+44
+00:03:30,130 --> 00:03:34,440
+And we're going to see how many steps it's
+going to take.
+
+45
+00:03:34,440 --> 00:03:39,755
+Back then, when he asked people, how many
+steps they thought it would take, most of
+
+46
+00:03:39,755 --> 00:03:43,955
+them guessed hundreds,
+Because they were thinking of their local
+
+47
+00:03:43,955 --> 00:03:47,827
+network and most of the people they knew
+were rather local.
+
+48
+00:03:47,827 --> 00:03:52,946
+And so, Masschusetts seemed awfully far
+way and they just imagined that it will
+
+49
+00:03:52,946 --> 00:03:57,474
+take lots and lots of steps.
+That turn out to not to be the case at The
+
+50
+00:03:57,474 --> 00:04:02,396
+average number of steps was 6.5 and this
+how the expression Six degrees of
+
+51
+00:04:02,396 --> 00:04:09,369
+separation was coined.
+This experiment was repeated in 2003 with
+
+52
+00:04:09,369 --> 00:04:16,320
+e-mail and the task was very similar but
+you had eighteen targets instead of one
+
+53
+00:04:16,320 --> 00:04:23,359
+target, thirteen different countries and
+you had far larger initial participation.
+
+54
+00:04:23,359 --> 00:04:27,964
+So they got 60,000 participants into the
+experiments.
+
+55
+00:04:27,964 --> 00:04:35,263
+24,000 message chains, but only fewer than
+400 actually made it to the target versus
+
+56
+00:04:35,263 --> 00:04:39,000
+Milgram had about a, you know, a
+twenty percent completion rate.
+
+57
+00:04:39,000 --> 00:04:45,427
+And here, the average risk path which span
+the globe was really short; it was just
+
+58
+00:04:45,427 --> 00:04:50,104
+four steps.
+So, let's think about whether six or, or
+
+59
+00:04:50,104 --> 00:04:53,503
+four.
+We'll see how four is not the right,
+
+60
+00:04:53,752 --> 00:04:59,555
+number really, how you can correct for it,
+Whether that's surprising?
+
+61
+00:04:59,555 --> 00:05:05,606
+So, in order to figure that out, first we
+need to know on average how many
+
+62
+00:05:05,606 --> 00:05:09,586
+individuals does some one have in their
+network.
+
+63
+00:05:09,586 --> 00:05:16,062
+Pool and Kochen in 1978, they did a study
+and estimated that the number's around 500
+
+64
+00:05:16,062 --> 00:05:21,354
+to 1500 acquaintances.
+So let's be conservative, and let's say
+
+65
+00:05:21,354 --> 00:05:25,519
+it's 500.
+And let's also imagine that we're in a
+
+66
+00:05:25,519 --> 00:05:31,506
+random network and so your friends'
+friends are just randomly chosen.
+
+67
+00:05:31,506 --> 00:05:36,191
+So they're very unlikely to overlap with
+your friends.
+
+68
+00:05:36,191 --> 00:05:43,045
+Now, if everyone has 500 friends, the
+average person would have how many friends
+
+69
+00:05:43,045 --> 00:05:45,764
+of friends?
+Okay.
+
+70
+00:05:45,764 --> 00:05:52,357
+So, if you have 500 friends and each of
+them has 500 friends in turn.
+
+71
+00:05:52,357 --> 00:05:56,623
+You would expect 250,000 friends of
+friends.
+
+72
+00:05:56,623 --> 00:06:01,567
+Pretty neat, right?
+As long as the network is random.
+
+73
+00:06:01,567 --> 00:06:06,900
+Now, let's extend this to friends of
+friends of friends.
+
+74
+00:06:07,540 --> 00:06:14,974
+Okay. In this case we have 500 to the
+third power and that, it means that, you
+
+75
+00:06:14,974 --> 00:06:23,732
+know, once you're three hops out, you have
+125,000,000 friends of friends of friends
+
+76
+00:06:23,732 --> 00:06:30,249
+and that starts to resemble a significant
+portion of the U.S.
+
+77
+00:06:30,249 --> 00:06:35,647
+Population.
+So, the conclusion is that if networks are
+
+78
+00:06:35,647 --> 00:06:39,100
+random,
+Then six is not a surprising number at
+
+79
+00:06:39,100 --> 00:06:42,193
+all.
+In fact [laugh], maybe it's a little bit
+
+80
+00:06:42,193 --> 00:06:47,126
+on the, on the large side.
+What if, on the, the other hand, networks
+
+81
+00:06:47,126 --> 00:06:52,664
+were completely cliquish, right?
+So, all of my friend's friends are my
+
+82
+00:06:52,664 --> 00:06:57,063
+friends as well.
+They're not allowed to have any other
+
+83
+00:06:57,063 --> 00:07:02,520
+friends outside of my friends.
+Well, in that case, what would be true?
+
+84
+00:07:03,420 --> 00:07:09,817
+So, in that case, you actually can't reach
+any other part of the network, because,
+
+85
+00:07:09,817 --> 00:07:16,059
+the, you're in a complete clique and no
+one is allowed to have any edges outside
+
+86
+00:07:16,059 --> 00:07:20,194
+of that clique.
+So, your distance one, to anyone within
+
+87
+00:07:20,194 --> 00:07:26,045
+the clique, but you can't reach, its like
+infinite distance to anywhere else.
+
+88
+00:07:26,045 --> 00:07:31,584
+So now the question is,
+The small world phenomenon, how does it
+
+89
+00:07:31,584 --> 00:07:36,576
+arise, right?
+It seems very natural in a random graph,
+
+90
+00:07:36,576 --> 00:07:43,488
+but in an entirely cliquish graph, we're
+not sure, oh, oh, whether it can arise.
+
+91
+00:07:43,488 --> 00:07:51,072
+But first, let's talk about the accuracy
+of the number six or four, depending on
+
+92
+00:07:51,072 --> 00:07:58,444
+which experiment you're talking about.
+One reason why this isn't necessarily an
+
+93
+00:07:58,444 --> 00:08:02,900
+accurate number is that not all the chains
+are completed.
+
+94
+00:08:02,900 --> 00:08:09,075
+And the question is, are shorter chains
+more likely to be completed than longer
+
+95
+00:08:09,075 --> 00:08:12,359
+ones?
+And one consideration is, what is the
+
+96
+00:08:12,359 --> 00:08:16,658
+attrition rate?
+And also, is that attrition rate uniform,
+
+97
+00:08:16,658 --> 00:08:22,833
+with respect to, you know, whether that
+person is the next one in the chain from
+
+98
+00:08:22,833 --> 00:08:26,599
+the starting person.
+They might approach it with greater
+
+99
+00:08:26,599 --> 00:08:31,364
+enthusiasm because they were recruited.
+So the initial person was recruited.
+
+100
+00:08:31,364 --> 00:08:35,091
+They might be interested.
+They might tell, you know, they might
+
+101
+00:08:35,091 --> 00:08:39,795
+write the next person and say, this is
+such a cool experiment, you know, try it
+
+102
+00:08:39,795 --> 00:08:43,705
+out, but then that person may be passing
+on with less enthusiasm.
+
+103
+00:08:43,705 --> 00:08:48,837
+Similarly, maybe the people further down
+in the chain are actually getting closer
+
+104
+00:08:48,837 --> 00:08:52,677
+to target so maybe they are less likely to
+drop the message,
+
+105
+00:08:52,677 --> 00:08:59,029
+Because you know, the goal might be near.
+However, neither of those turns out to be
+
+106
+00:08:59,029 --> 00:09:02,130
+true.
+You have pretty stable attrition, no
+
+107
+00:09:02,130 --> 00:09:05,760
+matter, you know, which step in the chain
+you are.
+
+108
+00:09:06,080 --> 00:09:12,802
+So now, we can start to calculate the
+probability that a message gets through
+
+109
+00:09:12,802 --> 00:09:18,168
+given a constant attrition rate.
+So let's say it's, it's a half probability
+
+110
+00:09:18,168 --> 00:09:23,533
+that someone's going to pass the message
+versus just not do anything with it.
+
+111
+00:09:23,533 --> 00:09:28,667
+And so, if you have a chain of legnth two,
+so one, two, You have only this, this
+
+112
+00:09:28,667 --> 00:09:33,461
+person's in question, right, this, the
+initial center sends for sure, otherwise
+
+113
+00:09:33,461 --> 00:09:38,508
+there's no chain and we don't count it.
+And the recipient receives it so they
+
+114
+00:09:38,508 --> 00:09:43,491
+don't have to take any further action.
+So here we're just wondering, you know, is
+
+115
+00:09:43,491 --> 00:09:48,159
+this person going to pass it on.
+So let's calculate the probability that a
+
+116
+00:09:48,159 --> 00:09:53,819
+chain of length two gets through and then
+a chain of length five.
+
+117
+00:09:53,820 --> 00:09:59,913
+So, you should see that a chain of length
+two is much more likely to pass through
+
+118
+00:09:59,913 --> 00:10:05,153
+than a chain of length five.
+And so, you can then go back and try and
+
+119
+00:10:05,153 --> 00:10:08,679
+infer what the true distance distribution
+is.
+
+120
+00:10:08,679 --> 00:10:15,103
+So for example, for the email experiment,
+their average number of hops was four, But
+
+121
+00:10:15,103 --> 00:10:21,057
+once they corrected and said well the
+longer chains were less likely to get
+
+122
+00:10:21,057 --> 00:10:24,739
+through,
+They had an estimate of a median chain
+
+123
+00:10:24,739 --> 00:10:30,928
+length somewhere between five and seven,
+sort of recovering that six degrees of
+
+124
+00:10:30,928 --> 00:10:36,416
+separation again.
+A second factor in how accurate that
+
+125
+00:10:36,416 --> 00:10:41,902
+number is, is that individuals actually
+may not be finding the shortest paths,
+
+126
+00:10:41,902 --> 00:10:44,895
+right?
+[laugh] So, they don't know what the
+
+127
+00:10:44,895 --> 00:10:50,096
+global structure of the network.
+All they're doing is, they're passing the
+
+128
+00:10:50,096 --> 00:10:54,870
+message on to someone they think is more
+likely to know the target.
+
+129
+00:10:54,870 --> 00:11:01,209
+And there was this nice study in 2005 that
+mapped out completely a network within an
+
+130
+00:11:01,209 --> 00:11:05,162
+organization,
+So they, they had that map and then they
+
+131
+00:11:05,162 --> 00:11:08,966
+had those individuals.
+So the was who talks to whom,
+
+132
+00:11:08,966 --> 00:11:12,547
+Right?
+And then, they ran Milgram's] experiment,
+
+133
+00:11:12,547 --> 00:11:18,513
+which said, you know, past this to someone
+you normally talk to and they saw that
+
+134
+00:11:18,513 --> 00:11:24,598
+roughly half the time the individuals
+routing the message choose the next node
+
+135
+00:11:24,598 --> 00:11:29,433
+to be on the shortest path and half the
+time they goofed in away.
+
+136
+00:11:29,433 --> 00:11:32,510
+They, they didn't choose the shortest
+path.
+
+137
+00:11:32,510 --> 00:11:36,508
+So.
+Even for the successful chains they may
+
+138
+00:11:36,508 --> 00:11:42,660
+not actually lie on the shortest path.
+So, six might be an overestimate.
+
+139
+00:11:43,760 --> 00:11:51,489
+Now, recently, there was a study done at
+Facebook showing that any two Facebook
+
+140
+00:11:51,489 --> 00:11:58,746
+users are, you know, 4.7 hops apart. And
+the question is, what, what does that
+
+141
+00:11:58,746 --> 00:12:03,253
+really mean?
+You know, if you look at these different
+
+142
+00:12:03,253 --> 00:12:07,984
+social networking services, like Facebook,
+like Twitter, like LinkedIn.
+
+143
+00:12:07,984 --> 00:12:13,132
+And I would definitely recommend listening
+to the interview with LinkedIn,
+
+144
+00:12:13,132 --> 00:12:18,142
+Because this, this question is addressed
+in there or, or Google+, you know?
+
+145
+00:12:18,142 --> 00:12:23,708
+What direct and indirect benefit do you
+get from someone who's one hop away, two
+
+146
+00:12:23,708 --> 00:12:28,300
+hops, three hops, etcetera?
+So just something for you to think about.

@@ -1,0 +1,1180 @@
+
+1
+00:00:00,000 --> 00:00:05,017
+Let's continue learning about how other
+training models can be useful, and also
+
+2
+00:00:05,017 --> 00:00:10,009
+what some of their limitations are.
+So previously, we figured out the degree
+
+3
+00:00:10,009 --> 00:00:13,070
+distribution.
+And we noted that for Erdos-Renyi Random
+
+4
+00:00:13,070 --> 00:00:18,048
+Graphs, you don't really have hubs.
+That is, extremely well connected nodes.
+
+5
+00:00:18,048 --> 00:00:23,053
+What we'll talk about next is the
+emergence of the giant component in
+
+6
+00:00:23,053 --> 00:00:27,033
+Erdos-Renyi Random Graphs and also what
+their average shortest path is.
+
+7
+00:00:27,033 --> 00:00:34,085
+What I'd like you to do is to go to this
+app which is a net logo app, to look at
+
+8
+00:00:34,085 --> 00:00:41,072
+how the giant component comes about.
+In this model, when you click setup, it's
+
+9
+00:00:41,072 --> 00:00:45,062
+just going to start with a number of
+nodes.
+
+10
+00:00:45,062 --> 00:00:50,060
+So, here I've selected 80, maybe we should
+up that to.
+
+11
+00:00:50,060 --> 00:00:56,045
+Well, 500, yes that's a nice number.
+So we are going to the max, and if you
+
+12
+00:00:56,045 --> 00:01:03,002
+just click on go once, you'll be adding.
+Edges one by one, and this can take quite
+
+13
+00:01:03,002 --> 00:01:06,080
+a while.
+[laugh] So what you'd like to do it just
+
+14
+00:01:06,080 --> 00:01:13,045
+hit the go button with the little repeat
+and that will just continuously add edges.
+
+15
+00:01:13,045 --> 00:01:19,063
+And if this is, for whatever reason, too
+slow for you, you can turn the layout off
+
+16
+00:01:19,063 --> 00:01:25,066
+for a while, you can turn it back on, or
+you can accelerate by moving the speed
+
+17
+00:01:25,066 --> 00:01:29,083
+slider as well.
+And what you're looking for is, at what
+
+18
+00:01:29,083 --> 00:01:33,582
+point is the giant component going to
+start to emerge.
+
+19
+00:01:33,582 --> 00:01:39,161
+So that takes us to the next quiz.
+Which is just what is the average degree
+
+20
+00:01:39,161 --> 00:01:44,357
+of a node in the graph at the point where
+the giant component emerges?
+
+21
+00:01:44,357 --> 00:01:49,829
+And, if you remember from week one, the
+giant component is a component that
+
+22
+00:01:49,829 --> 00:01:54,507
+occupies a finite fraction of the graph as
+the graph grows.
+
+23
+00:01:54,507 --> 00:02:01,117
+So the idea is that, even for very large
+graphs, if you have a significant, well, a
+
+24
+00:02:01,117 --> 00:02:06,781
+fraction of the nodes being connected,
+then this is the giant component.
+
+25
+00:02:06,781 --> 00:02:13,794
+This is somewhat related to percolation,
+which is studied in physics.
+
+26
+00:02:13,794 --> 00:02:20,612
+So if you look at a 2D lattice, a
+percolation might look something like
+
+27
+00:02:20,612 --> 00:02:25,385
+this.
+If this is soil and, the, the gray areas
+
+28
+00:02:25,385 --> 00:02:32,067
+are actually where there's no soil, and so
+water can go through.
+
+29
+00:02:32,067 --> 00:02:40,206
+The question is, at what density of these
+empty cells, that is what fraction of all
+
+30
+00:02:40,206 --> 00:02:47,540
+the spots do they need to occupy, such
+that you start seeing the, the water
+
+31
+00:02:47,540 --> 00:02:52,979
+seeping through?
+So I'd like you to go to this model as
+
+32
+00:02:52,979 --> 00:03:01,426
+well, and I'll try to find it here, so you
+can, you know set, of a particular value
+
+33
+00:03:01,426 --> 00:03:06,764
+for P.
+Here we're going to have 25 percent of the
+
+34
+00:03:06,764 --> 00:03:14,255
+node, of the sites occupied, and we can
+set up the lattice, and here I can tell
+
+35
+00:03:14,255 --> 00:03:20,359
+that it's just too small, right?
+It doesn't, the water can't percolate
+
+36
+00:03:20,359 --> 00:03:24,435
+through.
+You can, instead of trying all possible
+
+37
+00:03:24,435 --> 00:03:29,518
+values, you can also systematically vary p
+from zero to one.
+
+38
+00:03:29,518 --> 00:03:34,316
+And so, here it is.
+So, what I'd like you to do is to answer
+
+39
+00:03:34,316 --> 00:03:40,041
+the following quiz question, which is
+just, what is the percolation threshold in
+
+40
+00:03:40,041 --> 00:03:44,259
+a two D lattice?
+What fraction of the sites need to be
+
+41
+00:03:44,259 --> 00:03:47,446
+occupied?
+And this then, is related to our problem
+
+42
+00:03:47,446 --> 00:03:52,734
+of the percolation threshold in the random
+graph, which is just going to tell us, at
+
+43
+00:03:52,734 --> 00:03:58,075
+what density of the network.
+And here we're really talking about, by
+
+44
+00:03:58,075 --> 00:04:04,004
+density, in this case, we mean the average
+degree of the, of each node.
+
+45
+00:04:04,004 --> 00:04:10,081
+At what average degree do you start to see
+a giant component, and in fact, you should
+
+46
+00:04:10,081 --> 00:04:16,569
+have seen that right around degree one is
+when the giant component starts to merge,
+
+47
+00:04:16,569 --> 00:04:21,191
+at first its going to look thoroughly
+stringy and tree-like, and then over time
+
+48
+00:04:21,191 --> 00:04:26,126
+its going to look more and more dense,
+over time meaning that you're adding more
+
+49
+00:04:26,126 --> 00:04:31,623
+and more edges.
+Another way of looking at this, which is
+
+50
+00:04:31,623 --> 00:04:37,601
+interesting from an [laugh]
+epidemiological perspective is that, you
+
+51
+00:04:37,601 --> 00:04:40,892
+know.
+You want to know how can the disease
+
+52
+00:04:40,892 --> 00:04:46,743
+spread through the network if people are
+connected, even if it's through several
+
+53
+00:04:46,743 --> 00:04:50,160
+hops.
+It means that, theoretically, the disease
+
+54
+00:04:50,160 --> 00:04:53,705
+could spread from person to person to
+person.
+
+55
+00:04:53,705 --> 00:04:58,044
+And there's a nice property of the degree
+distribution.
+
+56
+00:04:58,044 --> 00:05:04,070
+Because it has an exponential tail and an
+exponential distribution, will tell you
+
+57
+00:05:04,070 --> 00:05:09,808
+that the average degree of a node that you
+are connected to excluding yourself.
+
+58
+00:05:09,808 --> 00:05:16,324
+So, how many friends do they have besides
+you is the average degree in the network.
+
+59
+00:05:16,324 --> 00:05:21,895
+They might say, well, wait a second.
+How can they have the average number of
+
+60
+00:05:21,895 --> 00:05:25,683
+friends plus me?
+That's, like, average number plus one.
+
+61
+00:05:25,683 --> 00:05:28,937
+Well.
+The people you're connected to are
+
+62
+00:05:28,937 --> 00:05:32,492
+actually not average.
+If you think about it, the probability
+
+63
+00:05:32,492 --> 00:05:37,653
+that you're connected to someone who has
+three friends is three times as much as
+
+64
+00:05:37,653 --> 00:05:42,318
+the probability of being connected to
+someone who has just one friend.
+
+65
+00:05:42,318 --> 00:05:47,407
+So, indeed, your, [laugh], your friends do
+tend to be more popular than average.
+
+66
+00:05:47,407 --> 00:05:52,555
+Simply because more people knew them, and
+you're more likely to be one of those
+
+67
+00:05:52,555 --> 00:05:56,435
+people.
+And so, then when we return to this idea
+
+68
+00:05:56,435 --> 00:06:03,097
+of the giant component and the, and the
+percolation threshold what we're really
+
+69
+00:06:03,097 --> 00:06:10,081
+asking is, you know, I have a friend, what
+is, what is the average number of other
+
+70
+00:06:10,081 --> 00:06:15,006
+people that they know?
+If it's at least one other person on
+
+71
+00:06:15,006 --> 00:06:20,587
+average, then this chain can continue.
+And, you know, were likely to be a part of
+
+72
+00:06:20,587 --> 00:06:25,369
+this giant component through which
+information or disease etcetera can
+
+73
+00:06:25,369 --> 00:06:29,026
+spread.
+However, if my friend has fewer than one
+
+74
+00:06:29,026 --> 00:06:35,053
+other friend on average, then it's likely
+that this chain is just going to terminate
+
+75
+00:06:35,074 --> 00:06:40,050
+sooner rather than later.
+You might be asking, why is there always
+
+76
+00:06:40,050 --> 00:06:45,045
+just one giant component?
+Why can't the network accommodate several?
+
+77
+00:06:45,045 --> 00:06:51,039
+In the Erdos-Renyi Random Graph and many
+other networks, the giant component will
+
+78
+00:06:51,039 --> 00:06:57,010
+occupy some fraction of the network that
+scales linearly with the size of the, the
+
+79
+00:06:57,010 --> 00:06:59,096
+graph.
+It means it's some fraction of n.
+
+80
+00:06:59,096 --> 00:07:06,012
+And, all the other smaller components will
+occupy at least some factor times log n
+
+81
+00:07:06,033 --> 00:07:10,017
+nodes.
+That they'll incorporate that many nodes.
+
+82
+00:07:10,017 --> 00:07:16,029
+And the question is why, why is this?
+Well let's look at the counter-example.
+
+83
+00:07:16,029 --> 00:07:22,057
+What if we have two large components.
+If we were to continue adding edges how
+
+84
+00:07:22,057 --> 00:07:28,085
+long could they really stay separate
+before merging into one giant component?
+
+85
+00:07:28,085 --> 00:07:35,079
+So what I'd like you to do is to look at
+this particular net logo app with two
+
+86
+00:07:35,079 --> 00:07:39,015
+components.
+And what you'll be doing at first is,
+
+87
+00:07:39,015 --> 00:07:43,067
+you're going to keep them separate.
+So this switch is going to be on.
+
+88
+00:07:43,067 --> 00:07:47,019
+And you can select some number of nodes,
+80 is fine.
+
+89
+00:07:47,019 --> 00:07:52,071
+And then we're going to create the nodes
+and you're going to have the circles and
+
+90
+00:07:52,071 --> 00:07:56,014
+the squares.
+And while you're keeping them separate,
+
+91
+00:07:56,014 --> 00:08:01,066
+and you're adding edges, say one by one,
+they're only going to be occurring between
+
+92
+00:08:01,066 --> 00:08:04,048
+the circles and between the squares,
+right?
+
+93
+00:08:04,048 --> 00:08:07,037
+And so you're going to do this for a
+while.
+
+94
+00:08:07,037 --> 00:08:10,033
+You can kind of [laugh] let it evolve,
+right?
+
+95
+00:08:10,033 --> 00:08:15,054
+And what I'd like you to do then is to
+flip this switch, and this, and then add
+
+96
+00:08:15,054 --> 00:08:21,025
+edges one at a time and see how many edges
+do you need to add before these components
+
+97
+00:08:21,025 --> 00:08:26,056
+merge and hopefully that will help with
+some of the intuition about why we have
+
+98
+00:08:26,056 --> 00:08:31,007
+just one giant component.
+So this is basically the quiz I'd like you
+
+99
+00:08:31,007 --> 00:08:36,019
+to take, which is, tell me how many quakes
+it took before the components merge.
+
+100
+00:08:36,019 --> 00:08:41,006
+The next thing that we can figure out
+about our Erdos-Renyi Random Graph is the
+
+101
+00:08:41,006 --> 00:08:45,033
+average shortest path.
+And this is just how many hops on average
+
+102
+00:08:45,033 --> 00:08:50,087
+does it take between any pairs of nodes.
+So here I've circled two nodes in blue and
+
+103
+00:08:50,087 --> 00:08:54,061
+this is their average shortest path, it
+takes three hops.
+
+104
+00:08:54,061 --> 00:08:58,008
+One, two, three.
+And we would do this for all pairs of
+
+105
+00:08:58,008 --> 00:09:01,087
+nodes.
+Now what we want to know is can we use
+
+106
+00:09:01,087 --> 00:09:07,535
+knowledge about the average degree and
+properties of the order Erdos-Renyi Random
+
+107
+00:09:07,535 --> 00:09:14,027
+Graph to figure out how the average
+tortoise path should scale with the size
+
+108
+00:09:14,027 --> 00:09:17,302
+of the network.
+So, the calculation that we're going to
+
+109
+00:09:17,302 --> 00:09:22,445
+do, and its going to be an approximation.
+It's actually extremely difficult to
+
+110
+00:09:22,445 --> 00:09:27,804
+derive exact relationships for the.
+For, you know, the exact shortest path for
+
+111
+00:09:27,804 --> 00:09:32,558
+a particular model.
+But, for many of them you can figure out
+
+112
+00:09:32,558 --> 00:09:38,982
+what the general scaling is going to be.
+So the approach here is that you have a
+
+113
+00:09:38,982 --> 00:09:45,791
+node and it has some number of friends on
+average, so it might have say two friends
+
+114
+00:09:45,791 --> 00:09:51,863
+at distance one and four friends on
+average at distance four, and eight
+
+115
+00:09:51,863 --> 00:10:00,162
+friends on average at distance three if
+the average number of friends is, two.
+
+116
+00:10:00,162 --> 00:10:08,354
+And here I've, I've you know, I've made
+each branching point to two, but in
+
+117
+00:10:08,354 --> 00:10:14,440
+general, you know, some friends are going
+to have one other friend and other friends
+
+118
+00:10:14,440 --> 00:10:20,220
+are going to have three other friends.
+It's the basic idea is that at distance L,
+
+119
+00:10:20,220 --> 00:10:26,783
+you're going to have a number of L-th
+degree friends that's, that's proportional
+
+120
+00:10:26,783 --> 00:10:31,090
+to c to the l.
+And this makes the scaling of the average
+
+121
+00:10:31,090 --> 00:10:37,306
+shortest path equal to log n over log c.
+And again, this isn't an exact quantity
+
+122
+00:10:37,306 --> 00:10:42,680
+but a scaling and approximation.
+So, there's something very cool about
+
+123
+00:10:42,680 --> 00:10:46,470
+this, which is that.
+The graph can grow very, very large
+
+124
+00:10:46,470 --> 00:10:51,601
+meaning that it has lots and lots of
+nodes, and yet any two nodes are going to
+
+125
+00:10:51,601 --> 00:10:54,425
+be connected through a short number of
+hops.
+
+126
+00:10:54,425 --> 00:10:59,934
+So, here on the X axis I've plotted the
+number of nodes and on the Y axis we have
+
+127
+00:10:59,934 --> 00:11:05,590
+the average shortest path, and you can see
+that even as the network gets very large,
+
+128
+00:11:05,590 --> 00:11:11,002
+you get the shortest path growing slowly.
+It's growing only logarithmically.
+
+129
+00:11:11,002 --> 00:11:16,088
+So let's talk about logarithms for those
+of you who aren't as familiar about them.
+
+130
+00:11:16,088 --> 00:11:22,060
+As you exponentiate the number for example
+with two, two to zero power is one.
+
+131
+00:11:22,060 --> 00:11:25,081
+Two to the one is two.
+Two to the two is four.
+
+132
+00:11:25,081 --> 00:11:31,017
+Two to the three is eight.
+That exponent is what would happen [laugh]
+
+133
+00:11:31,017 --> 00:11:36,067
+is basically if you were to take the log
+base two of eight it would be three.
+
+134
+00:11:36,067 --> 00:11:41,007
+Right?
+So when you place numbers on a logarithmic
+
+135
+00:11:41,007 --> 00:11:46,047
+axis, what happens is that things that are
+powers of each others.
+
+136
+00:11:46,047 --> 00:11:51,003
+So, one and ten, and ten and 100 will be
+equally spaced.
+
+137
+00:11:51,003 --> 00:11:58,004
+And, so you'll be able to see exponential
+and logarithmic relationships between the
+
+138
+00:11:58,004 --> 00:12:02,084
+variables.
+So if we plot out the number of nodes on
+
+139
+00:12:02,084 --> 00:12:10,007
+the logarithmic axis, on the X axis, what
+we can see is then a straight line.
+
+140
+00:12:10,007 --> 00:12:17,057
+Meaning that this is the growth of the, of
+the average shortest path.
+
+141
+00:12:17,057 --> 00:12:22,630
+It's something like log n.
+And so, just to quiz you, I'd like to know
+
+142
+00:12:22,630 --> 00:12:28,733
+what happens to the, the average shortest
+path in an Erdos-Renyi graph when it, when
+
+143
+00:12:28,733 --> 00:12:34,341
+the number of nodes increases 100 fold.
+So, for example, you go from 100 nodes to
+
+144
+00:12:34,341 --> 00:12:38,121
+10,000 nodes.
+What will be the proportional change in
+
+145
+00:12:38,121 --> 00:12:45,559
+the average shortest path?
+The second aspect that I'd like to discuss
+
+146
+00:12:45,559 --> 00:12:52,263
+in addition to all of the neat things that
+we can predict with our Erdos-Renyi model
+
+147
+00:12:52,263 --> 00:12:56,000
+is the question of how realistic it is.
+So.
+
+148
+00:12:56,000 --> 00:13:02,037
+We're going to consider some alternative
+models, alternative ways of generating
+
+149
+00:13:02,037 --> 00:13:09,013
+graphs and we're going to compare them in
+a series of little quizzes to what you
+
+150
+00:13:09,013 --> 00:13:12,091
+would see with an equivalent Erdos-Renyi
+graph.
+
+151
+00:13:12,091 --> 00:13:17,099
+So, I would like you to go to this
+particular [inaudible] model.
+
+152
+00:13:18,023 --> 00:13:21,077
+And so let me just go to that model in
+fact.
+
+153
+00:13:21,077 --> 00:13:28,556
+Okay, so in this model, you can you know,
+generate your regular Erdos-Renyi random
+
+154
+00:13:28,556 --> 00:13:31,692
+graph.
+It's reporting several things back to you.
+
+155
+00:13:31,692 --> 00:13:36,646
+So here's the degree distribution, the
+size of the giant component, the average
+
+156
+00:13:36,646 --> 00:13:41,079
+degree and the average shortest path
+within the giant component.
+
+157
+00:13:41,079 --> 00:13:46,383
+So probably you want to start off with
+using probabilities, p in stead of the
+
+158
+00:13:46,383 --> 00:13:50,706
+number which is the number, average number
+of neighbors that you want in your
+
+159
+00:13:50,706 --> 00:13:53,521
+network.
+And you can lay out this network and
+
+160
+00:13:53,521 --> 00:13:59,082
+there's some parameters you can change.
+For example the, the length of the script.
+
+161
+00:13:59,082 --> 00:14:03,001
+Things or the repulsion strand, and even
+the spring constant.
+
+162
+00:14:03,001 --> 00:14:05,605
+And you can see how all of those work out
+for you.
+
+163
+00:14:05,605 --> 00:14:10,533
+The main point is just that you see a
+little bit of the network structure and
+
+164
+00:14:10,533 --> 00:14:15,447
+you can evaluate what the model is doing.
+Now, the first model that we'll be looking
+
+165
+00:14:15,447 --> 00:14:21,266
+at is the introduction model.
+In the Erdos-Renyi model what you have is
+
+166
+00:14:21,266 --> 00:14:27,775
+just nodes, forming edges at random in you
+might think well in a social net work may
+
+167
+00:14:27,775 --> 00:14:33,325
+be that's not that realistic certainly
+some encounters are random however lot of
+
+168
+00:14:33,325 --> 00:14:36,230
+people we meet through our friends.
+So.
+
+169
+00:14:36,230 --> 00:14:42,444
+Keeping the same probability of linking,
+what I'd like you to do is, C asked you
+
+170
+00:14:42,444 --> 00:14:47,568
+vary this probability of being introduced
+to your friends.
+
+171
+00:14:47,568 --> 00:14:52,933
+So if it's zero, it means all of your
+edges are purely random.
+
+172
+00:14:52,933 --> 00:14:57,893
+So it should look really similar to any
+Erdos-Renyi graph.
+
+173
+00:14:57,893 --> 00:15:05,442
+However, if you increase this probability,
+most of the introductions most of the
+
+174
+00:15:05,442 --> 00:15:10,459
+edges that you get should occur through
+introductions.
+
+175
+00:15:10,459 --> 00:15:17,546
+And so, you may want to compare the
+structures, so let's see what the quiz
+
+176
+00:15:17,546 --> 00:15:19,458
+asks.
+This is our model.
+
+177
+00:15:19,458 --> 00:15:25,076
+We want to know relative to the
+Erdos-Renyi random graph whether there is
+
+178
+00:15:25,076 --> 00:15:31,107
+difference in the number of edges, in the
+number of clues triads that, these guys
+
+179
+00:15:31,107 --> 00:15:34,403
+were all three people linked to each
+other.
+
+180
+00:15:34,403 --> 00:15:39,639
+The average shortest path, the degree
+distribution and the size of the giant
+
+181
+00:15:39,639 --> 00:15:44,004
+component.
+The next model, we'll contain, we'll
+
+182
+00:15:44,004 --> 00:15:47,020
+consider, is the static geographical
+model.
+
+183
+00:15:47,020 --> 00:15:53,029
+So each node is going to try to connect to
+some number of it's closest neighbors.
+
+184
+00:15:53,029 --> 00:15:59,075
+Some nodes may end up with more neighbors,
+simply because a lot of others were close
+
+185
+00:15:59,075 --> 00:16:05,009
+to it and not, you know, but it already
+had it's three closest neighbors.
+
+186
+00:16:05,009 --> 00:16:08,092
+And for this one, we'll want to turn off
+the layout.
+
+187
+00:16:08,092 --> 00:16:13,044
+Just so we can actually see, the, the
+geography at work.
+
+188
+00:16:13,044 --> 00:16:19,015
+I'm going to also switch to the null
+neighbors of determining the density of
+
+189
+00:16:19,015 --> 00:16:22,084
+the graph.
+And so I'm just going to just click on
+
+190
+00:16:22,084 --> 00:16:28,071
+stat to you and just highlighting the
+largest connected component here in red.
+
+191
+00:16:28,071 --> 00:16:34,197
+And what we'd like to know about this one
+let's see what our, oops.
+
+192
+00:16:34,197 --> 00:16:39,061
+What our quiz is.
+We would like to know relative to the
+
+193
+00:16:39,061 --> 00:16:43,955
+Erdos-Renyi random graph, whether this
+kind of static geographical,
+
+194
+00:16:43,955 --> 00:16:49,809
+geographically generated graph has longer,
+shorter, average shortest paths broader
+
+195
+00:16:49,809 --> 00:16:55,089
+and narrower degree distribution and
+smaller or larger giant components.
+
+196
+00:16:55,089 --> 00:17:01,075
+So, to compare something like that all you
+would do is, without changing any other
+
+197
+00:17:01,075 --> 00:17:07,052
+parameters, you would click on Erdos-Renyi
+to generate an equivalent Erdos-Renyi
+
+198
+00:17:07,052 --> 00:17:12,048
+random graph and then you would look at
+the size of its giant component, average
+
+199
+00:17:12,048 --> 00:17:16,027
+degree, average shortest path, to contrast
+with the other model.
+
+200
+00:17:16,027 --> 00:17:19,082
+So going back.
+The next one that we will consider is the
+
+201
+00:17:19,082 --> 00:17:23,080
+random encounter model.
+This is somewhat similar to the static
+
+202
+00:17:23,080 --> 00:17:27,071
+geographic model, [laugh].
+Except that it's not static.
+
+203
+00:17:27,071 --> 00:17:32,058
+So, people moved around but those
+encounters have to do whether they were
+
+204
+00:17:32,058 --> 00:17:36,075
+proximate to other people.
+In fact, if they kind of bump into each
+
+205
+00:17:36,075 --> 00:17:41,036
+other, it's when they form an edge.
+And then they can kind of like wander
+
+206
+00:17:41,036 --> 00:17:45,008
+around from there, but they, they still
+retain that edge.
+
+207
+00:17:45,008 --> 00:17:48,067
+And again, we want to compare with the
+Erdos-Renyi Random Graph.
+
+208
+00:17:48,067 --> 00:17:53,048
+So for this, I also want to, at least
+initially, turn off the layout function.
+
+209
+00:17:53,048 --> 00:17:58,084
+I'm going to click on random encounter,
+and see, for example, if the number of
+
+210
+00:17:58,084 --> 00:18:04,020
+neighbors is two, what is the, what does
+the resulting structure look like.
+
+211
+00:18:04,020 --> 00:18:09,085
+I can apply the layout algorithm and I
+want to, you know, for this one, you may
+
+212
+00:18:09,085 --> 00:18:14,057
+want to see what happens if you have an
+average degree of three.
+
+213
+00:18:14,057 --> 00:18:21,677
+Right, and we want to look at this network
+relative to the equivalent Erdos-Renyi,
+
+214
+00:18:21,677 --> 00:18:25,419
+right?
+And so again, we want to answer very
+
+215
+00:18:25,419 --> 00:18:32,043
+similar questions about, now are there
+more fewer clues triodes, is there a
+
+216
+00:18:32,043 --> 00:18:36,923
+smaller or a larger giant component
+relative to the Erdos-Renyi.
+
+217
+00:18:36,923 --> 00:18:40,036
+The next model we'll look at is a growth
+model.
+
+218
+00:18:40,036 --> 00:18:45,005
+Here, instead of having all the nodes
+present upfront, as we do with the
+
+219
+00:18:45,005 --> 00:18:49,028
+Erdos-Renyi model, we're going to be
+adding them over time just,
+
+220
+00:18:49,028 --> 00:18:53,005
+intermittently, along with the edges that
+are being added.
+
+221
+00:18:53,005 --> 00:18:56,015
+So you might ask, well, okay, what does
+that mean?
+
+222
+00:18:56,015 --> 00:18:59,099
+Nodes that have been around longer, do
+they get more edges?
+
+223
+00:18:59,099 --> 00:19:03,078
+We shall see.
+So in the growth model you're just
+
+224
+00:19:03,078 --> 00:19:08,078
+clicking I won't switch to that model well
+I guess I might as well.
+
+225
+00:19:08,078 --> 00:19:14,081
+Okay so you just click on growth and
+you're going to be similarly looking for
+
+226
+00:19:14,081 --> 00:19:18,031
+things such as the presence or absence of
+hubs.
+
+227
+00:19:18,031 --> 00:19:21,861
+So again looking at the degree
+distribution and also looking at the size
+
+228
+00:19:21,861 --> 00:19:26,479
+of the giant component relative to the
+Erdos-Renyi Random Graph.
+
+229
+00:19:26,479 --> 00:19:32,370
+What we've learned from these other models
+I hope is that in some instances the
+
+230
+00:19:32,370 --> 00:19:37,270
+Erdos-Renyi model might be possible and it
+might match these other dynamics.
+
+231
+00:19:37,270 --> 00:19:41,390
+So maybe the size of the giant component
+wasn't that different.
+
+232
+00:19:41,390 --> 00:19:46,343
+Maybe the degree distribution was similar.
+However sometimes these different dynamics
+
+233
+00:19:46,343 --> 00:19:48,739
+actually led to different graph
+properties.
+
+234
+00:19:48,739 --> 00:19:54,047
+And so what we'll look at next is some
+alternative models more formally that can
+
+235
+00:19:54,047 --> 00:19:59,001
+explain some of the things such as degree
+distributions observed in real world
+
+236
+00:19:59,001 --> 00:20:04,079
+networks that don't quite match the
+Erdos-Renyi binomial degree distribution.

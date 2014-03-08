@@ -1,0 +1,1104 @@
+
+1
+00:00:00,000 --> 00:00:03,013
+Hello.
+Welcome to week two of Social Network
+
+2
+00:00:03,013 --> 00:00:06,062
+Analysis.
+This week we'll be focusing on modeling
+
+3
+00:00:06,062 --> 00:00:10,054
+social networks.
+Now why would you want to model social
+
+4
+00:00:10,054 --> 00:00:14,024
+networks?
+Just last week we showed how you can learn
+
+5
+00:00:14,024 --> 00:00:19,080
+many interesting things just by analyzing
+the network structure of real world
+
+6
+00:00:19,080 --> 00:00:21,094
+networks.
+What good is a model?
+
+7
+00:00:21,094 --> 00:00:27,026
+Well a model is going to be a simple
+representation of that real world complex
+
+8
+00:00:27,026 --> 00:00:32,073
+network and it's going to allow you to
+test certain assumptions because in order
+
+9
+00:00:32,073 --> 00:00:38,019
+to formulate your model you have implement
+those assumptions and see whether the
+
+10
+00:00:38,019 --> 00:00:43,066
+network that is generated from your model
+in any way resembles the real world
+
+11
+00:00:43,066 --> 00:00:48,018
+network that you're seeing.
+So for example if you were looking at a
+
+12
+00:00:48,018 --> 00:00:52,642
+social network and you discovered that
+some people had many more friends than
+
+13
+00:00:52,642 --> 00:00:55,386
+others.
+You could say oh, well I think that.
+
+14
+00:00:55,386 --> 00:00:58,975
+What's leading to this is just a random
+fluctuation.
+
+15
+00:00:58,975 --> 00:01:04,470
+So people meet and form edges at random
+and some people are going to have more
+
+16
+00:01:04,470 --> 00:01:09,010
+edges and some people are going to have
+fewer edges and that's my model.
+
+17
+00:01:09,010 --> 00:01:12,023
+It's going to be a completely random graph
+model.
+
+18
+00:01:12,023 --> 00:01:15,036
+Well, what happens next is that you can
+test this.
+
+19
+00:01:15,036 --> 00:01:20,054
+You can generate networks according to
+your model and see if indeed you get some
+
+20
+00:01:20,054 --> 00:01:23,079
+individuals who have many more friends
+than others.
+
+21
+00:01:23,079 --> 00:01:28,145
+If this doesn't happen you know if your
+model can't reproduce the, the
+
+22
+00:01:28,145 --> 00:01:33,011
+distribution of degrees that you see in
+the real network, well, that means that
+
+23
+00:01:33,011 --> 00:01:37,169
+your model needs to be adjusted.
+That the way you're thinking about the
+
+24
+00:01:37,169 --> 00:01:41,838
+world and the way that friendship
+formation functions is actually not, not
+
+25
+00:01:41,838 --> 00:01:44,866
+what you thought.
+Your model needs to be extended.
+
+26
+00:01:44,866 --> 00:01:48,586
+These kinds of models also often just
+serve as a straw man.
+
+27
+00:01:48,586 --> 00:01:51,699
+Right?
+So you know that the model, it's not, it's
+
+28
+00:01:51,699 --> 00:01:55,393
+not realistic, right?
+People don't just meet at random but you'd
+
+29
+00:01:55,393 --> 00:02:00,504
+like to know exactly how your network is
+different from such a random network, and
+
+30
+00:02:00,504 --> 00:02:05,779
+that gives you further insight about the
+measurements that you're taking on your
+
+31
+00:02:05,779 --> 00:02:09,069
+real world network.
+Because, if your real world network is
+
+32
+00:02:09,069 --> 00:02:13,691
+looking very similar to the, to say, a
+random graph model, you can see, there's
+
+33
+00:02:13,691 --> 00:02:18,227
+not much interest in going on, here.
+But if it looks very different, if the
+
+34
+00:02:18,227 --> 00:02:22,879
+number Numbers you get from the model
+versus the numbers you get in your real
+
+35
+00:02:22,879 --> 00:02:27,847
+network are very divergent then you can
+say uh-huh, this an interesting feature
+
+36
+00:02:27,847 --> 00:02:32,062
+of, of my real world network, and that is
+what I will pursue further.
+
+37
+00:02:32,062 --> 00:02:38,009
+This very basic network model was first
+formulated by Erdos and Renyi.
+
+38
+00:02:38,009 --> 00:02:41,850
+They're two Hungarian mathematicians,
+Erdos was an eccentric.
+
+39
+00:02:41,850 --> 00:02:47,064
+He was very, very productive.
+He traveled from conference to conference,
+
+40
+00:02:47,064 --> 00:02:52,581
+from one collaborator's door to the next,
+saying, my mind is open, let's write some
+
+41
+00:02:52,581 --> 00:02:55,814
+papers.
+And after he would finish the papers he
+
+42
+00:02:55,814 --> 00:03:00,474
+would move on to the next place.
+There's actually a network, of coauthors
+
+43
+00:03:00,474 --> 00:03:06,090
+that it's prestigious to be close to Erdos
+and so if you have an Erdos number of one,
+
+44
+00:03:06,090 --> 00:03:10,065
+it means you are one of his many, many
+direct collaborators.
+
+45
+00:03:10,065 --> 00:03:15,041
+If you have an Erdos number of two, it
+means you are a collaborator of a
+
+46
+00:03:15,041 --> 00:03:18,096
+collaborator.
+So people like to calculate their Erdos
+
+47
+00:03:18,096 --> 00:03:21,088
+number.
+Mine is four by the way, which isn't
+
+48
+00:03:21,088 --> 00:03:26,014
+impressive at all.
+He collaborated a lot with Renyi, who, is
+
+49
+00:03:26,014 --> 00:03:31,099
+actually credited with the quote,
+mathematicians are just machines that, who
+
+50
+00:03:31,099 --> 00:03:37,044
+turn coffee into theorems.
+He and Erdos were very, productive, and
+
+51
+00:03:37,044 --> 00:03:43,060
+among their 32 publications are several
+well known ones on the Erdos and Renyi
+
+52
+00:03:43,060 --> 00:03:49,037
+random graph model, where they could
+exactly derive a lot of results about
+
+53
+00:03:49,037 --> 00:03:54,066
+precisely this model of a network where
+you connect nodes at random.
+
+54
+00:03:56,016 --> 00:04:01,091
+There basically very few assumptions here
+besides the size of the network, the
+
+55
+00:04:01,091 --> 00:04:06,027
+number of nodes.
+You just have the probability that any two
+
+56
+00:04:06,027 --> 00:04:09,066
+nodes are connected.
+This is the probability P.
+
+57
+00:04:09,066 --> 00:04:15,033
+An alternative formulation is that you
+determine the total number of edges, M.
+
+58
+00:04:15,033 --> 00:04:20,094
+And, the mathematical treatment is a
+little bit more difficult in the second
+
+59
+00:04:20,094 --> 00:04:24,003
+case.
+And in any case, the two formulations
+
+60
+00:04:24,003 --> 00:04:27,043
+become very similar once the network is
+large.
+
+61
+00:04:27,043 --> 00:04:32,033
+So we'll focus on the first one, where
+you're just fixing the probability that
+
+62
+00:04:32,033 --> 00:04:36,044
+any two nodes are connected.
+What do these networks look like?
+
+63
+00:04:36,044 --> 00:04:41,079
+Here, I've laid out the nodes on a circle.
+Just, I think it's twenty nodes.
+
+64
+00:04:41,079 --> 00:04:47,013
+And I've added some edges at random.
+As we learned last week, sometimes a
+
+65
+00:04:47,013 --> 00:04:53,025
+layout is more effective if nodes that are
+directly connected are close to each other
+
+66
+00:04:53,025 --> 00:04:58,031
+in the layout, so I applied a spring
+layout algorithm, and got this very
+
+67
+00:04:58,031 --> 00:05:01,094
+typical shape of, of an Erdos-Renyi random
+graph.
+
+68
+00:05:01,094 --> 00:05:06,573
+The first thing that we can derive for
+the, Erdos-Renyi random graph is its
+
+69
+00:05:06,573 --> 00:05:11,071
+degree distribution.
+This tells us how many nodes in the
+
+70
+00:05:11,071 --> 00:05:15,495
+network have no neighbors?
+How many of them have one neighbor?
+
+71
+00:05:15,495 --> 00:05:18,467
+How many of them have two neighbors,
+etcetera?
+
+72
+00:05:18,467 --> 00:05:21,007
+It's going to get a little bit
+mathematical.
+
+73
+00:05:21,007 --> 00:05:26,328
+But if you've ever had basic probability
+and statistics, you recognize the binomial
+
+74
+00:05:26,328 --> 00:05:28,326
+distribution.
+This is all it is.
+
+75
+00:05:28,326 --> 00:05:31,949
+And, if you've never had, this level of
+math, don't worry.
+
+76
+00:05:31,949 --> 00:05:36,832
+It's not, what I'm going to say, you can
+also build just through intuition and
+
+77
+00:05:36,832 --> 00:05:41,568
+through playing with the demo.
+So it's not that you have to derive the
+
+78
+00:05:41,568 --> 00:05:44,916
+binomial distribution from scratch or
+anything like that.
+
+79
+00:05:44,916 --> 00:05:50,527
+I'm bringing it in more just to show, hey,
+if you're a mathematician, there's a whole
+
+80
+00:05:50,527 --> 00:05:56,024
+lot of interesting things and properties
+you can derive about networks.
+
+81
+00:05:56,024 --> 00:06:01,021
+And actually I, I'm just going to be
+scratching the, the surface of that.
+
+82
+00:06:01,021 --> 00:06:06,031
+So that, that is the, the goal.
+To illustrate how you can intuit some
+
+83
+00:06:06,031 --> 00:06:10,001
+properties when you have a nice model of
+the network.
+
+84
+00:06:10,001 --> 00:06:16,081
+So, again our model is we have N nodes
+and, with probability P, we add an edge
+
+85
+00:06:16,081 --> 00:06:22,081
+between every pair of nodes.
+So we're, we're kind of flipping a coin.
+
+86
+00:06:22,081 --> 00:06:24,042
+Right?
+So, one node.
+
+87
+00:06:24,042 --> 00:06:27,088
+Out of the N, it's going to look at the N
+minus one other nodes.
+
+88
+00:06:27,088 --> 00:06:32,050
+And for each one it's going to flip a coin
+to see whether they're going to share an
+
+89
+00:06:32,050 --> 00:06:35,091
+edge or not.
+Now, to test your understanding, I'd like
+
+90
+00:06:35,091 --> 00:06:40,039
+you to imagine a network.
+And you're keeping the probability that
+
+91
+00:06:40,039 --> 00:06:44,080
+any two nodes are connected.
+The value P, you're holding constant.
+
+92
+00:06:44,080 --> 00:06:49,035
+And you're increasing the size of the
+network, the number of nodes.
+
+93
+00:06:49,035 --> 00:06:53,055
+I want you to think about what happens to
+the average degree.
+
+94
+00:06:53,055 --> 00:06:57,034
+How many other nodes on average, is a node
+connected to?
+
+95
+00:06:57,034 --> 00:07:01,006
+To help you with this, I have created a
+net logo model.
+
+96
+00:07:01,006 --> 00:07:04,002
+So let me just try and get into that
+model.
+
+97
+00:07:04,002 --> 00:07:09,038
+And, what you're going to do is you're
+going to make sure that this probability
+
+98
+00:07:09,038 --> 00:07:14,018
+or not is sent to probability.
+You're going to have, you're not going to
+
+99
+00:07:14,018 --> 00:07:18,079
+use this number of neighbors.
+You're going to fix the probability of
+
+100
+00:07:18,079 --> 00:07:21,224
+linking.
+Here, I'm just made it two percent in
+
+101
+00:07:21,224 --> 00:07:27,593
+order to start with 100 nodes, so I'm just
+going to click this Erdos-Renyi button and
+
+102
+00:07:27,593 --> 00:07:32,024
+maybe I'll let it lay out, just to see
+what it looks like.
+
+103
+00:07:32,024 --> 00:07:37,061
+So let me try that a few more times and
+here I see the average degree.
+
+104
+00:07:37,061 --> 00:07:43,037
+Now I'll increase this to maybe 300 and
+generate another Erdos-Renyi random graph.
+
+105
+00:07:43,037 --> 00:07:46,083
+I'm also going to look at the average
+degree.
+
+106
+00:07:47,006 --> 00:07:52,081
+I might do that a few more times and.
+I might increase to almost 1000 nodes.
+
+107
+00:07:52,081 --> 00:07:56,002
+Again, generating Erdos-Renyi Random
+Graph.
+
+108
+00:07:56,025 --> 00:08:00,014
+Has to work a little bit harder for a
+larger graph.
+
+109
+00:08:00,014 --> 00:08:04,034
+And then I'm going to, again, look at the
+average degree.
+
+110
+00:08:04,034 --> 00:08:09,000
+So see if you can understand what's going
+on in, in this case.
+
+111
+00:08:09,000 --> 00:08:14,016
+Now that we've seen what these random
+networks characteristically look like, we
+
+112
+00:08:14,016 --> 00:08:18,020
+can return to the problem of deriving the
+degree distribution.
+
+113
+00:08:18,020 --> 00:08:23,010
+The degree distribution is just a
+probability distribution that's going to
+
+114
+00:08:23,010 --> 00:08:26,023
+say, the probability that a node has
+degree zero.
+
+115
+00:08:26,023 --> 00:08:29,003
+Meaning no neighbors is a certain
+quantity.
+
+116
+00:08:29,003 --> 00:08:34,051
+The probability that it has a one is this.
+The probability that it has two neighbors,
+
+117
+00:08:34,051 --> 00:08:39,021
+it's something else, etcetera.
+So this is our, probability distribution.
+
+118
+00:08:39,021 --> 00:08:42,053
+And the probabilities, of course, have to
+sum to one.
+
+119
+00:08:42,086 --> 00:08:48,083
+Back to how this might happen if we are
+doing a little thought experiment is that,
+
+120
+00:08:48,083 --> 00:08:54,038
+the each node is looking at the n-1 other
+nodes and its flipping a biased coin,
+
+121
+00:08:54,038 --> 00:08:59,086
+which was probability P is going to say,
+link to that particular node and with
+
+122
+00:08:59,086 --> 00:09:03,045
+probability 1-P is going to say uh-uh, not
+that one.
+
+123
+00:09:03,045 --> 00:09:08,095
+And the distribution that describes this
+process exactly, the coin flipping, is the
+
+124
+00:09:08,095 --> 00:09:13,011
+binomial distribution.
+So what we're interested in is out of n-1
+
+125
+00:09:13,011 --> 00:09:17,081
+tries, what is the probability that k of
+them are successful.
+
+126
+00:09:17,081 --> 00:09:23,038
+That is, what is the probability that the
+node will have degree k and first we need
+
+127
+00:09:23,038 --> 00:09:28,096
+to know the number of different ways that
+we can choose k nodes out of n minus one.
+
+128
+00:09:28,096 --> 00:09:33,696
+This is the binomial coefficient times the
+probability that you succeeded k times,
+
+129
+00:09:33,696 --> 00:09:38,078
+which is p to the k times the probability
+that you failed.
+
+130
+00:09:38,078 --> 00:09:44,022
+N minus one minus k times, which is one
+minus p to the n minus one minus k.
+
+131
+00:09:44,022 --> 00:09:47,039
+So lets do a little bit of comprehension
+here.
+
+132
+00:09:47,039 --> 00:09:52,050
+So, what is the maximum degree that a node
+can have in a graph that has n nodes?
+
+133
+00:09:52,050 --> 00:09:57,087
+And here we're assuming that the graph is
+simple, meaning that there, you can't have
+
+134
+00:09:57,087 --> 00:10:02,053
+multiple edges between two nodes.
+It's like two people can only have one
+
+135
+00:10:02,053 --> 00:10:05,064
+friendship.
+They can't have two or three or four
+
+136
+00:10:05,064 --> 00:10:09,436
+friendships between them.
+So, and this is the kind of graph that
+
+137
+00:10:09,436 --> 00:10:14,668
+Erdos and Renyi model random graph.
+So what is the maximum degree in this
+
+138
+00:10:14,668 --> 00:10:17,614
+case?
+Let's delve a little bit more into the
+
+139
+00:10:17,614 --> 00:10:21,814
+binomial distribution.
+For a lot of you, this will be a review of
+
+140
+00:10:21,814 --> 00:10:24,760
+basic probability, but let's do it
+nonetheless.
+
+141
+00:10:24,760 --> 00:10:29,604
+So imagine that you have an eight node
+graph with a probability P of any two
+
+142
+00:10:29,604 --> 00:10:33,655
+nodes being connected.
+What we'd like to know is what is the
+
+143
+00:10:33,655 --> 00:10:37,586
+probability that any given node is
+connected to four others?
+
+144
+00:10:37,586 --> 00:10:43,104
+And we're going to color those blue, and
+the three nodes that it's not connected to
+
+145
+00:10:43,104 --> 00:10:47,975
+we're going to color white.
+First we need the binomial coefficient,
+
+146
+00:10:47,975 --> 00:10:54,080
+which is going to say what is the number
+of ways you can choose four out of seven?
+
+147
+00:10:54,080 --> 00:10:59,353
+Well, you can imagine first that you can
+uniquely identify all the nodes.
+
+148
+00:10:59,353 --> 00:11:05,229
+So that it matters whether, you know, A
+goes first, B goes second, or B goes
+
+149
+00:11:05,229 --> 00:11:07,338
+first, A goes second.
+Right?
+
+150
+00:11:07,338 --> 00:11:11,145
+And there are.
+Seven factorial different ways of making
+
+151
+00:11:11,145 --> 00:11:17,207
+such an ordering because for the first
+spot you have seven traces, for the second
+
+152
+00:11:17,207 --> 00:11:22,503
+spot you have the remaining six, third
+spot you have remaining five etcetera.
+
+153
+00:11:22,503 --> 00:11:28,079
+So this is seven factorial, if you could
+distinguish all of the nodes separately,
+
+154
+00:11:28,079 --> 00:11:34,863
+but what we are saying is that, we don't.
+We only have, we're only distinguishing at
+
+155
+00:11:34,863 --> 00:11:38,648
+the level of whether a trial was
+successful or not.
+
+156
+00:11:38,648 --> 00:11:44,163
+So whether a node is white or blue.
+Which means that the three white nodes are
+
+157
+00:11:44,163 --> 00:11:49,113
+just completely swappable.
+So our seven factorial is now divided by a
+
+158
+00:11:49,113 --> 00:11:54,631
+three factorial in the denominator which
+is the number of different arrangements
+
+159
+00:11:54,631 --> 00:11:59,579
+that we now don't distinguish between.
+Similarly for the nodes that we did
+
+160
+00:11:59,579 --> 00:12:04,857
+connect to, there are four factorial
+different ways of ordering them and now we
+
+161
+00:12:04,857 --> 00:12:07,690
+don't care about their particular
+ordering.
+
+162
+00:12:07,690 --> 00:12:11,750
+So we have another factor of four
+factorial in the denominator.
+
+163
+00:12:11,750 --> 00:12:17,734
+So in general, this binomial coefficient
+of choosing, for example here, k items out
+
+164
+00:12:17,734 --> 00:12:22,995
+of n-1, is going to be n-1 factorial in
+the numerator, k factorial in the
+
+165
+00:12:22,995 --> 00:12:27,628
+denominator, N minus one minus K factorial
+in the denominator as well.
+
+166
+00:12:27,628 --> 00:12:31,715
+And there should be.
+Parenthesis around the n minus one.
+
+167
+00:12:31,715 --> 00:12:35,177
+Sorry about that.
+So let's test our understanding.
+
+168
+00:12:35,177 --> 00:12:39,952
+What is the number of ways of choosing two
+items out of five?
+
+169
+00:12:39,952 --> 00:12:47,034
+Now let's get back to the distribution.
+Imagine that we have a certain way of
+
+170
+00:12:47,034 --> 00:12:51,933
+choosing the k out of n-1 so here it's
+four out of seven.
+
+171
+00:12:51,933 --> 00:12:57,194
+For example, if it was white, white, blue,
+blue, blue, white, blue, what we would
+
+172
+00:12:57,194 --> 00:13:02,800
+have for the probability of that
+particular event is one minus p, times one
+
+173
+00:13:02,800 --> 00:13:08,028
+minus p, times p, times p, times p, time
+one, times one minus p, times p, right?
+
+174
+00:13:08,028 --> 00:13:11,085
+So p to the fourth, times one minus p to
+the third.
+
+175
+00:13:11,085 --> 00:13:17,040
+And once we don't care about the
+particular order of white and blue, we add
+
+176
+00:13:17,040 --> 00:13:22,760
+the binomial coefficient back in.
+So, in the end, the binomial distribution
+
+177
+00:13:22,760 --> 00:13:29,395
+tells us that the probability of this
+particular node having degree four in our
+
+178
+00:13:29,395 --> 00:13:36,210
+eight node probability p graph is 72 score
+P to the fourth, one - p to the third, to
+
+179
+00:13:36,210 --> 00:13:38,073
+the third.
+And, that's it.
+
+180
+00:13:38,073 --> 00:13:42,073
+That's how it works.
+If P is equals to .5, you get, this very
+
+181
+00:13:42,073 --> 00:13:48,055
+symmetric looking distribution, where it's
+most likely that the node will have degree
+
+182
+00:13:48,055 --> 00:13:51,084
+three or four.
+But also, it could end up with low
+
+183
+00:13:51,084 --> 00:13:57,045
+probability, with no neighbors at all, or
+connected to all seven of the other nodes.
+
+184
+00:13:57,045 --> 00:14:02,086
+If, however, the probability is only a
+tenth, then you have a distribution that's
+
+185
+00:14:02,086 --> 00:14:06,090
+much more skewed.
+It's much more likely that a node will be
+
+186
+00:14:06,090 --> 00:14:11,001
+connected to no others.
+And very unlikely that it would have
+
+187
+00:14:11,001 --> 00:14:16,064
+anything past, degree four.
+Once you have this distribution, the well
+
+188
+00:14:16,064 --> 00:14:22,003
+known property such as the mean, the mean
+is going to give us the average degree,
+
+189
+00:14:22,003 --> 00:14:27,075
+from the binomial distribution we can tell
+that this average degree Z is going to be
+
+190
+00:14:27,075 --> 00:14:31,080
+equal to n - one times P.
+And in general if you had an arbitrary
+
+191
+00:14:31,080 --> 00:14:37,012
+degree distribution, the way that you
+could calculate the mean, if you just take
+
+192
+00:14:37,012 --> 00:14:43,008
+the expected value which is the sum over
+all the possible outcomes here, we're
+
+193
+00:14:43,008 --> 00:14:48,012
+interested in the degree X times the
+probability of X occurring.
+
+194
+00:14:48,077 --> 00:14:53,072
+To test our understanding, let's see what
+the average degree would be of a graph
+
+195
+00:14:53,072 --> 00:14:58,024
+with ten nodes, where the probability of
+any two nodes linking is a third.
+
+196
+00:14:59,050 --> 00:15:04,095
+You can similarly complete the variance
+for the binomial distribution to variance,
+
+197
+00:15:04,095 --> 00:15:09,088
+which is just the standard deviation
+squared, would be n minus one times p
+
+198
+00:15:09,088 --> 00:15:13,047
+times one minus p.
+And it's computed in a very similar
+
+199
+00:15:13,047 --> 00:15:19,006
+fashion so we, we won't have to do this in
+any assignments or anything like that, but
+
+200
+00:15:19,006 --> 00:15:24,036
+in general you have the expected.
+A value of X minus the mean squared, which
+
+201
+00:15:24,036 --> 00:15:29,069
+is the definition of variance, is just
+this quantity summed over all possible
+
+202
+00:15:29,069 --> 00:15:34,087
+values of X times the probability of each
+particular value that X can take.
+
+203
+00:15:36,063 --> 00:15:41,046
+The binomial distribution gets quite
+impractical to compute, because the
+
+204
+00:15:41,046 --> 00:15:46,061
+binomial coefficient having those
+factorials in there just can't be computed
+
+205
+00:15:46,061 --> 00:15:50,057
+for very large numbers.
+So you typically use approximations.
+
+206
+00:15:50,057 --> 00:15:55,025
+So, in the limit of p being small, you can
+use the Poisson distribution.
+
+207
+00:15:55,025 --> 00:15:58,036
+And then the limit of, the graph being
+large.
+
+208
+00:15:58,036 --> 00:16:01,066
+So n is large, you can use the normal
+distribution.
+
+209
+00:16:01,066 --> 00:16:06,074
+And the way that, that the poisson and
+normal are going to look, for, for large
+
+210
+00:16:06,074 --> 00:16:11,095
+graphs is that it's going to be a nicely
+symmetric distribution around the, the
+
+211
+00:16:11,095 --> 00:16:15,025
+mean value k.
+Of course, if the probability is very,
+
+212
+00:16:15,025 --> 00:16:19,094
+very low, then the poisson distribution is
+actually is, is not symmetric.
+
+213
+00:16:19,094 --> 00:16:23,024
+Right?
+It might be, very much hitting up against
+
+214
+00:16:23,024 --> 00:16:28,011
+degree zero and then going from there.
+But the main point to take away is that
+
+215
+00:16:28,011 --> 00:16:33,842
+we're not going to be seeing many nodes
+that have say, a degree that's many times
+
+216
+00:16:33,842 --> 00:16:39,027
+higher than the average degree.
+That's something you simply don't see, and
+
+217
+00:16:39,027 --> 00:16:44,906
+this is because this probability drops off
+exponentially here as you get higher and
+
+218
+00:16:44,906 --> 00:16:48,880
+higher in degree.
+So the basic insight that we get out of
+
+219
+00:16:48,880 --> 00:16:53,683
+this is that there are no hubs.
+Hubs in the sense of some nodes that have
+
+220
+00:16:53,683 --> 00:16:57,046
+extremely high connectivity, extremely
+high degree.
+
+221
+00:16:57,046 --> 00:16:59,003
+You just don't see this.

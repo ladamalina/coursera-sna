@@ -1,0 +1,1100 @@
+
+1
+00:00:00,000 --> 00:00:03,594
+Okay.
+So, so far, we have established two
+
+2
+00:00:03,594 --> 00:00:06,809
+things.
+There is a small world phenomenon in
+
+3
+00:00:06,809 --> 00:00:12,644
+social and other networks, and there's all
+this interesting local structure, which we
+
+4
+00:00:12,644 --> 00:00:15,700
+can capture in part by measuring
+clustering.
+
+5
+00:00:15,700 --> 00:00:21,256
+And this extends beyond social networks,
+right? That you have high clustering and
+
+6
+00:00:21,256 --> 00:00:25,701
+short outer shores paths.
+For example, in, you have this in neural
+
+7
+00:00:25,701 --> 00:00:31,118
+networks, after collaboration networks,
+which are admittedly social semantic
+
+8
+00:00:31,118 --> 00:00:34,800
+networks of languages, and networks such
+as food webs.
+
+9
+00:00:35,220 --> 00:00:40,867
+The first two tie it together.
+How is it possible to have high clustering
+
+10
+00:00:40,867 --> 00:00:45,121
+and low average shortest path where Watts
+and Strogatz.
+
+11
+00:00:45,121 --> 00:00:49,221
+What they said is let's start with a
+regular lattice.
+
+12
+00:00:49,221 --> 00:00:55,410
+In this lattice, every node is connected
+to it's two closest neighbors on either
+
+13
+00:00:55,410 --> 00:01:00,748
+side, so four neighbors total.
+And you can, you can vary this number of
+
+14
+00:01:00,748 --> 00:01:04,458
+course.
+And, we're going to start rewiring, or
+
+15
+00:01:04,458 --> 00:01:09,166
+just adding random edges.
+Eventually, it's going to look like
+
+16
+00:01:09,166 --> 00:01:14,664
+Erdos-Renyi Random Graph because all of
+the edges are going to be random.
+
+17
+00:01:14,664 --> 00:01:18,990
+But, what they wanted to know is what
+happens in the middle.
+
+18
+00:01:18,990 --> 00:01:23,096
+And, so I mentioned two ways that they can
+go about this.
+
+19
+00:01:23,096 --> 00:01:28,228
+They can rewire the links.
+So, for example here, this node used to be
+
+20
+00:01:28,228 --> 00:01:34,020
+connected to this one in the lattice, but
+now it has a random tie to a randomly
+
+21
+00:01:34,020 --> 00:01:38,734
+chosen other node, or.
+You can simply just add edges on top of
+
+22
+00:01:38,734 --> 00:01:45,003
+the existing lattice, eventually getting
+something that looks mostly random, but
+
+23
+00:01:45,003 --> 00:01:48,970
+it's overlaid on the original lattice, in
+the ring.
+
+24
+00:01:48,970 --> 00:01:52,541
+And you just take care not to do some
+things.
+
+25
+00:01:52,541 --> 00:01:58,493
+For example, rewire to yourself, or, you
+know, have multiple edges to the same
+
+26
+00:01:58,493 --> 00:02:01,917
+node.
+So, just a recap, you have this lattice,
+
+27
+00:02:01,917 --> 00:02:08,610
+each node has four nearest neighbors and
+we want to distinguish node that we can
+
+28
+00:02:08,610 --> 00:02:15,143
+tune what is the network look like when
+there's a small probability of linking to
+
+29
+00:02:15,143 --> 00:02:21,517
+a random node as opposed to just your
+neighbors on the lattice and what happens.
+
+30
+00:02:21,517 --> 00:02:26,457
+So, for small p, you know, it should look
+like a regular lattice.
+
+31
+00:02:26,457 --> 00:02:30,840
+For large p, we know it should look like a
+random graph.
+
+32
+00:02:31,100 --> 00:02:36,973
+So, just to check your understanding,
+which one of these is a result of higher
+
+33
+00:02:36,973 --> 00:02:41,550
+rewiring probability.
+So, hopefully, you can see that this one
+
+34
+00:02:41,550 --> 00:02:47,500
+has had the more rewiring happening or
+actually, it looks like that in, in this
+
+35
+00:02:47,500 --> 00:02:50,780
+algorithm, the edges were just added on
+top.
+
+36
+00:02:51,900 --> 00:02:56,300
+But now, we're interested to what happens
+in between?
+
+37
+00:02:56,300 --> 00:03:03,238
+As we vary p, is it true that you can't
+have small shortest paths without also
+
+38
+00:03:03,238 --> 00:03:07,553
+having low clustering or can you find a
+sweet spot?
+
+39
+00:03:07,553 --> 00:03:10,140
+And indeed, if you vary.
+P here.
+
+40
+00:03:10,140 --> 00:03:13,431
+So, this is one percent of the links
+rewired.
+
+41
+00:03:13,431 --> 00:03:20,197
+Here, you have ten% of the links.
+You can see that even by the time you have
+
+42
+00:03:20,197 --> 00:03:26,506
+one percent rewired, the average shortest
+path of the network has pretty much
+
+43
+00:03:26,506 --> 00:03:31,900
+dropped to far below what it was in the
+regular lattice.
+
+44
+00:03:31,900 --> 00:03:38,758
+On the other hand, the clustering
+coefficient is still a pretty much at the
+
+45
+00:03:38,758 --> 00:03:42,050
+value that it was in the lattice.
+So,
+
+46
+00:03:42,050 --> 00:03:48,221
+You got this in between regime where,
+where just a few random links you have
+
+47
+00:03:48,221 --> 00:03:51,956
+high clustering but low average shortest
+path.
+
+48
+00:03:51,956 --> 00:03:58,533
+And then, of course, as you continue to
+add more and more random links, then the
+
+49
+00:03:58,533 --> 00:04:05,273
+clustering itself, falls and will, and the
+average shortest path will continue to be
+
+50
+00:04:05,273 --> 00:04:09,495
+very low.
+It's basically asymptote to what it is for
+
+51
+00:04:09,495 --> 00:04:13,150
+the random graph.
+And you can try this out in.
+
+52
+00:04:13,150 --> 00:04:16,190
+Net logo.
+So, you can set this up.
+
+53
+00:04:16,190 --> 00:04:23,603
+And then, you can vary the probability
+like so and observe what happens to the
+
+54
+00:04:23,603 --> 00:04:28,640
+clustering coefficient and the average
+shortest path.
+
+55
+00:04:28,640 --> 00:04:34,554
+You can estimate how the clustering
+coefficient falls as a function of the
+
+56
+00:04:34,554 --> 00:04:39,760
+rewiring probability p, simply by
+considering that the chance that.
+
+57
+00:04:39,760 --> 00:04:43,780
+A rewiring will form a triad by accident
+is very slow.
+
+58
+00:04:43,780 --> 00:04:49,439
+What's, what's going to contribute more to
+the clustering coefficient is the
+
+59
+00:04:49,439 --> 00:04:55,470
+probability that out of this triad, all
+three of these edges were preserved which
+
+60
+00:04:55,470 --> 00:04:59,351
+means that.
+You know, each one of them is going to be
+
+61
+00:04:59,351 --> 00:05:05,398
+rewired with probability one rise to p.
+So, the probability that all three of them
+
+62
+00:05:05,398 --> 00:05:11,297
+are intact is one minus p to the third.
+And then, the clustering coefficient for
+
+63
+00:05:11,297 --> 00:05:17,270
+this given rewired probability is, then,
+is just a drop from the original lattice.
+
+64
+00:05:17,270 --> 00:05:21,266
+Clustering coefficient times one minus p
+to the third.
+
+65
+00:05:21,266 --> 00:05:26,595
+And this is what the function looks like.
+Here, it's on linear instead of
+
+66
+00:05:26,595 --> 00:05:31,479
+logarithmic access, axis.
+But there isn't really such an analytical
+
+67
+00:05:31,701 --> 00:05:39,563
+derivation for average shortest path.
+And here, we can just look at a bunch of
+
+68
+00:05:39,563 --> 00:05:45,490
+different networks and see how their
+empirical properties not chopped with what
+
+69
+00:05:45,490 --> 00:05:51,121
+we expect of a small world network.
+So, the, the thing to look at is these are
+
+70
+00:05:51,121 --> 00:05:57,048
+networks that are widely varying in sizes,
+there are quite different film actors,
+
+71
+00:05:57,048 --> 00:06:03,420
+co-authors of network substrate graph and
+E.coli and the CL against neural network.
+
+72
+00:06:03,420 --> 00:06:11,127
+This is the actual shortest path and this
+is the shortest path and the equivalent
+
+73
+00:06:11,127 --> 00:06:17,727
+random graph and you can see here that
+these values are actually quite, quite
+
+74
+00:06:17,727 --> 00:06:21,239
+close, if not, in some cases, even a bit
+lower.
+
+75
+00:06:21,479 --> 00:06:27,865
+So, it's not the case that because these
+networks have more structure that their
+
+76
+00:06:27,865 --> 00:06:33,772
+average shortest path is any is
+significantly longer than it is for an
+
+77
+00:06:33,772 --> 00:06:39,360
+equivalent Erdos-Renyi Random Graph.
+And then, if we look at clustering,
+
+78
+00:06:39,360 --> 00:06:43,401
+Here is what it would be for the
+equivalent random graph.
+
+79
+00:06:43,401 --> 00:06:48,789
+You can see rather small values and the
+actual observed is much, much higher.
+
+80
+00:06:48,789 --> 00:06:54,320
+So, these are all highly clustered network
+that have this small world property.
+
+81
+00:06:55,920 --> 00:07:00,937
+So, which of the following is a
+description matching a small world network
+
+82
+00:07:00,937 --> 00:07:06,293
+just to make sure we, we understand what
+we're talking about here over and over
+
+83
+00:07:06,293 --> 00:07:10,311
+again.
+What is missing though from the
+
+84
+00:07:10,311 --> 00:07:14,609
+Watts-Strogatz model?
+It's, it's neat that it could explain
+
+85
+00:07:14,609 --> 00:07:20,685
+clustering coexisting with short paths but
+there's much in the real world that it
+
+86
+00:07:20,685 --> 00:07:22,760
+doesn't capture.
+For example.
+
+87
+00:07:22,760 --> 00:07:28,305
+It rewires the links at random and for
+most of us, our experience is that we're
+
+88
+00:07:28,305 --> 00:07:34,061
+not just as likely to know someone across
+the globe, no matter what Chris there is
+
+89
+00:07:34,061 --> 00:07:40,097
+doing at the moment to help us bring us
+altogether then someone who maybe is in
+
+90
+00:07:40,097 --> 00:07:44,660
+the neighboring town, right?
+So, maybe it would makes sense for the
+
+91
+00:07:44,660 --> 00:07:50,275
+links to depend on geography, yes I'm mush
+more like to know people living on my
+
+92
+00:07:50,275 --> 00:07:55,400
+street but I'm also more likely to know
+people who live in the same city.
+
+93
+00:07:55,400 --> 00:08:02,713
+Than I mam to know people in the distance.
+And what about hierarchical structure and
+
+94
+00:08:02,713 --> 00:08:06,342
+groups?
+I mean, you can think of geography in a
+
+95
+00:08:06,342 --> 00:08:13,206
+hierarchical way here a neighborhood is
+part of the city that might be part of a
+
+96
+00:08:13,206 --> 00:08:16,820
+larger urban area that's part of.
+A county, etc.
+
+97
+00:08:17,053 --> 00:08:22,261
+So how is that captured?
+And maybe geography is not the only the
+
+98
+00:08:22,261 --> 00:08:27,858
+only kind of nested structure that we're
+in and we're part of different
+
+99
+00:08:27,858 --> 00:08:31,201
+organizations as well.
+How are those nested?
+
+100
+00:08:31,201 --> 00:08:37,264
+And then, it doesn't capture the presence
+of hubs which we know to play a very
+
+101
+00:08:37,264 --> 00:08:42,550
+important role in many networks with the
+Watts-Strogatz model.
+
+102
+00:08:42,767 --> 00:08:47,918
+For the, for the original lattice, each
+node has exactly the same degree.
+
+103
+00:08:47,918 --> 00:08:53,431
+So, naturally, there are no hubs but even
+as you rewire the model that you're
+
+104
+00:08:53,431 --> 00:08:58,872
+tending to is that Erdos-Renyi random
+graph which again, does not have hubs.
+
+105
+00:08:58,872 --> 00:09:04,893
+So, the model doesn't really capture a lot
+of the real structure but it goes a long
+
+106
+00:09:04,893 --> 00:09:11,999
+way towards explaining what we do see.
+Here is a hint as to how geographic ties
+
+107
+00:09:11,999 --> 00:09:16,082
+may be distributed.
+This is from the original paper by
+
+108
+00:09:16,082 --> 00:09:19,636
+Milgram.
+He says, the geographic movement of the
+
+109
+00:09:19,636 --> 00:09:23,492
+message from Nebraska to Massachusetts is
+striking.
+
+110
+00:09:23,492 --> 00:09:29,616
+There's a progressive closing in on the
+target areas, each new person is added to
+
+111
+00:09:29,616 --> 00:09:33,548
+the chain.
+So, it seems like the way that the message
+
+112
+00:09:33,548 --> 00:09:37,404
+is traveling is that it makes large hops
+initially.
+
+113
+00:09:37,404 --> 00:09:41,790
+And then, as it gets closer, it's really
+homing in using.
+
+114
+00:09:41,790 --> 00:09:46,680
+Short nearby ties.
+So, how is that possible?
+
+115
+00:09:46,680 --> 00:09:53,690
+Well, John Kleinberg proposed a model of
+small worlds that they are laid out on the
+
+116
+00:09:53,690 --> 00:09:59,602
+lattice so, for example, on the 2D
+lattice, he said, in addition to these
+
+117
+00:09:59,602 --> 00:10:06,358
+local lattice edges, you're going to have
+the probability of a link between same
+
+118
+00:10:06,358 --> 00:10:13,284
+nodes, u and b, to be proportional to the
+distance between u and b to this exponent
+
+119
+00:10:13,284 --> 00:10:17,565
+minus r.
+And the question is, what happens as this
+
+120
+00:10:17,565 --> 00:10:22,489
+exponent varies.
+So, I'm going to just show you briefly a
+
+121
+00:10:22,489 --> 00:10:28,820
+net logo download that I'm going to try
+and figure into your assignment.
+
+122
+00:10:28,820 --> 00:10:35,432
+So here, we can vary what r is and.
+You can set up the network, it's, it's
+
+123
+00:10:35,432 --> 00:10:42,088
+rather slow because you need a large
+lattice in order to see how the search
+
+124
+00:10:42,088 --> 00:10:48,660
+starts to work and then, we're going to
+repeatedly be selecting a target and a
+
+125
+00:10:48,660 --> 00:10:55,400
+starting point and seeing using a gritty
+search at each point, each node selects.
+
+126
+00:10:55,400 --> 00:11:01,768
+One of it's neighbors who's closest to the
+target, how quickly does the message reach
+
+127
+00:11:01,768 --> 00:11:09,264
+the target and you can also bury the.
+This probability so we can make the links
+
+128
+00:11:09,264 --> 00:11:16,023
+highly localized by increasing r.
+So, let's just look at what that looks
+
+129
+00:11:16,023 --> 00:11:19,556
+like.
+Hopefully we'll, you should, you should,
+
+130
+00:11:19,556 --> 00:11:26,152
+you should be able to see the edges, okay,
+right, so and all the edges are local and
+
+131
+00:11:26,152 --> 00:11:32,668
+if they do come out, they're just kind of
+being very, very short bridges and so if
+
+132
+00:11:32,668 --> 00:11:36,226
+we.
+Then do a search, you can see it going
+
+133
+00:11:36,226 --> 00:11:42,945
+very, very gradually because it basically
+has to make all these little stuffs.
+
+134
+00:11:42,945 --> 00:11:50,450
+On the other hand, if we change it so that
+we allow many long range times, let's see
+
+135
+00:11:50,450 --> 00:11:55,861
+what that looks like.
+The, the edges might be so far rate to be
+
+136
+00:11:55,861 --> 00:12:01,620
+being that though obscure the lattice
+structure altogether indeed.
+
+137
+00:12:01,620 --> 00:12:07,543
+And now, we can.
+Start and here, the lattice really isn't
+
+138
+00:12:07,543 --> 00:12:16,233
+large enough to, to, to show what's going
+on but typically, you see a very large
+
+139
+00:12:16,233 --> 00:12:21,920
+initial job and then kind of going along
+the lattice.
+
+140
+00:12:23,140 --> 00:12:30,790
+And what's that showing you is that maybe
+it's bested by back to the slides, okay.
+
+141
+00:12:30,790 --> 00:12:39,371
+So, what you should be seeing is when the
+edges are random, you have these long hops
+
+142
+00:12:39,371 --> 00:12:47,021
+initially but then, there are no short
+range ties, you basically have to go
+
+143
+00:12:47,848 --> 00:12:53,750
+right, to get to the target.
+And, you know, there are many other edges
+
+144
+00:12:53,750 --> 00:12:58,380
+present but none of them really took you
+in the right direction.
+
+145
+00:13:00,600 --> 00:13:08,291
+Oh, sorry, I guess I'm still running Net
+Logo because it's been very loud.
+
+146
+00:13:08,291 --> 00:13:16,049
+[laugh] Okay, so, hopefully, it's going to
+quite down On the other hand, if we have
+
+147
+00:13:16,049 --> 00:13:21,264
+this very high value of r, then what
+happens is that we just don't have that
+
+148
+00:13:21,264 --> 00:13:25,243
+many long ranged ties.
+So, again, what kind of ties, you know,
+
+149
+00:13:25,243 --> 00:13:30,527
+there, there are ties that are heading in
+the right direction but we're still stuck
+
+150
+00:13:31,076 --> 00:13:35,876
+making very slow progress.
+And then, finally, ideally, for one over
+
+151
+00:13:35,876 --> 00:13:42,544
+distance squared, what we have is both the
+presence of some long range ties and then,
+
+152
+00:13:42,544 --> 00:13:48,260
+some shorter range ties once we're close
+to the target that we can use.
+
+153
+00:13:49,120 --> 00:13:57,325
+And this is this concept of navigability
+that is thus, the placement of the edges
+
+154
+00:13:57,325 --> 00:14:03,537
+allow you to, at each step.
+Makes some amount of progress towards your
+
+155
+00:14:03,537 --> 00:14:10,110
+goal and what Kleinberg proved was that
+indeed, if the exponent bar is two, that
+
+156
+00:14:10,110 --> 00:14:16,933
+is the probability of linking to someone
+falls one over the distance squared, then
+
+157
+00:14:16,933 --> 00:14:23,589
+you can make enough progress on, at each
+step such that the number of steps that
+
+158
+00:14:23,589 --> 00:14:27,500
+you have to take only draws
+logarithmically.
+
+159
+00:14:29,220 --> 00:14:35,211
+So, your quiz question, just to test
+whether you understood this, what is true
+
+160
+00:14:35,211 --> 00:14:41,440
+about the network or the probability of a
+tie balls off as distance to the -two.
+
+161
+00:14:43,680 --> 00:14:49,947
+And just to remind you, I mean, I've
+brought this up before that the
+
+162
+00:14:49,947 --> 00:14:56,840
+interesting structure that we see in
+social networks, in other networks could
+
+163
+00:14:56,840 --> 00:15:01,317
+really be a projection of a bio part type
+network.
+
+164
+00:15:01,317 --> 00:15:08,121
+For example, if you have different context
+and individuals and then, you have
+
+165
+00:15:08,121 --> 00:15:13,045
+individuals who share a context have
+joined ties.
+
+166
+00:15:13,045 --> 00:15:17,800
+So, why not model this explicitly?
+So.
+
+167
+00:15:17,800 --> 00:15:25,210
+Kleinberg also proposed a hierarchical
+network model where you have these nested
+
+168
+00:15:25,210 --> 00:15:32,345
+groups and the probability that two
+individuals share an edge is proportional
+
+169
+00:15:32,345 --> 00:15:40,122
+to a constant to the minus alpha and then,
+the distance that you have to go up in the
+
+170
+00:15:40,122 --> 00:15:47,104
+hierarchy to get from one to the other.
+Also, if you just or have these nested
+
+171
+00:15:47,104 --> 00:15:54,294
+groups and then, you have q being decided
+the smallest group that these nodes of
+
+172
+00:15:54,294 --> 00:16:01,304
+interest b and w belong to, then, the
+probability of an edge existing between b
+
+173
+00:16:01,304 --> 00:16:08,763
+and w is going to be q to the minus alpha.
+So, two different ways of representing
+
+174
+00:16:08,763 --> 00:16:13,891
+nested group structure.
+Such that you can now not only use it to
+
+175
+00:16:13,891 --> 00:16:19,266
+represent geography, as I said,
+neighborhood parts of the cities, parts of
+
+176
+00:16:19,266 --> 00:16:25,612
+the counties but also other things such as
+individuals who are taking the same class
+
+177
+00:16:25,612 --> 00:16:31,585
+at a university, who are, who have the
+same major or in the same school within
+
+178
+00:16:31,585 --> 00:16:36,886
+the university, who are part of the same
+university, who are part of the
+
+179
+00:16:36,886 --> 00:16:43,816
+universities in that country, etc.
+And at, concurrently, Watts, Dodds and,
+
+180
+00:16:43,816 --> 00:16:50,677
+and Newman proposed another hierarchical
+moment which is very similar that said
+
+181
+00:16:50,677 --> 00:16:56,877
+that the probability that i and j know
+each other is again, proportional to
+
+182
+00:16:56,877 --> 00:17:03,160
+either the minus alpha x squared, x is
+equivalent to h in the previous slide.
+
+183
+00:17:03,160 --> 00:17:10,187
+It's the, it's the number of steps up in
+the hierarchy have to go in order to join
+
+184
+00:17:10,187 --> 00:17:14,385
+two individuals.
+And what was different about their work
+
+185
+00:17:14,385 --> 00:17:20,279
+was that they looked at navigation when
+you have different, different hierarchy.
+
+186
+00:17:20,279 --> 00:17:26,245
+So, you can concurrently have hierarchy
+for geography, a hierarchy for occupation
+
+187
+00:17:26,245 --> 00:17:31,205
+and when individuals are searching, they
+can switch between hierarchy.
+
+188
+00:17:31,205 --> 00:17:36,956
+So, if I know that my target lives in
+Massachusetts but I also know that he is a
+
+189
+00:17:36,956 --> 00:17:42,778
+sock broker, well then, I can decide oh, I
+knew someone who is not in Massachusetts
+
+190
+00:17:42,778 --> 00:17:47,592
+but is a stock broker or I can choose,
+Oh, I know someone who lives in the
+
+191
+00:17:47,592 --> 00:17:52,770
+neighboring town even through they are not
+in the banking industry I, I will forward
+
+192
+00:17:52,770 --> 00:17:58,260
+the message for them.
+And these.
+
+193
+00:17:58,260 --> 00:18:03,512
+These theoretical models then correspond
+closely to what was found in early
+
+194
+00:18:03,512 --> 00:18:08,902
+experiments, there's a need to reverse
+small world experiment that [inaudible]
+
+195
+00:18:08,902 --> 00:18:14,292
+that there are the same ones who looked at
+the accuracy of the chains that
+
+196
+00:18:14,292 --> 00:18:19,544
+individuals are able to create.
+So, they gave the individuals a whole slew
+
+197
+00:18:19,544 --> 00:18:23,690
+of hypothetical target.
+So, they weren't actually running the
+
+198
+00:18:23,690 --> 00:18:27,629
+chains, they were just curious who would
+you pick and why.
+
+199
+00:18:27,629 --> 00:18:32,260
+And they found that overwhelmingly, people
+chose based on geography.
+
+200
+00:18:32,260 --> 00:18:36,026
+The in-occupation.
+So, those two hierarchies make a lot of
+
+201
+00:18:36,026 --> 00:18:41,313
+sense and only seven% were chosen because
+they we're hops, because that's someone
+
+202
+00:18:41,313 --> 00:18:46,072
+who knows a lot of other people.
+And also, there was an absence of second
+
+203
+00:18:46,072 --> 00:18:50,189
+degree strategies so.
+I'm going to pick my friend because I know
+
+204
+00:18:50,189 --> 00:18:54,760
+they know someone in Massachusetts.
+So, that seems to be relatively aware.
+
+205
+00:18:55,840 --> 00:19:02,337
+If we go back to the e-mail experiment
+that was front out of Columbia one
+
+206
+00:19:02,337 --> 00:19:08,799
+additional nice analysis that they did was
+to look at successful chains versus ones
+
+207
+00:19:08,799 --> 00:19:13,953
+that didn't quite make it.
+And what they found with this successful
+
+208
+00:19:13,953 --> 00:19:20,106
+chain was that they disproportionately
+used weak ties, professional ties, ties
+
+209
+00:19:20,106 --> 00:19:25,876
+originating at work or collage or those
+that focus on, on the target's work.
+
+210
+00:19:26,106 --> 00:19:32,876
+And they disproportionately avoided using
+hops and there was no evidence of funnels.
+
+211
+00:19:32,876 --> 00:19:39,317
+So, in the original Milgram experiment.
+It seemed like the last people in the
+
+212
+00:19:39,317 --> 00:19:44,650
+chain tended to be the same.
+To, you know, another stock broker and
+
+213
+00:19:44,650 --> 00:19:50,156
+maybe a tailor from the from the town
+where the stock broker lived.
+
+214
+00:19:50,392 --> 00:19:55,190
+But there was no evidence of fondling in
+this new experiment.
+
+215
+00:19:55,388 --> 00:20:01,022
+And also people in successful teams used
+family and friendship ties less and this
+
+216
+00:20:01,022 --> 00:20:06,456
+tend to, tend to be getting strong ties.
+And the strategy interestingly parallel to
+
+217
+00:20:06,456 --> 00:20:11,891
+that of the Milgram experiment which is
+that individuals first focus on geography
+
+218
+00:20:11,891 --> 00:20:16,994
+you know like get it to the right country
+then worry about what the, what the
+
+219
+00:20:16,994 --> 00:20:22,627
+person's profession is but to those the
+last few hops tended to reach the targets
+
+220
+00:20:22,627 --> 00:20:27,598
+professionally as supposed to just trying
+to narrow down geographically.

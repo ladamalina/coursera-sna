@@ -1,0 +1,784 @@
+
+1
+00:00:00,000 --> 00:00:05,320
+Welcome to week eight our last week.
+There is.
+
+2
+00:00:05,320 --> 00:00:09,980
+One remaining topic that we will talk
+about, and in a separate video I'll tell,
+
+3
+00:00:09,980 --> 00:00:14,998
+tell you about all the interesting things
+that we didn't get to cover, but I'll give
+
+4
+00:00:14,998 --> 00:00:18,045
+you pointers for ways in which you can
+pursue them.
+
+5
+00:00:18,045 --> 00:00:22,825
+So this one thing that we haven't yet
+talked about that I do want to talk about
+
+6
+00:00:22,825 --> 00:00:25,810
+is network resilience.
+And this is.
+
+7
+00:00:25,810 --> 00:00:31,029
+Basically, the question of, what, you
+know, so far, we've been nice to our
+
+8
+00:00:31,029 --> 00:00:34,384
+networks.
+We've observed them and seen the
+
+9
+00:00:34,384 --> 00:00:40,274
+fascinating properties, but in the real
+world, networks can be vulnerable, and
+
+10
+00:00:40,274 --> 00:00:45,867
+it's actually rather important to
+understand how resilient they are to two
+
+11
+00:00:45,867 --> 00:00:50,713
+different kinds of losses.
+They can lose nodes this is node
+
+12
+00:00:50,713 --> 00:00:56,678
+percolation or they could lose edges, so
+nodes losing the ability to communicate
+
+13
+00:00:56,678 --> 00:00:59,810
+with one another.
+This is edge percolation.
+
+14
+00:00:59,810 --> 00:01:05,599
+If you want to understand how two of
+those, those two things affect how the
+
+15
+00:01:05,599 --> 00:01:10,035
+network can function.
+Then we're going to look at particular
+
+16
+00:01:10,035 --> 00:01:12,994
+topologies.
+Namely scale-free networks.
+
+17
+00:01:12,994 --> 00:01:17,687
+And see how random failure of nodes
+differs from targeted attack.
+
+18
+00:01:17,687 --> 00:01:23,822
+That is, random failure might just occur
+naturally but targeted attack, if you have
+
+19
+00:01:23,822 --> 00:01:29,381
+an adversary, they are choosing which
+nodes they want to take out.
+
+20
+00:01:29,381 --> 00:01:33,712
+So how does the network do in one scenario
+versus the other?
+
+21
+00:01:33,712 --> 00:01:37,321
+And how does this depend on its original
+topology.
+
+22
+00:01:37,321 --> 00:01:43,481
+And finally, we'll talk about resilience
+in real world networks, and one in
+
+23
+00:01:43,481 --> 00:01:50,714
+particular, and that is the US power grid.
+Let's go back to the question of whether
+
+24
+00:01:50,714 --> 00:01:58,327
+we're removing nodes or edges.
+This has a mapping to lattice percolation,
+
+25
+00:01:58,327 --> 00:02:01,720
+and.
+You can either have here.
+
+26
+00:02:01,970 --> 00:02:08,575
+Edge percolation, that is, the, here the
+nodes are these intersections, and you're
+
+27
+00:02:08,575 --> 00:02:13,508
+just asking whether the nodes are
+connected by these edges.
+
+28
+00:02:13,508 --> 00:02:20,280
+And it, and what you're looking for is, at
+what point does d- a giant component
+
+29
+00:02:20,280 --> 00:02:21,200
+emerge?
+Iii.
+
+30
+00:02:21,200 --> 00:02:25,044
+But you also may be asking what is the
+path length?
+
+31
+00:02:25,044 --> 00:02:31,000
+Because, if you remember, right path the
+peculation threshold these paths can be
+
+32
+00:02:31,000 --> 00:02:34,996
+rather long.
+And if we're thinking about what makes a
+
+33
+00:02:34,996 --> 00:02:39,745
+network function?
+It is that every one is reachable from any
+
+34
+00:02:39,745 --> 00:02:44,268
+one, any other node.
+This has implications for information
+
+35
+00:02:44,268 --> 00:02:47,585
+flow.
+But we also saw, for example this mount
+
+36
+00:02:47,585 --> 00:02:51,430
+experiment.
+That long paths have not that high of a
+
+37
+00:02:51,430 --> 00:02:54,973
+probability of getting the information
+through.
+
+38
+00:02:54,973 --> 00:02:59,105
+So,
+Also having short path lengths between
+
+39
+00:02:59,105 --> 00:03:03,240
+nodes is important, so we want to,
+basically, check both.
+
+40
+00:03:03,240 --> 00:03:07,918
+The other type of percolation is node
+percolation and here we've kind of
+
+41
+00:03:07,918 --> 00:03:13,173
+switched our presentations a bit because
+each of these squares is a node, and it's
+
+42
+00:03:13,173 --> 00:03:16,185
+simply connected to the four closest
+neighbors.
+
+43
+00:03:16,185 --> 00:03:19,774
+And now each of those squares is either
+occupied or not.
+
+44
+00:03:19,774 --> 00:03:24,260
+And we're going to see what effect that
+has on the connected clusters.
+
+45
+00:03:24,260 --> 00:03:30,205
+So first, edge percolation we're going to
+you know, remove each edge with
+
+46
+00:03:30,205 --> 00:03:36,456
+probability one minus P, meaning that each
+edge is there, actually, with probability
+
+47
+00:03:36,456 --> 00:03:39,506
+P.
+And this is just corresponding to the
+
+48
+00:03:39,506 --> 00:03:44,079
+random failure of links.
+And, if we want to target the attack,
+
+49
+00:03:44,079 --> 00:03:50,422
+we're going to ask, which links should we
+remove such that, We have to do the fewest
+
+50
+00:03:50,422 --> 00:03:55,769
+removals and inflict the most damage in
+terms of how much the trying component
+
+51
+00:03:55,769 --> 00:04:01,455
+shrinks and what the average shortest path
+is within the component, and if you think
+
+52
+00:04:01,455 --> 00:04:04,850
+about what.
+What strategies you might want to use.
+
+53
+00:04:04,850 --> 00:04:10,569
+Well, we've basically already done this
+when we used the betweenness algorithm for
+
+54
+00:04:10,569 --> 00:04:14,615
+community finding.
+Remember, the rational there was that, if
+
+55
+00:04:14,615 --> 00:04:19,776
+we remove pi between these edges.
+There, the removal of these edges is most
+
+56
+00:04:19,776 --> 00:04:24,938
+likely to break up the network into
+communities because a lot of shortest
+
+57
+00:04:24,938 --> 00:04:29,611
+paths went through them.
+So removing precisely those edges is going
+
+58
+00:04:29,611 --> 00:04:32,820
+to most rapidly going to break up the
+network.
+
+59
+00:04:33,260 --> 00:04:38,007
+And.
+In a way this, percolation is actually the
+
+60
+00:04:38,007 --> 00:04:42,979
+reverse of the, or actually these attacks
+are the reverse of the process that we
+
+61
+00:04:42,979 --> 00:04:45,901
+already looked at, which was adding edges.
+Right?
+
+62
+00:04:45,901 --> 00:04:50,997
+We started out with, a fixed number of
+nodes and then we added the edges one by
+
+63
+00:04:50,997 --> 00:04:53,795
+one.
+And we just saw at one point, you know we
+
+64
+00:04:53,795 --> 00:04:59,264
+got these small components and then at
+some point we got this large string giant
+
+65
+00:04:59,264 --> 00:05:02,683
+component and then the network densified
+from there on.
+
+66
+00:05:02,683 --> 00:05:07,593
+And when we looked at the size of the
+giant component, it looked something like
+
+67
+00:05:07,593 --> 00:05:10,753
+this, where you just don't.
+Have a giant component.
+
+68
+00:05:10,753 --> 00:05:16,124
+And then, right around average degree of
+one for each node, you, you get the
+
+69
+00:05:16,124 --> 00:05:21,158
+emergence of the giant component.
+So now we're just doing the reverse, which
+
+70
+00:05:21,158 --> 00:05:26,193
+is where, we're starting out with the
+network at some stage, at some density.
+
+71
+00:05:26,193 --> 00:05:31,630
+And then we're removing the edges and
+we're seeing the effect at what point does
+
+72
+00:05:31,630 --> 00:05:35,741
+the network break up?
+So just to check our understanding,
+
+73
+00:05:35,741 --> 00:05:41,454
+If you had this network here, where each
+node has an average degree of 4.6
+
+74
+00:05:41,454 --> 00:05:45,468
+approximately.
+And you, removed a fourth of the edges.
+
+75
+00:05:45,468 --> 00:05:51,336
+And here I've, highlighted a fourth.
+By how much would you reduce the size of
+
+76
+00:05:51,336 --> 00:05:56,065
+the giant component?
+If we look at this, we can see that,
+
+77
+00:05:56,065 --> 00:06:00,374
+actually, the giant component wasn't even
+really affected.
+
+78
+00:06:00,374 --> 00:06:04,608
+And that is because, if we remove a
+quarter of the edges.
+
+79
+00:06:04,835 --> 00:06:10,807
+We drop from an average degree of four.
+Something to an average degree of three,
+
+80
+00:06:10,807 --> 00:06:14,738
+which is still well above the percolation
+threshold.
+
+81
+00:06:14,738 --> 00:06:18,140
+And we still have most of the network
+intact.
+
+82
+00:06:18,500 --> 00:06:23,205
+Now, let's switch over to removing nodes,
+instead of removing edges.
+
+83
+00:06:23,205 --> 00:06:28,624
+If you remember, we did, I think in the
+assignments, or perhaps in the lecture,
+
+84
+00:06:28,624 --> 00:06:34,257
+this percolation in a regular lattice.
+And what [laugh] and this reminds you of,
+
+85
+00:06:34,257 --> 00:06:39,533
+of water percolating through soil, which
+is how the problem was originally
+
+86
+00:06:39,533 --> 00:06:42,956
+formulated.
+And that is, if there are enough gaps,
+
+87
+00:06:42,956 --> 00:06:47,876
+enough unoccupied sites and these are
+actually going to be our nodes.
+
+88
+00:06:48,090 --> 00:06:53,295
+In the soil, and they merge together,
+water can actually seep through.
+
+89
+00:06:53,295 --> 00:06:59,573
+And, at some point, we're going to get to
+this, critical threshold at which point
+
+90
+00:06:59,573 --> 00:07:04,625
+the water can seep through.
+And after that, of course, more and more
+
+91
+00:07:04,625 --> 00:07:09,678
+water can seep through.
+But basically the, at some, proportion of
+
+92
+00:07:09,678 --> 00:07:13,200
+nodes present, the network starts to
+percolate.
+
+93
+00:07:14,500 --> 00:07:19,062
+Now let's do the same thing in networks as
+opposed to lattice.
+
+94
+00:07:19,062 --> 00:07:25,097
+Here, I'm showing you the Nutella peer to
+peer file sharing network, which you have
+
+95
+00:07:25,097 --> 00:07:28,777
+already encountered in your small worlds
+homework.
+
+96
+00:07:28,777 --> 00:07:31,867
+And, so this is, you know, over a decade
+old.
+
+97
+00:07:31,867 --> 00:07:37,902
+But one characteristic of this network is
+that there were a lot of nodes with low
+
+98
+00:07:37,902 --> 00:07:43,642
+bandwidth even some with dial up modems.
+And some nodes who had high bandwidth.
+
+99
+00:07:43,642 --> 00:07:47,469
+And so you get this hub and spoke kind of
+structure.
+
+100
+00:07:47,469 --> 00:07:51,717
+And naturally.
+You know, a lot of high-degree nodes who
+
+101
+00:07:51,717 --> 00:07:55,660
+are also connected to each other.
+So, what happens?
+
+102
+00:07:55,660 --> 00:08:01,576
+If we remove a random fraction of those
+nodes.
+
+103
+00:08:01,576 --> 00:08:04,625
+Well.
+The network actually barely notices.
+
+104
+00:08:04,625 --> 00:08:10,170
+So here we've removed twenty%, a fifth of
+the nodes at random and it looks basically
+
+105
+00:08:10,170 --> 00:08:13,176
+the same.
+If we look at the size of the giant
+
+106
+00:08:13,176 --> 00:08:18,120
+component, the only thing it's really lost
+are those nodes that we removed.
+
+107
+00:08:18,324 --> 00:08:22,000
+So what happened?
+You know, if you look at this network,
+
+108
+00:08:22,000 --> 00:08:26,697
+you'll realize that there are lots and
+lots of nodes with degree one.
+
+109
+00:08:26,697 --> 00:08:32,075
+And, since this is just random attack,
+meaning that nodes are selected at random,
+
+110
+00:08:32,075 --> 00:08:37,045
+very likely you're going to hit the one
+degree nodes and not the few hubs.
+
+111
+00:08:37,045 --> 00:08:41,538
+And so, removing the, the,
+They're called leaf nodes, nodes of degree
+
+112
+00:08:41,538 --> 00:08:46,984
+one cuz they're just kind of dangling off
+the network, doesn't really affect the
+
+113
+00:08:46,984 --> 00:08:51,149
+network that much.
+On the other hand, if you go ahead and
+
+114
+00:08:51,149 --> 00:08:56,488
+target nodes of your choosing.
+So here, we've targeted the high degree
+
+115
+00:08:56,488 --> 00:08:59,892
+nodes.
+You would get similar and even better
+
+116
+00:08:59,892 --> 00:09:03,992
+results if you targeted the high between
+these nodes.
+
+117
+00:09:04,224 --> 00:09:08,324
+But here, just for simplicity we're doing
+high degree.
+
+118
+00:09:08,324 --> 00:09:14,591
+Well, you know, removing just the 22 most
+connected nodes, so that's about three% of
+
+119
+00:09:14,591 --> 00:09:19,620
+the nodes and the giant component drops in
+size almost by a half.
+
+120
+00:09:20,420 --> 00:09:24,160
+So, why is removing high degree nodes more
+effective?
+
+121
+00:09:24,160 --> 00:09:28,908
+Is it because it removes more nodes?
+Because it removes more edges?
+
+122
+00:09:28,908 --> 00:09:34,160
+Or because it targets the periphery, that
+is the outskirts of the network.
+
+123
+00:09:35,060 --> 00:09:41,710
+Hopefully, what you realized is that if
+you remove high-degree nodes, you actually
+
+124
+00:09:41,710 --> 00:09:48,031
+remove a whole bunch of edges as well.
+And so, you, you have much higher impact
+
+125
+00:09:48,031 --> 00:09:53,249
+by removing those hobs.
+And here is the diagram from a paper by
+
+126
+00:09:53,249 --> 00:10:00,157
+Reka Albert, Hawoong Jeong, and, Laszlo
+Barabasi, where they studied, exponential
+
+127
+00:10:00,157 --> 00:10:04,152
+networks.
+So this could be the Eddis-Remi random
+
+128
+00:10:04,152 --> 00:10:07,898
+graph.
+Or it could be a network that is grown
+
+129
+00:10:07,898 --> 00:10:11,643
+randomly, but without preferential
+attachment.
+
+130
+00:10:11,643 --> 00:10:17,896
+And it doesn't matter if you attack, You
+know, with purpose, or if it's just random
+
+131
+00:10:17,896 --> 00:10:21,036
+failure.
+But what you see is that you start out
+
+132
+00:10:21,036 --> 00:10:25,245
+with a giant component.
+And then at some point it's, it's broken
+
+133
+00:10:25,245 --> 00:10:30,523
+up significantly and eventually you have,
+you know, mostly very small components.
+
+134
+00:10:30,523 --> 00:10:33,396
+Right?
+Once you're below the, the peculation
+
+135
+00:10:33,396 --> 00:10:36,804
+threshold.
+On the other hand, the scale free network
+
+136
+00:10:36,804 --> 00:10:40,418
+is only going to.
+Behave like this if there's targeted
+
+137
+00:10:40,418 --> 00:10:45,778
+attack, that is, you really need to get
+those hobs in order to get it to break up
+
+138
+00:10:45,778 --> 00:10:49,061
+like this.
+Otherwise, with random failure, all that
+
+139
+00:10:49,061 --> 00:10:53,817
+happens is that you keep hitting those
+low-degree nodes just by chance.
+
+140
+00:10:53,817 --> 00:10:58,909
+And, the giant component is going to
+shrink modestly and eventually, you know,
+
+141
+00:10:58,909 --> 00:11:02,862
+shrink even more.
+But you'll likely have it throughout this
+
+142
+00:11:02,862 --> 00:11:05,140
+sort of random failure process.
+So.
+
+143
+00:11:05,140 --> 00:11:11,485
+Besides just looking at the size of the
+giant component what we also mentioned
+
+144
+00:11:11,485 --> 00:11:16,144
+matters is how many hubs it is from one
+node to any other.
+
+145
+00:11:16,144 --> 00:11:22,731
+What we see for the scale free network is
+that if you have random failure there's
+
+146
+00:11:22,731 --> 00:11:27,550
+almost no effect on the average shortest
+path which is good.
+
+147
+00:11:27,550 --> 00:11:32,289
+However the story is quite different for
+purposeful attack.
+
+148
+00:11:32,289 --> 00:11:37,900
+This is where you're taking up.
+Taking out the hubs, the average shortest
+
+149
+00:11:37,900 --> 00:11:43,229
+path actually starts to grow
+significantly, even while you're removing
+
+150
+00:11:43,229 --> 00:11:49,090
+a relatively small fraction of the nodes.
+On the other hand, if we look at the
+
+151
+00:11:49,090 --> 00:11:55,180
+exponential network, the under-finding
+random graph, then both failure and attack
+
+152
+00:11:55,180 --> 00:12:00,965
+have, you know, almost no effect, you
+know, just a very, slight effect on the
+
+153
+00:12:00,965 --> 00:12:06,801
+average shortest path.
+If we look at two empirical networks, we
+
+154
+00:12:06,801 --> 00:12:12,020
+see this confirmed.
+So both the physical internet and the
+
+155
+00:12:12,020 --> 00:12:19,252
+worldwide web are unaffected by random
+failure, those are the blue squares here.
+
+156
+00:12:19,252 --> 00:12:25,843
+And their average shortest path rises
+quite dramatically, once you start
+
+157
+00:12:25,843 --> 00:12:28,773
+targeting the hubs specifically.

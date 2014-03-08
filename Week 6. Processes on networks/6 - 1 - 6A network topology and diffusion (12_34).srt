@@ -1,0 +1,720 @@
+
+1
+00:00:00,000 --> 00:00:04,298
+Welcome.
+This week we'll be talking about processes
+
+2
+00:00:04,298 --> 00:00:08,085
+on networks.
+What this will entail is understanding how
+
+3
+00:00:08,085 --> 00:00:12,216
+the underlying structure can effect a
+process such as diffusion.
+
+4
+00:00:12,216 --> 00:00:17,702
+So we'll do a little bit of review this is
+pretty much what you did for your, I think
+
+5
+00:00:17,702 --> 00:00:22,284
+your second homework assignment.
+We'll look at diffusion in Erdos-Renyi
+
+6
+00:00:22,284 --> 00:00:26,028
+random graphs, we'll look at it in scare
+pre random graphs.
+
+7
+00:00:26,028 --> 00:00:28,803
+And something that you haven't done
+before.
+
+8
+00:00:28,803 --> 00:00:31,901
+We'll look at diffusion in small world
+networks.
+
+9
+00:00:31,901 --> 00:00:34,953
+But,
+You know, what we've seen so far is simple
+
+10
+00:00:34,953 --> 00:00:38,345
+diffusion.
+That is, anyone who's infected can infect
+
+11
+00:00:38,345 --> 00:00:41,604
+any one of their neighbors with some
+probability.
+
+12
+00:00:41,604 --> 00:00:47,058
+However, not all diffusion is that simple.
+For example, when individuals are looking
+
+13
+00:00:47,058 --> 00:00:52,379
+to adopt a new product, it may not be
+sufficient that they see just one of their
+
+14
+00:00:52,379 --> 00:00:57,235
+friends has made that purchase.
+Perhaps they want to see until several of
+
+15
+00:00:57,235 --> 00:01:02,443
+their friends have done the same.
+It becomes even more complex once there
+
+16
+00:01:02,443 --> 00:01:08,545
+are so called network effects in these
+decisions so for example if you're trying
+
+17
+00:01:08,545 --> 00:01:14,346
+to decide between two different chat
+clients, some of your friends are on one
+
+18
+00:01:14,346 --> 00:01:20,523
+chat client the others are on another,
+which one are you going to choose and it
+
+19
+00:01:20,523 --> 00:01:24,140
+depends on how many friends are on each
+and how.
+
+20
+00:01:24,354 --> 00:01:30,510
+How good the product is and we can add an
+additional wrinkle which is that perhaps
+
+21
+00:01:30,510 --> 00:01:35,020
+you don't have to choose, perhaps you can
+use both chat clients.
+
+22
+00:01:35,020 --> 00:01:40,961
+However, this comes at an additional cost.
+You, you can't remember which friend is on
+
+23
+00:01:41,175 --> 00:01:47,260
+which network or you have to learn how to
+use both of them, etc., and this leads to
+
+24
+00:01:47,260 --> 00:01:50,337
+rather different product adoption
+dynamics.
+
+25
+00:01:50,337 --> 00:01:53,415
+We'll talk briefly about collective
+action.
+
+26
+00:01:53,415 --> 00:01:58,140
+This is, for example, individuals choosing
+whether or not to go out.
+
+27
+00:01:58,140 --> 00:02:01,771
+And protest.
+Each of them might have a given criterion
+
+28
+00:02:01,771 --> 00:02:07,083
+depending on, you know, I'll go out if at
+least three people including myself go.
+
+29
+00:02:07,083 --> 00:02:12,262
+So if I see that two of my, if I can
+coordinate with two of my friends and we
+
+30
+00:02:12,262 --> 00:02:17,641
+all go out, I will be, I will be happy
+protesting but people might have different
+
+31
+00:02:17,641 --> 00:02:20,600
+criteria.
+So, how can you determine whether a
+
+32
+00:02:20,600 --> 00:02:25,690
+protest is going to occur or not.
+We'll also talk about innovation.
+
+33
+00:02:25,690 --> 00:02:29,160
+Now,
+You might have an idea of the lone
+
+34
+00:02:29,160 --> 00:02:34,736
+innovator, the lone person who works at
+their desk and scribbles some formulas and
+
+35
+00:02:34,736 --> 00:02:40,380
+then comes up with a brilliant idea and
+doesn't need to really exchange ideas with
+
+36
+00:02:40,380 --> 00:02:43,440
+anyone else.
+They just patent it and get rich.
+
+37
+00:02:43,644 --> 00:02:47,860
+However, a lot of innovation actually
+happens through networks.
+
+38
+00:02:47,860 --> 00:02:53,436
+And part of it is that you imitate that
+you use things that others have developed
+
+39
+00:02:53,436 --> 00:02:56,496
+that work.
+And then perhaps improve upon them
+
+40
+00:02:56,496 --> 00:02:59,760
+further.
+So, how does the network depology affect
+
+41
+00:02:59,760 --> 00:03:01,578
+the process of.
+Innovation.
+
+42
+00:03:01,578 --> 00:03:07,097
+And finally we'll look at kind of
+collective problem solving where you need
+
+43
+00:03:07,097 --> 00:03:12,980
+to do something but your correct answer
+depends on what others correct answer is.
+
+44
+00:03:12,980 --> 00:03:18,656
+So let's get to it.
+First we'll go back to diffusion in
+
+45
+00:03:18,656 --> 00:03:23,660
+Erdos-Renyi random graphs.
+I'm going to set up the network.
+
+46
+00:03:23,660 --> 00:03:30,987
+And here the main parameter is the number
+of nodes in the network and the average
+
+47
+00:03:30,987 --> 00:03:31,970
+degree.
+And,
+
+48
+00:03:31,970 --> 00:03:38,429
+What you can do is then, no, adjust the
+average degree and set up the network.
+
+49
+00:03:38,429 --> 00:03:45,992
+You can actually go from average degree of
+2.5 to something like five and for now I'm
+
+50
+00:03:45,992 --> 00:03:50,752
+just going to say the infection rate is
+going to be one.
+
+51
+00:03:50,752 --> 00:03:57,211
+That is, if my neighbor is infected at a
+previous time step, they're going to
+
+52
+00:03:57,211 --> 00:04:03,755
+infect me at the next time step and I'm
+going to simply spread the infection.
+
+53
+00:04:03,755 --> 00:04:09,490
+So, here's step one,
+Two, three, four.
+
+54
+00:04:09,490 --> 00:04:15,915
+We can observe that.
+Now I'm going to lower it down to 2.5.
+
+55
+00:04:15,915 --> 00:04:22,866
+I'm going to setup the network and I'm
+going to do the same thing.
+
+56
+00:04:23,182 --> 00:04:28,028
+One, two, three, four.
+Looks different doesn't it.
+
+57
+00:04:28,028 --> 00:04:33,851
+I can lower and further.
+Maybe just average degree, one point one.
+
+58
+00:04:33,851 --> 00:04:39,299
+Just above the percolation threshold.
+And now if I do one, two, three, four.
+
+59
+00:04:39,312 --> 00:04:41,102
+See what happens.
+So.
+
+60
+00:04:41,102 --> 00:04:48,800
+I think we're ready for our quiz question.
+So this is just a recap of what happened.
+
+61
+00:04:48,800 --> 00:04:56,319
+And the quiz question is: when the density
+of the network increases, the diffusion in
+
+62
+00:04:56,319 --> 00:05:00,795
+the network is.
+And your choices are: faster, slower,
+
+63
+00:05:00,795 --> 00:05:05,596
+unaffected.
+So hopefully, what you concluded was that
+
+64
+00:05:05,596 --> 00:05:09,632
+the denser the network, the faster the
+diffusions.
+
+65
+00:05:09,632 --> 00:05:16,551
+So if the average degree is five in four
+time, time steps, you had a lot of the
+
+66
+00:05:16,551 --> 00:05:20,916
+nodes infected.
+And furthermore, if the density of the
+
+67
+00:05:20,916 --> 00:05:26,952
+network falls to a really low value and
+you're just at the percolation threshold
+
+68
+00:05:26,952 --> 00:05:30,669
+or below.
+In fact, the disease or whatever it is may
+
+69
+00:05:30,669 --> 00:05:34,896
+not spread at all because there's not
+enough connectivity.
+
+70
+00:05:34,896 --> 00:05:40,653
+So even if it had infinite time it would
+never break out of the little network
+
+71
+00:05:40,653 --> 00:05:47,183
+fragment where it was located.
+So now, let's consider the effect of
+
+72
+00:05:47,183 --> 00:05:52,006
+diffusion in networks which occur because
+nodes are added over time.
+
+73
+00:05:52,006 --> 00:05:57,822
+These are growing networks and we're going
+to look at two situations, one in which
+
+74
+00:05:57,822 --> 00:06:03,567
+there's preferential attachment meaning
+that new nodes who join the network will
+
+75
+00:06:03,567 --> 00:06:08,320
+preferentially attach to existing nodes
+that have high degree, have.
+
+76
+00:06:08,320 --> 00:06:13,434
+Our hubs have lots of neighbors.
+In the second example, they're going to,
+
+77
+00:06:13,434 --> 00:06:17,109
+the network's going to be grown
+non-preferentially.
+
+78
+00:06:17,109 --> 00:06:22,800
+That is, the new node is just going to
+pick one of the existing nodes at random.
+
+79
+00:06:22,800 --> 00:06:31,010
+So let's see what that might look like.
+So here, I will let's see.
+
+80
+00:06:31,010 --> 00:06:37,316
+We can first grow it non-preferentially.
+Let me just set that up again.
+
+81
+00:06:37,316 --> 00:06:44,523
+And now I'm going to, I think, again, move
+the infection rate to one, just to speed
+
+82
+00:06:44,523 --> 00:06:49,298
+things along.
+And now I'm going to say take, let's see
+
+83
+00:06:49,298 --> 00:06:53,081
+how many steps.
+One, two, three, four, five.
+
+84
+00:06:53,081 --> 00:06:58,666
+Okay, five steps and I've infected some
+portion of the network.
+
+85
+00:06:58,666 --> 00:07:03,476
+It's not, not too bad.
+Now I'm going to grow the network
+
+86
+00:07:03,476 --> 00:07:09,921
+preferentially, going to click set up.
+And now I'm going to take the same number
+
+87
+00:07:09,921 --> 00:07:13,428
+of steps so I'm going to click spread
+once.
+
+88
+00:07:13,428 --> 00:07:18,787
+One, two, three, four, five.
+I've basically managed to infect most of
+
+89
+00:07:18,787 --> 00:07:25,063
+the network so, going back just to make
+sure we know what we're doing, when notes
+
+90
+00:07:25,063 --> 00:07:31,652
+preferentially attach to high degree notes
+the diffusion over the network is faster,
+
+91
+00:07:31,652 --> 00:07:36,764
+slower or unaffected.
+Hopefully you figured out that it's faster
+
+92
+00:07:36,764 --> 00:07:41,906
+when we have preferential attachment, and
+this is the same observation as always,
+
+93
+00:07:41,906 --> 00:07:45,827
+that is when you have hubs that are
+extremely well-connected.
+
+94
+00:07:45,827 --> 00:07:50,327
+What's going to happen is, they're going
+to get rapidly infected, right?
+
+95
+00:07:50,327 --> 00:07:55,470
+If any one of their many friends has the
+infection they will pass it on to them.
+
+96
+00:07:55,470 --> 00:08:01,432
+And next thing you know, now they can
+infect all of the rest of their neighbors
+
+97
+00:08:01,432 --> 00:08:06,942
+who hadn't been infected before.
+So, having that, the having hubs in the
+
+98
+00:08:06,942 --> 00:08:12,452
+network really accelerate the, the spread
+of anything, disease, information,
+
+99
+00:08:12,452 --> 00:08:17,508
+etcetera, within the network.
+As long as you have these simple rules
+
+100
+00:08:17,508 --> 00:08:23,622
+that is, that with equal probability here
+we decided to one, anyone who's infected
+
+101
+00:08:23,622 --> 00:08:28,000
+will infect their neighbor at you know per
+time period.
+
+102
+00:08:28,000 --> 00:08:33,906
+Next we turn to small world networks.
+If you remember from last week, what made
+
+103
+00:08:33,906 --> 00:08:37,920
+a network a small world was a high degree
+of cluster.
+
+104
+00:08:37,920 --> 00:08:43,902
+And here, accomplished by putting the
+nodes along a ring lattice such that each
+
+105
+00:08:43,902 --> 00:08:47,612
+node is connected to it's four closest
+neighbors.
+
+106
+00:08:47,612 --> 00:08:53,065
+And then adding some shortcuts.
+And what these shortcuts are going to do
+
+107
+00:08:53,065 --> 00:08:59,787
+are make the average shortest path small.
+Close to that of a random graph, while
+
+108
+00:08:59,787 --> 00:09:04,166
+still maintaining a high degree of
+clustering.
+
+109
+00:09:04,166 --> 00:09:08,260
+So let's go to the net logo model for
+this.
+
+110
+00:09:08,260 --> 00:09:17,370
+And I'm going to at first have no recovery
+so, in this model a node is susceptible
+
+111
+00:09:17,370 --> 00:09:21,351
+and then once it's infected it stays
+infected.
+
+112
+00:09:21,351 --> 00:09:27,232
+So some diseases operate like this.
+Unfortunately, there's no cure so once,
+
+113
+00:09:27,232 --> 00:09:31,583
+once you're hosting that disease, you're,
+you're a host.
+
+114
+00:09:31,583 --> 00:09:37,787
+So we're going to set up the network.
+And we're going to infect one and we're
+
+115
+00:09:37,787 --> 00:09:43,910
+going to allow the disease to spread.
+And here the, the, the speed is somewhat
+
+116
+00:09:43,910 --> 00:09:47,455
+determined by this probability of
+infection.
+
+117
+00:09:47,455 --> 00:09:54,006
+So I guess I could, well let's just keep
+it right there at 24.. And, now we're
+
+118
+00:09:54,006 --> 00:10:01,282
+going to allow it to spread and you can
+see what's going on.
+
+119
+00:10:01,282 --> 00:10:06,326
+And, we can then add a little bit of
+re-wiring probability.
+
+120
+00:10:06,326 --> 00:10:11,891
+This might be all we need and we're going
+to repeat the process.
+
+121
+00:10:11,891 --> 00:10:18,326
+So we're going to allow it to spread.
+And this, hopefully, will allow you to
+
+122
+00:10:18,326 --> 00:10:23,819
+answer the quiz question.
+Which is, as the probability of re-wiring
+
+123
+00:10:23,819 --> 00:10:28,110
+increases, the speed with which the
+infections spread,
+
+124
+00:10:28,110 --> 00:10:33,547
+Spreads,
+Does it increase, decrease or remain the
+
+125
+00:10:33,547 --> 00:10:36,073
+same?
+So going back to net logo.
+
+126
+00:10:36,073 --> 00:10:41,929
+So hopefully you saw that the infection
+can spread more rapidly but can use the
+
+127
+00:10:41,929 --> 00:10:45,781
+shortcuts that we gave it by rewiring the
+network.
+
+128
+00:10:45,781 --> 00:10:49,095
+Now let's add this probability of
+recovery.
+
+129
+00:10:49,095 --> 00:10:55,490
+And what this is going to do is, with some
+probability an infected node is going go
+
+130
+00:10:55,490 --> 00:11:01,577
+back to being susceptible which means it
+doesn't currently carry the infection.
+
+131
+00:11:01,577 --> 00:11:06,740
+It can't infect it's neighbors.
+But it's ready to be infected again.
+
+132
+00:11:06,740 --> 00:11:14,858
+So let's have no rewiring and we're going
+to set up a network and here's one
+
+133
+00:11:14,858 --> 00:11:24,032
+infected node and then we're going to try
+and see if this will spread so we see the
+
+134
+00:11:24,032 --> 00:11:30,700
+infection kind of growing slowly and it's
+hanging in there.
+
+135
+00:11:30,700 --> 00:11:35,836
+Oh,
+This is actually pretty suspenseful, but
+
+136
+00:11:35,836 --> 00:11:42,358
+it dies out.
+Now, let's try this with a little bit of
+
+137
+00:11:42,358 --> 00:11:45,928
+rewiring, maybe five%, and see what
+happens.
+
+138
+00:11:45,928 --> 00:11:53,067
+Now naturally sometimes the disease will
+die out because the nodes recover before
+
+139
+00:11:53,067 --> 00:12:00,990
+they can really infect a lot of others so
+I might have to reinfect the network a few
+
+140
+00:12:00,990 --> 00:12:06,911
+times to get what I'm after here so I'm
+going to allow it to spread.
+
+141
+00:12:06,911 --> 00:12:11,700
+This time it died out so I'm going to try
+and reinfect.
+
+142
+00:12:11,700 --> 00:12:19,584
+See what happens.
+So you should be seeing qualitatively a
+
+143
+00:12:19,584 --> 00:12:28,342
+different behavior in the case of the
+presence of rewired edges versus the plain
+
+144
+00:12:28,342 --> 00:12:34,938
+lattice, and I'll let you examine this
+more in the assignment.

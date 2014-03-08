@@ -1,0 +1,719 @@
+
+1
+00:00:00,000 --> 00:00:03,820
+But the question might be, is it really
+that simple?
+
+2
+00:00:03,820 --> 00:00:08,994
+Is it just that you can map out the
+network, figure out which nodes to target,
+
+3
+00:00:08,994 --> 00:00:13,852
+and you're done.
+Well, when some very smart physicist
+
+4
+00:00:13,852 --> 00:00:20,335
+started doing this on, for example, the
+physical topology of the Internet,
+
+5
+00:00:20,335 --> 00:00:27,539
+computer scientists didn't really take it
+that seriously because they said, well,
+
+6
+00:00:27,539 --> 00:00:31,063
+it's,
+You know, how these ISPs or how these
+
+7
+00:00:31,063 --> 00:00:37,697
+different nodes are connected, is dynamic.
+So you have routing tables and depending
+
+8
+00:00:37,697 --> 00:00:44,734
+on you know, where the packets are getting
+through and where they're not, the routing
+
+9
+00:00:44,734 --> 00:00:50,397
+tables are continuously updated.
+So you could in fact, inflict what you
+
+10
+00:00:50,397 --> 00:00:56,787
+think is a lot of damage and the, the
+network simply organically adapts to what
+
+11
+00:00:56,787 --> 00:00:58,810
+is going on.
+Similarly,
+
+12
+00:00:58,810 --> 00:01:04,462
+You know, it would be nice,
+Ideally, you map out a terrorist network
+
+13
+00:01:04,626 --> 00:01:10,852
+or a criminal network, for example,
+individuals involved in the drug trade.
+
+14
+00:01:11,098 --> 00:01:17,569
+However, there was recently a report, you
+know, the ten year long effort by the US
+
+15
+00:01:17,569 --> 00:01:24,533
+to target you know, exactly this kind of
+drug trade network and, they found that no
+
+16
+00:01:24,533 --> 00:01:30,841
+matter how many of those nodes they
+removed by incarcerating them, sending
+
+17
+00:01:30,841 --> 00:01:33,452
+them to prison,
+The network adapted,
+
+18
+00:01:33,452 --> 00:01:36,630
+Just new people came in and filled that
+space.
+
+19
+00:01:36,630 --> 00:01:42,159
+So, it's not that the network is sitting
+there and saying, oh, okay, I lost this
+
+20
+00:01:42,159 --> 00:01:45,130
+node, I'm not going to do anything about
+it.
+
+21
+00:01:45,130 --> 00:01:50,452
+They're, they're very dynamic and, so,
+yes, you know, perhaps during a short time
+
+22
+00:01:50,452 --> 00:01:56,256
+period, if you can simultaneously take out
+a lot of the nodes, and the network has no
+
+23
+00:01:56,256 --> 00:02:01,509
+way of replacing them, then you can
+predict, you know, that you're going to be
+
+24
+00:02:01,509 --> 00:02:06,070
+able to break up the network into small
+non, non-functioning parts.
+
+25
+00:02:06,070 --> 00:02:10,072
+But, in general,
+You know, you have to be careful about
+
+26
+00:02:10,072 --> 00:02:13,616
+this,
+This particular assumption, what power you
+
+27
+00:02:13,616 --> 00:02:19,474
+have to bring the network down.
+So let's look at a particular example and
+
+28
+00:02:19,474 --> 00:02:24,361
+not as of the power grid.
+Here again, there you know we're going to
+
+29
+00:02:24,361 --> 00:02:29,744
+dismiss some assumptions that we had with
+other networks and we're going to
+
+30
+00:02:29,744 --> 00:02:32,790
+introduce some new simplifying
+assumptions.
+
+31
+00:02:32,790 --> 00:02:39,198
+Here, what we're talking about is that
+where the electricity is produced, is not
+
+32
+00:02:39,198 --> 00:02:45,606
+always where it is consumed and you need
+intermediate distribution actually
+
+33
+00:02:45,606 --> 00:02:52,339
+transmission stations that will bring the
+power from the generators to the kind of
+
+34
+00:02:52,339 --> 00:02:58,098
+the end distribution stations that then
+deliver the electricity locally to
+
+35
+00:02:58,098 --> 00:03:01,586
+customers.
+And, as you probably are aware,
+
+36
+00:03:02,070 --> 00:03:05,998
+Failures of the power grid can be quite
+dramatic.
+
+37
+00:03:05,998 --> 00:03:12,573
+So, if you have a power plant, go down in,
+or, or one station go down in, at, at one
+
+38
+00:03:12,573 --> 00:03:16,341
+location,
+You can get what's called a cascading
+
+39
+00:03:16,341 --> 00:03:19,788
+failure,
+Where, you know, entire spots of the
+
+40
+00:03:19,788 --> 00:03:24,278
+country will be without power,
+Because this is a network,
+
+41
+00:03:24,278 --> 00:03:30,514
+And what happens at one node, actually
+influences what happens at, you know, to
+
+42
+00:03:30,514 --> 00:03:33,847
+the other nodes.
+So, in a way, the, here the damage is
+
+43
+00:03:33,847 --> 00:03:36,723
+greater.
+It's not that removing one node, now
+
+44
+00:03:36,723 --> 00:03:42,213
+you've lost the paths that go through that
+node, and the edges involved, with that
+
+45
+00:03:42,213 --> 00:03:45,760
+node.
+Because electricity flows, you know,
+
+46
+00:03:45,760 --> 00:03:52,857
+basically simultaneously through all
+possible paths one removal of one node
+
+47
+00:03:52,857 --> 00:03:59,311
+actually effects all of the, all of the
+net, the rest of the network to a greater
+
+48
+00:03:59,311 --> 00:04:03,557
+or lesser extent.
+So let's see how that happens.
+
+49
+00:04:03,557 --> 00:04:09,586
+What happens is that, when a node goes
+out, it will have some load and a
+
+50
+00:04:09,586 --> 00:04:16,294
+capacity, and say that the load exceeds
+the capacity, the, the node will fail, and
+
+51
+00:04:16,294 --> 00:04:20,880
+now its load is redistributed around to
+its neighbors.
+
+52
+00:04:21,180 --> 00:04:29,324
+So I'll just follow this paper by Kinney
+et al and this is Reka Albert from the
+
+53
+00:04:29,324 --> 00:04:32,972
+Barabasi-Albert model who's on this paper
+as well.
+
+54
+00:04:32,972 --> 00:04:38,174
+So again the node's are generators,
+transmission substations, and distribution
+
+55
+00:04:38,174 --> 00:04:42,363
+substations and the edges are high voltage
+transmission lines.
+
+56
+00:04:42,363 --> 00:04:46,957
+And there basically thousands of these
+nodes and about 20,000 edges.
+
+57
+00:04:46,957 --> 00:04:48,085
+So.
+What happens?
+
+58
+00:04:48,085 --> 00:04:51,288
+Well, first of all, use see this straight
+line?
+
+59
+00:04:51,288 --> 00:04:55,417
+You might think, oh, that's a power lot.
+Well, no, it's not.
+
+60
+00:04:55,417 --> 00:05:01,693
+Actually, the power grid is an exponential
+network and you can tell because this is a
+
+61
+00:05:01,693 --> 00:05:07,766
+linear axis and this is logarithmic. And
+so that means that there aren't really
+
+62
+00:05:07,766 --> 00:05:13,608
+these huge hubs, Right? The highest degree
+node has fewer than 25 connections,
+
+63
+00:05:13,608 --> 00:05:19,220
+Which kind of makes sense. Ccan you really
+imagine, one, you know, one of these
+
+64
+00:05:19,220 --> 00:05:23,909
+transmission stations being wired to a
+thousand others, right?
+
+65
+00:05:23,909 --> 00:05:29,982
+You just can't really imagine this
+topology of, of high voltage wires really,
+
+66
+00:05:29,982 --> 00:05:33,980
+really doing that,
+So we have an exponential network.
+
+67
+00:05:33,980 --> 00:05:38,497
+And now we need to know, where is the
+electricity flowing?
+
+68
+00:05:38,497 --> 00:05:42,380
+So, it's not just that it flows through
+all paths.
+
+69
+00:05:42,380 --> 00:05:47,436
+So we're going to see which,
+Where, which paths is it really flowing
+
+70
+00:05:47,436 --> 00:05:52,818
+through, depending on their capacity.
+And so, we're going to have certain
+
+71
+00:05:52,818 --> 00:05:56,091
+efficiency of the edge, and we can
+compare,
+
+72
+00:05:56,091 --> 00:06:01,910
+And then we have efficiency of the path
+that is composed of a bunch of these
+
+73
+00:06:01,910 --> 00:06:05,401
+edges.
+And the simplifying assumption in the end
+
+74
+00:06:05,401 --> 00:06:10,711
+is that we're going to assume it only goes
+along the most efficient path.
+
+75
+00:06:10,711 --> 00:06:16,457
+But in practice, it actually goes through
+all of them, but primarily through the
+
+76
+00:06:16,457 --> 00:06:18,130
+high efficiency one.
+So,
+
+77
+00:06:18,130 --> 00:06:23,243
+We, we can compare three different paths.
+Path A has two edges, and each of those
+
+78
+00:06:23,243 --> 00:06:28,802
+edges has efficiency 0.5, which gives the
+efficiency of the path of one-fourth.
+
+79
+00:06:28,809 --> 00:06:34,116
+Path B has three edges, each with
+efficiency 0.5, which gives the efficiency
+
+80
+00:06:34,116 --> 00:06:38,259
+of the path as one-sixth.
+And then, path C has two edges, one with
+
+81
+00:06:38,259 --> 00:06:43,178
+efficiency zero and the other with
+efficiency one, and the efficiency of the
+
+82
+00:06:43,178 --> 00:06:48,678
+whole path is zero, because if part of the
+path lets no electricity through, then,
+
+83
+00:06:48,969 --> 00:06:54,634
+you know that path lets no electricity
+through. And it's nice that you, instead
+
+84
+00:06:54,634 --> 00:06:59,428
+of, you know, averaging these
+efficiencies, we have that the shorter
+
+85
+00:06:59,428 --> 00:07:02,950
+path is more, is more efficient.
+So,
+
+86
+00:07:02,950 --> 00:07:07,079
+We can then look at the efficiency of the
+overall network.
+
+87
+00:07:07,079 --> 00:07:13,130
+And we're going to just look at all the
+paths between all the generating stations
+
+88
+00:07:13,130 --> 00:07:16,405
+and all the kind of end distribution
+stations.
+
+89
+00:07:16,405 --> 00:07:22,528
+And we're going to look at the efficiency
+of the most efficient path between i and
+
+90
+00:07:22,528 --> 00:07:25,660
+j,
+And that's how we'll measure how well the
+
+91
+00:07:25,660 --> 00:07:29,790
+network as a whole is doing in delivering
+the electricity.
+
+92
+00:07:29,790 --> 00:07:35,988
+What we're also going to say is that the
+capacity of each node is proportional to
+
+93
+00:07:35,988 --> 00:07:42,337
+its initial load times alpha, and you want
+alpha to be greater than one, because you
+
+94
+00:07:42,337 --> 00:07:48,460
+want its capacity, capacity to be greater
+than its initial load. And then what's
+
+95
+00:07:48,460 --> 00:07:54,200
+going to happen as the dynamics unfold, is
+that if the load is less than the
+
+96
+00:07:54,200 --> 00:07:57,895
+capacity, then the neighbors are
+unaffected, right?
+
+97
+00:07:57,895 --> 00:08:04,154
+The node is functioning as usual and the
+neighbors are just carrying whatever they
+
+98
+00:08:04,154 --> 00:08:09,375
+would normally be carrying.
+However, if the load of this node exceeds
+
+99
+00:08:09,375 --> 00:08:13,444
+the nodes capacity, then that node shuts
+down temporarily.
+
+100
+00:08:13,444 --> 00:08:18,513
+As, as long as the capacity,
+As long as the node exceeds the capacity,
+
+101
+00:08:18,513 --> 00:08:24,081
+it will be in a degraded, degraded state
+and instead, its neighbors are going to
+
+102
+00:08:24,081 --> 00:08:31,276
+have to carry some of the load, which is
+going to degrade their, their efficiency
+
+103
+00:08:31,276 --> 00:08:36,577
+by this factor, which is how much, the
+original node was overloaded.
+
+104
+00:08:36,577 --> 00:08:42,569
+And so, this is kind of this distribution
+which then can produce the cascading
+
+105
+00:08:42,569 --> 00:08:46,333
+failure.
+One node exceeding its capacity now puts
+
+106
+00:08:46,333 --> 00:08:52,556
+that, load on its neighbors, who in turn
+can fail and those nodes in turn might,
+
+107
+00:08:52,787 --> 00:08:57,320
+you know, then distribute their load to
+their neighbors, etcetera.
+
+108
+00:08:57,320 --> 00:09:06,003
+And what in this paper, they measured
+simulating, but on the real topology is
+
+109
+00:09:06,003 --> 00:09:12,269
+what happens if you just remove nodes at,
+at random.
+
+110
+00:09:12,269 --> 00:09:17,765
+[laugh].
+So, you just assume one, one or more of
+
+111
+00:09:17,765 --> 00:09:25,790
+them are failed for some reason,
+And this is as you target.
+
+112
+00:09:25,790 --> 00:09:31,679
+You know, you get to pick which one fails
+and you can see that this is this is
+
+113
+00:09:31,679 --> 00:09:37,131
+worse, because the network efficiency
+drops down further and this is random.
+
+114
+00:09:37,350 --> 00:09:43,408
+And, here is the overload tolerance.
+So, just look at this fgure closely and
+
+115
+00:09:43,408 --> 00:09:49,712
+see what you can conclude about the
+network efficiency as a function of this
+
+116
+00:09:49,712 --> 00:09:53,970
+overload tolerance that you've given to
+the network.
+
+117
+00:09:53,970 --> 00:10:00,341
+So specifically the quiz question is how
+much higher would the capacity the average
+
+118
+00:10:00,341 --> 00:10:06,333
+capacity of each node need to be relative
+to the initial load in order for the
+
+119
+00:10:06,333 --> 00:10:12,705
+network to be basically unaffected by the
+removal either targeted removal of a node
+
+120
+00:10:12,705 --> 00:10:16,270
+or a random a random failure of such a
+node.
+
+121
+00:10:16,270 --> 00:10:22,785
+So hopefully, what you saw was that,
+increasing the average capacity just 30%
+
+122
+00:10:22,785 --> 00:10:29,386
+or 40% above the typical load, what we
+call the initial load, would render the
+
+123
+00:10:29,386 --> 00:10:33,817
+network com.
+You know, relatively safe to the random
+
+124
+00:10:33,817 --> 00:10:37,900
+and even targeted failure of a particular
+node.
+
+125
+00:10:37,900 --> 00:10:42,818
+Now, why do or why did in the past these
+cascading failures occur?
+
+126
+00:10:42,818 --> 00:10:48,494
+Well, that was because power companies had
+little incentive to provide this
+
+127
+00:10:48,494 --> 00:10:54,018
+additional capacity. Aall right?
+Because they were kind of charging for the
+
+128
+00:10:54,018 --> 00:10:59,391
+load they were carrying, not for
+additional capacity they could provide,
+
+129
+00:10:59,391 --> 00:11:04,159
+which would kick in, in situations where
+there were failures.
+
+130
+00:11:04,159 --> 00:11:10,137
+But, you know, research such as this can
+show that, that additional capacity need
+
+131
+00:11:10,137 --> 00:11:16,456
+not be that large and it would still
+render the, the network pretty resilient
+
+132
+00:11:16,456 --> 00:11:18,739
+to failure.
+Now, to recap.
+
+133
+00:11:18,739 --> 00:11:22,890
+We saw that resilience really depends on
+topology.
+
+134
+00:11:22,890 --> 00:11:27,457
+And this was, you know, not just the
+degree distribution,
+
+135
+00:11:27,457 --> 00:11:34,266
+Which then rendered the network, say, more
+resilient to random attack if there were,
+
+136
+00:11:34,515 --> 00:11:41,074
+if the degree distribution was skewed,
+But less resilient to targeted attack, in
+
+137
+00:11:41,074 --> 00:11:45,309
+that case.
+But, it also depends on what happens when
+
+138
+00:11:45,309 --> 00:11:47,800
+a node fails.
+It could be that,
+
+139
+00:11:47,800 --> 00:11:53,755
+That's it, just a node fails, but all the
+other nodes are unaffected, or it can have
+
+140
+00:11:53,755 --> 00:11:58,549
+this cascading effect, for example, what
+we see with the power grid,
+
+141
+00:11:58,549 --> 00:12:04,359
+Or it can have the opposite effect, which
+is what we saw with, say, crime networks,
+
+142
+00:12:04,359 --> 00:12:09,588
+where the node is quickly replaced.
+In fact, someone was probably eagerly
+
+143
+00:12:09,588 --> 00:12:15,108
+waiting to occupy that spot, and so the
+damage isn't even as bad as, you know,
+
+144
+00:12:15,108 --> 00:12:17,723
+having that, node no longer there.

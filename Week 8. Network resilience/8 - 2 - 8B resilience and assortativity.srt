@@ -1,0 +1,470 @@
+
+1
+00:00:00,000 --> 00:00:05,962
+So far we have treated the degree
+distribution of the network as the most
+
+2
+00:00:05,962 --> 00:00:10,877
+important factor in how resilient the
+network is going to be.
+
+3
+00:00:10,877 --> 00:00:16,920
+But we've paid no attention to how those
+nodes are actually wired together.
+
+4
+00:00:16,920 --> 00:00:22,718
+And, one simple way of capturing who is
+wired to whom is to who is to look at
+
+5
+00:00:22,718 --> 00:00:26,558
+assortativity.
+Specifically degree of assortativity.
+
+6
+00:00:26,558 --> 00:00:32,583
+In general, assortativity could just mean,
+whether like nodes associate with like.
+
+7
+00:00:32,583 --> 00:00:37,930
+When we're talking about degree
+assortativity, we're looking at whether
+
+8
+00:00:37,930 --> 00:00:43,926
+nodes who are social have lots of
+connections, are connected to other nodes
+
+9
+00:00:43,926 --> 00:00:47,524
+who are likewise social, or is it the
+reverse?
+
+10
+00:00:47,524 --> 00:00:54,001
+Is it that the hobs are associated with
+the hermits? The people who have very few
+
+11
+00:00:54,001 --> 00:00:56,400
+connections?
+And, if we look at.
+
+12
+00:00:56,400 --> 00:01:00,931
+Different kinds of networks.
+Here's an example of an assortative
+
+13
+00:01:00,931 --> 00:01:06,595
+network where you have the hobs connecting
+to the other hobs, and the low-degree
+
+14
+00:01:06,595 --> 00:01:09,640
+nodes connecting to other low-degree
+nodes.
+
+15
+00:01:09,640 --> 00:01:15,516
+Here perhaps this topology is random, it
+reminds you of when we grew a preferential
+
+16
+00:01:15,516 --> 00:01:19,623
+attachment network.
+And here, the network is disassortative,
+
+17
+00:01:19,623 --> 00:01:25,500
+so the hobs like the low-degree nodes and
+Yeah, that's the, basically captures it.
+
+18
+00:01:25,820 --> 00:01:31,655
+There are different ways in which you can
+capture this and one is to actually
+
+19
+00:01:31,655 --> 00:01:36,143
+enumerate all possible pairings of degrees
+across the edges.
+
+20
+00:01:36,143 --> 00:01:41,828
+And look at the same property in a
+randomized network to see, and the reason
+
+21
+00:01:41,828 --> 00:01:47,364
+why it randomizes is just to see.
+You know, sometimes at random, you'll have
+
+22
+00:01:47,364 --> 00:01:51,180
+a high degree node connecting to a low
+degree node.
+
+23
+00:01:51,817 --> 00:01:57,320
+So if you were to do this for the
+internet, here's what you would see.
+
+24
+00:01:57,320 --> 00:02:03,780
+You would see that these medium hubs, and
+you know, there, having 30 connections is
+
+25
+00:02:03,780 --> 00:02:08,326
+not that medium.
+Tend to be connected with relatively low
+
+26
+00:02:08,326 --> 00:02:12,871
+degree nodes.
+And the low degree nodes actually end up
+
+27
+00:02:12,871 --> 00:02:19,411
+being connected with even the, the highest
+hubs versus the highest hubs tend to be
+
+28
+00:02:19,411 --> 00:02:25,940
+connected either with low degree nodes or
+with other, you know, very high degree
+
+29
+00:02:25,940 --> 00:02:29,755
+hubs.
+So it gives you a more rich representation
+
+30
+00:02:29,755 --> 00:02:35,046
+of who is connecting to whom.
+You can simplify this, right?
+
+31
+00:02:35,046 --> 00:02:39,217
+This is a two a 2D histogram, in, in
+essence.
+
+32
+00:02:39,217 --> 00:02:44,266
+Almost a 3D plot, right?
+The, the coloring was the third dimension.
+
+33
+00:02:44,266 --> 00:02:49,709
+We can reduce this to a 2D plot if we look
+at the degree of the node.
+
+34
+00:02:49,709 --> 00:02:53,890
+And then look at the average degree of the
+neighbors.
+
+35
+00:02:53,890 --> 00:02:57,519
+And in fact it, it gives you extra
+sensitivity.
+
+36
+00:02:57,519 --> 00:03:03,199
+Do you remember how I said, you can test
+your models by doing additional
+
+37
+00:03:03,199 --> 00:03:07,301
+measurements?
+Well, here is an additional measurement
+
+38
+00:03:07,301 --> 00:03:13,968
+that, in fact, the regular Barabasi Albert
+preferential attachment model, it fails.
+
+39
+00:03:14,193 --> 00:03:20,342
+It has no trend in the average degree of
+the neighbor as a function of the degree
+
+40
+00:03:20,342 --> 00:03:23,866
+of the node.
+In fact, if we look at the physical
+
+41
+00:03:23,866 --> 00:03:30,494
+Internet. it says that the average degree
+of the neighbor falls the higher the
+
+42
+00:03:30,494 --> 00:03:37,560
+degree of the node and so.
+It wasn't until the fitness model which
+
+43
+00:03:37,560 --> 00:03:43,392
+you know hm, can be just a year later,
+within a year where the probability that a
+
+44
+00:03:43,392 --> 00:03:48,562
+node get one of those new edges associated
+with a new node .
+
+45
+00:03:48,562 --> 00:03:53,798
+It depends, not just on the degree of the
+node, but also on its inherent fitness
+
+46
+00:03:53,798 --> 00:03:58,902
+that you get this kind of relationship
+with, which is much closer to what you
+
+47
+00:03:58,902 --> 00:04:02,812
+observe in real life.
+And, there's a, I don't know if you can
+
+48
+00:04:02,812 --> 00:04:07,850
+hear the crow but it wants to chime in on
+this presentation as well.
+
+49
+00:04:07,850 --> 00:04:13,494
+And then, to simplify even more, you can
+just look at a single number, which is
+
+50
+00:04:13,494 --> 00:04:17,966
+over all the edges.
+You just take the correlation between the
+
+51
+00:04:17,966 --> 00:04:23,538
+degrees of the nodes on either side.
+So, for example, for the Internet, you get
+
+52
+00:04:23,538 --> 00:04:28,743
+this slight disassortativity of minus two.
+And of course, you do lose some
+
+53
+00:04:28,743 --> 00:04:32,262
+information.
+For example, yes, you know, on average,
+
+54
+00:04:32,262 --> 00:04:38,420
+the network is disassortative, but we also
+saw that for the highest degree nodes, you
+
+55
+00:04:38,420 --> 00:04:41,968
+know there was,
+They were actually likely to both be
+
+56
+00:04:41,968 --> 00:04:47,195
+connected to each other and to the very
+low degree nodes and it was the middle
+
+57
+00:04:47,195 --> 00:04:51,562
+that was the, the missing chunk.
+Still, it's nice to just be able to
+
+58
+00:04:51,562 --> 00:04:54,738
+characterize this property with a single
+number.
+
+59
+00:04:54,738 --> 00:04:59,436
+So if you'd like a simple, single number,
+then you can just look at this
+
+60
+00:04:59,436 --> 00:05:03,130
+correlation.
+I mentioned that you can talk about
+
+61
+00:05:03,130 --> 00:05:09,496
+assortative mixing more generally, so if
+you were talking about social ties, you
+
+62
+00:05:09,496 --> 00:05:13,767
+may be looking at race and income and
+gender and age.
+
+63
+00:05:14,008 --> 00:05:21,502
+You can look at food webs herbivores and,
+and carnivores I mean I, I'm assuming in
+
+64
+00:05:21,502 --> 00:05:26,498
+the, in the food web it might be a bit
+disassortative there.
+
+65
+00:05:26,740 --> 00:05:33,780
+And we already discussed the, the.
+Internet in terms of the degree but maybe
+
+66
+00:05:33,780 --> 00:05:40,101
+really what is the property that they're
+really connecting on is the type of node
+
+67
+00:05:40,101 --> 00:05:45,700
+that they are, whether they're high level
+connectivity providers, internet service
+
+68
+00:05:45,700 --> 00:05:50,612
+providers, or consumers.
+And in general, when you're talking about
+
+69
+00:05:50,612 --> 00:05:57,257
+social networks, you you're talking about
+homophily the term birds of a feather
+
+70
+00:05:57,257 --> 00:06:04,227
+flock together is saying exactly this that
+individuals in some scenarios will tend to
+
+71
+00:06:04,227 --> 00:06:09,900
+associate on observable characteristics
+for example age and gender.
+
+72
+00:06:11,240 --> 00:06:17,904
+To check our understanding, will a network
+with positive or negative degrees
+
+73
+00:06:17,904 --> 00:06:24,656
+sortativity be more resilient to attack?
+And for this, let's go to Netlogo, and
+
+74
+00:06:24,656 --> 00:06:31,759
+what I'm going to do is I'm going to set
+up a topology, and this network is going
+
+75
+00:06:31,759 --> 00:06:36,985
+to be disassorted, that is, the
+high-degree nodes are going to be
+
+76
+00:06:36,985 --> 00:06:42,786
+connected to the low-degree nodes.
+And the way that I did this was by taking
+
+77
+00:06:42,786 --> 00:06:46,603
+the originally grown network, and then
+rewiring it.
+
+78
+00:06:46,603 --> 00:06:52,405
+And, the rewiring is accepted if it, in
+this case, decreases assortativity, and
+
+79
+00:06:52,405 --> 00:06:57,061
+not accepted otherwise.
+So, let's, let's try and attack this.
+
+80
+00:06:57,061 --> 00:07:03,397
+And the way that we're going to attack it
+is we're going to select the ten highest
+
+81
+00:07:03,397 --> 00:07:07,868
+degree nodes.
+And we observe what happens to the
+
+82
+00:07:07,868 --> 00:07:12,440
+network.
+Now let's grow an assortative network.
+
+83
+00:07:16,120 --> 00:07:21,402
+And you should see the high degree nodes
+clumping together.
+
+84
+00:07:21,402 --> 00:07:26,429
+And the low degree nodes being pushed out
+to the periphery.
+
+85
+00:07:26,429 --> 00:07:33,671
+And hopefully it will finish rewiring soon
+but that's not, well you see this dense
+
+86
+00:07:33,671 --> 00:07:37,932
+central core.
+Now we're going to attack and we can
+
+87
+00:07:37,932 --> 00:07:42,959
+observe what happens.
+And, and here the, the red nodes are in
+
+88
+00:07:42,959 --> 00:07:47,560
+the giant component.
+So going back to our presentation.
+
+89
+00:07:48,780 --> 00:07:58,691
+Hopefully what you saw was that in the
+case of assortative mixing there was very
+
+90
+00:07:58,691 --> 00:08:04,014
+little impact.
+You know, we disconnected these parts of
+
+91
+00:08:04,014 --> 00:08:11,117
+the network, but in general there was so
+much redundancy in that central core that
+
+92
+00:08:11,117 --> 00:08:18,047
+we didn't end up breaking up the network.
+This is sort of the case however, the, a
+
+93
+00:08:18,047 --> 00:08:24,890
+lot of these nodes are connected to, just
+to the hubs and so once the hubs were
+
+94
+00:08:24,890 --> 00:08:30,922
+removed, the, The network was pretty much
+broken up with the removal of just ten

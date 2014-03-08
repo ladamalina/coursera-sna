@@ -1,0 +1,1200 @@
+
+1
+00:00:00,000 --> 00:00:06,349
+As promised, I'm going to be telling you
+about some applications of network
+
+2
+00:00:06,349 --> 00:00:14,800
+centrality, that I actually did myself The
+first is A hospital patient transfer
+
+3
+00:00:14,800 --> 00:00:19,221
+network.
+There are thousands of, transfers between
+
+4
+00:00:19,221 --> 00:00:25,008
+hospitals in the United States.
+And my colleague Jack [inaudible], was
+
+5
+00:00:25,008 --> 00:00:28,464
+doing this study based on Medicare
+records.
+
+6
+00:00:28,464 --> 00:00:34,332
+So people who are on Medicare who
+constitute roughly half to 60% of these
+
+7
+00:00:34,332 --> 00:00:38,351
+transfers.
+When they transfer between hospitals,
+
+8
+00:00:38,351 --> 00:00:43,495
+there's a record of it.
+And he, he was analyzing this data set.
+
+9
+00:00:43,495 --> 00:00:50,661
+It makes for a very pretty, network.
+But it also highlights a potential problem
+
+10
+00:00:50,661 --> 00:00:57,271
+and that is that there are these highly
+resistant bacteria that sometimes take
+
+11
+00:00:57,271 --> 00:01:03,397
+hold in hospitals and their because of
+their drug resistance it is very, very
+
+12
+00:01:03,397 --> 00:01:09,524
+difficult to treat patients who acquire
+these infections and it is actually
+
+13
+00:01:09,524 --> 00:01:16,134
+rather, rather costly right because your
+first line of defense the antibiotic will
+
+14
+00:01:16,134 --> 00:01:20,358
+not work.
+And there is some documented evidence that
+
+15
+00:01:20,608 --> 00:01:26,689
+patient transfers have lead to also
+transfers of these bacteria who were
+
+16
+00:01:26,689 --> 00:01:31,936
+hitching a ride with the patients when
+going to a new hospital.
+
+17
+00:01:31,936 --> 00:01:35,239
+Now.
+Pretty much, it is each hospital trying to
+
+18
+00:01:35,239 --> 00:01:40,526
+prevent these infections on their own.
+So measures that they can take, for
+
+19
+00:01:40,526 --> 00:01:45,017
+example, are, keeping an incoming patient
+in a separate area.
+
+20
+00:01:45,017 --> 00:01:49,725
+And when someone enters this area, they
+have to be wearing a mask.
+
+21
+00:01:49,725 --> 00:01:53,925
+They have to wear gloves.
+They have to, they have to follow
+
+22
+00:01:53,925 --> 00:01:57,619
+protocol.
+Of course, this actually costs quite a bit
+
+23
+00:01:57,619 --> 00:02:01,313
+of money.
+So the question is, could you, formulate
+
+24
+00:02:01,313 --> 00:02:05,562
+more effective.
+Infection prevention strategies if the
+
+25
+00:02:05,562 --> 00:02:11,660
+hospitals could actually coordinate within
+this network, and pull their resources,
+
+26
+00:02:11,660 --> 00:02:17,608
+and put prevention resources at hospitals
+where the total number of infections
+
+27
+00:02:17,608 --> 00:02:23,330
+across all hospitals would be minimized.
+If you did the allocation correctly.
+
+28
+00:02:23,330 --> 00:02:29,214
+Now what we assumed was that the more
+resource a hospital has, the less likely
+
+29
+00:02:29,214 --> 00:02:34,336
+it is to acquire an infection.
+But once it is infected it cannot really
+
+30
+00:02:34,336 --> 00:02:39,992
+root out such an infection and it will
+actually be sending along infected
+
+31
+00:02:39,992 --> 00:02:45,166
+patients to a neighboring hospitals so.
+You know, one, one solution, of course,
+
+32
+00:02:45,166 --> 00:02:50,640
+would be to, forbid all patient transfers.
+However, there are many benefits to such
+
+33
+00:02:50,640 --> 00:02:53,573
+transfers.
+Starting from some hospitals being
+
+34
+00:02:53,573 --> 00:02:58,266
+overbooked, to their intensive care unit
+can't take any more, patients.
+
+35
+00:02:58,266 --> 00:03:03,479
+And so they transfer to a second hospital.
+Or, a hospital does not have the needed
+
+36
+00:03:03,479 --> 00:03:06,217
+expertise, and a neighboring hospital
+does.
+
+37
+00:03:06,217 --> 00:03:10,909
+And, in general, patient outcomes are
+better when patients who need to be
+
+38
+00:03:10,909 --> 00:03:12,930
+transferred or transferred.
+So.
+
+39
+00:03:12,930 --> 00:03:19,743
+We really do just want to allocate some
+prevention resources as supposed to, you
+
+40
+00:03:19,743 --> 00:03:26,211
+know shutting down whole hospitals or
+something like that or forbidding
+
+41
+00:03:26,211 --> 00:03:31,209
+transfers.
+So there are different Strategies that you
+
+42
+00:03:31,209 --> 00:03:39,723
+could use, you could just allocate money
+at random and here what this shows is what
+
+43
+00:03:39,723 --> 00:03:47,690
+the, the number of infections would look
+like after, you know, a year And, so, you
+
+44
+00:03:47,690 --> 00:03:53,076
+can see that, you know, there are really
+some hot spots, some hospitals that would
+
+45
+00:03:53,076 --> 00:03:58,597
+have been very likely to be infected, if
+an infection start in a random hospital.
+
+46
+00:03:58,597 --> 00:04:04,050
+So, you see, well, okay, we know that some
+hospitals have more transfers than others.
+
+47
+00:04:04,050 --> 00:04:09,437
+And, so we tried a, a strategy that would
+target those hospitals with high degree.
+
+48
+00:04:09,437 --> 00:04:14,217
+And here, you know we have the choice of
+in degree and out degree, some hospitals
+
+49
+00:04:14,217 --> 00:04:18,862
+receive more patients, some hospitals
+spent, send more out, and what we found
+
+50
+00:04:18,862 --> 00:04:23,764
+was, most effective was to take The
+geometric mean, that is the in degree
+
+51
+00:04:23,764 --> 00:04:27,745
+times the out degree, and the square root
+of that quantity.
+
+52
+00:04:27,745 --> 00:04:33,167
+And you can see that this produces a
+significant reduction in infection rates.
+
+53
+00:04:33,167 --> 00:04:36,255
+However, we also know about betweenness.
+Right?
+
+54
+00:04:36,255 --> 00:04:41,884
+And we know if a hospital is sort of
+bridging, say the East and West coast then
+
+55
+00:04:42,090 --> 00:04:47,579
+Being able to, you know, target those
+hospitals are kind of between a lot of
+
+56
+00:04:47,579 --> 00:04:51,284
+other hospitals.
+That might be even more effective, and
+
+57
+00:04:51,284 --> 00:04:54,989
+indeed it is.
+When you target based on betweenness as
+
+58
+00:04:54,989 --> 00:04:58,625
+opposed to degree, you reduce infections
+even further.
+
+59
+00:04:58,625 --> 00:05:04,114
+And finally, what, what is most effective
+is, actually simulating the infection
+
+60
+00:05:04,114 --> 00:05:07,820
+spread and, running a greedy algorithm to
+see which.
+
+61
+00:05:08,051 --> 00:05:13,770
+Hospitals should be targeted, and these
+typically are a high degree and high
+
+62
+00:05:13,770 --> 00:05:20,415
+between these hospitals, but you can do
+even better by simulating in this greedy
+
+63
+00:05:20,415 --> 00:05:23,815
+manner.
+And a collaborator of mine at CMU
+
+64
+00:05:24,047 --> 00:05:30,151
+[inaudible] actually showed that an
+eigenvector approach was most effective.
+
+65
+00:05:30,151 --> 00:05:35,020
+It was a really good approximation to this
+greedy algorithm.
+
+66
+00:05:35,020 --> 00:05:41,279
+And so, we kind of ran the full gambit
+from degree to between this to eigenvector
+
+67
+00:05:41,820 --> 00:05:45,451
+in solving this problem.
+Of course I am saying solving.
+
+68
+00:05:45,451 --> 00:05:50,315
+[laugh] It is kind of solved in, in
+theory, of course, from a practical policy
+
+69
+00:05:50,315 --> 00:05:53,363
+standpoint.
+It is not clear how you would get
+
+70
+00:05:53,363 --> 00:05:56,865
+hospitals at a national level to, to pull
+resources.
+
+71
+00:05:56,865 --> 00:06:01,599
+But still it is an interesting thing to
+consider if there are, for example,
+
+72
+00:06:01,599 --> 00:06:05,750
+federal funds that can be allocated
+between different hospitals.
+
+73
+00:06:05,750 --> 00:06:10,383
+The second example, I have already
+mentioned a little bit when we were
+
+74
+00:06:10,383 --> 00:06:15,629
+talking about preferential attachment and
+scale-free networks, and this was
+
+75
+00:06:15,629 --> 00:06:19,581
+identifying expertise in online question
+and answer forms.
+
+76
+00:06:19,581 --> 00:06:25,441
+And the reason why we may want to identify
+expertise, is that there is this response
+
+77
+00:06:25,441 --> 00:06:30,892
+time gap between when an expert asks a
+question in Sun's Java forum, they may be
+
+78
+00:06:30,892 --> 00:06:35,798
+waiting for hours or days, but when a
+newbie asks a question there their
+
+79
+00:06:35,798 --> 00:06:39,750
+question is answered right away, and the
+question is could.
+
+80
+00:06:39,750 --> 00:06:46,036
+You speed this up, by matching experts
+with questions that were post by experts,
+
+81
+00:06:46,036 --> 00:06:49,550
+in order to, to get those taken care of
+sooner.
+
+82
+00:06:49,550 --> 00:06:55,957
+And so what we did was we, we gathered a
+whole lot of data from Sun's Java form.
+
+83
+00:06:55,957 --> 00:07:02,667
+And you know we had what is this, 200,000
+users and 800,000 edges, so plenty to play
+
+84
+00:07:02,667 --> 00:07:05,909
+with.
+But you know, with real world data the
+
+85
+00:07:05,909 --> 00:07:12,166
+thing is always you have to decide how
+you're going to construct the network, so
+
+86
+00:07:12,166 --> 00:07:15,483
+you could construct it in an unweighted
+way.
+
+87
+00:07:15,483 --> 00:07:20,834
+What we wanted to do was have, for
+example, if you have A who posted two
+
+88
+00:07:20,836 --> 00:07:25,810
+questions, and then you have B and C.
+Who answered those questions.
+
+89
+00:07:25,810 --> 00:07:30,047
+You have some choice.
+You could, for example, do an unweighted
+
+90
+00:07:30,047 --> 00:07:33,296
+network where A has directed edges to B
+and C.
+
+91
+00:07:33,296 --> 00:07:39,088
+And in this case, you know, we are saying
+B is more expert than A because they could
+
+92
+00:07:39,088 --> 00:07:43,467
+answer the question.
+We could weigh the edges by the number, or
+
+93
+00:07:43,467 --> 00:07:48,685
+weight to the edges [laugh], sorry.
+By the number of threads that, that the
+
+94
+00:07:48,685 --> 00:07:52,983
+two notes intracted in.
+We could have them share credits, so both
+
+95
+00:07:52,983 --> 00:07:57,089
+b and c answered a question.
+They would each get half of, well, weight
+
+96
+00:07:57,089 --> 00:08:03,935
+one-half added to whatever other weight
+they had, or we could even introduce a
+
+97
+00:08:03,935 --> 00:08:08,025
+little bit of back flow.
+And this just means, if you asked a
+
+98
+00:08:08,025 --> 00:08:13,294
+question that was answered, it means that
+at least it was sort of decent question.
+
+99
+00:08:13,294 --> 00:08:17,800
+So, we may have a little bit of the weight
+of the edge going back.
+
+100
+00:08:18,200 --> 00:08:24,038
+Now, as I mentioned before, there is very
+uneven participation, especially when we
+
+101
+00:08:24,038 --> 00:08:27,660
+look at nodes that post lots and lots of
+replies.
+
+102
+00:08:28,120 --> 00:08:32,615
+And, in addition to looking at these kind
+of individual note centralities, we can
+
+103
+00:08:32,615 --> 00:08:35,032
+look at the whole structure of the
+network.
+
+104
+00:08:35,032 --> 00:08:39,528
+And something that I have not really
+discussed before is the bow-tie model of
+
+105
+00:08:39,528 --> 00:08:40,933
+the web.
+It is very simple.
+
+106
+00:08:40,933 --> 00:08:45,541
+You have the strongly connected component.
+Remember, on the web this means that you
+
+107
+00:08:45,541 --> 00:08:49,868
+could actually, if you are very patient,
+and kept clicking, get from one page to
+
+108
+00:08:49,868 --> 00:08:53,634
+any other within that component.
+And then you have the in component.
+
+109
+00:08:53,634 --> 00:08:57,848
+From this component, you can start on a
+web page, and end up in the strongly
+
+110
+00:08:57,848 --> 00:09:00,490
+connected component, but you cannot get
+back out.
+
+111
+00:09:00,490 --> 00:09:04,896
+The out component means that.
+You can get out of the stronger connection
+
+112
+00:09:04,896 --> 00:09:08,095
+component into this region, but you cannot
+get back in.
+
+113
+00:09:08,095 --> 00:09:10,992
+And then you can have other sorts of
+structures.
+
+114
+00:09:10,992 --> 00:09:16,173
+And what is true of the web is that this,
+this At least a decade or more ago was
+
+115
+00:09:16,173 --> 00:09:21,747
+that you had this very symmetric bow tie.
+And the, the symmetry is not there, it is
+
+116
+00:09:21,747 --> 00:09:27,455
+very skewed in Sun's Java form because
+well you do have a strongly connected
+
+117
+00:09:27,455 --> 00:09:30,477
+component but it is actually relatively
+small.
+
+118
+00:09:30,477 --> 00:09:35,380
+Only about twelve percent are interacting
+in such a way that they are all kind of
+
+119
+00:09:35,380 --> 00:09:39,409
+helping each other in a generalized
+reciprocity kind of way.
+
+120
+00:09:39,409 --> 00:09:45,073
+So maybe A did not A replied to B, and B
+did not reply directly to A, but B replied
+
+121
+00:09:45,073 --> 00:09:49,327
+to C who, replied to, to D, etcetera You
+have a large in-component.
+
+122
+00:09:49,327 --> 00:09:55,160
+These are people who are asking questions,
+but not necessarily replying or if they do
+
+123
+00:09:55,160 --> 00:09:58,522
+reply they didn't, reply to someone, in
+here.
+
+124
+00:09:58,522 --> 00:10:02,844
+And so they all composed this
+in-component, and there is a small
+
+125
+00:10:02,844 --> 00:10:06,755
+out-component.
+These are people who only answer, but do
+
+126
+00:10:06,755 --> 00:10:10,254
+not but do not ask.
+Okay, but back to the, the question of
+
+127
+00:10:10,254 --> 00:10:13,960
+centrality.
+As I mentioned before, it was very clear.
+
+128
+00:10:13,960 --> 00:10:17,960
+You know, that some nodes were very active
+and very central.
+
+129
+00:10:17,960 --> 00:10:25,167
+But what we wanted to know was whether
+indeed degree was the best way to, to
+
+130
+00:10:25,167 --> 00:10:30,641
+capture centrality.
+And so, in order to evaluate, we had human
+
+131
+00:10:30,641 --> 00:10:37,210
+readers, read the posts and judge the
+expertise level of the repliers.
+
+132
+00:10:37,210 --> 00:10:43,415
+And what we found was actually a very high
+correlation over a number of centrality
+
+133
+00:10:43,415 --> 00:10:48,948
+metrics between the human rated expertise.
+And just this, you know, whatever
+
+134
+00:10:48,948 --> 00:10:53,957
+centrality measures, we were deriving.
+And so, in a way, that was nice.
+
+135
+00:10:53,957 --> 00:10:59,863
+Because you basically could not mess up.
+You could use any measure and do really
+
+136
+00:10:59,863 --> 00:11:03,377
+well.
+But what was disappointing to us was that
+
+137
+00:11:03,377 --> 00:11:09,358
+page rank was not, the clear winner.
+And the reason why we had hoped that page
+
+138
+00:11:09,358 --> 00:11:16,624
+rank would be, You know, a good, a good
+centrality measure is if you think about
+
+139
+00:11:16,624 --> 00:11:21,447
+it, if someone is.
+Expert enough to answer the question of
+
+140
+00:11:21,447 --> 00:11:25,677
+another expert who themselves has been
+helping others.
+
+141
+00:11:25,677 --> 00:11:32,099
+Then, you know, that kind of propagation,
+should tell us that this expert is so much
+
+142
+00:11:32,099 --> 00:11:38,599
+better than this other expert etcetera.
+So, the recursion thing apparently was not
+
+143
+00:11:38,599 --> 00:11:43,534
+working in this form.
+So, we wanted to know why, and we did look
+
+144
+00:11:43,534 --> 00:11:49,890
+at the break down of the human reading
+versus the Versus the kind of centrality
+
+145
+00:11:49,890 --> 00:11:55,343
+measures we were getting and that was not
+really telling us why page rank was not
+
+146
+00:11:55,343 --> 00:12:00,205
+performing all that awesomely.
+And then Jun Zhang built a simulator.
+
+147
+00:12:00,205 --> 00:12:05,330
+So from last week you may be familiar
+with, hey Sometimes just simulating how a
+
+148
+00:12:05,330 --> 00:12:10,388
+network forms can give you insights into
+whether you know, you understand the
+
+149
+00:12:10,388 --> 00:12:13,476
+dynamics that are leading to the network,
+right?
+
+150
+00:12:13,476 --> 00:12:18,010
+And the dynamics may be really the things
+that you are actually after.
+
+151
+00:12:18,010 --> 00:12:23,943
+And so, here we.
+The parameters were, who is going to ask
+
+152
+00:12:23,943 --> 00:12:27,356
+more often?
+Is it going to be the newbies or the
+
+153
+00:12:27,356 --> 00:12:31,053
+experts?
+And the one that seemed to resemble more
+
+154
+00:12:31,053 --> 00:12:36,741
+of the real network, just because of the
+skew, was that newbies ask lots and lots
+
+155
+00:12:36,741 --> 00:12:40,296
+of questions.
+And then, who is going to answer whom?
+
+156
+00:12:40,296 --> 00:12:43,852
+We wanted to have a particular matching
+algorithm.
+
+157
+00:12:43,852 --> 00:12:47,051
+And so, in one case, we had the best
+preferred.
+
+158
+00:12:47,051 --> 00:12:52,100
+That is, no matter, you know, what the
+expertise of the person asking, the.
+
+159
+00:12:52,100 --> 00:12:57,490
+Expert who has the, the most difference in
+expertise, that is, their, their, as.
+
+160
+00:12:57,490 --> 00:13:04,980
+As expert as possible over what is being
+asked, is going to answer and we had
+
+161
+00:13:04,980 --> 00:13:11,433
+another Model which was the Just Better
+model so that people who are answering
+
+162
+00:13:11,433 --> 00:13:16,439
+would be choosing to answer questions that
+would be challenging to them.
+
+163
+00:13:16,439 --> 00:13:21,862
+So if a newbie asks a question, then just
+the people who are a little bit more
+
+164
+00:13:21,862 --> 00:13:26,034
+expert than newbies would be answering the
+newbie questions.
+
+165
+00:13:26,034 --> 00:13:30,159
+And the top level experts who cannot save
+their badnwidth and only answer the
+
+166
+00:13:30,159 --> 00:13:32,153
+questions of those who are like almost as
+expert as they were.
+
+167
+00:13:32,153 --> 00:13:36,324
+And this actually lead to two different
+kinds of topologies.
+
+168
+00:13:36,324 --> 00:13:40,010
+In the best preferred network you can see,
+so this is.
+
+169
+00:13:40,350 --> 00:13:45,588
+A, a circle layout where I have just
+ordered the nodes by the expertise that we
+
+170
+00:13:45,588 --> 00:13:51,370
+assign them in the simulation and you can
+see a lot of the questions are answered by
+
+171
+00:13:51,370 --> 00:13:56,948
+the experts and also, so here they are
+showing larger nodes they are more central
+
+172
+00:13:56,948 --> 00:14:00,758
+in the network.
+Here with the just better, you can see
+
+173
+00:14:00,758 --> 00:14:06,281
+that the 2s are answering the 1s, the 3s
+are answering the 2s etcetera And, in fact
+
+174
+00:14:06,281 --> 00:14:13,165
+you have that the experts are kind of
+being pushed to the periphery of the
+
+175
+00:14:13,165 --> 00:14:24,219
+network and so it makes sense so I will
+And so it make sense that when we look at
+
+176
+00:14:24,219 --> 00:14:31,603
+algorithm performance that If the
+underlying dynamic is this, you know, the
+
+177
+00:14:31,603 --> 00:14:36,605
+best guys are always answering, which is
+in fact what we see, right, they are not
+
+178
+00:14:36,605 --> 00:14:40,709
+actually discriminating.
+Than things such as in degree, or kind of
+
+179
+00:14:40,709 --> 00:14:45,903
+z scores of in degree, how much higher is
+the, is the degree than what you would
+
+180
+00:14:45,903 --> 00:14:53,254
+expect, at to, you know if you had a
+balanced in out degree for the different
+
+181
+00:14:53,254 --> 00:14:58,730
+nodes That should perform better.
+And so we kind of figured out what the
+
+182
+00:14:58,730 --> 00:15:03,261
+underlying dynamics were by seeing which
+algorithms is performed well.
+
+183
+00:15:03,261 --> 00:15:08,907
+On the other hand, in the just better
+simulation, if people really were, mindful
+
+184
+00:15:08,907 --> 00:15:14,275
+or their bandwidth, and matching their
+expertise to the level of the question.
+
+185
+00:15:14,275 --> 00:15:19,572
+Then, in fact, we would see here, page
+rank is in, yellow, that the page rank
+
+186
+00:15:19,572 --> 00:15:24,180
+algorithm would be the one that is most,
+Most predictive.
+
+187
+00:15:24,180 --> 00:15:30,524
+So I have not discussed the hits ranking
+algorithm, it is also kind of a web
+
+188
+00:15:30,524 --> 00:15:37,601
+ranking algorithm but you know, it is just
+to illustrate that there are lots and lots
+
+189
+00:15:37,601 --> 00:15:44,922
+of different centrality measures on hits.
+The basic definition is that you have hubs
+
+190
+00:15:44,922 --> 00:15:49,315
+and authorities.
+Hubs are going to link to or point to
+
+191
+00:15:49,315 --> 00:15:54,114
+authorities and authorities are pointed
+to, by good hubs.
+
+192
+00:15:54,114 --> 00:16:02,821
+Right, so you have this kind of bimodel,
+Definition, I'm going to iterate, again,
+
+193
+00:16:02,821 --> 00:16:09,243
+some, matrix, computations, and in this
+case, we can figure out that if you had
+
+194
+00:16:09,243 --> 00:16:14,834
+the just better model a hits algorithm
+would not perform very well at all,
+
+195
+00:16:14,834 --> 00:16:19,443
+because most of the questions are being
+asked by the newbies.
+
+196
+00:16:19,443 --> 00:16:25,336
+They are the hubs, but their questions
+would be answered by the, you know, by the
+
+197
+00:16:25,336 --> 00:16:30,096
+barely experts, right?
+So you would get the barely experts being
+
+198
+00:16:30,096 --> 00:16:33,950
+ranked highest by the hits algorithm, and
+so we can.
+
+199
+00:16:33,950 --> 00:16:39,725
+And sort of predict the hits algorithm
+would not work in this context versus the
+
+200
+00:16:39,725 --> 00:16:44,490
+pay train algorithm whip.
+And so this is just to say that you have.
+
+201
+00:16:44,490 --> 00:16:49,852
+Many, many different, choices of
+centrality measures.
+
+202
+00:16:49,852 --> 00:16:55,469
+And sometimes it is nice to throw in the
+kitchen sink and see what works.
+
+203
+00:16:55,469 --> 00:17:01,788
+If you were a social scientist you may try
+several different centrality measures.
+
+204
+00:17:01,788 --> 00:17:08,184
+And you stick them into a big regression,
+where you are trying to figure out, you
+
+205
+00:17:08,184 --> 00:17:11,773
+know, what specific outcomes do you care
+about.
+
+206
+00:17:11,773 --> 00:17:16,457
+For example, if it is a person's
+well-being, because they are these are
+
+207
+00:17:16,814 --> 00:17:20,559
+degree centrality matter more than their
+betweeness centrality.
+
+208
+00:17:20,559 --> 00:17:25,195
+If you are looking at an online community
+who is going to stay active in the
+
+209
+00:17:25,195 --> 00:17:28,048
+community?
+Does it matter how many contacts they
+
+210
+00:17:28,048 --> 00:17:30,722
+have?
+Or does it matter that they are actually
+
+211
+00:17:30,722 --> 00:17:35,002
+bridging different communities?
+For example, if they have high betweeness,
+
+212
+00:17:35,002 --> 00:17:39,638
+what you might expect is that if one
+community, or one subset of people, starts
+
+213
+00:17:39,638 --> 00:17:44,215
+being less active in that community, they
+would still have another that could
+
+214
+00:17:44,215 --> 00:17:48,078
+potentially still be active.
+But on the other hand, if it is really
+
+215
+00:17:48,078 --> 00:17:52,722
+high betweeness.
+They may just be bridging different,
+
+216
+00:17:53,030 --> 00:17:57,969
+Different groups without really finding a
+home in, in that online community.
+
+217
+00:17:57,969 --> 00:18:03,041
+So they might be more likely to quit.
+So the thing is, you don't know ahead of
+
+218
+00:18:03,041 --> 00:18:05,610
+time.
+Just as with the Java forum, we, we
+
+219
+00:18:05,610 --> 00:18:11,208
+expected paid rank to perform well and it,
+it did not actually perform any better.
+
+220
+00:18:11,208 --> 00:18:16,411
+Is actually slightly worse than just
+looking at the Z scores of in-degree
+
+221
+00:18:16,411 --> 00:18:20,231
+versus out-degree.
+And that is a little bit of the magic
+
+222
+00:18:20,231 --> 00:18:26,153
+[laugh] of doing, especially exploratory
+session network analysis that You know,
+
+223
+00:18:26,153 --> 00:18:30,046
+you can go in with the standard set of
+centrality measures.
+
+224
+00:18:30,046 --> 00:18:32,950
+And then you really think about the
+problem.
+
+225
+00:18:32,950 --> 00:18:35,853
+You really think, you know, how can I
+capture.
+
+226
+00:18:35,853 --> 00:18:40,472
+For example, with expertise, maybe it is
+not so much how much you answer.
+
+227
+00:18:40,472 --> 00:18:43,639
+But do you answer a lot more than you ask,
+right?
+
+228
+00:18:43,639 --> 00:18:48,456
+It make-, it sort of makes sense, right?
+You are, you are sort of, [inaudible].
+
+229
+00:18:48,654 --> 00:18:51,690
+You know, maybe that is a better measure.
+And so.
+
+230
+00:18:51,690 --> 00:18:57,362
+I mean, it does contribute to the problem
+of there being lots and lots of difference
+
+231
+00:18:57,362 --> 00:19:01,685
+in childing measures.
+But I also think, practically speaking, it
+
+232
+00:19:01,685 --> 00:19:06,412
+is good to, it is good to customize.
+And, you know, you can always use the
+
+233
+00:19:06,412 --> 00:19:11,950
+standard ones, but sometimes, you know, if
+you are thinking deeply about your problem
+
+234
+00:19:11,950 --> 00:19:17,285
+you, you may come up with something new
+and, and different and interesting.
+
+235
+00:19:17,285 --> 00:19:22,283
+So in the next video I will be talking
+about how to fit power loss properly.
+
+236
+00:19:22,283 --> 00:19:27,786
+I consider this video optional because, In
+a you know, it is going to be a little bit
+
+237
+00:19:27,786 --> 00:19:32,635
+technical but, if you are ever going to
+claim that you have a scale three network
+
+238
+00:19:32,635 --> 00:19:37,302
+you must watch this video and learn out
+how to fit power loss properly, because I
+
+239
+00:19:37,302 --> 00:19:41,909
+do not want you running around making
+false statements after taking my class.
+
+240
+00:19:41,909 --> 00:19:44,940
+Okay so I will see you maybe in the next
+video then.

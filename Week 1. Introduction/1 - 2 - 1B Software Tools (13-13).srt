@@ -1,0 +1,779 @@
+
+1
+00:00:00,000 --> 00:00:05,073
+Now before we start using Gephi, let me
+tell you about the software tools that we
+
+2
+00:00:05,073 --> 00:00:10,019
+will and won't be using.
+In this class, we'll be using Gephi for
+
+3
+00:00:10,019 --> 00:00:14,023
+visualization and for calculating simple
+network metrics.
+
+4
+00:00:14,023 --> 00:00:20,018
+We'll be using NetLogo to understand the
+dynamics that shape network formation and
+
+5
+00:00:20,018 --> 00:00:23,079
+also to understand processes occurring on
+networks.
+
+6
+00:00:23,079 --> 00:00:29,003
+And finally for those of you doing
+programming assignments we'll be using
+
+7
+00:00:29,003 --> 00:00:33,007
+iGraph for more sophisticated, more
+flexible calculations.
+
+8
+00:00:33,028 --> 00:00:39,016
+There are actually a lot of alternatives,
+and let me tell you about some of them,
+
+9
+00:00:39,016 --> 00:00:45,011
+because once you know what capabilities
+you like, you can readily find them in
+
+10
+00:00:45,011 --> 00:00:49,082
+other software that may be more
+well-suited to your projects.
+
+11
+00:00:49,082 --> 00:00:54,687
+So there's the software package called
+Pajek which means spider in Slovenian.
+
+12
+00:00:54,687 --> 00:00:59,482
+It has been developed for a number of
+years, it's a very mature software
+
+13
+00:00:59,482 --> 00:01:02,779
+package.
+It has very extensive functionality which
+
+14
+00:01:02,779 --> 00:01:08,099
+you access through drop down menus.
+And the reason why we're not using it even
+
+15
+00:01:08,099 --> 00:01:13,544
+though I have used it when teaching this
+type of class in the past is because it
+
+16
+00:01:13,544 --> 00:01:18,113
+only works on the Windows platform and
+some students have had trouble using
+
+17
+00:01:18,113 --> 00:01:22,877
+Windows emulators on other systems.
+So I just made the choice to switch over
+
+18
+00:01:22,877 --> 00:01:28,017
+to platform-independent software.
+However Pajek might be a very good choice.
+
+19
+00:01:28,017 --> 00:01:33,001
+In addition, there is a book, a textbook,
+called Social Network and, Exploratory
+
+20
+00:01:33,001 --> 00:01:38,003
+Social Network Analysis with Pajek, which
+guides you through many analyses that you
+
+21
+00:01:38,003 --> 00:01:42,069
+can do with that software.
+We also will not be using UCINet, which
+
+22
+00:01:42,069 --> 00:01:48,056
+again is fairly mature, or very mature.
+It has extensive functionality, mostly
+
+23
+00:01:48,056 --> 00:01:54,097
+focused around sociology so, I think until
+recently UCI Net did not really scale up
+
+24
+00:01:54,097 --> 00:01:58,668
+to large networks.
+Unfortunately it's, it's also Windows
+
+25
+00:01:58,668 --> 00:02:05,402
+only, and the license may cost you a
+couple hundred dollars if you're not a, a,
+
+26
+00:02:05,402 --> 00:02:10,018
+a full time student, or somehow affiliated
+with the university.
+
+27
+00:02:10,018 --> 00:02:14,039
+We also will be using NodeXL, NodeXL is a
+relative newcomer.
+
+28
+00:02:14,039 --> 00:02:18,047
+Its social network analysis neatly
+integrated into Excel.
+
+29
+00:02:18,068 --> 00:02:22,083
+It's still, I think, very much in beta,
+it's being developed.
+
+30
+00:02:22,083 --> 00:02:27,019
+However, it's free.
+And if you're, are already an Excel user,
+
+31
+00:02:27,019 --> 00:02:31,090
+then this may be a very friendly way to do
+social network analysis.
+
+32
+00:02:31,090 --> 00:02:37,075
+Again, it's, it's actually Windows only,
+only, the, Windows version of Excel
+
+33
+00:02:37,075 --> 00:02:41,081
+supports NodeXL, and that's why we're not
+using it.
+
+34
+00:02:41,081 --> 00:02:47,030
+If you're a programmer, there's an
+excellent alternative called NetworkX.
+
+35
+00:02:47,030 --> 00:02:53,025
+It has extensive functionality and it's
+actually built upon, Fortran and C
+
+36
+00:02:53,025 --> 00:02:58,067
+libraries, which are optimized to scale
+for very, very large matrices.
+
+37
+00:02:58,067 --> 00:03:02,081
+And so you can do calculations for very
+large networks.
+
+38
+00:03:02,081 --> 00:03:09,233
+It's, on top of that it's open source, so
+that's definitely something to consider if
+
+39
+00:03:09,233 --> 00:03:14,060
+you have this background.
+There are many, many other alternatives,
+
+40
+00:03:14,060 --> 00:03:20,417
+most of them are in various phases of
+development one very mature package is the
+
+41
+00:03:20,417 --> 00:03:27,035
+social network analysis package for R, it,
+it has a kind of statistics heavy duty
+
+42
+00:03:27,035 --> 00:03:33,033
+functionality for example, p-star models
+which we won't even get into in, in this
+
+43
+00:03:33,033 --> 00:03:37,094
+course, are supported in this social
+network analysis package.
+
+44
+00:03:38,015 --> 00:03:43,092
+In addition, if you are interested some,
+p-star models are used to model networks
+
+45
+00:03:43,092 --> 00:03:48,057
+as they evolve to time.
+Just a hypothesis about, what's driving
+
+46
+00:03:48,057 --> 00:03:52,049
+edge formation.
+And if you're interested in visualizing
+
+47
+00:03:52,049 --> 00:03:57,070
+networks over time with kind of an
+integrated P star model functionality,
+
+48
+00:03:57,070 --> 00:04:02,077
+there's the package SoNIA, that, that you
+can use for this purpose.
+
+49
+00:04:02,077 --> 00:04:08,507
+Now let's get to our main task for this
+lecture, which is to work with Gephi.
+
+50
+00:04:08,507 --> 00:04:12,513
+So what I'd like you to do is to download
+Gephi.
+
+51
+00:04:12,513 --> 00:04:17,165
+It's free, it should work on any platform,
+and install it.
+
+52
+00:04:17,165 --> 00:04:23,453
+Once you've installed it, download the
+data file dining.gephi from the Coursera
+
+53
+00:04:23,453 --> 00:04:27,490
+folder for this lecture, and we can start
+to play.
+
+54
+00:04:27,490 --> 00:04:33,096
+Now that you downloaded Gephi and
+installed it, we can start to play with
+
+55
+00:04:33,096 --> 00:04:38,531
+this dining.gephi data file.
+Now I've opened it recently so it's shown
+
+56
+00:04:38,531 --> 00:04:45,585
+in this helpful welcome screen but perhaps
+you don't have that so you can go to File,
+
+57
+00:04:45,585 --> 00:04:52,224
+Open, and navigate to the directory where
+you've saved it and then just double click
+
+58
+00:04:52,224 --> 00:04:56,221
+to open it.
+And here we're waiting for it to load and
+
+59
+00:04:56,221 --> 00:05:03,016
+pretty soon it's going to tell us, for
+example, the number of nodes and edges.
+
+60
+00:05:03,016 --> 00:05:07,005
+It's going to tell us there are 26 nodes
+and 52 edges.
+
+61
+00:05:07,005 --> 00:05:11,080
+What kind of data is this?
+Well, this was data gathered in a girls'
+
+62
+00:05:11,080 --> 00:05:17,062
+dormitory back into the 1940s, where the
+girls were asked to name their first and
+
+63
+00:05:17,062 --> 00:05:22,001
+second choices for who they would like to
+sit with at dinner.
+
+64
+00:05:22,001 --> 00:05:25,039
+So, this is the dining table partners'
+data set.
+
+65
+00:05:26,024 --> 00:05:32,012
+You, you can see a random layout here, and
+I've done this on purpose to demonstrate
+
+66
+00:05:32,012 --> 00:05:38,000
+how even with such a small network as this
+one, a random layout can really obscure
+
+67
+00:05:38,000 --> 00:05:43,031
+whatever insights you're trying to see.
+Now, Gephi helps a little bit.
+
+68
+00:05:43,031 --> 00:05:48,677
+Here we can tell for example, that this
+girl is relatively popular because lots of
+
+69
+00:05:48,677 --> 00:05:53,063
+other girls have named her as their first
+or second choice.
+
+70
+00:05:53,063 --> 00:05:59,030
+Now, if we want to know which girl exactly
+this is, what we do is we select this
+
+71
+00:05:59,030 --> 00:06:01,093
+little arrow.
+Plus question mark.
+
+72
+00:06:01,093 --> 00:06:09,027
+It's actually an, brings up an edit window
+over here, and now when we left-click on
+
+73
+00:06:09,027 --> 00:06:15,541
+this node, we find out that this girl's
+name is Eva, in addition to some other
+
+74
+00:06:15,541 --> 00:06:20,081
+properties.
+We also may want to know the overall
+
+75
+00:06:20,081 --> 00:06:26,096
+structure so we can select a layout.
+And here I went to the layout panel, and
+
+76
+00:06:26,096 --> 00:06:32,045
+I'm going to choose a layout.
+Force Atlas two is one of my favorites,
+
+77
+00:06:32,045 --> 00:06:38,043
+but Yen Phen Hu is also very fine.
+It turns out it doesn't matter too much
+
+78
+00:06:38,043 --> 00:06:44,042
+when the network is this small.
+It's more with large networks that you run
+
+79
+00:06:44,042 --> 00:06:49,018
+into utilization difficulties.
+So, let's try Force Atlas two.
+
+80
+00:06:49,018 --> 00:06:54,049
+And I'm going to click on run.
+There're all of these different parameters
+
+81
+00:06:54,049 --> 00:07:00,037
+which you can tweak and, and play with
+that have to do with how the model's
+
+82
+00:07:00,037 --> 00:07:04,000
+running.
+Essentially, all of these different layout
+
+83
+00:07:04,000 --> 00:07:09,081
+algorithms want to place nodes that are
+linked close together and ones that are
+
+84
+00:07:09,081 --> 00:07:12,094
+not.
+It wants them to repel from each other.
+
+85
+00:07:12,094 --> 00:07:19,016
+So we're going to say run.
+And it ran, it's doing a little bit of
+
+86
+00:07:19,016 --> 00:07:23,099
+spinning.
+Let's see if it'll actually spin into a
+
+87
+00:07:23,099 --> 00:07:29,060
+good position.
+Oh, indeed, very nice.
+
+88
+00:07:29,087 --> 00:07:32,026
+Okay.
+Let's stop it right there.
+
+89
+00:07:32,026 --> 00:07:38,151
+And you may notice that now some nodes are
+out of use, so you can click this little
+
+90
+00:07:38,151 --> 00:07:44,184
+magnifying glass that will center it on
+the graph but it may end up looking a
+
+91
+00:07:44,184 --> 00:07:49,041
+little bit too small.
+So I'm going to use the track pad or you
+
+92
+00:07:49,041 --> 00:07:55,364
+can use your mouse wheel to just zoom in.
+And then I'm going to right click and drag
+
+93
+00:07:55,364 --> 00:08:00,075
+and zoom in some more.
+And this I think shows off the layout of
+
+94
+00:08:00,075 --> 00:08:03,720
+the girls' preferences a little bit more
+clearly.
+
+95
+00:08:03,720 --> 00:08:07,441
+You may want to tweak things just a little
+bit.
+
+96
+00:08:07,441 --> 00:08:12,055
+I'm going to select the hand to drag the
+node just here.
+
+97
+00:08:12,055 --> 00:08:17,529
+It wasn't quite clear who was, who was
+picking whom, so maybe I just move it a
+
+98
+00:08:17,529 --> 00:08:22,774
+little bit, right, so a, a little bit of
+minor adjustment is no big deal.
+
+99
+00:08:22,774 --> 00:08:29,070
+If you're moving things around because you
+want them to look a certain way to prove
+
+100
+00:08:29,070 --> 00:08:32,416
+some point, then I wouldn't, I wouldn't do
+this.
+
+101
+00:08:32,416 --> 00:08:37,931
+But just for us and wanting to see who
+exactly has picked whom, I think it's
+
+102
+00:08:37,931 --> 00:08:39,513
+perfectly fine.
+Okay.
+
+103
+00:08:39,513 --> 00:08:46,154
+Some other things that you can do is you
+can change the color for all the nodes.
+
+104
+00:08:46,154 --> 00:08:52,237
+So, if we want them all to be red, and
+then we, and so I right-click to choose
+
+105
+00:08:52,237 --> 00:08:57,000
+the color, and then I left-click to set
+them all to red.
+
+106
+00:08:57,023 --> 00:09:01,038
+I may want to, yes okay, these were a
+little overlapped.
+
+107
+00:09:01,038 --> 00:09:07,024
+So we just want to avoid overlaps where we
+don't know where there's an edge.
+
+108
+00:09:07,024 --> 00:09:13,726
+Is incident on the node, or the node is
+over the edge and it's actually obscuring
+
+109
+00:09:13,726 --> 00:09:17,064
+it.
+We can also adjust the size if they seem a
+
+110
+00:09:17,064 --> 00:09:21,072
+little bit big.
+I'm going to right click on the size.
+
+111
+00:09:21,072 --> 00:09:25,064
+Well actually, 1.0, that's already quite,
+quite fine.
+
+112
+00:09:25,064 --> 00:09:29,017
+I guess you could try a fraction of the
+size.
+
+113
+00:09:29,017 --> 00:09:34,058
+I'm going to left-click and now they're
+tiny, so let's go back to 1.0.
+
+114
+00:09:35,094 --> 00:09:40,079
+Inset that.
+Oops, alright.
+
+115
+00:09:40,079 --> 00:09:42,041
+Let's see.
+Five?
+
+116
+00:09:42,041 --> 00:09:46,050
+Apparently it wasn't five before.
+Okay.
+
+117
+00:09:46,050 --> 00:09:50,026
+There we go.
+So they're a size five.
+
+118
+00:09:50,059 --> 00:09:57,051
+We may find this more informative if
+instead of having to click on this edit
+
+119
+00:09:57,051 --> 00:10:04,000
+attribute where we then click on
+individual nodes and find out, hey, this
+
+120
+00:10:04,000 --> 00:10:08,009
+girl is Hazel.
+And this one is Maxine, this is where I'm
+
+121
+00:10:08,009 --> 00:10:12,000
+seeing all this info after I've selected
+the Edit tool.
+
+122
+00:10:12,000 --> 00:10:18,006
+Perhaps if we just show the labels for all
+the nodes, so I'm just gonna click on this
+
+123
+00:10:18,006 --> 00:10:23,430
+T down here that says show node labels.
+And they are way too big so we're just
+
+124
+00:10:23,430 --> 00:10:27,514
+going to have to try and scale then down a
+little bit.
+
+125
+00:10:27,514 --> 00:10:32,080
+There we go.
+And, we can go back to the layout and say
+
+126
+00:10:32,080 --> 00:10:35,517
+label adjust.
+Try to move these around so that the
+
+127
+00:10:35,517 --> 00:10:39,336
+labels don't overlap as much, and it's
+actually done it.
+
+128
+00:10:39,336 --> 00:10:43,647
+I don't know if you could see it, it
+popped up very quickly.
+
+129
+00:10:43,647 --> 00:10:46,659
+And now, all the labels are fairly
+visible.
+
+130
+00:10:46,659 --> 00:10:53,074
+Another thing that we may want to do is to
+color the edges differently depending on
+
+131
+00:10:53,074 --> 00:10:56,688
+whether this is a girl's first or second
+choice.
+
+132
+00:10:56,688 --> 00:11:00,962
+So I'm going to go to the partition tab,
+click on it.
+
+133
+00:11:00,962 --> 00:11:06,473
+I'm going to click on edges and I'm going
+to click this little reload.
+
+134
+00:11:06,473 --> 00:11:12,878
+Load the different partitions or actually
+characteristics of the edges that are
+
+135
+00:11:12,878 --> 00:11:16,796
+discreet categories and I'm going to click
+on label.
+
+136
+00:11:16,796 --> 00:11:22,673
+And this has whether it was first choice
+or second choice, so I am going to click
+
+137
+00:11:22,673 --> 00:11:26,195
+apply.
+And now we see all of the second choices
+
+138
+00:11:26,195 --> 00:11:31,943
+in blue and the first choices in red.
+And I will start here because we need to
+
+139
+00:11:31,943 --> 00:11:37,512
+explain some additional concepts before we
+can use Gephi, oh, but actually, let me
+
+140
+00:11:37,512 --> 00:11:40,906
+show you.
+So, we're we are right now in, in overview
+
+141
+00:11:40,906 --> 00:11:45,097
+mode where we have all these different
+tools that we can use.
+
+142
+00:11:45,097 --> 00:11:53,032
+We can also click on data laboratory, And
+in data laboratory, we have a spreadsheet
+
+143
+00:11:53,032 --> 00:12:00,049
+of all of the node information, and if we
+click on edges, we have all of the edge
+
+144
+00:12:00,049 --> 00:12:06,003
+information as well.
+And finally in Preview we can preview the
+
+145
+00:12:06,003 --> 00:12:13,082
+visualization that then we can export.
+So I'm going to click Refresh now to see
+
+146
+00:12:13,082 --> 00:12:17,708
+it.
+I can, I should probably see the node
+
+147
+00:12:17,708 --> 00:12:22,076
+labels so I'm going to click that and hit
+refresh.
+
+148
+00:12:22,076 --> 00:12:29,076
+And then, I'm going to unclick curve so
+that we get the arrows for the
+
+149
+00:12:29,076 --> 00:12:37,099
+directionality of the edge and perhaps I
+can also well change the background, in
+
+150
+00:12:37,099 --> 00:12:44,012
+this case maybe I want a blue background
+or something like that.
+
+151
+00:12:44,012 --> 00:12:48,018
+No, not a blue background.
+Let's go back to white.
+
+152
+00:12:48,018 --> 00:12:54,077
+And then if I wanted to export this I
+would click this button down here and I
+
+153
+00:12:54,077 --> 00:13:00,042
+could choose whether to export it as a pdf
+or a png or an sv2 file.
+
+154
+00:13:00,042 --> 00:13:04,039
+I'm not going to do that right now because
+we have some more work to do.
+
+155
+00:13:04,039 --> 00:13:10,081
+So I'm going to go back to overview and
+stop here while we learn a few more
+
+156
+00:13:10,081 --> 00:13:13,052
+concepts and then we'll be back.

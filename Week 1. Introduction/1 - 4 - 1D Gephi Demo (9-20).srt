@@ -1,0 +1,1254 @@
+
+1
+00:00:00,012 --> 00:00:04,003
+Now, we're ready to talk about the first
+few network metrics.
+
+2
+00:00:04,003 --> 00:00:07,936
+But before we do, I wanted to just
+emphasize a few things about
+
+3
+00:00:07,936 --> 00:00:11,813
+visualizations.
+Edward Tufte, who wrote a series of books
+
+4
+00:00:11,813 --> 00:00:17,351
+on effective data visualization, said, the
+success of our visualization is based on
+
+5
+00:00:17,351 --> 00:00:22,343
+deep knowledge and care about the
+substance and the quality, relevance, and
+
+6
+00:00:22,343 --> 00:00:26,532
+integrity of the content.
+In other words, you should know your
+
+7
+00:00:26,532 --> 00:00:29,826
+network.
+You should know what you're visualizing in
+
+8
+00:00:29,826 --> 00:00:34,967
+order to visualize it most effectively.
+Here, his five principles in the Theory of
+
+9
+00:00:34,967 --> 00:00:38,061
+Graphic Display.
+Above all else show the data.
+
+10
+00:00:38,061 --> 00:00:40,921
+Maximize the data-ink ratio, within
+reason.
+
+11
+00:00:40,921 --> 00:00:45,011
+Erase non-data ink, within reason.
+Erase redundant data-ink.
+
+12
+00:00:45,011 --> 00:00:49,362
+And revise and edit.
+Now, this is a little bit different when
+
+13
+00:00:49,362 --> 00:00:52,647
+we're talking about network
+visualizations.
+
+14
+00:00:52,647 --> 00:00:56,165
+They are actually notoriously hard to
+interpret.
+
+15
+00:00:56,165 --> 00:01:02,121
+And so, we don't really have the luxury of
+very clear plots where we're deciding that
+
+16
+00:01:02,121 --> 00:01:07,305
+we don't want this shading or that.
+But what we can take from this is that we
+
+17
+00:01:07,305 --> 00:01:11,863
+don't necessarily want, no, to be the
+spinning visualizations.
+
+18
+00:01:11,863 --> 00:01:17,459
+Because all that's going to happen is
+we're going to see some balls with sticks
+
+19
+00:01:17,459 --> 00:01:22,877
+sticking out of them that are flying
+around in space and no one is going to get
+
+20
+00:01:22,877 --> 00:01:27,016
+anything out of that.
+We should try and see what it is where,
+
+21
+00:01:27,016 --> 00:01:31,855
+what is interesting in the data?
+Perhaps it's the geographical location of
+
+22
+00:01:31,855 --> 00:01:34,967
+the nodes, perhaps, it's different
+communities.
+
+23
+00:01:34,967 --> 00:01:38,598
+Can you bring out the communities with the
+visualization?
+
+24
+00:01:38,598 --> 00:01:42,864
+Or, maybe there's some especially
+significant nodes, because of their
+
+25
+00:01:42,864 --> 00:01:47,064
+position in the network.
+Can you highlight those nodes in some way?
+
+26
+00:01:47,064 --> 00:01:50,703
+So that is basically what we are going to
+be after.
+
+27
+00:01:50,703 --> 00:01:58,281
+Also, there are things that you want the
+automated network layer algorithms to do.
+
+28
+00:01:58,281 --> 00:02:05,515
+The first I mentioned when we were talking
+about the girl's dining table partners
+
+29
+00:02:05,515 --> 00:02:09,870
+network.
+Which was that you want to minimize edge
+
+30
+00:02:09,870 --> 00:02:13,303
+crossing.
+So here is the same network visualized in
+
+31
+00:02:13,303 --> 00:02:18,397
+two different ways, and this is better,
+because it's minimizing edge crossing.
+
+32
+00:02:18,397 --> 00:02:23,562
+Here, you have an edge crossing, and so,
+it looks a little bit less clear that this
+
+33
+00:02:23,562 --> 00:02:28,875
+node actually doesn't have anything to do
+directly with these, that it's actually
+
+34
+00:02:28,875 --> 00:02:32,782
+closer to this particular node, the one
+that it's linked to.
+
+35
+00:02:32,782 --> 00:02:37,110
+Another thing that you'd like to have are
+uniform edge lengths.
+
+36
+00:02:37,110 --> 00:02:41,935
+And here, you just, like, the nodes that
+are connected to be about the same
+
+37
+00:02:41,935 --> 00:02:46,706
+distance from each other.
+And this is better, for example, than this
+
+38
+00:02:46,706 --> 00:02:52,526
+visualization where we may not know that
+this node is connected to these others.
+
+39
+00:02:52,526 --> 00:02:56,956
+And here, we may not even really see the
+edge between these two.
+
+40
+00:02:56,956 --> 00:03:02,191
+Now, there is an exception, which is when,
+excuse me, when you have weighted
+
+41
+00:03:02,191 --> 00:03:05,682
+networks.
+And that happens, for example here, you
+
+42
+00:03:05,682 --> 00:03:11,422
+may want this node to be far away, because
+actually, these edge weights, which we'll
+
+43
+00:03:11,422 --> 00:03:16,910
+talk about in just a sec, are fairly low.
+So you want to represent that distance
+
+44
+00:03:16,910 --> 00:03:22,235
+between the nodes, and perhaps, these two
+that are directly connected are, you know,
+
+45
+00:03:22,235 --> 00:03:26,460
+a very closely spaced.
+Maybe they're very tight, maybe that bond
+
+46
+00:03:26,460 --> 00:03:30,291
+is very strong, and so, you want them to
+be closer together.
+
+47
+00:03:30,291 --> 00:03:33,961
+So it depends.
+Again, you want the network to effectively
+
+48
+00:03:33,961 --> 00:03:37,776
+represent the data.
+Finally, one thing that I was doing is I
+
+49
+00:03:37,776 --> 00:03:41,944
+was moving nodes away from edges that
+weren't incident on them.
+
+50
+00:03:41,944 --> 00:03:46,825
+So here, for example, we might be confused
+thinking that this one node might be
+
+51
+00:03:46,825 --> 00:03:51,850
+connected, have an edge to this node and,
+and another edge to this other node, but
+
+52
+00:03:51,850 --> 00:03:54,954
+in fact, it doesn't have an edge to either
+of them.
+
+53
+00:03:54,954 --> 00:03:59,538
+It was simply overlapping with that edge.
+So, that is something that we'd like to
+
+54
+00:03:59,538 --> 00:04:04,092
+avoid as well and your ability to avoid
+such problems, of course, depends on the
+
+55
+00:04:04,092 --> 00:04:08,651
+size and the density of the network.
+The smaller and the sparser the network,
+
+56
+00:04:08,651 --> 00:04:13,043
+the more successfully layered algorithms
+can satisfy these conditions
+
+57
+00:04:13,043 --> 00:04:18,330
+simultaneously for all nodes and edges.
+Now, let's get to the metrics that we were
+
+58
+00:04:18,330 --> 00:04:21,920
+going to discuss.
+We have the degree and the degree
+
+59
+00:04:21,920 --> 00:04:25,262
+distribution and then connected
+components.
+
+60
+00:04:25,262 --> 00:04:30,348
+The degree is just going to tell us how
+many edges are incident on a node.
+
+61
+00:04:30,348 --> 00:04:36,030
+So for example, we were talking about the
+girl, Eva, and how many other girls had
+
+62
+00:04:36,030 --> 00:04:41,292
+named her or she had named.
+Now, already, you see that there is this
+
+63
+00:04:41,292 --> 00:04:47,987
+property, directionality of the edge.
+And if an edge is directed, we can also
+
+64
+00:04:47,987 --> 00:04:53,975
+call it an arc or a link.
+So, for example, the relationship might be
+
+65
+00:04:53,975 --> 00:04:57,867
+A likes B, A gave a gift to B, A is B's
+child.
+
+66
+00:04:57,868 --> 00:05:03,945
+There, you can also have undirected edges.
+For example A and B like each other, of
+
+67
+00:05:03,945 --> 00:05:08,231
+course, these relationships aren't always
+symmetric.
+
+68
+00:05:08,231 --> 00:05:13,346
+As we saw in the dining-table partners
+network, and actually, in many social
+
+69
+00:05:13,346 --> 00:05:17,061
+networks.
+But, sometimes, the feelings are mutual
+
+70
+00:05:17,061 --> 00:05:23,580
+and so it can be treated as undirected.
+You can have A and B, who are siblings or
+
+71
+00:05:23,580 --> 00:05:28,277
+A and B who have co-authored papers, for
+example.
+
+72
+00:05:28,277 --> 00:05:34,074
+There are other kinds of edge attributes,
+aside from the direction.
+
+73
+00:05:34,074 --> 00:05:38,717
+So one of them is weight.
+For example, if you have the number of
+
+74
+00:05:38,717 --> 00:05:44,101
+messages sent between two individuals,
+that could be the weight of that edge.
+
+75
+00:05:44,101 --> 00:05:49,333
+And, it makes sense, the more massages
+that two individuals send, the higher the
+
+76
+00:05:49,333 --> 00:05:53,494
+weight you put on that edge.
+And of course, you can state, scale it
+
+77
+00:05:53,494 --> 00:05:56,649
+differently, it could be linear or a log
+weight.
+
+78
+00:05:56,650 --> 00:06:02,860
+And depending on what your goal is, you're
+going to chose different and appropriate
+
+79
+00:06:02,861 --> 00:06:06,699
+weights.
+You may also have ranking just as we saw,
+
+80
+00:06:06,699 --> 00:06:12,840
+that first and second choice of dining
+partner, but also may be your rating your
+
+81
+00:06:12,840 --> 00:06:19,089
+friend from closest to least, least close.
+You may also have different types of
+
+82
+00:06:19,089 --> 00:06:25,069
+edges, so some of your social ties,
+friends, some are co-workers, some are
+
+83
+00:06:25,069 --> 00:06:28,982
+family.
+And finally, there may be properties that
+
+84
+00:06:28,982 --> 00:06:35,170
+you're assigning to the edge that really
+depend on the rest of the network and this
+
+85
+00:06:35,170 --> 00:06:40,033
+we'll get into later.
+But some edges might be between kind of
+
+86
+00:06:40,033 --> 00:06:45,773
+acting as a bridge between two different
+areas of the network, and so, they might
+
+87
+00:06:45,773 --> 00:06:51,786
+have a special role or what's called, the
+property's called between betweenness.
+
+88
+00:06:51,786 --> 00:06:57,721
+So we'll be calculating such properties.
+And edges, of course, can have any sort of
+
+89
+00:06:57,721 --> 00:07:03,605
+property that you calculate on the graph.
+Going back to our schoolgirls and their
+
+90
+00:07:03,605 --> 00:07:09,332
+choices we see both that the edges are
+directed and that they have this ranking,
+
+91
+00:07:09,332 --> 00:07:14,238
+the first and second choice.
+Of course, there may be a multitude of
+
+92
+00:07:14,238 --> 00:07:21,063
+other things that you could add on there,
+for example, maybe some of the girls share
+
+93
+00:07:21,063 --> 00:07:25,746
+a dorm room, etcetera.
+But in this data we're just looking at,
+
+94
+00:07:25,746 --> 00:07:29,223
+first and second choices, and the
+direction.
+
+95
+00:07:29,223 --> 00:07:35,943
+The edge weights that you add can also be
+positive and negative weight, for example,
+
+96
+00:07:35,943 --> 00:07:42,113
+a person trusting or distrusting another.
+Here, I'm showing a fraction of the
+
+97
+00:07:42,113 --> 00:07:46,627
+Epinions graph.
+Now, this is a publicly available data set
+
+98
+00:07:46,627 --> 00:07:53,113
+that we will be actually working with.
+And what it is, is Epinions is a website
+
+99
+00:07:53,113 --> 00:07:59,557
+where users go and they rate products.
+Now, product ratings are, they depend on
+
+100
+00:07:59,557 --> 00:08:06,764
+the individual who's giving the rating.
+And not everyone's opinion might be your
+
+101
+00:08:06,764 --> 00:08:12,664
+own, so you have the option of saying
+whether you trust or distrust that
+
+102
+00:08:12,664 --> 00:08:17,717
+particular individual.
+And, this then, influences whose ratings
+
+103
+00:08:17,717 --> 00:08:22,311
+you're going to be shown and which
+products you are recommended.
+
+104
+00:08:22,311 --> 00:08:28,992
+Now, in this fragment, you can see that
+there's negative [laugh] community here of
+
+105
+00:08:28,992 --> 00:08:34,510
+lots of people distrusting one another
+that's tied to your community that
+
+106
+00:08:34,510 --> 00:08:38,990
+primarily trusts.
+And there are very interesting research
+
+107
+00:08:38,990 --> 00:08:43,635
+questions around this.
+For example, what, if you look at sets of
+
+108
+00:08:43,635 --> 00:08:48,513
+three people, is it true that an enemy of
+an enemy is my friend or not?
+
+109
+00:08:48,513 --> 00:08:51,079
+How does this play out in the, in the
+data?
+
+110
+00:08:51,079 --> 00:08:57,052
+How is this data represented internally?
+For example, if you're writing code, or if
+
+111
+00:08:57,052 --> 00:09:02,831
+you're just using some software, how is
+the software representing the network?
+
+112
+00:09:02,831 --> 00:09:08,685
+The most basic way is with an adjacency
+matrix, but we'll also talk about edgelist
+
+113
+00:09:08,685 --> 00:09:13,892
+and adjacency lists.
+Here is a very simple network of five
+
+114
+00:09:13,892 --> 00:09:19,291
+nodes and here is its adjacency matrix
+representation.
+
+115
+00:09:19,291 --> 00:09:26,617
+And, for example, if we look at node 1,
+node 1 is represented by this row and
+
+116
+00:09:26,617 --> 00:09:33,433
+actually has no outgoing edges.
+However, it does have one incoming edge
+
+117
+00:09:33,433 --> 00:09:37,988
+here from node five.
+So let's see how this works.
+
+118
+00:09:37,988 --> 00:09:45,134
+The entry of the matrix is 1 if node i has
+a directed edge to node j and it's 0
+
+119
+00:09:45,134 --> 00:09:53,826
+otherwise, if i and j don't share an edge.
+Usually the diagonal of the matrix, right
+
+120
+00:09:53,826 --> 00:09:59,415
+here, is 0, because usually, you don't
+have self-loops.
+
+121
+00:09:59,415 --> 00:10:03,902
+However, in some cases, you can have
+self-loops.
+
+122
+00:10:03,902 --> 00:10:11,341
+For example, if the network represents who
+nominated whom for a certain office.
+
+123
+00:10:11,341 --> 00:10:17,171
+Well, individuals can nominate themselves
+and you may very well want to have
+
+124
+00:10:17,171 --> 00:10:22,143
+subloops represented.
+And in general, you don't necessarily have
+
+125
+00:10:22,143 --> 00:10:27,607
+that Aij, that entry is equal to Aji.
+This would happen if the network is
+
+126
+00:10:27,607 --> 00:10:31,376
+undirected.
+Well, it would happen, it would be true in
+
+127
+00:10:31,376 --> 00:10:36,722
+all cases if the network is undirected,
+that is i linking to j always means that j
+
+128
+00:10:36,722 --> 00:10:40,060
+links to i.
+Of course, in a directed network, you can
+
+129
+00:10:40,060 --> 00:10:43,557
+have lots of instances of the edge being
+reciprocated.
+
+130
+00:10:43,557 --> 00:10:48,657
+For example, when you look at friendship
+networks, a lot of friendships will tend
+
+131
+00:10:48,657 --> 00:10:52,536
+to be reciprocated.
+We don't have to always use the full
+
+132
+00:10:52,536 --> 00:10:56,662
+adjacency matrix.
+We can also use the edge list and it's
+
+133
+00:10:56,662 --> 00:11:00,593
+just a bit shorter.
+So, you can have, instead of a bunch of
+
+134
+00:11:00,593 --> 00:11:04,040
+zeros, you just list the, the things that
+are there.
+
+135
+00:11:04,040 --> 00:11:07,224
+So 2 has an edge to 3, 2 has an edge to 4,
+etcetera.
+
+136
+00:11:07,224 --> 00:11:12,819
+Now, you can become even more compact than
+that, especially, you may want to do this
+
+137
+00:11:12,819 --> 00:11:15,830
+if the network is very large and very
+sparse.
+
+138
+00:11:15,830 --> 00:11:21,314
+Sparse means that out of all the possible
+people, I could be friends with in this
+
+139
+00:11:21,314 --> 00:11:26,471
+world, the billions of people, maybe I'm
+only friends with a few hundred.
+
+140
+00:11:26,471 --> 00:11:32,755
+And so, instead of having a billion zeros
+I may want to just have an entry that says
+
+141
+00:11:32,755 --> 00:11:38,801
+Lotto and then it lists, you know, first
+friend, second friend, third friend, etc.
+
+142
+00:11:38,801 --> 00:11:43,142
+It's much more compact.
+So, going back to our network of five
+
+143
+00:11:43,142 --> 00:11:46,636
+nodes, we have an empty adjacency list for
+one.
+
+144
+00:11:46,636 --> 00:11:51,801
+For two, we have that it's has edges to
+three and four, etcetera.
+
+145
+00:11:51,801 --> 00:11:58,403
+Now, after we have done all of this nice
+representing we can start to calculate
+
+146
+00:11:58,403 --> 00:12:02,164
+degree.
+And degree just counts the number of
+
+147
+00:12:02,164 --> 00:12:08,464
+incident edges on a node and we may be
+interested in such things as, who is the
+
+148
+00:12:08,464 --> 00:12:13,144
+most popular?
+Can we count how many edges each node has
+
+149
+00:12:13,144 --> 00:12:19,252
+and which one has the most edges?
+So, again, it might matter whether your
+
+150
+00:12:19,252 --> 00:12:25,369
+network is directed or not.
+Imagine that you have a network of who has
+
+151
+00:12:25,369 --> 00:12:30,673
+loaned money to whom.
+If, if it's a loan network, then the
+
+152
+00:12:30,673 --> 00:12:37,438
+indegree might represent how many
+different people did you loan money from?
+
+153
+00:12:37,438 --> 00:12:43,428
+Outdegree on the other hand might
+represent did you lend money to?
+
+154
+00:12:43,428 --> 00:12:48,972
+And so, in that case, you know owing a lot
+of money, having high indegree may be less
+
+155
+00:12:48,972 --> 00:12:53,069
+desirable than having high outdegree,
+having people owe you.
+
+156
+00:12:53,069 --> 00:12:56,812
+In other networks, you may not care about
+the directionality.
+
+157
+00:12:56,812 --> 00:13:01,823
+So, for example, if it's a friendship
+network and people are simply saying who
+
+158
+00:13:01,823 --> 00:13:06,905
+their friends are, you may just want to
+treat the network as undirected and just
+
+159
+00:13:06,905 --> 00:13:11,005
+count the degree.
+Or if you have a network of co-authors,
+
+160
+00:13:11,005 --> 00:13:17,057
+again, you might just look at how many
+co-authors has a particular researcher had
+
+161
+00:13:17,057 --> 00:13:20,758
+all over the span of the last decade, for
+example.
+
+162
+00:13:20,758 --> 00:13:26,632
+Now, you may be thinking, well, you know,
+it's not all about how many friends you
+
+163
+00:13:26,632 --> 00:13:32,533
+are, you have, or how popular you are.
+There could be more important things,
+
+164
+00:13:32,533 --> 00:13:38,449
+namely having to do with who your friends
+are, maybe having a few quality friends,
+
+165
+00:13:38,449 --> 00:13:44,104
+or having a few well-connected friends
+might be more useful in some sense than
+
+166
+00:13:44,104 --> 00:13:49,846
+having lots and lots of friends who are
+otherwise hermits, they don't interact
+
+167
+00:13:49,846 --> 00:13:53,945
+with anyone else.
+So, in week 3, we will consider other
+
+168
+00:13:53,945 --> 00:13:59,908
+measures of centrality, but for now, we're
+just going to treat centrality, this
+
+169
+00:13:59,908 --> 00:14:05,596
+importance of nodes, simply based on the
+immediate network neighborhood.
+
+170
+00:14:05,596 --> 00:14:11,131
+So your direct neighbors in the network as
+opposed to the whole network.
+
+171
+00:14:11,131 --> 00:14:15,837
+We can calculate these values from the
+adjacency matrix.
+
+172
+00:14:15,837 --> 00:14:21,326
+For outdegree, we're just summing the
+nonzero entries in a given row.
+
+173
+00:14:21,326 --> 00:14:29,628
+So here, the third row tells us that node
+number 3 has two outgoing edges, so its
+
+174
+00:14:29,628 --> 00:14:34,308
+outdegree is two.
+On the other hand, from the column by
+
+175
+00:14:34,308 --> 00:14:40,606
+summing the nonzero entries, we find that
+3 has one incoming edge and that is from
+
+176
+00:14:40,606 --> 00:14:46,723
+node number 2, so its indegree is two.
+Now, once we've calculated the degree of
+
+177
+00:14:46,723 --> 00:14:52,519
+each node, whether it's indegree,
+outdegree, or undirected degree, we can
+
+178
+00:14:52,519 --> 00:14:58,591
+start to construct the degree sequence and
+that is actually just the array that
+
+179
+00:14:58,591 --> 00:15:04,477
+contains the degrees of each node.
+The degree sequence in turn can be folded
+
+180
+00:15:04,477 --> 00:15:10,869
+into a degree distribution, where, for
+example for this network, we can count one
+
+181
+00:15:10,869 --> 00:15:16,611
+node that has zero indegree.
+We have four nodes that have indegree one
+
+182
+00:15:16,611 --> 00:15:22,652
+and three nodes that have indegree two.
+And so then this is the Distribution of
+
+183
+00:15:22,652 --> 00:15:28,156
+degrees in the network, that is, it's
+fairly evenly distributed between the
+
+184
+00:15:28,156 --> 00:15:31,356
+nodes.
+The next question we can ask is whether
+
+185
+00:15:31,356 --> 00:15:36,688
+everything is connected, so here is a
+visualization of my Facebook network.
+
+186
+00:15:36,688 --> 00:15:41,337
+And as you can see, there's several
+disconnected components.
+
+187
+00:15:41,337 --> 00:15:46,177
+This can be quite significant.
+For example, if there is some vital
+
+188
+00:15:46,177 --> 00:15:52,101
+information in one part of the network.
+If none of those individuals are talking
+
+189
+00:15:52,101 --> 00:15:57,049
+to the rest of my network.
+Of course, they're linked through me, but
+
+190
+00:15:57,049 --> 00:16:00,646
+let's, for, imagine that I'm out of the
+picture.
+
+191
+00:16:00,646 --> 00:16:03,288
+So it's just, all my friends are on their
+own.
+
+192
+00:16:03,288 --> 00:16:07,980
+They have to communicate that there would
+be no way for that information to spread
+
+193
+00:16:07,980 --> 00:16:11,260
+from that isolated component to the rest
+of the network.
+
+194
+00:16:11,260 --> 00:16:15,816
+It may not be information, it could be a
+virus that's spreading some sort of
+
+195
+00:16:15,816 --> 00:16:18,631
+disease.
+In which case, you may verily, very well
+
+196
+00:16:18,631 --> 00:16:22,723
+want to be in one of these small
+components, because it means that whatever
+
+197
+00:16:22,723 --> 00:16:27,013
+is spreading in here, you're actually safe
+from it, because you don't have any
+
+198
+00:16:27,013 --> 00:16:29,716
+contact with anyone in the rest of the
+network.
+
+199
+00:16:29,716 --> 00:16:33,821
+And so the overall connectivity of the
+network is actually fairly crucial.
+
+200
+00:16:33,821 --> 00:16:38,843
+We want to know, is everyone reachable
+from everyone else for the most part or is
+
+201
+00:16:38,843 --> 00:16:43,555
+the network so sparse that most people
+have no way of contacting each other
+
+202
+00:16:43,555 --> 00:16:47,784
+through intermediaries?
+Again, we're going to pay attention to
+
+203
+00:16:47,784 --> 00:16:50,808
+whether there, the edges are directed or
+not.
+
+204
+00:16:50,809 --> 00:16:55,727
+And if you do pay attention to that, you
+can calculate the strongly connected
+
+205
+00:16:55,727 --> 00:16:58,894
+components.
+The strongly connected components are ones
+
+206
+00:16:58,894 --> 00:17:02,859
+such that you can reach any node from any
+other node in the network by following
+
+207
+00:17:02,859 --> 00:17:07,831
+directed ties.
+So, for example, here with B, C, D and E
+
+208
+00:17:07,831 --> 00:17:15,505
+you can start with anyone of them and
+actually kind of move around here.
+
+209
+00:17:15,505 --> 00:17:20,956
+Right, so you can, you can reach anyone
+from any other one.
+
+210
+00:17:20,956 --> 00:17:26,674
+However, A is in a component of by itself,
+because, even though you can reach A, say
+
+211
+00:17:26,674 --> 00:17:30,794
+you start at C, you can go to D, you can
+go to E, you can go to A.
+
+212
+00:17:30,794 --> 00:17:35,223
+But once you're at A, you can't go back.
+And the condition for the strongly
+
+213
+00:17:35,223 --> 00:17:39,915
+connected component is that you can really
+go from any node to any other node within
+
+214
+00:17:39,915 --> 00:17:45,157
+the strongly connected component.
+And here is another component that's
+
+215
+00:17:45,157 --> 00:17:49,734
+completely disconnected.
+Here, G and H, are in the same strongly
+
+216
+00:17:49,734 --> 00:17:54,598
+connected component, but again, even
+though from F, you can reach G and H, you
+
+217
+00:17:54,598 --> 00:17:58,078
+can't get back to F.
+So F is it's own one node strongly
+
+218
+00:17:58,078 --> 00:18:03,374
+connected component, while G and H are
+anther strongly connected component.
+
+219
+00:18:03,374 --> 00:18:08,858
+When you have an undirected network or
+choose to treat your directed network as
+
+220
+00:18:08,858 --> 00:18:13,817
+undirected, then you can calculate the
+weakly connected components.
+
+221
+00:18:13,817 --> 00:18:19,235
+And here now, because we're allowing this
+edge from E to A to be undirected, that
+
+222
+00:18:19,235 --> 00:18:23,030
+means you can go from E to A, but you can
+also go from A to E.
+
+223
+00:18:23,030 --> 00:18:26,533
+And now, A, B, C, D, E are all in the same
+structure.
+
+224
+00:18:26,533 --> 00:18:30,890
+Strongly connected component.
+And similarly F, H, and G are in the same,
+
+225
+00:18:30,890 --> 00:18:33,501
+sorry, weakly connected component.
+Right?
+
+226
+00:18:33,501 --> 00:18:38,179
+So this is a weakly connected component.
+And this is a weakly connected component.
+
+227
+00:18:38,179 --> 00:18:42,741
+And if you're dealing with an undirected
+network, you can simply just say connect
+
+228
+00:18:42,741 --> 00:18:45,700
+the component.
+You don't always have to say weakly
+
+229
+00:18:45,701 --> 00:18:49,431
+connected component.
+But if it's directed, you want to make the
+
+230
+00:18:49,431 --> 00:18:52,628
+distinction.
+There is also the notion of a giant
+
+231
+00:18:52,628 --> 00:18:55,691
+component, and it is the largest
+component.
+
+232
+00:18:55,691 --> 00:19:00,760
+And if it encompasses a significant
+portion of the graph it can be called a
+
+233
+00:19:00,760 --> 00:19:04,904
+giant component.
+Now, this significant portion of the graph
+
+234
+00:19:04,904 --> 00:19:10,707
+doesn't actually have to be the majority.
+Technically, the definition is that as the
+
+235
+00:19:10,707 --> 00:19:16,102
+network gets infinitely large, the giant
+component is still going to occupy a
+
+236
+00:19:16,102 --> 00:19:20,331
+finite fraction of it.
+So that's the technical definition.
+
+237
+00:19:20,331 --> 00:19:24,692
+And, you know, practically speaking, if
+you observe pretty consistently under
+
+238
+00:19:24,692 --> 00:19:29,502
+different conditions that your network has
+largest component that occupies most of
+
+239
+00:19:29,502 --> 00:19:32,710
+the network, then you can call it giant
+component.
+
+240
+00:19:32,710 --> 00:19:41,642
+And here is the giant component in, in
+this particular network.
+
+241
+00:19:41,642 --> 00:19:45,995
+So just to recap.
+What we showed in this mini-lecture is
+
+242
+00:19:45,995 --> 00:19:51,761
+that networks can be represented as
+matrices, or adjacency lists, or edge
+
+243
+00:19:51,761 --> 00:19:57,806
+lists and we talked about useful network
+metrics that we're going to start out
+
+244
+00:19:57,806 --> 00:20:00,980
+with.
+This is the degrees of the individual
+
+245
+00:20:00,980 --> 00:20:06,284
+nodes and the degree distribution of the
+network overall and then we talked about
+
+246
+00:20:06,284 --> 00:20:10,708
+connected components.
+Strongly connected components, and weakly
+
+247
+00:20:10,708 --> 00:20:15,433
+connected components in, in directed
+graphs, where strongly connected
+
+248
+00:20:15,433 --> 00:20:20,683
+components obey the directionality of the
+edge and then the giant component, which
+
+249
+00:20:20,683 --> 00:20:25,783
+arises in many, many networks and is the
+largest component in a graph that is not
+
+250
+00:20:25,783 --> 00:20:29,431
+too sparse.
+And we'll talk about the giant component
+
+251
+00:20:29,431 --> 00:20:32,088
+more when we talk about random graphs.

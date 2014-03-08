@@ -1,0 +1,534 @@
+
+1
+00:00:00,000 --> 00:00:05,725
+In this final portion, we'll see where the
+small world structure might arise from.
+
+2
+00:00:05,725 --> 00:00:09,542
+Now, you can, of course, just assign
+properties to nodes.
+
+3
+00:00:09,542 --> 00:00:12,652
+Such a spatial location or group
+membership.
+
+4
+00:00:12,652 --> 00:00:18,024
+And then, add edges accordingly.
+So you can have many edges between people
+
+5
+00:00:18,024 --> 00:00:23,255
+who are in the same small group.
+But people who are tied only very loosely
+
+6
+00:00:23,255 --> 00:00:27,638
+through a large group are much less likely
+to, have an edge.
+
+7
+00:00:27,638 --> 00:00:33,293
+However, it would be even neater if we
+knew you know, something underneath that's
+
+8
+00:00:33,293 --> 00:00:36,965
+a driving.
+That edge formation that doesn't dictate
+
+9
+00:00:36,965 --> 00:00:42,182
+okay if you're in this size.
+Group, your probability of linking is x.
+
+10
+00:00:42,182 --> 00:00:49,549
+Can we sort of derive Small World networks
+from some sort of basic criteria that we
+
+11
+00:00:49,549 --> 00:00:56,343
+would like to optimize in the network.
+So, I'm going to show you two very related
+
+12
+00:00:56,343 --> 00:01:02,307
+geographical models where we're going to
+place nodes on 2-d surface.
+
+13
+00:01:02,307 --> 00:01:09,148
+So they're going to have a location.
+But we're going to determine who is going
+
+14
+00:01:09,148 --> 00:01:15,988
+to link to whom based on various criteria.
+So one such function we may want to
+
+15
+00:01:15,988 --> 00:01:21,952
+optimize is, you know you can determine
+energy or anything like that.
+
+16
+00:01:21,952 --> 00:01:28,154
+We're going to have a penalty essentially
+for The average shortest path.
+
+17
+00:01:28,154 --> 00:01:32,182
+So we want nodes to be a few hops away
+from each other.
+
+18
+00:01:32,182 --> 00:01:35,771
+So we want to minimize the average
+shortest path.
+
+19
+00:01:35,771 --> 00:01:40,024
+And at the same time.
+They also want to minimize the length of
+
+20
+00:01:40,024 --> 00:01:43,334
+the edges, the actual physical length of
+the edges.
+
+21
+00:01:43,334 --> 00:01:48,696
+You can imagine that, you have spools of
+wire and the wire is copper and it costs
+
+22
+00:01:48,696 --> 00:01:52,536
+something, right.
+So, you want to not have wire all over the
+
+23
+00:01:52,536 --> 00:01:57,898
+place, you want to do things efficiently.
+And, so, the average shortest path is just
+
+24
+00:01:57,898 --> 00:02:03,327
+going to look at all the distances between
+I and j, but in a graph sense, the graph
+
+25
+00:02:03,327 --> 00:02:06,505
+distance.
+And, then this other wiring distance is
+
+26
+00:02:06,505 --> 00:02:12,354
+actually going to look at the coordinates
+and see how, How much wire did you expend
+
+27
+00:02:12,354 --> 00:02:16,454
+wiring these together.
+So here's your quiz question,
+
+28
+00:02:16,454 --> 00:02:23,086
+Given that this function incorporates two
+things, a person's preference for short
+
+29
+00:02:23,086 --> 00:02:27,590
+distances, and a small number of hops,
+let's think about.
+
+30
+00:02:27,590 --> 00:02:31,855
+Two different networks.
+One is a road network where you're
+
+31
+00:02:31,855 --> 00:02:37,959
+driving, and another is an airplane or
+actually air transit network where you're
+
+32
+00:02:37,959 --> 00:02:43,181
+taking a plane from city to city.
+So from the passenger's point of view,
+
+33
+00:02:43,181 --> 00:02:49,386
+what would you like to optimize in an air.
+Transit network as opposed to a road
+
+34
+00:02:49,386 --> 00:02:54,143
+network.
+Okay, so hopefully for the air transit
+
+35
+00:02:54,143 --> 00:02:57,684
+network, you want to minimize the number
+of hops.
+
+36
+00:02:57,684 --> 00:03:02,848
+Because, landing, and then you know,
+switching planes, is a very risky
+
+37
+00:03:02,848 --> 00:03:06,389
+business.
+Right, 'cuz your plane might be late, you
+
+38
+00:03:06,389 --> 00:03:12,771
+might miss your connections, etcetera.
+Versus covering long distances physically
+
+39
+00:03:12,771 --> 00:03:19,798
+is relatively easy in a plane so you might
+go from Sanfrancisco to Atlanta only to
+
+40
+00:03:19,798 --> 00:03:26,089
+end up in Detroit and that's not so bad
+but if you're making such a big detour
+
+41
+00:03:26,089 --> 00:03:32,870
+driving you, you'd be pretty unhappy if
+the road network looked like the airline
+
+42
+00:03:32,870 --> 00:03:40,934
+transportation network.
+So let's look at what these networks How
+
+43
+00:03:40,934 --> 00:03:44,846
+they're structured if you optimize.
+And the method here,
+
+44
+00:03:44,846 --> 00:03:50,679
+And I'll provide hopefully a net logo app
+that you can use to simulate this
+
+45
+00:03:50,679 --> 00:03:53,951
+yourself.
+But, what, what it's called, simulating
+
+46
+00:03:53,951 --> 00:03:56,085
+annealing.
+Simulated annealing.
+
+47
+00:03:56,085 --> 00:04:01,135
+So first, you raise up the temperature
+meaning you're willing to accept
+
+48
+00:04:01,135 --> 00:04:06,967
+configurations that are high energy.
+That is maybe you have high wiring cost or
+
+49
+00:04:06,967 --> 00:04:12,231
+lots of hops, or something like that.
+And then you tune the energy down and,
+
+50
+00:04:12,231 --> 00:04:14,650
+actually the temperature down.
+And.
+
+51
+00:04:14,650 --> 00:04:21,450
+And you get into lower and lower energy
+configurations until you hopefully find
+
+52
+00:04:21,450 --> 00:04:27,009
+some sort of optimum.
+So here we have The, the cost of the wire
+
+53
+00:04:27,009 --> 00:04:34,177
+becoming cheaper and cheaper, and you can
+see as this happens, you get more and more
+
+54
+00:04:34,177 --> 00:04:41,431
+edges that cover more and more distance
+until finally you get, you know, kind of a
+
+55
+00:04:41,431 --> 00:04:48,442
+hub configuration where every other node
+is connected to one node, meaning that it
+
+56
+00:04:48,442 --> 00:04:51,142
+has, you know, a, a very short number of
+hops.
+
+57
+00:04:51,142 --> 00:04:54,031
+Right?
+If, if they're all connected to the same
+
+58
+00:04:54,031 --> 00:04:57,800
+node, and most it's two hops to anywhere
+else in the network.
+
+59
+00:04:57,800 --> 00:05:03,548
+But, you've just exp-, spent a lot of
+wire, or you may get configurations with,
+
+60
+00:05:03,759 --> 00:05:08,876
+actually multiple, hubs as well.
+So I'll let you play with that for the
+
+61
+00:05:08,876 --> 00:05:13,363
+assignment and see if you can, get this
+nice, hub structure.
+
+62
+00:05:13,363 --> 00:05:16,588
+And another cute way of looking at this is
+to.
+
+63
+00:05:16,588 --> 00:05:20,094
+You don't want to do this while you're
+optimizing.
+
+64
+00:05:20,094 --> 00:05:23,739
+Because, of course, then it's going to
+mess things up.
+
+65
+00:05:23,739 --> 00:05:28,857
+Because your nodes now have moved.
+And so the distance between them is no
+
+66
+00:05:28,857 --> 00:05:34,032
+longer accurate.
+But you can start out with the original
+
+67
+00:05:34,032 --> 00:05:40,267
+lattice laid out.
+And then, kind of let it, let the springs
+
+68
+00:05:40,267 --> 00:05:45,894
+do their job.
+And so this one has a few short range
+
+69
+00:05:45,894 --> 00:05:50,869
+short cuts and you can see the network
+kind of coming in.
+
+70
+00:05:50,869 --> 00:05:57,501
+And then here is that network with the big
+hub and several, and several hubs.
+
+71
+00:05:57,501 --> 00:06:01,254
+And here I guess it's several hubs as
+well.
+
+72
+00:06:01,254 --> 00:06:08,149
+So you can actually see the network kind
+of contracting due to these rewirings.
+
+73
+00:06:08,149 --> 00:06:13,560
+It's making it from a large world to a
+relatively small world.
+
+74
+00:06:14,204 --> 00:06:17,990
+Here is a second model with a similar
+idea.
+
+75
+00:06:17,990 --> 00:06:25,385
+That, again, you have some penalty for the
+actual Euclidean distance that you have to
+
+76
+00:06:25,385 --> 00:06:29,083
+traverse.
+And then also the number of hops.
+
+77
+00:06:29,083 --> 00:06:35,510
+And here, instead of starting with all the
+links from, in the beginning.
+
+78
+00:06:35,510 --> 00:06:41,850
+You are going to, just apply this rule
+that you're going to add edges.
+
+79
+00:06:41,850 --> 00:06:48,290
+And you're going, one by one, and you're
+going to add the one with the smallest
+
+80
+00:06:48,290 --> 00:06:53,739
+weight, that is this distance.
+So for example if you're laying rail
+
+81
+00:06:53,739 --> 00:06:58,527
+tracks, so you know, how much track do you
+have to put down.
+
+82
+00:06:58,527 --> 00:07:02,408
+And then what is the distance to the root
+note?
+
+83
+00:07:02,656 --> 00:07:09,343
+So depending on this parameter beta, then
+you're going to get different, different
+
+84
+00:07:09,343 --> 00:07:14,375
+types of networks.
+And, in fact, when you put a high price on
+
+85
+00:07:14,375 --> 00:07:21,034
+the Euclidean distance, you get something
+that looks more like a road network.
+
+86
+00:07:21,034 --> 00:07:28,212
+When, distance is cheap, you get something
+that looks more like those air transit,
+
+87
+00:07:28,471 --> 00:07:33,920
+networks that are nicely plotted in your,
+in-flight magazine.
+
+88
+00:07:34,560 --> 00:07:41,438
+Quiz question, a network that contains
+many hubs with far reaching edges is
+
+89
+00:07:41,438 --> 00:07:48,958
+indicative of which of these following
+criteria that lead to the network being
+
+90
+00:07:48,958 --> 00:07:51,347
+formed?
+Okay.
+
+91
+00:07:51,347 --> 00:07:56,158
+So to recap, the world is small if you
+look at it as a network.
+
+92
+00:07:56,158 --> 00:08:01,823
+Yet it has lots of interesting local
+structure, which we can capture with
+
+93
+00:08:01,823 --> 00:08:05,857
+clustering.
+Also we can do a deep dive, look at motif
+
+94
+00:08:05,857 --> 00:08:09,582
+analysis.
+Watts and Strogats came up with a nice
+
+95
+00:08:09,582 --> 00:08:13,850
+simple small world model.
+Other models though, including.
+
+96
+00:08:13,850 --> 00:08:19,488
+One created by Watts,
+Look at other structures geographical
+
+97
+00:08:19,748 --> 00:08:26,601
+models, and hierarchical models that say
+that it's not just random rewiring, the
+
+98
+00:08:26,601 --> 00:08:32,847
+probability of an edge existing depends on
+the physical distance or the
+
+99
+00:08:32,847 --> 00:08:39,979
+organizational distance between two nodes.
+And finally, the way that we get to this
+
+100
+00:08:39,979 --> 00:08:44,179
+structure may be a result of some sort of
+optimization process.
+
+101
+00:08:44,179 --> 00:08:49,578
+These networks are going to be used, may
+be they are chanced networks, may be they
+
+102
+00:08:49,578 --> 00:08:54,311
+are a result of how individuals have to
+communicate within the company.
+
+103
+00:08:54,311 --> 00:08:59,577
+And, so that makes actually the structure
+extra interesting, because it tells us
+
+104
+00:08:59,577 --> 00:09:03,310
+about the underlying needs and the
+underlying processes.
+
+105
+00:09:03,310 --> 00:09:10,546
+Next week, what we're going to be doing is
+learning about how learning and diffusion
+
+106
+00:09:11,321 --> 00:09:16,490
+are affected by small-world and other
+network topologies.
+
+107
+00:09:16,490 --> 00:09:18,300
+So, I'll see you then.

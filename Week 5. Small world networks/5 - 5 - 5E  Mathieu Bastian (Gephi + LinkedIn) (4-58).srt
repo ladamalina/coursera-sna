@@ -1,0 +1,285 @@
+
+1
+00:00:00,208 --> 00:00:03,333
+Okay.
+So here I am, still at LinkedIn and this
+
+2
+00:00:03,333 --> 00:00:09,513
+is Matthew Bastien who is the creator of
+Geffey So the first question, is why did
+
+3
+00:00:09,513 --> 00:00:13,124
+you do it?
+It's, it's, it's an interesting story
+
+4
+00:00:13,124 --> 00:00:17,707
+about my professor in 2007.
+We had these large web graphs.
+
+5
+00:00:17,707 --> 00:00:21,873
+And there was really no tool to visualize
+such large graphs.
+
+6
+00:00:21,873 --> 00:00:25,857
+So we just decided to create our own tool.
+That's the story.
+
+7
+00:00:25,857 --> 00:00:31,381
+And then we had we had the, the Google of
+seminar of code that brought a lot of
+
+8
+00:00:31,381 --> 00:00:34,896
+students, and passionate computer science
+students.
+
+9
+00:00:34,896 --> 00:00:38,286
+To the project.
+And that's, that's how I really started
+
+10
+00:00:38,286 --> 00:00:41,111
+then And became like a open source
+community.
+
+11
+00:00:41,506 --> 00:00:44,606
+Yeah.
+Yeah, so, so seems like it really is a,
+
+12
+00:00:44,606 --> 00:00:50,186
+community in that people who use Geffey
+both kind of report back what their
+
+13
+00:00:50,186 --> 00:00:54,457
+results are; but they also create plugins
+and, and other things.
+
+14
+00:00:54,457 --> 00:01:00,243
+So what are the kind of the need either
+examples of applications or plugins that
+
+15
+00:01:00,450 --> 00:01:04,376
+you think were especially like you, you
+didn't anticipate?
+
+16
+00:01:04,790 --> 00:01:08,165
+Yes, I mean, plugins is one of our core
+mission.
+
+17
+00:01:08,165 --> 00:01:13,565
+We try to have a tool that is extensible.
+And that you know, like networks are
+
+18
+00:01:13,565 --> 00:01:17,329
+really everywhere.
+You can have networks of software, code,
+
+19
+00:01:17,329 --> 00:01:20,235
+and networks of e-mails and social
+networks.
+
+20
+00:01:20,235 --> 00:01:25,650
+So at the beginning we really knew that
+there would be tons of other applications
+
+21
+00:01:25,650 --> 00:01:31,215
+for not just the core of network graphs
+And so we knew that people would like to
+
+22
+00:01:31,215 --> 00:01:35,470
+extend Geffey for their particular
+applications and, and data.
+
+23
+00:01:35,669 --> 00:01:39,459
+So that's why we created this modular
+architecture.
+
+24
+00:01:39,459 --> 00:01:44,910
+And it really is interesting to, to see
+people creating like, plug-ins to get
+
+25
+00:01:45,308 --> 00:01:48,677
+Like, networks, multi-modal networks or,
+streaming.
+
+26
+00:01:48,677 --> 00:01:52,972
+So we had this great graph streaming plug
+in that was created.
+
+27
+00:01:52,972 --> 00:01:58,324
+And you can basically see Geffe, having
+data streamed live to it.
+
+28
+00:01:58,522 --> 00:02:00,966
+Mm hm.
+And also streamed out of it.
+
+29
+00:02:00,966 --> 00:02:04,732
+So it became more like a platform to, to
+monitor networks.
+
+30
+00:02:04,732 --> 00:02:10,018
+And that, that was really a breakthrough.
+And there was this great example of the
+
+31
+00:02:10,018 --> 00:02:15,462
+Egyptian Revolution that Andre Panisson
+recorded live when all the tweets were
+
+32
+00:02:15,462 --> 00:02:16,432
+coming in.
+Hm.
+
+33
+00:02:16,613 --> 00:02:19,463
+And he saw this natural, construct on real
+time.
+
+34
+00:02:19,463 --> 00:02:24,252
+That was really a breakthrough for, for
+the [inaudible] and the community.
+
+35
+00:02:24,433 --> 00:02:28,046
+Okay.
+We'll have to get a pointer to that to, to
+
+36
+00:02:28,046 --> 00:02:33,207
+share to students.
+So I guess if it's not asking too much how
+
+37
+00:02:33,207 --> 00:02:38,774
+did you come to be at Linkedin and, and
+how has social network analysis and, and
+
+38
+00:02:38,774 --> 00:02:44,138
+can perhaps Geffey in particular served
+you in whatever you might be doing here.
+
+39
+00:02:44,138 --> 00:02:45,293
+[laugh].
+Mm-hm.
+
+40
+00:02:45,293 --> 00:02:50,046
+Yes so I'm a data scientist here and we,
+we looked at graphs a lot and.
+
+41
+00:02:50,046 --> 00:02:53,576
+But that, that's not the main reason why
+I'm here.
+
+42
+00:02:53,576 --> 00:02:56,640
+I think.
+One of the main reason is that, when you
+
+43
+00:02:56,640 --> 00:03:02,751
+work on, on, on graphs and practically in
+Geffey you have a lot of interesting
+
+44
+00:03:02,751 --> 00:03:07,602
+challenges for a computer scientist.
+And how do you store and retrieve you
+
+45
+00:03:07,602 --> 00:03:11,572
+know, large graph structure?
+Or how do you visualize millions of
+
+46
+00:03:11,572 --> 00:03:15,856
+elements on a, on a screen?
+How do you create an application that can
+
+47
+00:03:15,856 --> 00:03:20,014
+be executed in all the platforms?
+You learn a lot by doing this.
+
+48
+00:03:20,014 --> 00:03:26,776
+So I learned a lot on well just by, by
+coding basically and that's how I became
+
+49
+00:03:26,776 --> 00:03:32,032
+like more an expert in this area, and, and
+that, that's how they got me.
+
+50
+00:03:32,201 --> 00:03:32,986
+Mm hm.
+[laugh].
+
+51
+00:03:33,154 --> 00:03:37,865
+So if, if there is any, like, computer,
+computer science students who is
+
+52
+00:03:37,865 --> 00:03:41,343
+interested in, in having some interesting
+coding challenges.
+
+53
+00:03:41,343 --> 00:03:44,708
+We are, having a Google seminar of code
+every year now.
+
+54
+00:03:44,708 --> 00:03:49,251
+And we are inviting students to, to
+participate and just show their skills and
+
+55
+00:03:49,251 --> 00:03:51,326
+participate to the community.
+Cool.
+
+56
+00:03:51,326 --> 00:03:55,252
+So we'll get a pointer to that as well,
+and share it with the students.
+
+57
+00:03:55,252 --> 00:03:58,393
+So thanks for taking the time.
+Thank you very much.

@@ -1,0 +1,1160 @@
+
+1
+00:00:00,000 --> 00:00:03,567
+Next, we're going to talk about local
+structure.
+
+2
+00:00:03,567 --> 00:00:10,096
+Local structure though is tied to this
+small world phenomenon in this interesting
+
+3
+00:00:10,096 --> 00:00:13,022
+way.
+Two people meet at a party.
+
+4
+00:00:13,022 --> 00:00:18,962
+Within a minute, they're going through,
+you know, who they know and, sure enough,
+
+5
+00:00:18,962 --> 00:00:22,280
+they find that they know someone in
+common.
+
+6
+00:00:22,280 --> 00:00:27,674
+Now, what they are likely to conclude is
+oh, what a small world?
+
+7
+00:00:27,674 --> 00:00:34,200
+This is a small world after all.
+But what they're doing is they are closing
+
+8
+00:00:34,200 --> 00:00:40,725
+triads, that is they know, say, A and C
+know B in common and now, A and C know
+
+9
+00:00:40,725 --> 00:00:42,640
+each other as well.
+So,
+
+10
+00:00:42,640 --> 00:00:47,940
+This triadic closure is sometimes also
+termed transitivity or clustering, and
+
+11
+00:00:47,940 --> 00:00:52,811
+what we want to know is how much of that
+is going on in the network.
+
+12
+00:00:52,811 --> 00:00:58,469
+Because social networks, for example, are
+highly clustered because a friend of a
+
+13
+00:00:58,469 --> 00:01:04,282
+friend is likely to also be a friend.
+But in general, the networks do not need
+
+14
+00:01:04,282 --> 00:01:10,449
+to necessarily have this property and we
+still want to know, to what extent is
+
+15
+00:01:10,449 --> 00:01:14,876
+clustering present.
+So, one way to measure it is with the
+
+16
+00:01:14,876 --> 00:01:20,648
+global clustering coefficient which is
+going to hit the number of closed
+
+17
+00:01:20,648 --> 00:01:26,719
+triangles against all connected triplets.
+So, if you have a close triangle, it
+
+18
+00:01:26,719 --> 00:01:31,003
+actually generates three separate
+connected triplets.
+
+19
+00:01:31,003 --> 00:01:35,530
+And hence, the factor of three in the
+enumerator as well.
+
+20
+00:01:35,530 --> 00:01:40,902
+If the entire graph is a one connected
+clique with all edges present, the
+
+21
+00:01:40,902 --> 00:01:47,245
+clustering coefficient is one and if there
+are no triangles in the entire graph, then
+
+22
+00:01:47,245 --> 00:01:53,215
+this global clustering coefficient is zero
+and we'll see in a little bit how to
+
+23
+00:01:53,215 --> 00:01:57,582
+evaluate values in between.
+However, when clustering was first
+
+24
+00:01:57,582 --> 00:02:03,463
+calculated by Watts and Strogatz in their
+seminal paper which we'll be talking about
+
+25
+00:02:03,463 --> 00:02:08,098
+in the model section, they looked at a
+local clustering coefficient.
+
+26
+00:02:08,098 --> 00:02:13,425
+That is a calculated clustering
+coefficient where for each vertex and then
+
+27
+00:02:13,425 --> 00:02:16,470
+they averaged overall vertices in the
+graph.
+
+28
+00:02:16,470 --> 00:02:21,632
+When you take the local clustering
+coefficient, it's as if an individual
+
+29
+00:02:21,632 --> 00:02:27,368
+looks at all of their friends, and says,
+out of all the possible friendships that
+
+30
+00:02:27,368 --> 00:02:31,599
+could exist between my friends, how many
+are actually there?
+
+31
+00:02:31,599 --> 00:02:36,976
+And this will, the denominator here is
+going to differ by whether this is a
+
+32
+00:02:36,976 --> 00:02:42,691
+directed network, in which case if you
+have n friends, the number of potential
+
+33
+00:02:42,691 --> 00:02:48,101
+connections between them is n times n
+minus one or if it's undirected, say,
+
+34
+00:02:48,101 --> 00:02:53,325
+triple link friendship is treated as
+undirected, then the number of possible
+
+35
+00:02:53,549 --> 00:02:59,738
+pairings of your friends who could be who
+could be friends with each other is n
+
+36
+00:02:59,738 --> 00:03:06,080
+times n minus one divided by two.
+And as I mentioned, if you want to get the
+
+37
+00:03:06,080 --> 00:03:11,788
+clustering coefficient for the entire
+graph, you just average over all the
+
+38
+00:03:11,788 --> 00:03:15,337
+nodes.
+So, let's see how we would calculate for
+
+39
+00:03:15,337 --> 00:03:19,219
+one vertex i.
+Here it is, and it has four neighbors or
+
+40
+00:03:19,219 --> 00:03:23,105
+four friends.
+Three of the friends all know each other,
+
+41
+00:03:23,105 --> 00:03:27,280
+but the fourth friend, they're keeping
+somehow hidden away.
+
+42
+00:03:27,280 --> 00:03:33,326
+They haven't introduced him or her to the
+rest of their friends, and so all of those
+
+43
+00:03:33,326 --> 00:03:39,589
+edges are absent, that, that fourth friend
+is not connected to any of the other three
+
+44
+00:03:39,589 --> 00:03:42,396
+friends.
+So, to calculate the clustering
+
+45
+00:03:42,396 --> 00:03:46,293
+coefficient.
+We looked at the number of neighbors, and
+
+46
+00:03:46,293 --> 00:03:51,028
+we know that the max number of connection
+is n times n minus one divided by two, in
+
+47
+00:03:51,028 --> 00:03:54,875
+this case, six.
+But only three of the connections are
+
+48
+00:03:54,875 --> 00:03:58,352
+present.
+And so, the cluster coefficient is just
+
+49
+00:03:58,352 --> 00:04:04,009
+three over six or a half.
+So, I'd like you to try this with this
+
+50
+00:04:04,009 --> 00:04:09,755
+vertex i which has three friends.
+Can you calculate the clustering
+
+51
+00:04:09,755 --> 00:04:12,837
+coefficient?
+Okay.
+
+52
+00:04:12,837 --> 00:04:19,693
+Hopefully, you calculated the cluster
+coefficient as follows, you have three
+
+53
+00:04:19,693 --> 00:04:24,172
+neighbors which also means three potential
+edges.
+
+54
+00:04:24,172 --> 00:04:30,206
+Cuz three times two divided by two is
+three and two of these edges are actually
+
+55
+00:04:30,206 --> 00:04:35,794
+there giving you a clustering coefficient
+of two-thirds.
+
+56
+00:04:35,800 --> 00:04:41,844
+Let's look at this from the perspective of
+an individual tie.
+
+57
+00:04:41,844 --> 00:04:48,880
+What does it mean for that tie to be part
+of one or more closed triads?
+
+58
+00:04:49,640 --> 00:04:56,889
+Typically, when a tie is part of sets
+triads, it tends to also be a relationship
+
+59
+00:04:56,889 --> 00:05:03,771
+between individuals who would have some
+sort of affinity and are likely in
+
+60
+00:05:03,771 --> 00:05:08,767
+frequent contact.
+What you see actually is that if two
+
+61
+00:05:08,767 --> 00:05:15,686
+individuals are closed, so A and B are
+closed and b, B and C are closed,
+
+62
+00:05:15,686 --> 00:05:21,588
+You don't often see that A and C have no
+tie at all, right?
+
+63
+00:05:21,588 --> 00:05:27,490
+So, there's something about closed ties
+and closing triads.
+
+64
+00:05:27,490 --> 00:05:34,058
+And you can develop or you can just use
+this measure of edge embeddedness which is
+
+65
+00:05:34,058 --> 00:05:40,468
+going to look at the number of nodes that
+A and C share in common divided by the
+
+66
+00:05:40,468 --> 00:05:44,030
+total number of neighbors with either A or
+B.
+
+67
+00:05:44,030 --> 00:05:49,300
+And the higher that quantity, the more
+embedded the tie is.
+
+68
+00:05:49,300 --> 00:05:53,128
+The more, the more it's part of lots of
+closed triads.
+
+69
+00:05:53,128 --> 00:05:58,416
+Now, you might say, well, you know, I
+looked at my Facebook graph and some of
+
+70
+00:05:58,416 --> 00:06:02,693
+those ties seems pretty embedded but are
+necessarily closed.
+
+71
+00:06:02,693 --> 00:06:08,324
+And I think again, it's really important
+to think about what your network is or
+
+72
+00:06:08,324 --> 00:06:14,026
+such ties to be formed on Facebook, they
+may just have been, you know, everyone at
+
+73
+00:06:14,026 --> 00:06:18,303
+the same high school adding each other on
+Facebook, right?
+
+74
+00:06:18,303 --> 00:06:23,863
+So, it doesn't, it, it signifies a short
+context but not necessarily a closeness.
+
+75
+00:06:23,863 --> 00:06:28,477
+On the other hand, if you were to filter
+the ties, to only be individuals who
+
+76
+00:06:28,477 --> 00:06:34,642
+regularly interact on Facebook or
+regularly interact in real life and he
+
+77
+00:06:34,642 --> 00:06:40,940
+still saw a lot of triads, you would you
+could conclude that, you know, this is
+
+78
+00:06:40,940 --> 00:06:45,400
+really an embedded tied that's part of, of
+closely knit clique.
+
+79
+00:06:46,840 --> 00:06:53,099
+Just another example of this.
+So, there was an older study that asks
+
+80
+00:06:53,099 --> 00:06:58,329
+school children to name their first
+through eighth choice of friends at the
+
+81
+00:06:58,329 --> 00:07:02,530
+school.
+We know how this turns out right form the
+
+82
+00:07:02,530 --> 00:07:07,675
+dining table.
+Data dining table, dining partners, dining
+
+83
+00:07:07,675 --> 00:07:14,182
+table partners data set but there is this
+interesting analysis that was then done
+
+84
+00:07:14,182 --> 00:07:19,893
+that said, okay, let's go back to that
+thought experiment, right before we had an
+
+85
+00:07:19,893 --> 00:07:25,676
+individual, and their 500 friends, and
+their you know, and 500 of each of those
+
+86
+00:07:25,676 --> 00:07:29,940
+friends' friends, etc.
+Here, they just looked at expansion by
+
+87
+00:07:29,940 --> 00:07:32,722
+two.
+And in one case although this, this
+
+88
+00:07:32,722 --> 00:07:39,061
+graphic isn't going to match each of side
+of the Arall and van Alstyne paper but
+
+89
+00:07:39,061 --> 00:07:43,976
+hopefully, illustrates the point.
+So, when they use the, the seventh and
+
+90
+00:07:43,976 --> 00:07:49,460
+eighth choice, so these weren't their
+closest friends, the number of people end
+
+91
+00:07:49,460 --> 00:07:55,087
+hubs out was far greater than when they
+use the first and second choice and the
+
+92
+00:07:55,087 --> 00:07:58,720
+first and second choice looked something
+like this.
+
+93
+00:07:58,720 --> 00:08:03,429
+It, my best friend's friend is also likely
+to be my friend.
+
+94
+00:08:03,672 --> 00:08:09,599
+But if I look at my seventh or eighth
+friend, and their seventh or eighth
+
+95
+00:08:09,599 --> 00:08:13,010
+choice, I'm likely to move pretty far
+away.
+
+96
+00:08:13,010 --> 00:08:18,290
+So, there's this notion that, it's not
+just,
+
+97
+00:08:18,290 --> 00:08:24,504
+You know, the, the distance, but that the
+strength of the tie and the embeddedness
+
+98
+00:08:24,504 --> 00:08:29,357
+of the time matters as well.
+And the question is, you know, is it good
+
+99
+00:08:29,357 --> 00:08:32,926
+to be embedded?
+Well, perhaps, when you're in the middle
+
+100
+00:08:32,926 --> 00:08:37,251
+school or high school, being part of the
+clique is a good thing.
+
+101
+00:08:37,457 --> 00:08:42,812
+It makes you feel secure, you have a gang
+that you can hang with, you know, it's
+
+102
+00:08:42,812 --> 00:08:46,399
+good.
+But as we saw in homework three, with the
+
+103
+00:08:46,639 --> 00:08:52,337
+Arall and van Alstyne paper, being a
+broker has some advantages as well.
+
+104
+00:08:52,337 --> 00:08:58,115
+For example, the amount of novel
+information that you receive, or looking
+
+105
+00:08:58,115 --> 00:09:04,454
+at Ron Byrd's papers, you're more likely
+to be generating good ideas than to be
+
+106
+00:09:04,454 --> 00:09:09,750
+recognized for them, if you're a broker.
+So, it really depends, right?
+
+107
+00:09:09,750 --> 00:09:12,720
+With, with all network analysis, it
+depends.
+
+108
+00:09:14,520 --> 00:09:20,704
+Finally, there's a study that says, you
+know, strong ties, weak ties let's not
+
+109
+00:09:20,704 --> 00:09:25,064
+treat them as binary, we just got this
+awesome data set.
+
+110
+00:09:25,064 --> 00:09:31,962
+This is JP Onnela and his collaborators
+well, just got this data set that has, you
+
+111
+00:09:31,962 --> 00:09:38,701
+know, a huge call graph who called whom
+when so you can get a frequency of
+
+112
+00:09:38,701 --> 00:09:47,403
+interaction on this graph and they looked
+at how things might diffuse, depending on
+
+113
+00:09:47,403 --> 00:09:53,007
+the strength of the time.
+So, first of all, they found a skew in the
+
+114
+00:09:53,007 --> 00:09:58,454
+degree distribution, but they also found a
+skew in the strength of the tie.
+
+115
+00:09:58,454 --> 00:10:01,840
+That is, how often two individuals
+communicate.
+
+116
+00:10:01,840 --> 00:10:07,361
+Many individuals, you know, many pairs
+communicate infrequently, and very few
+
+117
+00:10:07,361 --> 00:10:12,802
+communicate extremely frequently.
+They also looked at the embeddedness of
+
+118
+00:10:12,802 --> 00:10:16,567
+the tie.
+And I'll just to a seam run on this graph.
+
+119
+00:10:16,567 --> 00:10:22,592
+They found that, in general, there's a
+positive relationship between how embedded
+
+120
+00:10:22,592 --> 00:10:27,487
+the tie is and how frequently the two
+individuals communicate.
+
+121
+00:10:27,487 --> 00:10:30,725
+So, it's, it's just about a validation,
+right?
+
+122
+00:10:30,725 --> 00:10:36,825
+Embedded ties tend to be closer ties at
+least when you're talking about phone
+
+123
+00:10:36,825 --> 00:10:40,274
+communication.
+Next, they wanted to know, well.
+
+124
+00:10:40,274 --> 00:10:44,996
+Anyway, so which, which is it?
+Is it strong ties that are crucial for
+
+125
+00:10:44,996 --> 00:10:49,719
+information diffusion?
+Because there's a peakly talk with often,
+
+126
+00:10:49,719 --> 00:10:54,089
+or is it weak ties, because they can go
+further in the network.
+
+127
+00:10:54,089 --> 00:10:59,798
+It turned out it was neither, it was the
+intermediate ties, the people you talk to
+
+128
+00:11:00,010 --> 00:11:05,532
+every so often, not so rarely but who
+weren't part of your very local clique who
+
+129
+00:11:05,532 --> 00:11:09,517
+tended to be most instrumental for
+information diffusion.
+
+130
+00:11:09,517 --> 00:11:14,760
+And they did another thing which was to
+randomize the weights of the edges.
+
+131
+00:11:14,760 --> 00:11:20,422
+So, in the real world network, what you
+have is that this strong ties that tend to
+
+132
+00:11:20,422 --> 00:11:25,647
+be embedded, but then, they just change
+this, not change but they reassigned the
+
+133
+00:11:25,647 --> 00:11:31,408
+strengths of the tie at random to any edge
+in the network and what they found,
+
+134
+00:11:31,408 --> 00:11:38,644
+So potentially now weak ties became strong
+ties, etc., without changing the overall
+
+135
+00:11:38,644 --> 00:11:45,057
+configuration of who talks to whom.
+And that caused information to move much
+
+136
+00:11:45,057 --> 00:11:49,497
+more rapidly.
+So they did confirm that this kind of
+
+137
+00:11:49,497 --> 00:11:55,993
+localized clustered structure is impeding
+network flow in a sense, you know, not,
+
+138
+00:11:55,993 --> 00:11:59,940
+no, no judgment about whether that's good
+or bad.
+
+139
+00:12:02,580 --> 00:12:09,006
+You can do even better if you look at the
+directionality of the links within a
+
+140
+00:12:09,006 --> 00:12:15,107
+closed triad or open triad, or even
+slightly larger structures, because that
+
+141
+00:12:15,107 --> 00:12:21,697
+will capture more the dynamics of the
+interactions that are actually you know,
+
+142
+00:12:21,697 --> 00:12:27,229
+kind of driving the network, or driving
+the edges within the network.
+
+143
+00:12:27,229 --> 00:12:30,890
+So, you can take the network such as this
+one.
+
+144
+00:12:30,890 --> 00:12:36,582
+And deconstruct it into different triads
+and then, count, for example, how many
+
+145
+00:12:36,582 --> 00:12:42,050
+times did you see a feed forward loop.
+Well, it looks like there's one here and
+
+146
+00:12:42,050 --> 00:12:46,469
+it looks like there is one here again.
+So, what is that mean?
+
+147
+00:12:46,469 --> 00:12:52,535
+What type of a network is this, how did it
+compare to other networks or to random
+
+148
+00:12:52,535 --> 00:12:55,992
+networks?
+So, in addition to, you know, where, where
+
+149
+00:12:55,992 --> 00:13:02,315
+do we have the, here's a feed forward
+loop, you have a number of other three
+
+150
+00:13:02,315 --> 00:13:06,699
+node motifs.
+You kind of enumerate all possible ones,
+
+151
+00:13:06,699 --> 00:13:13,697
+and so the feed forward loop occurs often
+in neural networks, and it seems to be
+
+152
+00:13:13,697 --> 00:13:20,357
+used to neutralize biological noise
+because x activates y, activates z, but x
+
+153
+00:13:20,357 --> 00:13:25,758
+also directly activates z.
+You can you know, you can encounter other
+
+154
+00:13:25,758 --> 00:13:29,185
+things.
+So, a single input module might be found
+
+155
+00:13:29,185 --> 00:13:34,800
+in gene control networks, where x might be
+activating a number of other genes.
+
+156
+00:13:36,340 --> 00:13:39,699
+You can up it to four nodes, why stop at
+three?
+
+157
+00:13:39,699 --> 00:13:45,323
+Well, I'm going to tell you next what
+makes you want to do that but here is a
+
+158
+00:13:45,323 --> 00:13:51,531
+four node motif that has parallel tops and
+this you might find in neural network and
+
+159
+00:13:51,531 --> 00:13:55,329
+in food webs.
+And so, the lion who eats the zebra and
+
+160
+00:13:55,329 --> 00:14:00,880
+the antelope, that's an antelope, who are
+in turn, each munching some greenery.
+
+161
+00:14:00,880 --> 00:14:07,259
+And there are many more four node motifs
+than there are three node ones, and it's
+
+162
+00:14:07,259 --> 00:14:13,178
+more computationally expensive to get
+them, but it may be worth your while, if
+
+163
+00:14:13,178 --> 00:14:19,251
+you have not a huge network to deal with.
+The reason why it's computationally
+
+164
+00:14:19,251 --> 00:14:25,986
+expensive is that not only do you want to
+get the, the counts of how many times did
+
+165
+00:14:25,986 --> 00:14:31,909
+the feed forward loop occur, but, what you
+would really like to know is, is that
+
+166
+00:14:31,909 --> 00:14:35,480
+unusual?
+I mean, so, so it occurred five times.
+
+167
+00:14:35,480 --> 00:14:40,399
+Okay, is that high or is that low?
+And the way that you can figure that out
+
+168
+00:14:40,399 --> 00:14:43,390
+is you generate the equivalent random
+graphs.
+
+169
+00:14:43,390 --> 00:14:48,709
+Equivalent could mean that you just take
+the number of nodes and you generate a
+
+170
+00:14:48,709 --> 00:14:54,027
+bunch of [UNKNOWN] random graphs or you
+may think that some of the motifs are
+
+171
+00:14:54,027 --> 00:14:59,647
+result of the skew degree distribution.
+In which case, you want to keep the degree
+
+172
+00:14:59,647 --> 00:15:05,485
+distribution the same, or you can do is
+break the edges, so each node has the same
+
+173
+00:15:05,485 --> 00:15:11,323
+number of edge stubs, and then rewire them
+at random, and see, even controlling for
+
+174
+00:15:11,323 --> 00:15:17,090
+the degree distribution, is the number of
+motifs that you counted, unusual or not.
+
+175
+00:15:17,090 --> 00:15:23,072
+And the way that you're specifically going
+to do this, is you're going to calculate
+
+176
+00:15:23,072 --> 00:15:27,508
+the Z score.
+So the, in your [UNKNOWN] random graph or
+
+177
+00:15:27,508 --> 00:15:33,864
+equivalent random graph, you're going to
+get some counts and they are going to be
+
+178
+00:15:33,864 --> 00:15:40,141
+normally distributed for the number of
+times that a certain motif occurs and
+
+179
+00:15:40,141 --> 00:15:46,026
+then, you're going to see where in this
+distribution, your actual count lies.
+
+180
+00:15:46,026 --> 00:15:51,938
+If it's up here, it means that it, it's
+overrepresented in your real network and
+
+181
+00:15:51,938 --> 00:15:56,949
+especially once you get Z scores above
+two, this is what becomes the
+
+182
+00:15:56,949 --> 00:16:02,178
+statistically significant at the, you
+know, alpha 0.05 level, meaning that
+
+183
+00:16:02,178 --> 00:16:07,044
+there's only five percent chance but it
+occurred by tens that you saw such a
+
+184
+00:16:07,044 --> 00:16:10,748
+motif.
+Similarly if you are all the way out here
+
+185
+00:16:10,748 --> 00:16:16,703
+with a very negative Z scores, it means
+that somehow, this motif does not occur in
+
+186
+00:16:16,703 --> 00:16:21,860
+your network as much as it would if
+everything was just wired randomly.
+
+187
+00:16:22,420 --> 00:16:28,416
+You can download software, free software,
+that will run this analysis for you, and
+
+188
+00:16:28,416 --> 00:16:32,989
+it has this nice output, or you can
+actually also use igraph.
+
+189
+00:16:32,989 --> 00:16:39,435
+It has, I think there it's called Triadics
+Census but it's the, it's very much the
+
+190
+00:16:39,435 --> 00:16:44,613
+same functionality.
+What this research group, [UNKNOWN]
+
+191
+00:16:44,613 --> 00:16:52,976
+research group, did next was to show that
+a lot of different networks fall into
+
+192
+00:16:52,976 --> 00:17:00,490
+these super families based on a motif
+profile and they, they designed this kind
+
+193
+00:17:00,490 --> 00:17:07,825
+of measure that looked at the Z score for
+each of the individual thirteen three node
+
+194
+00:17:07,825 --> 00:17:13,993
+motifs and then it just looked at, you
+know, whether the Z score follows one
+
+195
+00:17:13,993 --> 00:17:20,828
+pattern or whether it follows another and,
+for example, language networks that have
+
+196
+00:17:20,828 --> 00:17:24,996
+edges between words that occur adjacently
+in text.
+
+197
+00:17:24,996 --> 00:17:30,435
+So, to be or not to be that's a little
+four cycle in there.
+
+198
+00:17:30,714 --> 00:17:36,400
+Across different languages, the motif
+profile is very similar.
+
+199
+00:17:36,400 --> 00:17:42,787
+So, your task is to find, you know, based
+on their triad census profiles, which two
+
+200
+00:17:42,787 --> 00:17:46,300
+kinds of networks exhibit similar
+structure?
+
+201
+00:17:48,060 --> 00:17:55,136
+Hopefully what you found, they actually
+are plotted together is that, the world
+
+202
+00:17:55,136 --> 00:18:02,576
+wide web and social networks tend to have
+similar frequencies of different motifs,
+
+203
+00:18:02,576 --> 00:18:09,794
+not to say that all web social but perhaps
+some of the dynamic driving social
+
+204
+00:18:09,794 --> 00:18:15,122
+networks, for example, triadic closure,
+friends introducing one another may also
+
+205
+00:18:15,122 --> 00:18:20,955
+be at work in the web where if one page
+who likes another and might start copying
+
+206
+00:18:20,955 --> 00:18:27,231
+some of its links again closing triads.
+So, to understand this further, can you
+
+207
+00:18:27,231 --> 00:18:32,980
+tell which of the following triads is
+underrepresented in social networks?
+
+208
+00:18:33,860 --> 00:18:40,578
+Hopefully, you've seen that it's this one,
+triad number six, and this, if you
+
+209
+00:18:40,578 --> 00:18:47,023
+remember from the beginning of the
+presentation, is the forbidden triad.
+
+210
+00:18:47,023 --> 00:18:53,212
+That is A and B have a mutual tie, and B
+and C have a mutual tie, but somehow, A
+
+211
+00:18:53,212 --> 00:18:58,988
+and C don't have a tie to each other.
+And you might imagine that poor B is,
+
+212
+00:18:59,222 --> 00:19:05,231
+really stressed out, because B gets a long
+with A, and B gets along with C, but
+
+213
+00:19:05,231 --> 00:19:09,680
+somehow A and C do not get along with each
+other in turn.
+
+214
+00:19:10,080 --> 00:19:16,463
+So, just a recap on motifs and clustering.
+So, given a particular structure, you can
+
+215
+00:19:16,463 --> 00:19:20,955
+search in network.
+For example, you can count the complete
+
+216
+00:19:20,955 --> 00:19:27,024
+triad so you can summarize that as a
+cluster coefficient or you can, you know,
+
+217
+00:19:27,024 --> 00:19:32,146
+create this motif profile.
+The advantage is that these motifs can
+
+218
+00:19:32,146 --> 00:19:38,482
+represent certain functions or certain
+trends and, and just, you can validate by
+
+219
+00:19:38,482 --> 00:19:43,187
+seeing whether those are present in a
+network, or you can discover them.
+
+220
+00:19:43,187 --> 00:19:46,965
+You know, hey, this motif is very frequent
+in this network.
+
+221
+00:19:46,965 --> 00:19:50,014
+Let me figure out, you know, what is
+causing it.
+
+222
+00:19:50,014 --> 00:19:54,322
+And I can't understand some of the
+underlying dynamics, which is a real
+
+223
+00:19:54,322 --> 00:19:56,510
+boost.
+So, for example, if you have,
+
+224
+00:19:56,510 --> 00:20:03,233
+What you think is a good model of how your
+network is being generated, and then you
+
+225
+00:20:03,233 --> 00:20:09,228
+run the motif profile on your model
+simulated data, and you run it on your
+
+226
+00:20:09,228 --> 00:20:15,546
+actual network, and they don't agree, it
+means that something's missing in your
+
+227
+00:20:15,546 --> 00:20:19,192
+model.
+And the motif profile is very rich, and
+
+228
+00:20:19,192 --> 00:20:25,430
+can, discerning these differences.
+One disadvantage of using motifs is that
+
+229
+00:20:25,430 --> 00:20:30,959
+again, it's, it's just like with the cake
+cliques and cliques and some cake course,
+
+230
+00:20:30,959 --> 00:20:36,283
+you can look for these motifs, but you may
+not be able to tell whether they're
+
+231
+00:20:36,283 --> 00:20:40,311
+actually part of some sort of larger
+interesting structure.
+
+232
+00:20:40,311 --> 00:20:45,362
+So, because you're looking with a
+microscope, you may actually miss the big

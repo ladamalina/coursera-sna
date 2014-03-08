@@ -1,0 +1,165 @@
+
+1
+00:00:00,000 --> 00:00:06,770
+This week we'll be discussing cool and
+unusual applications of social network
+
+2
+00:00:06,770 --> 00:00:10,677
+analysis.
+This will range from looking at the
+
+3
+00:00:10,677 --> 00:00:16,753
+connections between diseases and genes to
+derive a human disease zone.
+
+4
+00:00:17,013 --> 00:00:23,457
+We'll be looking at recipes and the
+relationship between the ingredients and
+
+5
+00:00:23,457 --> 00:00:27,587
+those recipes.
+One of those will be my own work on
+
+6
+00:00:27,587 --> 00:00:32,377
+predicting recipe ratings from the network
+of ingredients.
+
+7
+00:00:32,377 --> 00:00:38,902
+But also, we'll be looking at a paper that
+looks at the relationship between
+
+8
+00:00:38,902 --> 00:00:43,610
+ingredients through the flavor compounds
+that they share.
+
+9
+00:00:43,610 --> 00:00:48,752
+And so you'll be getting a new dataset to
+play with in the assignment.
+
+10
+00:00:48,752 --> 00:00:53,381
+Also, you'll be playing with the disease
+zone in the assignment.
+
+11
+00:00:53,601 --> 00:00:59,553
+You'll be looking at the social network of
+dolphins, and what centrality means in
+
+12
+00:00:59,553 --> 00:01:03,079
+such a network whether there's
+assortativity.
+
+13
+00:01:03,300 --> 00:01:10,235
+Another subject will be the product space,
+which is this network of products that are
+
+14
+00:01:10,235 --> 00:01:16,192
+related because countries tend to,
+Well, if they export one, they also tend
+
+15
+00:01:16,192 --> 00:01:22,230
+to, are likely to export the other.
+And you're going to see what this means
+
+16
+00:01:22,230 --> 00:01:27,498
+for economic development.
+Now, with the exception of the one recipe
+
+17
+00:01:27,498 --> 00:01:33,955
+paper where I was one of the co-authors,
+and so I have prepared a short lecture on
+
+18
+00:01:33,955 --> 00:01:38,450
+that paper.
+I will actually direct you to others,
+
+19
+00:01:38,665 --> 00:01:44,194
+That is, to external videos where one of
+the authors of the paper is actually
+
+20
+00:01:44,194 --> 00:01:48,789
+presenting the paper.
+So this is how you learn about the disease
+
+21
+00:01:48,789 --> 00:01:54,390
+loem from Laszlo Barabasi, whom you know
+from the Barabasi Albert Preferential
+
+22
+00:01:54,390 --> 00:02:00,206
+Attachment Model, among other things.
+You'll be listening to Cesar Hidalgo talk
+
+23
+00:02:00,206 --> 00:02:05,304
+about the product space network.
+And you'll be listening to Yy Ahn talk
+
+24
+00:02:05,304 --> 00:02:10,364
+about the flavor network.
+Now I think this is a bit better than my
+
+25
+00:02:10,364 --> 00:02:15,459
+rehashing those papers.
+We can really take advantage of the work
+
+26
+00:02:15,459 --> 00:02:20,555
+being recent and being able to hear from
+the authors themselves.
+
+27
+00:02:20,555 --> 00:02:27,323
+And I hope that the assignment is going to
+bring it together for you so that you can
+
+28
+00:02:27,323 --> 00:02:32,361
+see how easy it is in fact to drive
+interesting results, simply by
+
+29
+00:02:32,361 --> 00:02:38,507
+constructing networks in an intuitive and
+clever way, and hopefully it would also
+
+30
+00:02:38,507 --> 00:02:44,578
+make you think about where you would like
+to apply your social network analysis
+
+31
+00:02:44,578 --> 00:02:50,193
+skills once this class is over.
+It hopefully will give you a sense of what
+
+32
+00:02:50,193 --> 00:02:56,264
+are the possibilities with, you know, in
+using the tools that you have learned in
+
+33
+00:02:56,264 --> 00:02:59,983
+this class.
+So I hope you will find this week fun.

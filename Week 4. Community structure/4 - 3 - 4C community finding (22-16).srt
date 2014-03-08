@@ -1,0 +1,1354 @@
+
+1
+00:00:00,000 --> 00:00:06,674
+In this last section on community finding,
+I'd like to discuss how one actually goes
+
+2
+00:00:06,674 --> 00:00:13,349
+about discovering communities in networks.
+We talked about how simply looking for
+
+3
+00:00:13,349 --> 00:00:19,547
+cliques or, a k course, etc.
+How that can be a little bit arbitrary.
+
+4
+00:00:19,547 --> 00:00:24,967
+What if we had a criterion that said.
+Once you've partitioned the nodes into
+
+5
+00:00:24,967 --> 00:00:31,018
+these groups, so the key word is for now,
+is that we're partitioning, we're chopping
+
+6
+00:00:31,018 --> 00:00:35,150
+the network up.
+That we can say that this is the optimal
+
+7
+00:00:35,150 --> 00:00:39,429
+way to chop the network up with respect to
+some criterion.
+
+8
+00:00:39,429 --> 00:00:44,521
+And these would be the natural communities
+that exist in the network.
+
+9
+00:00:44,521 --> 00:00:52,415
+The trick is just to, to find them.
+One approach is hierarchical clustering,
+
+10
+00:00:52,415 --> 00:01:00,360
+where you compute some similarly between
+the nodes and you,
+
+11
+00:01:00,360 --> 00:01:06,173
+To start with, each node is in its own
+component and its own community.
+
+12
+00:01:06,173 --> 00:01:10,915
+And then you find the two nodes, for
+example, that are most alike.
+
+13
+00:01:10,915 --> 00:01:16,678
+And this similarity could be things like,
+how many neighbors do they have in common?
+
+14
+00:01:16,678 --> 00:01:21,746
+Or if you have a weighted network, how
+often do they communicate with one
+
+15
+00:01:21,746 --> 00:01:25,148
+another?
+Regardless you have some notion of these
+
+16
+00:01:25,148 --> 00:01:28,159
+two nodes are close.
+They, they're similar.
+
+17
+00:01:28,159 --> 00:01:34,125
+And you start agglomerating in this way.
+And there are, of course, some decisions
+
+18
+00:01:34,125 --> 00:01:38,581
+you have to make.
+Do you pick the node that has the minimum
+
+19
+00:01:38,581 --> 00:01:42,055
+distance to a node in, in the existing
+cluster?
+
+20
+00:01:42,055 --> 00:01:47,720
+Or do you look for the average similarity
+being the highest etcetera, right?
+
+21
+00:01:47,720 --> 00:01:52,327
+So, so there are different options in
+hierarchical clustering.
+
+22
+00:01:52,327 --> 00:01:57,915
+But one nice thing is that, as you're
+aggregating up and up, you can, and
+
+23
+00:01:57,915 --> 00:02:02,441
+finally you have the whole network as in
+the same component.
+
+24
+00:02:02,668 --> 00:02:06,892
+Or same community.
+You can then decide at what level you
+
+25
+00:02:06,892 --> 00:02:11,192
+would like to cut.
+And so, depending on how low you go, you
+
+26
+00:02:11,192 --> 00:02:16,700
+have very refined community structure or
+very coarse community structure.
+
+27
+00:02:17,960 --> 00:02:25,153
+Now there is a very efficient and
+successful implementation of this in
+
+28
+00:02:25,153 --> 00:02:31,135
+Pajek, and some other software.
+To my knowledge, it's not implemented in
+
+29
+00:02:31,135 --> 00:02:35,300
+Gaffi,
+And I've looked a little bit, at I-Graph
+
+30
+00:02:35,300 --> 00:02:39,389
+and Network X.
+And of course, you know, these are things
+
+31
+00:02:39,389 --> 00:02:44,235
+that you can sort of implement yourself if
+you are a programmer.
+
+32
+00:02:44,235 --> 00:02:47,794
+So, let's leave hierarchical clustering
+for now.
+
+33
+00:02:47,794 --> 00:02:53,549
+It's definitely, an okay way to approach
+finding communities and networks.
+
+34
+00:02:53,549 --> 00:02:59,660
+But it doesn't necessarily fulfill this
+criterion of we have some.
+
+35
+00:02:59,660 --> 00:03:03,223
+Some single metric that we're trying to
+optimize, right?
+
+36
+00:03:03,223 --> 00:03:06,139
+Hierarchical clustering is just more
+organic.
+
+37
+00:03:06,139 --> 00:03:11,323
+We're going to keep lumping together,
+nodes and group of nodes until, you know,
+
+38
+00:03:11,323 --> 00:03:15,470
+it's all lumped together.
+And we're just going to somehow decide
+
+39
+00:03:15,470 --> 00:03:18,385
+where we want to, where we want it to
+stop.
+
+40
+00:03:18,385 --> 00:03:21,820
+But we don't really have that stopping
+criterion yet.
+
+41
+00:03:21,820 --> 00:03:27,628
+If we go back to the Zachary Karate Club,
+I just wanted to illustrate what this
+
+42
+00:03:27,628 --> 00:03:33,068
+might look like in Pajek. So, if you
+remember, this is the club that broke up.
+
+43
+00:03:33,068 --> 00:03:38,950
+And we just want to see what would a
+community finding algorithm have predicted
+
+44
+00:03:38,950 --> 00:03:41,891
+happened, would happen.
+Who will go where?
+
+45
+00:03:41,891 --> 00:03:47,626
+So, I had somehow managed to accidentally
+delete the last part of this lecture.
+
+46
+00:03:47,626 --> 00:03:52,993
+So this is a little bit of a redo.
+So, apologies for the disconnected flow.
+
+47
+00:03:52,993 --> 00:03:57,457
+Where I was at was.
+Looking at hierarchical clustering in Piek
+
+48
+00:03:57,457 --> 00:04:02,165
+for Zachary's Karate Club.
+That is, can we predict that these folks
+
+49
+00:04:02,165 --> 00:04:07,586
+are going to go one way, and the rest of
+these folks are going to go another?
+
+50
+00:04:07,586 --> 00:04:13,507
+Before we do that, we're going to look at
+the adjacency matrix in a pretty neat way.
+
+51
+00:04:13,507 --> 00:04:16,860
+What I've done is I've used Pajek to color
+each.
+
+52
+00:04:16,860 --> 00:04:20,412
+Entry in the matrix where there's an edge
+is black.
+
+53
+00:04:20,412 --> 00:04:26,125
+And you can see the way that the data was
+originally entered already betrays some
+
+54
+00:04:26,125 --> 00:04:29,399
+structure.
+However, it's not very clear how many
+
+55
+00:04:29,399 --> 00:04:34,345
+different communities there are.
+If we were to randomly per, permute the
+
+56
+00:04:34,345 --> 00:04:40,197
+rows, we would get, I mean so this is the
+same network, it's just that which vortex
+
+57
+00:04:40,197 --> 00:04:45,283
+has the label thirteen and is in the
+thirteenth row, is different in this
+
+58
+00:04:45,283 --> 00:04:50,473
+matrix then it was in the previous one.
+And here, we can see very little
+
+59
+00:04:50,473 --> 00:04:53,950
+structure, right.
+This is a random permutation.
+
+60
+00:04:53,950 --> 00:04:59,669
+After we perform our hierarchical
+clustering, we can re-permute the matrix,
+
+61
+00:04:59,669 --> 00:05:06,161
+such as, such that those nodes that are in
+the same cluster are clo, are placed close
+
+62
+00:05:06,161 --> 00:05:12,421
+together, and now we can see clearly that
+there are two distinct communities, each
+
+63
+00:05:12,421 --> 00:05:18,118
+with one or two very central individuals.
+One other form of output is the
+
+64
+00:05:18,118 --> 00:05:23,490
+dendrogram, which tells us,
+As you join nodes and, groups of nodes
+
+65
+00:05:23,490 --> 00:05:28,704
+together that are similar in this
+hierarchical clustering process.
+
+66
+00:05:28,704 --> 00:05:32,338
+You can see which nodes are in the same
+group.
+
+67
+00:05:32,338 --> 00:05:38,184
+And eventually, you end up with just two
+groups, which then you can compare.
+
+68
+00:05:38,184 --> 00:05:41,740
+Are these individuals the ones who split
+off?
+
+69
+00:05:42,260 --> 00:05:50,833
+This next way of clustering the network,
+was proposed by Mark Newman and Michelle
+
+70
+00:05:50,833 --> 00:05:55,095
+Girbaun, and it's very computationally
+inefficient.
+
+71
+00:05:55,095 --> 00:06:00,858
+But it's also quite intuitive.
+So I'll cover it just as a way of building
+
+72
+00:06:00,858 --> 00:06:05,200
+our intuition.
+And also using this approach where we're.
+
+73
+00:06:05,200 --> 00:06:10,312
+Allowing the clustering algorithm to, to
+work on its own, rather than saying, oh,
+
+74
+00:06:10,312 --> 00:06:15,360
+there must be a clique, and then, just
+having different stopping criteria, just
+
+75
+00:06:15,360 --> 00:06:20,210
+like we did with the hierarchical
+clustering in Payek, where we had vertex
+
+76
+00:06:20,210 --> 00:06:23,357
+similarity, deciding who's going to be
+joined.
+
+77
+00:06:23,357 --> 00:06:28,404
+In this, eh, case, we're going to be
+starting with a complete network and we're
+
+78
+00:06:28,404 --> 00:06:33,713
+going to be taking edges away, so we're
+going to be deconstructing it and getting
+
+79
+00:06:33,713 --> 00:06:38,630
+finer and finer grained communities.
+Now the basic idea behind this is that.
+
+80
+00:06:38,630 --> 00:06:41,585
+There's some edges that have high
+betweenness.
+
+81
+00:06:41,585 --> 00:06:46,467
+Edge betweenness is, you know, really the
+same definition as node betweenness.
+
+82
+00:06:46,467 --> 00:06:51,607
+It just counts the number of different
+shortest paths that pass through an edge.
+
+83
+00:06:51,607 --> 00:06:56,618
+And if an edge has high betweenness, that
+means it's between different sets of
+
+84
+00:06:56,618 --> 00:06:59,573
+nodes.
+So, removing that edge might then reveal
+
+85
+00:06:59,573 --> 00:07:04,520
+what these different sets of nodes are
+because it might actually, if you keep
+
+86
+00:07:04,520 --> 00:07:07,797
+doing this, disconnect those communities
+completely.
+
+87
+00:07:07,797 --> 00:07:10,471
+So.
+Say we have a network such as this one
+
+88
+00:07:10,471 --> 00:07:14,926
+with two fairly clear communities.
+We might expect that these edges in
+
+89
+00:07:14,926 --> 00:07:17,981
+between here are the ones with high
+betweenness.
+
+90
+00:07:17,981 --> 00:07:23,135
+And, what we're going to do is we're going
+to iteratively find the one with highs
+
+91
+00:07:23,135 --> 00:07:25,745
+betweenness, remove it.
+Now we recalculate.
+
+92
+00:07:25,745 --> 00:07:30,326
+And this computation is expensive.
+That's why this algorithm is slow, and
+
+93
+00:07:30,326 --> 00:07:35,163
+doesn't scale to really large networks.
+But, we'd find the next one, remove it.
+
+94
+00:07:35,163 --> 00:07:40,000
+We'd find the next one, remove that one.
+And by doing this iteratively, we get.
+
+95
+00:07:40,000 --> 00:07:45,366
+Successively finer and finer, communities.
+For example.
+
+96
+00:07:45,366 --> 00:07:51,287
+First, in this case, separating out into
+two destroyed communities.
+
+97
+00:07:51,287 --> 00:07:58,120
+And then, four smaller ones plus two kind
+of, nodes which become isolated.
+
+98
+00:07:58,780 --> 00:08:05,154
+And, if we evaluate this algorithm, we, we
+find that for the Zachary Karate Club at
+
+99
+00:08:05,154 --> 00:08:09,560
+least, there's only one node which was,
+miscategorized.
+
+100
+00:08:09,560 --> 00:08:15,777
+And, you know, who's to say that this
+wasn't a more true, affiliation for that
+
+101
+00:08:15,777 --> 00:08:22,151
+node, but for whatever other factors, it
+went the other way when, when the split
+
+102
+00:08:22,151 --> 00:08:26,053
+happened.
+The problem with, you know, hierarchical
+
+103
+00:08:26,053 --> 00:08:31,871
+clustering and with this between-ness of
+community finding algorithm is that there
+
+104
+00:08:31,871 --> 00:08:37,198
+isn't a clear stopping criterion, right?
+It's, it's great that you can stop it
+
+105
+00:08:37,198 --> 00:08:41,614
+different resolutions.
+But how do you know which one is optimal?
+
+106
+00:08:41,614 --> 00:08:46,030
+Which one might be the true community
+structure of the network.
+
+107
+00:08:46,030 --> 00:08:50,122
+So.
+Germin and Newman went back and they,
+
+108
+00:08:50,408 --> 00:08:57,641
+formulated this measure of modularity,
+which is going to tell us, you know, at
+
+109
+00:08:57,641 --> 00:09:02,305
+some point, we're going to maximize this
+quantity.
+
+110
+00:09:02,305 --> 00:09:07,540
+And when we do that, we're going to have
+the most edges.
+
+111
+00:09:07,540 --> 00:09:13,412
+Within the community, much more so than
+you would expect at random, with this
+
+112
+00:09:13,412 --> 00:09:19,208
+particular community partition.
+So what we do is for each node, we, assign
+
+113
+00:09:19,208 --> 00:09:23,458
+a community, C.
+So vertex V is in commun-, C, in community
+
+114
+00:09:23,458 --> 00:09:27,244
+C sub V, and ver, vertex W is in community
+C sub W.
+
+115
+00:09:27,244 --> 00:09:33,426
+And now, this is just a delta function.
+So this is going to be one if W and, and V
+
+116
+00:09:33,426 --> 00:09:38,603
+are in the same community.
+And it's going to be zero if they're not.
+
+117
+00:09:38,603 --> 00:09:44,266
+So this function is going to sum just.
+Over the nodes which are assigned in the,
+
+118
+00:09:44,266 --> 00:09:47,060
+into the sin community.
+And really this is.
+
+119
+00:09:47,290 --> 00:09:53,702
+Algorithm agnostic, so you could be doing
+the betweenness Clustering, you could be
+
+120
+00:09:53,702 --> 00:09:58,782
+doing hierarchical clustering.
+It does, doesn't really matter, you can
+
+121
+00:09:58,782 --> 00:10:04,236
+always calculate the modularity.
+So the question is, if V and W are in the
+
+122
+00:10:04,236 --> 00:10:10,361
+same community, how, how many edges do we
+observe between such nodes in the same
+
+123
+00:10:10,361 --> 00:10:14,246
+community.
+So we are going to sum over the adjacency
+
+124
+00:10:14,246 --> 00:10:20,372
+matrix and then we are going to subtract
+how many edges we would expect at random,
+
+125
+00:10:20,372 --> 00:10:23,659
+because.
+C and W have deg, degrees, so, say, oh,
+
+126
+00:10:23,659 --> 00:10:26,742
+sorry.
+V and W have degrees, so case of V is the
+
+127
+00:10:26,742 --> 00:10:29,694
+degree of V, and case of W is the degree
+of W.
+
+128
+00:10:29,694 --> 00:10:33,762
+And so just by chance, these two may have
+linked to each other.
+
+129
+00:10:33,762 --> 00:10:38,747
+The higher their degree, if they're, if
+they're two really large hubs, there's
+
+130
+00:10:38,747 --> 00:10:44,323
+relatively higher likelihood that they'll
+be linking together than if they each have
+
+131
+00:10:44,323 --> 00:10:47,406
+degree one.
+And so, that's just what we're doing.
+
+132
+00:10:47,406 --> 00:10:52,130
+We're looking at the actual number of
+links within the community, versus.
+
+133
+00:10:52,130 --> 00:10:59,178
+Versus how many links you would expect
+Based on the degree of those nodes that
+
+134
+00:10:59,178 --> 00:11:05,504
+have been assigned to the same community.
+And we're doing this for all of all pairs
+
+135
+00:11:05,504 --> 00:11:07,921
+of nodes.
+And for a random network.
+
+136
+00:11:07,921 --> 00:11:13,669
+There would be no difference between, or,
+or actually also for a random community
+
+137
+00:11:13,669 --> 00:11:19,071
+assignment, there would be no difference
+between what you observe and what you
+
+138
+00:11:19,071 --> 00:11:22,880
+expect on average.
+And so your modularity would be zero.
+
+139
+00:11:23,440 --> 00:11:28,611
+So, an algorithm that can then use
+modularity is, again, a hierarchical
+
+140
+00:11:28,611 --> 00:11:32,733
+approach, where you start with all
+vertices as isolates.
+
+141
+00:11:32,733 --> 00:11:38,505
+But now, rather than joining together
+vertices or groups of vertices that are
+
+142
+00:11:38,505 --> 00:11:44,276
+similar according to some measure, we're
+going to join the ones such that the
+
+143
+00:11:44,276 --> 00:11:49,794
+modularity increases maximally.
+And so we can keep doing this until the
+
+144
+00:11:49,794 --> 00:11:55,463
+modularity no longer increases.
+Or we can actually go beyond that point,
+
+145
+00:11:55,463 --> 00:12:00,574
+allow modularity to decrease.
+But we still have a way of kind of
+
+146
+00:12:00,574 --> 00:12:05,445
+minimizing that decrease, and also getting
+larger communities.
+
+147
+00:12:05,445 --> 00:12:09,358
+So, this is very scalable up to very large
+graphs.
+
+148
+00:12:09,358 --> 00:12:15,267
+And there is, code available if you want
+to just download it standalone.
+
+149
+00:12:15,267 --> 00:12:19,500
+But very nicely, it's also implemented in
+Gaffey.
+
+150
+00:12:19,780 --> 00:12:26,573
+A reminder of why you may want to do this,
+here is some work again by Mark Newman.
+
+151
+00:12:26,573 --> 00:12:33,619
+Where he looked at, I think these are the,
+the scientific collaborations at the Santa
+
+152
+00:12:33,619 --> 00:12:38,533
+Fe Institute And rather than looking at,
+oh there's this big network, and
+
+153
+00:12:38,533 --> 00:12:43,394
+everyone's working on something.
+You can find groups of researchers who are
+
+154
+00:12:43,394 --> 00:12:47,671
+working on the same thing.
+And then you can even do something like
+
+155
+00:12:47,671 --> 00:12:53,310
+visualized metanodes, where one metanode
+represents everyone in the same community.
+
+156
+00:12:53,310 --> 00:12:57,911
+And now you can start to see the
+relationships between these different
+
+157
+00:12:57,911 --> 00:13:00,893
+groups.
+In this case, it would be how different
+
+158
+00:13:00,893 --> 00:13:08,693
+groups or researchers, cross collaborate.
+One, thing that I haven't mentioned that
+
+159
+00:13:08,693 --> 00:13:15,154
+explicitly so far is that, for the
+algorithms that I've mentioned, we're
+
+160
+00:13:15,154 --> 00:13:21,888
+really partitioning the network.
+We can't have one node be a member of two
+
+161
+00:13:21,888 --> 00:13:28,132
+different communities.
+However in a, a real world, And that work,
+
+162
+00:13:28,132 --> 00:13:31,432
+this is hardly.
+The case, right?
+
+163
+00:13:31,432 --> 00:13:39,660
+When you look at your facebook network,
+you may have seen distinct communities.
+
+164
+00:13:39,660 --> 00:13:43,876
+However, you have to.
+Be aware that, that was a slice.
+
+165
+00:13:43,876 --> 00:13:48,428
+That was a slice of that individual's
+network that pertains to you.
+
+166
+00:13:48,428 --> 00:13:53,660
+And they probably know you through a
+single contacts or you know, at most two
+
+167
+00:13:53,660 --> 00:13:56,921
+contacts.
+So that's someone you know from school,
+
+168
+00:13:56,921 --> 00:14:01,270
+that's someone you know from work.
+But each of those individuals.
+
+169
+00:14:01,270 --> 00:14:06,847
+Has lots of other contacts so their other
+school or their other work that's, that's
+
+170
+00:14:06,847 --> 00:14:12,491
+not related to you, and this give a very
+dense, inter interlinked structure that's
+
+171
+00:14:12,491 --> 00:14:18,001
+very hard to partition in the way that a
+lot of these algorithms would like to do
+
+172
+00:14:18,001 --> 00:14:21,092
+it.
+And Jure Leskovec and his collaborators at
+
+173
+00:14:21,092 --> 00:14:26,467
+Stanford have found that for many large
+social networks, the huge ones, precisely
+
+174
+00:14:26,467 --> 00:14:32,313
+the ones that you would really like to be
+able to partition so you can study little
+
+175
+00:14:32,313 --> 00:14:35,270
+parts of it, it's almost impossible to do
+so.
+
+176
+00:14:35,270 --> 00:14:41,670
+So networks such as Flickr, Orkut.
+The Microsoft Instant Messaging, graph.
+
+177
+00:14:41,919 --> 00:14:48,237
+None of these are easily partitionable.
+And they found that, at most, you know,
+
+178
+00:14:48,237 --> 00:14:55,136
+communities of 100 nodes can be separated.
+And everything else is too overlapped to,
+
+179
+00:14:55,136 --> 00:14:58,960
+to do it.
+So, what comes to the rescue, then, are.
+
+180
+00:14:58,960 --> 00:15:02,263
+Community-finding algorithms, which allow
+for overlap.
+
+181
+00:15:02,263 --> 00:15:05,940
+Which allow nodes to be members of more
+than one community.
+
+182
+00:15:05,940 --> 00:15:11,247
+One such software, which you can download
+for free, is called Clique Finder.
+
+183
+00:15:11,247 --> 00:15:16,837
+And their approach is Having rolling
+cliques, so in a way have clique
+
+184
+00:15:16,837 --> 00:15:21,281
+percolation.
+And these cliques are going to roll around
+
+185
+00:15:21,281 --> 00:15:25,160
+and in each, at each time step you have a
+clique.
+
+186
+00:15:25,160 --> 00:15:31,947
+And then you can drop one node as long as
+the next node that you add is again going
+
+187
+00:15:31,947 --> 00:15:37,846
+to be a clique of the same order.
+So let me just show you here, these four
+
+188
+00:15:37,846 --> 00:15:43,260
+nodes are a four clique, so if we were to
+roll this now, we could.
+
+189
+00:15:43,260 --> 00:15:54,084
+Leave, this node, out, and.
+One such piece of software that allows you
+
+190
+00:15:54,084 --> 00:15:59,890
+to find o-, overlapping communities is
+Clique Finder, which you can download for
+
+191
+00:15:59,890 --> 00:16:03,289
+free.
+The basic idea there is that you are going
+
+192
+00:16:03,289 --> 00:16:07,466
+to roll cliques around.
+It's a, it's a, it's a form of clique
+
+193
+00:16:07,466 --> 00:16:11,361
+percolation.
+You're going to see how many steps you can
+
+194
+00:16:11,361 --> 00:16:16,600
+take when the rules are as follows.
+You are going to choose a certain size
+
+195
+00:16:16,600 --> 00:16:19,999
+clique.
+Say a four clique, that is four nodes who
+
+196
+00:16:19,999 --> 00:16:24,022
+each have, Links to everyone else with in
+the clique.
+
+197
+00:16:24,022 --> 00:16:29,340
+And then in each step you can omit one of
+the nodes, and add another one.
+
+198
+00:16:29,340 --> 00:16:33,403
+As long as that step allows you to form
+another clique.
+
+199
+00:16:33,403 --> 00:16:37,614
+And you keep doing that, until you can't
+move any further.
+
+200
+00:16:37,614 --> 00:16:41,824
+So for example, here we have these four
+nodes, in a clique.
+
+201
+00:16:41,824 --> 00:16:45,910
+And then we can leave this one out.
+And.
+
+202
+00:16:46,154 --> 00:16:48,275
+And oops, sorry.
+[laugh].
+
+203
+00:16:48,275 --> 00:16:53,495
+And get this clique here.
+And then, finally, we can leave this guy
+
+204
+00:16:53,495 --> 00:16:59,285
+out, and get this clique here.
+And, in this way, we can get, overlapping
+
+205
+00:16:59,285 --> 00:17:03,200
+communities.
+Which you know, is very relevant for
+
+206
+00:17:03,200 --> 00:17:07,278
+social networks.
+It's very relevant for biological
+
+207
+00:17:07,278 --> 00:17:11,111
+networks.
+And it's just, it's just plain, more
+
+208
+00:17:11,111 --> 00:17:17,147
+flexible to, to find overlapping
+communities than to partition the network
+
+209
+00:17:17,147 --> 00:17:20,901
+in a, in a choppy way.
+So just to wrap up.
+
+210
+00:17:20,901 --> 00:17:27,698
+What we've tackled this week is that large
+networks can be giant hairballs.
+
+211
+00:17:27,698 --> 00:17:34,584
+And if we can identify distinct regions
+within the network, that can give us
+
+212
+00:17:34,584 --> 00:17:39,840
+important insights.
+Are these functional groups within the
+
+213
+00:17:39,840 --> 00:17:41,200
+cell?
+Are these.
+
+214
+00:17:41,200 --> 00:17:46,600
+Areas of research within, you know,
+science.
+
+215
+00:17:46,960 --> 00:17:52,360
+Are these individuals within an
+organization.
+
+216
+00:17:52,360 --> 00:17:58,511
+Now how we approach that.
+Discovery of interesting structure is
+
+217
+00:17:58,511 --> 00:18:01,818
+partitioned into two, tuh, two different
+themes.
+
+218
+00:18:01,818 --> 00:18:06,634
+The first one is that you're going to look
+for specific structures.
+
+219
+00:18:06,634 --> 00:18:10,659
+For example, you're going to look for
+cliques or K-cores.
+
+220
+00:18:10,659 --> 00:18:16,050
+But if the network actually doesn't
+exhibit this structure and it exhibits
+
+221
+00:18:16,050 --> 00:18:20,219
+some other structure, these, this approach
+can be too rigid.
+
+222
+00:18:20,219 --> 00:18:26,257
+So what we talked about now most recently,
+and what's been popular definitely in the
+
+223
+00:18:26,257 --> 00:18:29,780
+past ten years or so, is looking for more
+organic.
+
+224
+00:18:29,780 --> 00:18:35,840
+Approaches which let the community
+structure show itself to you.
+
+225
+00:18:35,840 --> 00:18:41,662
+And you can use methods or metrics such as
+modularity to see whether.
+
+226
+00:18:41,662 --> 00:18:48,497
+Well, first of all to try to find that
+organic partition but also to evaluate any
+
+227
+00:18:48,497 --> 00:18:54,826
+sort of community finding algorithm.
+In so far as did it place nodes in the
+
+228
+00:18:54,826 --> 00:19:01,071
+same community in a way that had much
+greater density of edges within the
+
+229
+00:19:01,071 --> 00:19:07,400
+community than from those nodes to other
+places, other parts of the network.
+
+230
+00:19:07,400 --> 00:19:13,301
+Now, for the assignment.
+You'll be looking at ingredient networks.
+
+231
+00:19:13,301 --> 00:19:17,710
+So here is, the network of ingredients
+compliments.
+
+232
+00:19:17,710 --> 00:19:23,202
+These are things that go, together often
+or that co-occur often.
+
+233
+00:19:23,202 --> 00:19:27,854
+And here is, Oh shoot.
+What's the sandwich called?
+
+234
+00:19:27,854 --> 00:19:31,800
+Sauerkraut and corned beef and, and Swiss
+cheese.
+
+235
+00:19:32,420 --> 00:19:34,925
+How can it?
+Oh, it's a Reuben sandwich.
+
+236
+00:19:34,925 --> 00:19:38,651
+That's right.
+And I wanted to show you one other web
+
+237
+00:19:38,651 --> 00:19:44,001
+application that isn't going to be a part
+of your assignment, in part because I
+
+238
+00:19:44,001 --> 00:19:49,487
+don't want to overload their server.
+But that I think is very neat and uses an
+
+239
+00:19:49,487 --> 00:19:55,651
+information theoretic approach that I will
+provide the article for and you can check
+
+240
+00:19:55,651 --> 00:19:59,308
+it out yourself.
+I, I mean, I think that, that article is
+
+241
+00:19:59,308 --> 00:20:03,914
+just testimony to the many different
+creative approaches, really fun
+
+242
+00:20:03,914 --> 00:20:10,574
+approaches, that people have taken to.
+Discovering communities and networks.
+
+243
+00:20:10,574 --> 00:20:15,739
+So let me try and switch over.
+To that site.
+
+244
+00:20:15,739 --> 00:20:24,271
+Okay, so I'm going to load my, network of,
+substitutes, and I'm going to do the
+
+245
+00:20:24,271 --> 00:20:30,920
+directed network.
+And I'm going to calculate clusters.
+
+246
+00:20:31,300 --> 00:20:35,804
+Cool.
+So each one of these clusters now is a set
+
+247
+00:20:35,804 --> 00:20:40,871
+of ingredients.
+So if I double click on this one I can
+
+248
+00:20:40,871 --> 00:20:44,455
+find that.
+It's clustered chicken, and turkey, and
+
+249
+00:20:44,455 --> 00:20:47,867
+beef, and sausage, and chicken breasts,
+together.
+
+250
+00:20:47,867 --> 00:20:52,253
+As ingredients that are frequently
+substituted for one another.
+
+251
+00:20:52,253 --> 00:20:55,177
+We can also, for example, look at olive
+oil.
+
+252
+00:20:55,177 --> 00:20:59,842
+And find olive oil substituted by butter,
+substituted by applesauce.
+
+253
+00:20:59,842 --> 00:21:03,323
+I didn't know this until I was doing the
+research.
+
+254
+00:21:03,323 --> 00:21:08,545
+But, I guess applesauce is often a low
+fat, alternative, that, that gets,
+
+255
+00:21:08,754 --> 00:21:11,470
+substituted in.
+Now, let me see if I can.
+
+256
+00:21:11,470 --> 00:21:22,760
+Find, there's a neat kind of, sub-graph.
+Oh, explore sub-network.
+
+257
+00:21:22,760 --> 00:21:27,268
+Cool.
+So here we have the sub-network of the
+
+258
+00:21:27,268 --> 00:21:34,030
+most common, substitutions.
+So it looks like maybe, applesauce.
+
+259
+00:21:34,223 --> 00:21:38,988
+Is common both for butter and oil.
+But not, as I said just a second ago, for
+
+260
+00:21:38,988 --> 00:21:40,018
+olive oil.
+Right?
+
+261
+00:21:40,018 --> 00:21:45,298
+So maybe if you're going the, putting in
+the extra effort to use olive oil instead
+
+262
+00:21:45,298 --> 00:21:49,935
+of any old oil, you're also less likely to
+then, go for the applesauce.
+
+263
+00:21:49,935 --> 00:21:54,893
+Which, you know, may be lower calorie.
+But maybe doesn't taste as good as, as
+
+264
+00:21:54,893 --> 00:21:58,177
+olive oil.
+So with that, I'll, close out week four.
+
+265
+00:21:58,177 --> 00:22:03,522
+I hope you have fun with the assignment.
+And next week we'll be talking about small
+
+266
+00:22:03,522 --> 00:22:06,999
+world networks.
+So, going back a little bit to modeling
+
+267
+00:22:06,999 --> 00:22:11,155
+and understanding the structure of these
+networks.
+
+268
+00:22:11,155 --> 00:22:14,213
+Where does the community structure come
+from?
+
+269
+00:22:14,213 --> 00:22:19,581
+And what implications does it have for
+things such as diffusion of information?
+
+270
+00:22:19,581 --> 00:22:24,949
+Or, the ability of infor-, of individuals
+to find information within the network.
+
+271
+00:22:24,949 --> 00:22:26,376
+So, see you next week.

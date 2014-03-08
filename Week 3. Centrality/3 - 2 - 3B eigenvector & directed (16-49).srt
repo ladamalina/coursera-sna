@@ -1,0 +1,975 @@
+
+1
+00:00:00,000 --> 00:00:05,566
+When you look at a real world network such
+as my facebook network its clear that the
+
+2
+00:00:05,566 --> 00:00:10,740
+nodes with high closeness are close to
+other nodes with high closeness that is
+
+3
+00:00:10,740 --> 00:00:16,045
+they are kind of in the middle in the
+thick of things and in general we may want
+
+4
+00:00:16,045 --> 00:00:21,153
+a definition of closeness a separate
+centrality measure which we are going to
+
+5
+00:00:21,153 --> 00:00:24,690
+call eigenvector centrality which sells
+that you are.
+
+6
+00:00:24,690 --> 00:00:29,464
+As important as your neighbors are.
+And your neighbors are as important as
+
+7
+00:00:29,464 --> 00:00:33,270
+their neighbors are.
+So it's this nice recursive definition.
+
+8
+00:00:33,270 --> 00:00:38,173
+So if we have node I, and we have its
+neighbors and the weights of the edges.
+
+9
+00:00:38,173 --> 00:00:43,399
+Then the importance of I is going to be
+the sum of these kinds of terms, where we
+
+10
+00:00:43,399 --> 00:00:47,593
+take the weight of that edge.
+And, you know, normally, it's, it's one,
+
+11
+00:00:47,786 --> 00:00:53,141
+But you can use weighted networks as well.
+ whatever the centrality of that node is.
+
+12
+00:00:53,141 --> 00:00:58,367
+And you may iterate this many, many times.
+Because, of course, as you're calculating
+
+13
+00:00:58,367 --> 00:01:01,902
+this.
+Centrality for I its going to actually now
+
+14
+00:01:01,902 --> 00:01:08,177
+affect the centrality of K etc and this is
+precisely the problem of solving for the
+
+15
+00:01:08,177 --> 00:01:14,154
+eigenvector of the adjacent signature X
+with eigen value one and thats why its
+
+16
+00:01:14,154 --> 00:01:18,713
+called eigen vector centrality.
+One of the first people to apply
+
+17
+00:01:18,713 --> 00:01:22,657
+eigenvector's centrality to social
+networks was Bonachich.
+
+18
+00:01:22,657 --> 00:01:26,668
+He wasn't happy with just, you know, the
+plane agency matrix.
+
+19
+00:01:26,668 --> 00:01:31,700
+He wanted a parameter that he could vary,
+and he chose this parameter beta.
+
+20
+00:01:31,700 --> 00:01:39,120
+And what beta does is it says, "How
+important it is, is it, that your."
+
+21
+00:01:39,120 --> 00:01:43,722
+Neighbours are important versus just how
+many neighbours you have.
+
+22
+00:01:43,722 --> 00:01:48,533
+So, he was able to tune that.
+And this paramether alpha here, is just a
+
+23
+00:01:48,533 --> 00:01:53,205
+normalization constant.
+So, you have that this entrallity of node
+
+24
+00:01:53,205 --> 00:01:58,783
+I, for a certain paramether beta, is the
+sum over all of its neighbours, which you
+
+25
+00:01:58,783 --> 00:02:04,013
+are going to get from, from this.
+The adjacency matrix is, can be weighted
+
+26
+00:02:04,013 --> 00:02:04,990
+or not.
+And.
+
+27
+00:02:05,187 --> 00:02:10,453
+For each of those neighbors you're going
+to have this factor of alpha plus beta
+
+28
+00:02:10,453 --> 00:02:13,875
+times the eigenvector centrality of the
+neighbor.
+
+29
+00:02:13,875 --> 00:02:19,009
+And this can be solved through a matrix
+computation to derive the eigenvector
+
+30
+00:02:19,009 --> 00:02:24,012
+centrality scores for all the nodes.
+Now you don't have to sit there and, you
+
+31
+00:02:24,012 --> 00:02:27,698
+know, calculate this by hand, that could
+get really hairy.
+
+32
+00:02:27,895 --> 00:02:33,753
+Naturally, you know, a lot of software can
+calculate these, these kinds of things for
+
+33
+00:02:33,753 --> 00:02:36,781
+you, but it's good to know where it comes
+from.
+
+34
+00:02:36,781 --> 00:02:41,843
+What the, what the idea be.
+Kind having such, su such a centrality
+
+35
+00:02:41,843 --> 00:02:44,853
+measure is.
+And so, if you have small beta, what
+
+36
+00:02:44,853 --> 00:02:49,737
+happens is, you know, beta close to zero.
+Is that only your immediate friends are
+
+37
+00:02:49,737 --> 00:02:53,260
+going to matter.
+So it's going to be, how many friends you
+
+38
+00:02:53,260 --> 00:02:58,391
+have as opposed to how important they are.
+Because their importance is derived from
+
+39
+00:02:58,391 --> 00:03:03,090
+the structure of the wider network.
+If you have high beta, you're going to
+
+40
+00:03:03,090 --> 00:03:07,108
+have low attenuation.
+Meaning that, all of those multiple steps
+
+41
+00:03:07,108 --> 00:03:11,620
+are going to be quite important.
+It's not just how important your friends
+
+42
+00:03:11,620 --> 00:03:14,402
+are, but also how important their friends
+are.
+
+43
+00:03:14,588 --> 00:03:21,440
+The friends of friends of friends,
+Etc. And in the case that beta is zero,
+
+44
+00:03:21,440 --> 00:03:29,420
+you're just recovering the, the degree
+centrality because all you have is the sum
+
+45
+00:03:29,420 --> 00:03:37,830
+of the edges for a note.
+The interesting thing that Bonacich
+
+46
+00:03:37,830 --> 00:03:43,325
+started examining was what happens if beta
+is actually negative?
+
+47
+00:03:43,325 --> 00:03:49,850
+So when Beta is positive The centrality
+follows the intuition I said, which is
+
+48
+00:03:49,850 --> 00:03:52,774
+that.
+Having neighbors who are themselves
+
+49
+00:03:52,774 --> 00:03:57,330
+important, makes you important.
+However, if beta is negative, nodes have
+
+50
+00:03:57,330 --> 00:04:02,282
+higher centrality when they're connected
+to actually less central nodes.
+
+51
+00:04:02,282 --> 00:04:07,828
+So let's see if this made sense to you.
+Take a look at these two networks, and try
+
+52
+00:04:07,828 --> 00:04:12,714
+to figure out which one has beta positive,
+and which one has beta negative.
+
+53
+00:04:12,714 --> 00:04:17,798
+So far, with the exception of degree,
+where we had in-degree and out-degree, we
+
+54
+00:04:17,798 --> 00:04:21,033
+were talking primarily about undirected
+networks.
+
+55
+00:04:21,033 --> 00:04:24,190
+And, I just want.
+Want to take a little bit of time to talk
+
+56
+00:04:24,190 --> 00:04:27,670
+about centrality and directive matter.
+.
+
+57
+00:04:27,670 --> 00:04:31,420
+There naturally are many different
+directed networks.
+
+58
+00:04:31,420 --> 00:04:35,100
+For example, the World Wide Web.
+And we mentioned how.
+
+59
+00:04:35,100 --> 00:04:40,892
+You know, the meaning of out degree, how
+many different pages a page points to is
+
+60
+00:04:40,892 --> 00:04:46,249
+really different from the meaning of in
+degree, how many pages point to it.
+
+61
+00:04:46,249 --> 00:04:51,896
+So, out degree just indicates okay, is
+this page referencing a lot of different
+
+62
+00:04:51,896 --> 00:04:53,200
+content.
+In degree.
+
+63
+00:04:53,200 --> 00:04:59,570
+Is a signal of how many other people found
+that content relevant enough so to link to
+
+64
+00:04:59,570 --> 00:05:03,936
+that page from their page.
+Foodweb's naturally directed right.
+
+65
+00:05:03,936 --> 00:05:07,014
+The wolf leads the sheep.
+Not visa versa.
+
+66
+00:05:07,229 --> 00:05:11,595
+Population dynamics where individuals
+migrate right.
+
+67
+00:05:11,595 --> 00:05:15,389
+Migration patterns are usually directed.
+Influence.
+
+68
+00:05:15,604 --> 00:05:21,473
+How much you influence someone is probably
+different from how much they influence
+
+69
+00:05:21,473 --> 00:05:24,694
+you.
+And it depends on your relative prestige
+
+70
+00:05:24,694 --> 00:05:28,128
+and the nature of the relationship.
+Relationship.
+
+71
+00:05:28,342 --> 00:05:34,483
+Hereditary networks, citation networks,
+biological networks, such as transcription
+
+72
+00:05:34,483 --> 00:05:38,554
+regulation networks, or neural networks
+are also directed.
+
+73
+00:05:38,554 --> 00:05:44,195
+And it makes a lot sense if you have a
+task to do then some nodes are going to
+
+74
+00:05:44,409 --> 00:05:49,051
+effect the behavior of other nodes and the
+network it's directed.
+
+75
+00:05:49,051 --> 00:05:53,550
+Undirected you know, things would be just
+firing back and forth.
+
+76
+00:05:54,780 --> 00:06:00,377
+Some of the measures are just naturally
+extended into their directed counterparts.
+
+77
+00:06:00,377 --> 00:06:06,179
+So if you remember when we talked about
+betweenness this was simply the number of
+
+78
+00:06:06,179 --> 00:06:11,776
+paths between all the other pairs of nodes
+that pass through our node of interest
+
+79
+00:06:11,776 --> 00:06:15,052
+divided by the total number of paths pairs
+have.
+
+80
+00:06:15,052 --> 00:06:20,240
+And what we're going to do we're just
+going to change it we're going to say
+
+81
+00:06:20,240 --> 00:06:24,950
+instead of undirected paths these are
+going to be directed paths and.
+
+82
+00:06:24,950 --> 00:06:28,950
+And when we normalize, we're going to
+have, here.
+
+83
+00:06:28,950 --> 00:06:36,402
+N - one x N - two And we're going to lose
+that factor of two, because getting from A
+
+84
+00:06:36,402 --> 00:06:40,749
+to B can in fact be.
+Or actually here from K to G can be
+
+85
+00:06:40,749 --> 00:06:47,531
+different than getting back to K from J.
+Right so, we do need to take into account
+
+86
+00:06:47,531 --> 00:06:53,798
+the directionality of the path, but pretty
+much directed between as follows it's
+
+87
+00:06:53,798 --> 00:06:58,413
+undirected counterpart.
+Same thing with closeness centrality, you
+
+88
+00:06:58,413 --> 00:07:03,422
+can talk about in closeness or out
+closeness and typically you will only
+
+89
+00:07:03,422 --> 00:07:08,705
+consider vertices that are reachable.
+So this is kind of getting, cuz once you
+
+90
+00:07:08,705 --> 00:07:14,195
+have a directed network it's even more
+difficult for everything to be connected
+
+91
+00:07:14,400 --> 00:07:19,410
+cuz if you have the same number of edges
+and they're directed you, you.
+
+92
+00:07:19,410 --> 00:07:24,217
+Here in fact and you can only traverse
+them in one direction right.
+
+93
+00:07:24,217 --> 00:07:29,598
+You have about half the number of edges.
+So perhaps you're only calculating
+
+94
+00:07:29,598 --> 00:07:36,198
+closeness forward from the reachable nodes
+and here you, you know, you have the kind
+
+95
+00:07:36,198 --> 00:07:40,862
+of input domain are going to be all the
+nodes that can reach you.
+
+96
+00:07:40,862 --> 00:07:46,745
+And the question is going to be how many
+hops does it take and kind of the output
+
+97
+00:07:46,745 --> 00:07:50,548
+domain are all the nodes reach in outward
+fashion.
+
+98
+00:07:50,548 --> 00:07:55,840
+So then again um..
+It's very easily extended, where.
+
+99
+00:07:55,840 --> 00:08:03,913
+Things get really I don't know if, if
+interesting is the right word, but where
+
+100
+00:08:03,913 --> 00:08:11,802
+there is a really a big, game change when,
+when you added directionality to
+
+101
+00:08:11,802 --> 00:08:17,172
+eigenvector centrality.
+And this was applied by Larry Page and
+
+102
+00:08:17,172 --> 00:08:23,015
+Sergey Brin when they were graduate
+students at Stanford to the web.
+
+103
+00:08:23,015 --> 00:08:29,491
+They just said we're going to figure out
+how important each web page is and we're
+
+104
+00:08:29,491 --> 00:08:35,014
+not going to take just the, The number of
+other pages that point to it.
+
+105
+00:08:35,014 --> 00:08:40,589
+We're going to instead look at the
+importance of those pages in a recursive
+
+106
+00:08:40,589 --> 00:08:43,523
+way.
+And so, for example, here, at least at
+
+107
+00:08:43,523 --> 00:08:49,392
+that time, Slashdot was really important.
+Lots and lots of other pages pointed to
+
+108
+00:08:49,392 --> 00:08:53,395
+it.
+So it's enough for Slashdot, to link to
+
+109
+00:08:53,395 --> 00:09:00,995
+mention another page and oftentimes that
+web server would just be brought down from
+
+110
+00:09:00,995 --> 00:09:08,234
+all the traffic and attention that would
+ensue and so we really want to capture
+
+111
+00:09:08,234 --> 00:09:12,396
+this.
+It's not just random web pages that link
+
+112
+00:09:12,396 --> 00:09:17,463
+to you but whether those pages themselves
+are important.
+
+113
+00:09:17,463 --> 00:09:23,581
+Now there's a, there's an analogy here,
+which is that when you're calculating this
+
+114
+00:09:23,581 --> 00:09:27,273
+eigenvector it's as if you're doing a
+random walk.
+
+115
+00:09:27,273 --> 00:09:33,066
+And so I like to think of it as a drunk,
+who's kind of like wandering around, and
+
+116
+00:09:33,066 --> 00:09:39,293
+every time he hits a node, he says, oop, ,
+okay, I'm just going to turn left, and,
+
+117
+00:09:39,510 --> 00:09:43,637
+turn right, and so, he's just following,
+edges at random.
+
+118
+00:09:43,637 --> 00:09:50,081
+And what page rank being, the amount of
+time that he is going to spend at each
+
+119
+00:09:50,081 --> 00:09:56,221
+node, What it.
+Then corresponds to is the eigenvector of,
+
+120
+00:09:56,221 --> 00:10:02,752
+of the adjacency matrix.
+But, there's a very important tweak.
+
+121
+00:10:03,084 --> 00:10:06,724
+If this.
+Network, say the web was undirected.
+
+122
+00:10:06,724 --> 00:10:13,650
+The drunk could just kinda, you know go
+and then just go back the same way if he
+
+123
+00:10:13,650 --> 00:10:20,419
+gets stuck somewhere but when the network
+is directed, he can only follow the edges
+
+124
+00:10:20,419 --> 00:10:26,951
+in a certain direction, meaning that here,
+if there is a cycle of this sort, he would
+
+125
+00:10:26,951 --> 00:10:32,932
+just be trapped and circling here
+indefinitely which then means that you
+
+126
+00:10:32,932 --> 00:10:37,970
+actually can't compute the eigenvector,
+right because the, the.
+
+127
+00:10:37,970 --> 00:10:42,571
+You're a random walker, you're drug is
+actually being absorbed in, in different
+
+128
+00:10:42,571 --> 00:10:47,907
+parts of the network.
+So the very cool insight that, these two
+
+129
+00:10:47,907 --> 00:10:53,815
+guys, Page and Brinn had was to allow for
+random teleportation.
+
+130
+00:10:54,101 --> 00:11:01,820
+Which is that with some probability the
+drunk is going to follow an edge when he
+
+131
+00:11:01,820 --> 00:11:07,156
+arrives at a node.
+But with 1- that probabilty, he's just
+
+132
+00:11:07,156 --> 00:11:11,730
+going to teleport to a random node in the
+graph.
+
+133
+00:11:11,730 --> 00:11:16,400
+And this solves the problem of getting
+stuck and.
+
+134
+00:11:16,400 --> 00:11:23,642
+But it still captures this, you know the,
+the important pages are the ones that are
+
+135
+00:11:23,642 --> 00:11:30,293
+linked to by important pages, so great.
+So let's see what this would look like on
+
+136
+00:11:30,293 --> 00:11:35,494
+a simple toy network.
+Let's see the random walker starts at node
+
+137
+00:11:35,494 --> 00:11:39,037
+one.
+At the next step he, with, you know some
+
+138
+00:11:39,037 --> 00:11:45,883
+substantial probability will go to either
+seven or eight, but we also have a twenty%
+
+139
+00:11:45,883 --> 00:11:52,730
+teleportation probability which means that
+the 80% of going to seven and eight will
+
+140
+00:11:52,730 --> 00:11:58,308
+be evenly split between them so.
+If we start out with you know, ten units
+
+141
+00:11:58,308 --> 00:12:03,745
+to distribute we get four each at seven
+and eight but we also distributed
+
+142
+00:12:03,745 --> 00:12:07,639
+twenty percent evenly among all the nodes
+including node one.
+
+143
+00:12:07,639 --> 00:12:13,444
+And so after the first step we have most
+of the probability being at seven and
+
+144
+00:12:13,444 --> 00:12:18,220
+eight but also he could have teleported
+elsewhere in the network.
+
+145
+00:12:18,220 --> 00:12:26,590
+If we go on and look at what happens after
+ten steps you find that.
+
+146
+00:12:26,590 --> 00:12:30,935
+You know, there is a lot of probability
+around seven.
+
+147
+00:12:30,935 --> 00:12:37,703
+And this indeed makes sense because seven
+not only has high indegree but some of
+
+148
+00:12:37,703 --> 00:12:44,138
+those nodes like two and five and six
+actually have other nodes feeding into
+
+149
+00:12:44,138 --> 00:12:48,065
+them.
+And so recursively seven should have high
+
+150
+00:12:48,065 --> 00:12:52,244
+paytrank.
+To check your understanding, I would like
+
+151
+00:12:52,244 --> 00:12:58,816
+you to go to this paytrenk demo where you
+will be moving a slider to Adjust the
+
+152
+00:12:58,816 --> 00:13:03,145
+teleportation probability, and then you're
+going to iterate.
+
+153
+00:13:03,145 --> 00:13:08,573
+So you're going to distribute the
+probability, kind of like with each step
+
+154
+00:13:08,573 --> 00:13:13,709
+that the random walker might take.
+And then I'd like you to figure out
+
+155
+00:13:13,709 --> 00:13:20,550
+whether higher or lower teleportation
+probability leads to more equal or less
+
+156
+00:13:20,550 --> 00:13:25,140
+equal distribution of page ranks
+centrality scores.
+
+157
+00:13:25,700 --> 00:13:30,363
+Just to wrap up for now.
+We've seen lots and lots of definitions of
+
+158
+00:13:30,363 --> 00:13:33,287
+different centrality values.
+We had degree.
+
+159
+00:13:33,287 --> 00:13:35,793
+We had betweenness.
+We had closeness.
+
+160
+00:13:35,793 --> 00:13:40,665
+We had Iconfactory centrality.
+And we even had sort of network wide
+
+161
+00:13:40,665 --> 00:13:45,468
+measures of centralization.
+Does everyone have approximately the same
+
+162
+00:13:45,468 --> 00:13:50,341
+degree or is it really scute.
+We extended this to directed networks.
+
+163
+00:13:50,550 --> 00:13:58,137
+To see, you know, when, when direction
+matters, how do these centrality measures
+
+164
+00:13:58,137 --> 00:14:02,866
+translate and.
+What might be missing from all of this
+
+165
+00:14:02,866 --> 00:14:07,900
+actually is an understanding of, you know,
+what is this good for?
+
+166
+00:14:07,900 --> 00:14:13,254
+I mean sometimes it's true.
+It's just nice to look at a network and
+
+167
+00:14:13,254 --> 00:14:19,406
+say, oh, here are the central nodes.
+For example you can do this with the Enron
+
+168
+00:14:19,406 --> 00:14:26,118
+email network that was released, as part
+of the court proceedings, and, you know,
+
+169
+00:14:26,118 --> 00:14:32,431
+you can, you can infer who the top level
+management was simply because of their
+
+170
+00:14:32,431 --> 00:14:36,493
+high centrality.
+Trivial because you know sometimes the
+
+171
+00:14:36,493 --> 00:14:42,346
+very top people don't email the most.
+Sometimes the people who are very central
+
+172
+00:14:42,346 --> 00:14:47,985
+are the ones who kind of handle email on
+their behalf or in charge of their
+
+173
+00:14:47,985 --> 00:14:53,410
+calender, so there are lots of interesting
+things to explore if you wanna do
+
+174
+00:14:53,410 --> 00:14:59,288
+exploratory data analysis.
+But, if you are Oh and I should say, in
+
+175
+00:14:59,288 --> 00:15:05,977
+the assignment you'll be looking at
+actually a court case network.
+
+176
+00:15:05,977 --> 00:15:13,873
+And this is an anti trust case where
+several turbine and other kind of powered
+
+177
+00:15:13,873 --> 00:15:20,933
+generator equipment manufacturers were
+accused of basically colluding.
+
+178
+00:15:21,211 --> 00:15:26,042
+Doing price setting.
+And the question is how does an
+
+179
+00:15:26,042 --> 00:15:29,648
+individual's.
+Position in this collusion network
+
+180
+00:15:29,648 --> 00:15:34,515
+correlate with their probability of, or
+actually their, their outcome.
+
+181
+00:15:34,515 --> 00:15:39,724
+That is, whether they were convicted or
+not and how heavy their sentence was.
+
+182
+00:15:39,724 --> 00:15:44,795
+So that's kind of cool, right?
+If you could ahead of time figure out how
+
+183
+00:15:44,795 --> 00:15:47,948
+things will play out for a conspiracy
+network.
+
+184
+00:15:48,154 --> 00:15:54,185
+The other paper that you'll be looking at
+is well it's this remarkable data set that
+
+185
+00:15:54,185 --> 00:15:59,737
+Sinan Aral and Marshall VanAlstyne
+collected of personnel in a headhunting
+
+186
+00:15:59,737 --> 00:16:02,863
+firm.
+And, what they discovered was that it
+
+187
+00:16:02,863 --> 00:16:08,731
+didn't matter how fat your rolodex is, its
+how many peoples addresses you know.
+
+188
+00:16:08,957 --> 00:16:15,277
+That it's in fact your positioning in the
+network, the diversity of your contacts,
+
+189
+00:16:15,277 --> 00:16:21,220
+having less constraints, that correlates
+both with your performance, that is how
+
+190
+00:16:21,220 --> 00:16:27,389
+much money you bring into the company, and
+interestingly with the information that
+
+191
+00:16:27,389 --> 00:16:31,452
+reaches you.
+Whether you find out new information more
+
+192
+00:16:31,452 --> 00:16:36,895
+quickly than your colleagues do.
+I hope that those two papers which will be
+
+193
+00:16:36,895 --> 00:16:39,799
+part of your assignment, will be
+interesting.
+
+194
+00:16:39,799 --> 00:16:45,475
+And in the next video what I'll do is just
+talk about some research I've done and how
+
+195
+00:16:45,475 --> 00:16:49,501
+I've made use of centrality measures in a
+very practical way.

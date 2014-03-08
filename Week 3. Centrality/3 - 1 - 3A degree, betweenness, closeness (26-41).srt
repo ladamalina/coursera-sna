@@ -1,0 +1,1600 @@
+
+1
+00:00:00,000 --> 00:00:04,036
+Hi. Welcome to Week three of Social
+Network Analysis.
+
+2
+00:00:04,036 --> 00:00:09,858
+This week we'll be tackling Centrality.
+Centrality tells us which nodes are
+
+3
+00:00:09,858 --> 00:00:14,904
+important in the network.
+This goes beyond just looking at social
+
+4
+00:00:14,904 --> 00:00:21,579
+networks and which nodes might be popular.
+And to looking at all sorts of different
+
+5
+00:00:21,579 --> 00:00:26,315
+networks, trade networks.
+Who are the most important importers,
+
+6
+00:00:26,315 --> 00:00:31,748
+exporters? nodes that bridge different
+regions and facilitate trade.
+
+7
+00:00:31,981 --> 00:00:36,918
+In biological networks.
+Which genes, for example, play a very
+
+8
+00:00:36,918 --> 00:00:41,332
+crucial role in regulating entire systems
+and processes.
+
+9
+00:00:41,332 --> 00:00:47,393
+And infrastructure networks, which nodes
+are critical, such that if you were to
+
+10
+00:00:47,393 --> 00:00:54,052
+remove them you would significantly impede
+the functioning of whatever the network is
+
+11
+00:00:54,052 --> 00:00:58,317
+supposed to do.
+So identifying such important nodes is, is
+
+12
+00:00:58,317 --> 00:01:04,527
+pretty critical and it may be one of the
+first things you want to do when you look
+
+13
+00:01:04,527 --> 00:01:09,500
+at a network is look at what nodes are
+more central.
+
+14
+00:01:09,500 --> 00:01:12,429
+If you go to the website,
+moviegalaxies.com,
+
+15
+00:01:12,429 --> 00:01:17,744
+What you'll see are a bunch of networks
+that have been constructed out of the
+
+16
+00:01:17,744 --> 00:01:21,083
+scripts.
+So they parts, I'm guessing automatically,
+
+17
+00:01:21,083 --> 00:01:26,193
+through the scripts, and see this
+character address this other character at
+
+18
+00:01:26,193 --> 00:01:29,804
+this point in the movie script.
+So let's draw an edge.
+
+19
+00:01:29,804 --> 00:01:34,574
+So if you look at, for example, the 1993
+movie, The Fugitive, you can see
+
+20
+00:01:34,574 --> 00:01:38,389
+immediately that there's this central node
+here, Kimball.
+
+21
+00:01:38,389 --> 00:01:41,864
+And this is Dr.
+Richard Kimball, who is the fugitive.
+
+22
+00:01:42,069 --> 00:01:45,099
+Falsely convicted of,
+Murdering his wife.
+
+23
+00:01:45,317 --> 00:01:51,135
+And you see here a secondary important
+individual who is Deputy Gerard from the
+
+24
+00:01:51,135 --> 00:01:55,862
+US Marshals Service who is pursuing
+Kimball throughout the movie.
+
+25
+00:01:55,862 --> 00:02:01,824
+And this you can immediately infer without
+ever having seen them. Well you can't
+
+26
+00:02:01,824 --> 00:02:07,860
+infer all those details but you can infer
+that both Kimball and Gerard are central
+
+27
+00:02:07,860 --> 00:02:11,278
+actors.
+Similarly if you look at Heap you see a
+
+28
+00:02:11,278 --> 00:02:15,486
+similar pattern.
+Where Detective Hannah is, pursuing Neil
+
+29
+00:02:15,486 --> 00:02:20,746
+who's like a, a long time crook, right?
+And you, you start to see, these kinds of
+
+30
+00:02:20,746 --> 00:02:23,902
+patterns.
+Now, of course if the, if the movie just
+
+31
+00:02:23,902 --> 00:02:27,715
+has one central actor.
+For example, in Memento, there's just
+
+32
+00:02:27,715 --> 00:02:29,950
+Leonard.
+And he's the most central.
+
+33
+00:02:29,950 --> 00:02:34,683
+So even though he may not actually
+remember having all these etches, all
+
+34
+00:02:34,683 --> 00:02:39,877
+these interactions because what happens is
+he keeps, he keeps losing his memory,
+
+35
+00:02:40,074 --> 00:02:45,400
+We can see, in fact, that over the course
+of the movie, he's the most central actor.
+
+36
+00:02:45,400 --> 00:02:49,130
+The question is though, is counting edges
+enough?
+
+37
+00:02:49,130 --> 00:02:53,637
+So what I'm showing you here, is a
+fragment of the network.
+
+38
+00:02:53,637 --> 00:02:58,066
+My first social network that I ever
+gathered data for.
+
+39
+00:02:58,066 --> 00:03:01,408
+And this was, these were Stanford
+homepages.
+
+40
+00:03:01,408 --> 00:03:08,168
+So take yourself back to 1999 and this was
+before Friendster, before Facebook, before
+
+41
+00:03:08,168 --> 00:03:12,520
+MySpace really.
+People were still constructing social
+
+42
+00:03:12,520 --> 00:03:15,766
+networks.
+Online, and the best way that they knew
+
+43
+00:03:15,766 --> 00:03:18,900
+how, which was to link their home pages
+together.
+
+44
+00:03:18,900 --> 00:03:24,319
+And the way that I caught on to this was
+that well, this was actually back in, in,
+
+45
+00:03:24,515 --> 00:03:28,433
+my undergrad days.
+A friend of mine had linked from her home
+
+46
+00:03:28,433 --> 00:03:33,003
+page to mine and said hey Aida, how come
+you're not linking back to me?
+
+47
+00:03:33,003 --> 00:03:36,660
+And so I started...
+Actually my home page had a friend's.
+
+48
+00:03:36,863 --> 00:03:42,350
+Page that linked to my friends, and once I
+was at Stanford and in grad school and
+
+49
+00:03:42,350 --> 00:03:45,195
+starting to study networks, I grew
+curious.
+
+50
+00:03:45,195 --> 00:03:48,107
+You know, how many people actually did
+this.
+
+51
+00:03:48,107 --> 00:03:53,188
+And so I gathered the data, and this is
+the local neighbor, my local network
+
+52
+00:03:53,188 --> 00:03:57,930
+neighborhood in the Stanford home pages.
+I linked to Orkut Buyukokkten.
+
+53
+00:03:57,930 --> 00:04:06,379
+Who here looks very sensual.
+He, he is also linked to or, or links to
+
+54
+00:04:06,741 --> 00:04:13,751
+many other friends.
+And in fact Well, I mean he was sort of
+
+55
+00:04:13,751 --> 00:04:18,437
+the center of my social universe in, in
+graduate school.
+
+56
+00:04:18,437 --> 00:04:23,365
+Now the complete picture though is
+something like this, right.
+
+57
+00:04:23,365 --> 00:04:28,945
+So Sure, you know, if you look at degree,
+Orkut may be one of the highest degree
+
+58
+00:04:28,945 --> 00:04:34,653
+individuals in the network, but still you
+would probably say that he's peripheral to
+
+59
+00:04:34,653 --> 00:04:38,526
+this whole network.
+However, that didn't last long, because
+
+60
+00:04:38,526 --> 00:04:43,350
+Orkut actually created Club Nexis, which
+was it had exactly the same
+
+61
+00:04:43,350 --> 00:04:48,854
+functionalities as Facebook, was created
+around the same time as Facebook, but was
+
+62
+00:04:48,854 --> 00:04:53,270
+for Standford students.
+And there he definitely was the center of
+
+63
+00:04:53,270 --> 00:05:01,358
+the network Then when he eventually
+started working for Google, excuse me, he,
+
+64
+00:05:01,690 --> 00:05:07,552
+He created there for social networking
+service that was called orku.com and was
+
+65
+00:05:07,552 --> 00:05:13,633
+incredibly you know, successful there so
+much so that, Well where that service
+
+66
+00:05:13,633 --> 00:05:20,082
+flourished was in especially in Brazil and
+in India, and so when he went to Brazil he
+
+67
+00:05:20,082 --> 00:05:25,577
+actually needed a security detail.
+He'd become so, so very central thanks to
+
+68
+00:05:25,577 --> 00:05:28,802
+starting this hugely popular social
+network.
+
+69
+00:05:28,802 --> 00:05:34,737
+But back to this picture it tells us that
+back in 1999 when Orku was still a new
+
+70
+00:05:34,737 --> 00:05:38,358
+grad student.
+Maybe you know, his close friends have
+
+71
+00:05:38,358 --> 00:05:42,394
+come to appreciate him.
+But he was still not the center of the
+
+72
+00:05:42,394 --> 00:05:46,561
+Stanford social life.
+So what kinds of centrality measures could
+
+73
+00:05:46,561 --> 00:05:51,717
+we use in order to make that distinction?
+So there are many different notions of
+
+74
+00:05:51,717 --> 00:05:55,035
+centrality.
+We talked about in-degree and out-degree
+
+75
+00:05:55,035 --> 00:06:00,521
+before and we'll review them but there are
+also notions of between-ness closeness and
+
+76
+00:06:00,521 --> 00:06:03,520
+we'll also talk about eye conductor
+centrality.
+
+77
+00:06:03,520 --> 00:06:09,253
+So in-degree is just the number of
+incoming edges that a node has and here X
+
+78
+00:06:09,253 --> 00:06:13,796
+has higher in-degree than Y, Y happens to
+have in-degree zero.
+
+79
+00:06:13,796 --> 00:06:20,125
+I have here plotted the network of oil
+experts using the NBR United Nations trade
+
+80
+00:06:20,125 --> 00:06:23,551
+data.
+In fact I think they, they based the data
+
+81
+00:06:23,551 --> 00:06:29,434
+in imports rather than exports but you
+know you can because they consider them
+
+82
+00:06:29,434 --> 00:06:34,944
+more reliable but you can kind of
+symmetrize the, the two and I use the
+
+83
+00:06:34,944 --> 00:06:39,928
+category that, that corresponds to
+petroleum and petroleum products.
+
+84
+00:06:39,928 --> 00:06:45,732
+And you can see this, every node is a
+country and there's a directed edge from
+
+85
+00:06:45,732 --> 00:06:50,878
+the exporter to the importer.
+So just to check your understanding which
+
+86
+00:06:50,878 --> 00:06:55,793
+countries have high in degree, that is,
+they import petroleum and petroleum
+
+87
+00:06:55,793 --> 00:07:01,157
+products from many others?
+Now let's talk about out degree, out
+
+88
+00:07:01,157 --> 00:07:07,110
+degree is just the number of edges that
+eminate form a particular node.
+
+89
+00:07:07,110 --> 00:07:12,338
+So here, I have just modified the same
+network of oil trade.
+
+90
+00:07:12,338 --> 00:07:16,503
+And I have sized, the nodes by their
+exports.
+
+91
+00:07:16,503 --> 00:07:22,441
+And I've also colored according to the
+ratio of exports to imports.
+
+92
+00:07:22,441 --> 00:07:26,606
+So if that ratio is high, the node is more
+blue.
+
+93
+00:07:26,606 --> 00:07:30,594
+If that ratio is low, the node is more
+red.
+
+94
+00:07:30,594 --> 00:07:36,000
+So, for example, here, the US imports much
+more than it exports.
+
+95
+00:07:36,420 --> 00:07:43,222
+So just to see if we know what's going on.
+Which country has low out degree but
+
+96
+00:07:43,222 --> 00:07:47,620
+exports a significant quantity of
+petroleum products.
+
+97
+00:07:50,300 --> 00:07:58,908
+In this First visualization.
+You may have seen Singapore actually have
+
+98
+00:07:58,908 --> 00:08:05,116
+a non-significant out degree.
+And that's a little bit puzzling because
+
+99
+00:08:05,116 --> 00:08:11,147
+Singapore is a city-state.
+So where is it getting this oil to export?
+
+100
+00:08:11,147 --> 00:08:17,090
+So what I've done is I have excluded you
+know, everything except.
+
+101
+00:08:17,090 --> 00:08:23,194
+For crude petroleum, that is the actual
+oil as opposed to derivative products.
+
+102
+00:08:23,194 --> 00:08:28,231
+And here you can see, that Singapore
+becomes primarily an importer.
+
+103
+00:08:28,231 --> 00:08:33,191
+It has indegree, but it doesn't really
+have significant outdegree.
+
+104
+00:08:33,191 --> 00:08:36,321
+So.
+This illustrates the point that when
+
+105
+00:08:36,321 --> 00:08:42,674
+you're talking about centrality, it's very
+important to know first, what does your
+
+106
+00:08:42,674 --> 00:08:45,576
+network represent.
+What is it's scope?
+
+107
+00:08:45,811 --> 00:08:51,301
+Here scope is not that much of an issue
+because we have all countries.
+
+108
+00:08:51,301 --> 00:08:55,066
+However, you know, what exactly do the
+edges mean?
+
+109
+00:08:55,066 --> 00:09:01,497
+Is it a crude oil or is it refined oil,
+even a little tweak can make a significant
+
+110
+00:09:01,497 --> 00:09:05,020
+difference.
+It's you just have to know what your
+
+111
+00:09:05,020 --> 00:09:10,407
+network is, and when you're talking to
+others you have to honestly represent that
+
+112
+00:09:10,407 --> 00:09:13,929
+as well.
+So let's put some numbers to it, let's
+
+113
+00:09:13,929 --> 00:09:18,290
+quantify centrality.
+If, and let's switch to an undirected mode
+
+114
+00:09:18,290 --> 00:09:23,121
+and networks for the time being.
+So, in undirected degree all we're doing
+
+115
+00:09:23,121 --> 00:09:28,824
+is we're counting the number of edges you
+have so if it's a friendship graph it just
+
+116
+00:09:28,824 --> 00:09:34,308
+counts the number of friends.
+And the basic assumption here is that, it
+
+117
+00:09:34,308 --> 00:09:40,660
+doesn't matter, how many, friends your
+friends have, or, you know, anything else.
+
+118
+00:09:40,660 --> 00:09:45,646
+You're just counting the number.
+That's, that's all that counts.
+
+119
+00:09:45,646 --> 00:09:51,596
+You can normalize this measure, by
+dividing, by the maximum, number possible,
+
+120
+00:09:51,596 --> 00:09:57,868
+for the degree, which is n minus one, as
+we saw, you know, just, just last week.
+
+121
+00:09:57,868 --> 00:10:00,430
+So.
+Here.
+
+122
+00:10:00,430 --> 00:10:09,165
+This node has a normalized centrality of.5
+because it's connected to three of the
+
+123
+00:10:09,165 --> 00:10:13,667
+possible six.
+Other nodes that are in the network and
+
+124
+00:10:13,667 --> 00:10:19,756
+although I don't personally normalize
+centrality degree that often you will just
+
+125
+00:10:19,756 --> 00:10:23,381
+for my own purposes I, I like having the
+raw count.
+
+126
+00:10:23,599 --> 00:10:29,761
+And especially with large networks it's
+you know, have a network of a 1,000,000
+
+127
+00:10:29,761 --> 00:10:35,633
+nodes no one's is going to have you know
+all this normalized degree centralities
+
+128
+00:10:35,633 --> 00:10:41,867
+are going to be.0000 right because you are
+not going to be connected to all the other
+
+129
+00:10:41,867 --> 00:10:44,550
+nodes that's ridiculous.
+But a lot.
+
+130
+00:10:44,759 --> 00:10:48,117
+Social analysis software does like to
+normalize.
+
+131
+00:10:48,117 --> 00:10:52,595
+So I would just like you to get used to
+these normalized scores.
+
+132
+00:10:52,595 --> 00:10:58,191
+And of course you can just multiply by n
+minus one to get the, the, the degree
+
+133
+00:10:58,191 --> 00:11:01,200
+back, the number of neighbors for each
+node.
+
+134
+00:11:03,330 --> 00:11:09,318
+Centrality refers to an individual node.
+But there is a network wide measure called
+
+135
+00:11:09,318 --> 00:11:14,801
+centralization, that characterizes the
+entire network and what it does is it
+
+136
+00:11:14,801 --> 00:11:19,058
+captures the inequality and the
+distribution of centrality.
+
+137
+00:11:19,058 --> 00:11:23,242
+So it could be the inequality of degree
+between the nodes.
+
+138
+00:11:23,242 --> 00:11:28,826
+And for this you know, it, it doesn't.
+Matter that much what particular measure
+
+139
+00:11:28,826 --> 00:11:33,238
+of centralization used?
+You could just use the standard deviation
+
+140
+00:11:33,238 --> 00:11:36,700
+in degree.
+And I have used this for example, when
+
+141
+00:11:36,700 --> 00:11:40,704
+studying trading networks for commodity
+future's contracts.
+
+142
+00:11:40,704 --> 00:11:43,827
+Right?
+We just looked at standard deviation in
+
+143
+00:11:43,827 --> 00:11:47,356
+degree.
+But we also threw in something called the
+
+144
+00:11:47,356 --> 00:11:52,990
+genie coefficient, which varies from zero
+if everyone has the same degree to one if
+
+145
+00:11:52,990 --> 00:11:57,470
+one node has you know, all the degree and
+all the other nodes have.
+
+146
+00:11:57,470 --> 00:12:01,470
+Degree zero, which you might see in a
+star, formation.
+
+147
+00:12:01,470 --> 00:12:08,674
+There's also Freeman's General Formula for
+Centralization and what you look at there
+
+148
+00:12:08,674 --> 00:12:15,305
+is you sum over all the nodes, you take
+the maximum value that you observe in the
+
+149
+00:12:15,305 --> 00:12:22,292
+network, you subtract The centrality of
+that particular node and you do this for
+
+150
+00:12:22,292 --> 00:12:28,762
+all the nodes, and then you normalize by
+this number of, of pairs, right.
+
+151
+00:12:28,762 --> 00:12:35,658
+And it's just one lower because you get 0s
+for the node that has the, the highest,
+
+152
+00:12:35,913 --> 00:12:38,880
+centrality.
+So.
+
+153
+00:12:39,600 --> 00:12:46,188
+Let's look at a few examples.
+This is with Freeman, centralization.
+
+154
+00:12:46,188 --> 00:12:52,868
+Here, as promised in the star formation,
+you have perfect centralization.
+
+155
+00:12:52,868 --> 00:12:57,564
+You got 1.0.
+Here in the line graph, The nodes look
+
+156
+00:12:57,564 --> 00:13:00,399
+pretty similar as far as degree is
+concerned.
+
+157
+00:13:00,399 --> 00:13:05,060
+We'll see later that using other
+centrality measures, right, the one that's
+
+158
+00:13:05,060 --> 00:13:09,721
+in the middle might end up being more
+central. But here, all we're doing is
+
+159
+00:13:09,721 --> 00:13:13,186
+counting degree.
+So, all these nodes look pretty similar,
+
+160
+00:13:13,186 --> 00:13:16,210
+giving us a relatively low centralization
+value.
+
+161
+00:13:16,210 --> 00:13:21,338
+And this similar thing happens for this
+kind of butterfly network where, again,
+
+162
+00:13:21,338 --> 00:13:25,810
+the nodes have either Degree two or three,
+and it's all very similar.
+
+163
+00:13:25,810 --> 00:13:30,381
+I mentioned these trading networks that I
+had analyzed.
+
+164
+00:13:30,381 --> 00:13:37,861
+So these are brokers and they're trading
+in futurist contracts having to do with
+
+165
+00:13:37,861 --> 00:13:42,515
+the S and P 500.
+And in this case what I've done is I've
+
+166
+00:13:42,515 --> 00:13:49,164
+sized the nodes by their n degree, so the
+larger the, the node appears, the higher
+
+167
+00:13:49,164 --> 00:13:53,237
+its in degree, and I've colored them by
+out degree.
+
+168
+00:13:53,237 --> 00:13:58,186
+So the larger the out degree, the,
+The darker the note.
+
+169
+00:13:58,426 --> 00:14:05,008
+And in any case you can see that here the
+network has very high in centralization
+
+170
+00:14:05,008 --> 00:14:11,912
+because one node really dominates it has a
+very in degree and most of the others have
+
+171
+00:14:11,912 --> 00:14:18,413
+relatively even in degree and lower in
+degree and here on the right you see that
+
+172
+00:14:18,413 --> 00:14:24,995
+actually all the nodes have relatively
+even indegree and no one is really hogging
+
+173
+00:14:24,995 --> 00:14:29,377
+all the N-links.
+So, there is an example where we could
+
+174
+00:14:29,377 --> 00:14:35,572
+actually use centralization of the home
+network and correlate it with other
+
+175
+00:14:35,572 --> 00:14:39,566
+variables.
+For example, the returns and volume and
+
+176
+00:14:39,566 --> 00:14:44,620
+other kind of financial properties of the
+system at that time.
+
+177
+00:14:45,760 --> 00:14:52,216
+But let's return to this question of
+things that to, that simply counting the
+
+178
+00:14:52,216 --> 00:14:58,357
+number of edges doesn't capture.
+If we look at this graph degree may very
+
+179
+00:14:58,357 --> 00:15:02,320
+well capture what's going on but if we
+look at.
+
+180
+00:15:02,320 --> 00:15:05,981
+This network,
+Right, this node has Degree two which
+
+181
+00:15:05,981 --> 00:15:11,854
+makes it kind of less importance and in
+the degree sense then these two nodes and
+
+182
+00:15:11,854 --> 00:15:16,966
+you know about of equal importance so
+these two nodes. But you know, in two
+
+183
+00:15:16,966 --> 00:15:22,493
+degree, we think that this node must be
+important because everyone here who may
+
+184
+00:15:22,493 --> 00:15:28,020
+want to get in touch with any one here is
+going to have to go through this node.
+
+185
+00:15:28,020 --> 00:15:33,283
+So how, how would one capture that.
+Similarly here, degrees has all of these
+
+186
+00:15:33,283 --> 00:15:38,964
+are equal, but this one if it wanted to
+visit any of other nodes it would just
+
+187
+00:15:38,964 --> 00:15:43,479
+make two hops max.
+And all the other nodes could potentially
+
+188
+00:15:43,479 --> 00:15:49,379
+have to make three or four hops. If they
+want to reach some of the individuals in
+
+189
+00:15:49,379 --> 00:15:52,146
+the network.
+So how do we capture that?
+
+190
+00:15:52,146 --> 00:15:55,497
+Well let's return to the Standford Social
+Web.
+
+191
+00:15:55,497 --> 00:15:58,774
+Right.
+Here again, we have that Orkut is very
+
+192
+00:15:58,774 --> 00:16:02,265
+central locally.
+And, certainly for my social,
+
+193
+00:16:02,514 --> 00:16:06,916
+neighborhood..
+If any of us want to get in touch with
+
+194
+00:16:06,916 --> 00:16:13,478
+under grads and so on, may be, you know,
+Orkut would be our best, choice and he
+
+195
+00:16:13,478 --> 00:16:17,963
+would kinda be between us and the rest of
+the network.
+
+196
+00:16:17,963 --> 00:16:24,773
+But, overall, his betweenness might not be
+as high. As for example, some of the other
+
+197
+00:16:24,773 --> 00:16:31,240
+nodes kind of closer in, and his
+closeness, in a sense that he is not, you
+
+198
+00:16:31,240 --> 00:16:36,850
+know, very proximate to the rest of the
+networks should be low as well.
+
+199
+00:16:36,850 --> 00:16:43,502
+So let's first talk about brokerage. This
+is where a node lies between other people,
+
+200
+00:16:43,502 --> 00:16:47,750
+here X plays more of a brokerage role than
+y, because.
+
+201
+00:16:47,750 --> 00:16:53,944
+These two nodes would have to go through X
+to talk to these two nodes.
+
+202
+00:16:53,944 --> 00:17:00,405
+And there is a bunch of research into
+this. In particular, Ron Burt at the
+
+203
+00:17:00,405 --> 00:17:04,830
+University of Chicago Business School, has
+studied.
+
+204
+00:17:04,830 --> 00:17:12,900
+What advantages individuals who occupy
+such roles might have.
+
+205
+00:17:13,153 --> 00:17:19,657
+And he's found things such as, they're
+more likely to generate creative ideas.
+
+206
+00:17:19,910 --> 00:17:25,654
+If he studies them within an
+organizational context, their ideas are
+
+207
+00:17:25,654 --> 00:17:31,650
+more likely to be accepted.
+They're more likely to receive favorable
+
+208
+00:17:31,650 --> 00:17:35,620
+reviews, and they're more likely to be
+credited.
+
+209
+00:17:35,874 --> 00:17:40,181
+Now of course, there's a little bit of an
+ambiguity.
+
+210
+00:17:40,181 --> 00:17:45,102
+Is it that the person enjoys these
+advantages because they occupy that
+
+211
+00:17:45,102 --> 00:17:50,291
+position in the network or did they come
+to occupy that position, because they're a
+
+212
+00:17:50,291 --> 00:17:54,416
+special kind of person who does generate
+creatives ideas, etcetera?
+
+213
+00:17:54,416 --> 00:17:57,229
+Right?
+And this is a little bit of an, ongoing,
+
+214
+00:17:57,229 --> 00:18:00,167
+debate.
+The consensus seems to be that, you know,
+
+215
+00:18:00,167 --> 00:18:04,918
+if you, if you put someone incompetent in
+that position, they're not going to
+
+216
+00:18:04,918 --> 00:18:08,356
+suddenly, start to blossom and do really,
+really well.
+
+217
+00:18:08,356 --> 00:18:12,982
+But if you have a good person in that
+position they're an even, in an even
+
+218
+00:18:12,982 --> 00:18:17,640
+better position, or can, can accomplish
+even more when they're in the brokerage
+
+219
+00:18:17,640 --> 00:18:21,991
+position.
+And this goes back to the notion of
+
+220
+00:18:21,991 --> 00:18:27,511
+constraint.
+And that is that, if you are not a broker
+
+221
+00:18:27,830 --> 00:18:35,472
+You experience constraint in the sense
+that your contacts are talking to each
+
+222
+00:18:35,472 --> 00:18:38,406
+other.
+Which means that you can't say one thing
+
+223
+00:18:38,406 --> 00:18:42,756
+to one and another thing to another
+because they're communicating with each
+
+224
+00:18:42,756 --> 00:18:45,331
+other.
+And so you are constrained in what you
+
+225
+00:18:45,331 --> 00:18:49,091
+might be able to pull off.
+On the other hand, if you're in this
+
+226
+00:18:49,091 --> 00:18:54,138
+brokerage position, you can turn to one
+part of your network and say hey I would
+
+227
+00:18:54,138 --> 00:18:58,175
+do business only with you.
+And they, you know, they have no reason
+
+228
+00:18:58,175 --> 00:19:01,708
+not to believe you.
+But you could turn around and, to the
+
+229
+00:19:01,708 --> 00:19:07,008
+other side of the network that you're kind
+of hm, bridging and you can say oh you
+
+230
+00:19:07,008 --> 00:19:10,288
+guys are my favorites and no one would be
+the wiser.
+
+231
+00:19:10,288 --> 00:19:15,209
+And so this is what's called like when
+you're brokerage position you actually
+
+232
+00:19:15,209 --> 00:19:19,313
+experience low constraint.
+So let's look at this measure of
+
+233
+00:19:19,313 --> 00:19:22,897
+betweenness which is going to capture
+brokerage.
+
+234
+00:19:22,897 --> 00:19:29,020
+The basic idea is that you're asking how
+many pairs of individuals in the network.
+
+235
+00:19:29,020 --> 00:19:34,812
+Would be connected through you, on their
+shortest path to each other.
+
+236
+00:19:34,812 --> 00:19:40,350
+So are you on the shortest path between
+those, other two nodes?
+
+237
+00:19:40,350 --> 00:19:45,035
+And, it's possible for there to be
+multiple short paths.
+
+238
+00:19:45,035 --> 00:19:51,340
+In that case, what you're going to get, so
+here, you're I, and you are on the.
+
+239
+00:19:51,340 --> 00:19:57,115
+One of the shortest paths between J and K,
+or one or more of the shortest paths
+
+240
+00:19:57,115 --> 00:20:01,208
+between J and K.
+But the credit you get is the number of
+
+241
+00:20:01,208 --> 00:20:07,276
+shortest paths that you're on divided the
+number of shortest paths that J and K
+
+242
+00:20:07,276 --> 00:20:10,566
+have.
+And then, you're between-ness is the sum
+
+243
+00:20:10,566 --> 00:20:15,755
+over all pairs of nodes, JK.
+And you can normalize this, again I, you
+
+244
+00:20:15,755 --> 00:20:22,104
+know for between us it might make more
+sense because these values can indeed
+
+245
+00:20:22,104 --> 00:20:28,782
+become very astronomical but you're just
+normalizing by the number of pair of
+
+246
+00:20:28,782 --> 00:20:35,873
+vertices excluding I itself so for what
+fraction of the other nodes are you on the
+
+247
+00:20:35,873 --> 00:20:41,943
+short path?
+So let's look at a few examples on Toy
+
+248
+00:20:41,943 --> 00:20:45,939
+Networks here.
+The central node has between this ten.
+
+249
+00:20:45,939 --> 00:20:51,459
+Because there are, five  four / two,
+because we don't care about direction.
+
+250
+00:20:51,459 --> 00:20:56,616
+Different pairs that go through the
+central node in order to reach one
+
+251
+00:20:56,616 --> 00:21:00,175
+another.
+But each one of those nodes individually
+
+252
+00:21:00,175 --> 00:21:05,840
+has between a zero.'Cause no one has to go
+through them to got to anyone else.
+
+253
+00:21:05,840 --> 00:21:13,210
+So let's return to our line graph. And
+here, naturally A has zero betweenness
+
+254
+00:21:13,210 --> 00:21:17,648
+because it's not on the path between any
+other nodes.
+
+255
+00:21:17,648 --> 00:21:24,265
+B has betweenness three because A relies
+on it to reach every one of the three
+
+256
+00:21:24,265 --> 00:21:28,871
+other nodes.
+C has betweenness four, because it is on
+
+257
+00:21:28,871 --> 00:21:34,620
+the path between A and B, and D and E.
+Note that in this case C gets full credit
+
+258
+00:21:34,620 --> 00:21:39,859
+because there are no alternate paths, for
+example between B and D, the only way they
+
+259
+00:21:39,859 --> 00:21:44,238
+can reach other is through C.
+If we go back to the butterfly network,
+
+260
+00:21:44,238 --> 00:21:50,382
+remember this central node has degree two
+Now it has the highest between, as it said
+
+261
+00:21:50,382 --> 00:21:56,068
+between this nine because each of these
+nodes relies on the center node in order
+
+262
+00:21:56,068 --> 00:21:59,075
+to reach the other three nodes in the
+network.
+
+263
+00:21:59,075 --> 00:22:04,499
+On the other hand, these peripheral nodes
+here have between a zero because, you know
+
+264
+00:22:04,499 --> 00:22:09,270
+you wouldn't go out of your way in order
+to reach any of the other nodes.
+
+265
+00:22:09,270 --> 00:22:12,800
+They, there are, they are on those
+shortest paths.
+
+266
+00:22:12,800 --> 00:22:20,993
+Let's look at this particular toy network.
+Here C and D each have between this one.
+
+267
+00:22:20,993 --> 00:22:26,885
+How do you calculate that?
+Well, c is on a path from a and b to e,
+
+268
+00:22:26,885 --> 00:22:30,649
+and so is d.
+So imagine first that d is not there.
+
+269
+00:22:30,649 --> 00:22:35,105
+Well, if that were the case then c would
+have between this too.
+
+270
+00:22:35,105 --> 00:22:39,920
+Because it's on the path room a to e and
+then the path room b to e.
+
+271
+00:22:39,920 --> 00:22:45,598
+However d is on the exact same path.
+And so they share credit and they each get
+
+272
+00:22:45,598 --> 00:22:51,740
+between this one Quiz question, what is
+the betweeness of node E?
+
+273
+00:22:52,460 --> 00:22:55,996
+Here's, an, older version of my Facebook
+network.
+
+274
+00:22:55,996 --> 00:23:00,962
+I've sized the nodes by degree.
+The, larger the size, the higher the
+
+275
+00:23:00,962 --> 00:23:04,273
+degree.
+And I've colored them by betweenness.
+
+276
+00:23:04,273 --> 00:23:07,810
+The redder the node, the higher the
+betweenness.
+
+277
+00:23:07,810 --> 00:23:14,056
+And you can see some nodes here that have,
+relatively low degree, but they have high
+
+278
+00:23:14,056 --> 00:23:19,549
+betweenness because they bridge, for
+example, my, undergrad network, with my
+
+279
+00:23:19,549 --> 00:23:22,860
+University of Michigan and research,
+network.
+
+280
+00:23:24,320 --> 00:23:30,460
+Another quiz question, find a node that
+has high betweeness, but low degree.
+
+281
+00:23:31,420 --> 00:23:36,660
+And now, find a node that has low
+betweeness but high degree.
+
+282
+00:23:39,420 --> 00:23:43,588
+What if it's not so important to have so
+many direct trends?
+
+283
+00:23:43,588 --> 00:23:49,146
+So doesn't matter whether you want to do
+this power play where you're brokering
+
+284
+00:23:49,146 --> 00:23:55,121
+between different parts of the network and
+you want to make sure that they have to go
+
+285
+00:23:55,121 --> 00:23:59,012
+through you.
+What if instead all you want is that you
+
+286
+00:23:59,012 --> 00:24:01,904
+have.
+Easy access to a large part of the
+
+287
+00:24:01,904 --> 00:24:05,322
+network.
+You want information to reach you in a
+
+288
+00:24:05,322 --> 00:24:11,212
+short number of hops, you want to be able
+to disseminate the information you have.
+
+289
+00:24:11,212 --> 00:24:17,247
+Therefore it's not about brokerage, it's
+about how far away the rest of the network
+
+290
+00:24:17,247 --> 00:24:20,953
+is from you.
+For example, in this network, this node
+
+291
+00:24:20,953 --> 00:24:26,919
+has degree one but because it's friends
+with the highest degree node this means
+
+292
+00:24:26,919 --> 00:24:33,184
+that the number of hops from it to anyone
+else in the network is only one extra hop
+
+293
+00:24:33,184 --> 00:24:39,001
+then it is for the most central node.
+And in fact has easy access through just
+
+294
+00:24:39,001 --> 00:24:44,197
+that single connection, so.
+We want to capture this no, notion of a
+
+295
+00:24:44,197 --> 00:24:49,291
+small number of hops.
+So by definition, the closest centrality
+
+296
+00:24:49,291 --> 00:24:55,890
+is the sum of the distances between the
+note in question I, and all other notes.
+
+297
+00:24:55,890 --> 00:24:59,625
+[inaudible] it's J.
+And you're going to sum these distances
+
+298
+00:24:59,625 --> 00:25:03,044
+and invert them.
+Now, there's a problem in that, if your
+
+299
+00:25:03,044 --> 00:25:07,792
+node has multiple connected components.
+That is, there are nodes in other
+
+300
+00:25:07,792 --> 00:25:11,338
+components than yours, your distance to
+them is infinite.
+
+301
+00:25:11,338 --> 00:25:16,150
+And when you sum infinity with other
+things, it means your, your closeness is
+
+302
+00:25:16,150 --> 00:25:17,416
+actually zero.
+Right?
+
+303
+00:25:17,416 --> 00:25:21,911
+Because here, you're inverting.
+So in order to avoid that, an alternative
+
+304
+00:25:21,911 --> 00:25:26,027
+measure of closeness is to take this
+inversion inside of the sum.
+
+305
+00:25:26,027 --> 00:25:30,723
+And so you take the inverse of.
+The distance to every other node, and you
+
+306
+00:25:30,723 --> 00:25:31,990
+sum those value.
+So.
+
+307
+00:25:31,990 --> 00:25:37,207
+All those nodes and other components, they
+just contribute zero to your closeness
+
+308
+00:25:37,207 --> 00:25:42,359
+and, but you do get credit for having
+short paths to nodes that are in your same
+
+309
+00:25:42,359 --> 00:25:45,709
+component.
+And you can normalize this by n minus one,
+
+310
+00:25:45,709 --> 00:25:52,300
+the number of other nodes in the network.
+Here is a toy example where if we look at
+
+311
+00:25:52,300 --> 00:25:59,919
+the closeness of A, it has distance one to
+B, distance two to C, three to D, four to
+
+312
+00:25:59,919 --> 00:26:03,870
+E.
+We sum those, we divide by n-1 and we
+
+313
+00:26:03,870 --> 00:26:09,669
+invert getting a closeness of.4.
+Finally we can also look at our other toy
+
+314
+00:26:09,669 --> 00:26:13,720
+network and here again the middle node has
+high closeness.
+
+315
+00:26:13,720 --> 00:26:17,837
+The ones right next to it also have
+relatively high closeness.
+
+316
+00:26:17,837 --> 00:26:22,817
+Here the middle node has high closeness
+but the other nodes being directly
+
+317
+00:26:22,817 --> 00:26:27,865
+connected to this hub, that is the spokes
+they actually have relatively high
+
+318
+00:26:27,865 --> 00:26:32,247
+closeness as, as well.
+They're only two hops away from any other
+
+319
+00:26:32,247 --> 00:26:36,571
+node.
+So looking at this network, can you tell
+
+320
+00:26:36,571 --> 00:26:41,044
+me which node has relatively high degree
+but low closeness?

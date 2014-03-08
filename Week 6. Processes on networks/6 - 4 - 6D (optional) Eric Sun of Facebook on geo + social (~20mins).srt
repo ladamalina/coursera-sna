@@ -1,0 +1,805 @@
+
+1
+00:00:00,404 --> 00:00:03,035
+Hi.
+So, here I am with Eric Sun of Facebook.
+
+2
+00:00:03,238 --> 00:00:08,904
+The first question to you, Eric, is how
+did you come to do social network analysis
+
+3
+00:00:08,904 --> 00:00:11,873
+for a living and what does that entail
+here?
+
+4
+00:00:12,412 --> 00:00:15,313
+Okay.
+So I've been at Facebook for about four
+
+5
+00:00:15,313 --> 00:00:19,698
+and one-half years.
+I started as an intern on the data science
+
+6
+00:00:19,698 --> 00:00:23,003
+team.
+So over the last four and one-half years,
+
+7
+00:00:23,003 --> 00:00:26,646
+I've done pretty much everything related
+to data here.
+
+8
+00:00:26,849 --> 00:00:32,650
+I first came here because I was an intern,
+I was in grad school in Statistics and I
+
+9
+00:00:32,650 --> 00:00:36,614
+wanted to come to a.
+I swear, I could have my hands on all the
+
+10
+00:00:36,614 --> 00:00:41,131
+data I could, I could ever want and more.
+So, this is what, this is the natural
+
+11
+00:00:41,131 --> 00:00:43,983
+place to do it and I've been here ever
+since.
+
+12
+00:00:43,983 --> 00:00:48,856
+So in the last four and a half years, I've
+done everything related to data from
+
+13
+00:00:49,035 --> 00:00:54,027
+research and analysis to machine learning
+to building front-end products for our
+
+14
+00:00:54,027 --> 00:00:56,825
+users, using our big data sets.
+Hm, cool.
+
+15
+00:00:56,825 --> 00:01:02,339
+So specifically for this course though,
+I'm trying to convince students that
+
+16
+00:01:02,339 --> 00:01:07,781
+knowing about social networks and doing a
+little bit of analysis is useful.
+
+17
+00:01:07,781 --> 00:01:13,658
+So, which, if any, of, you know, aspects
+of social network analysis have you found
+
+18
+00:01:13,658 --> 00:01:18,084
+useful in your work?
+So, for my work, I would say that, so
+
+19
+00:01:18,084 --> 00:01:21,742
+these yeah,
+Building front-end products with, with
+
+20
+00:01:21,742 --> 00:01:25,982
+data is one of my primary focuses.
+And, especially now that we want to,
+
+21
+00:01:25,982 --> 00:01:31,205
+We have this, we have this graph of on
+Facebook that we call the entities graph
+
+22
+00:01:31,205 --> 00:01:34,401
+which is everything on Facebook except for
+the user.
+
+23
+00:01:34,401 --> 00:01:39,624
+So we're already doing pretty well at
+being like the social graph of people in
+
+24
+00:01:39,624 --> 00:01:42,574
+the world.
+But we're not doing so well yet at
+
+25
+00:01:42,574 --> 00:01:45,770
+modeling everything else.
+So, we're talking about the,
+
+26
+00:01:45,770 --> 00:01:50,628
+The pages and the places people connect to
+specifically.
+
+27
+00:01:50,628 --> 00:01:57,957
+So with this we have to, the best way for
+us to scalably clean-up and model this
+
+28
+00:01:57,957 --> 00:02:03,475
+graph is to use crowd sourcing.
+And when we're developing the crowd
+
+29
+00:02:03,475 --> 00:02:10,310
+sourcing algorithms, it's a huge amount of
+social networking analysis to figure out
+
+30
+00:02:10,557 --> 00:02:14,840
+what kind of tasks to send users what kind
+of,
+
+31
+00:02:14,840 --> 00:02:21,097
+What kind of what, what we can do to use
+social signals to improve our agreement
+
+32
+00:02:21,097 --> 00:02:24,401
+metrics.
+For example, like, how many yes votes do
+
+33
+00:02:24,401 --> 00:02:29,955
+we need to how many yes votes or no votes
+do we need to accurately say that
+
+34
+00:02:29,955 --> 00:02:33,400
+something is a good judgement or not, for
+example.
+
+35
+00:02:33,611 --> 00:02:37,689
+We also use social network analysis to do
+a lot of things.
+
+36
+00:02:37,689 --> 00:02:44,078
+For example, the this paper I'm about to
+talk, talk about where for example, using
+
+37
+00:02:44,078 --> 00:02:50,350
+for search ranking social signals is one
+of the big factors in search ranking.
+
+38
+00:02:50,925 --> 00:02:53,225
+Cool.
+So modelling not just the, the large
+
+39
+00:02:53,225 --> 00:02:56,533
+social network, but the whole world?
+Exactly.
+
+40
+00:02:56,748 --> 00:03:00,631
+Is that using social network analysis?
+Exactly, yeah.
+
+41
+00:03:01,062 --> 00:03:05,880
+So without further ado, let's see if we
+can switch into a slideshow mode.
+
+42
+00:03:07,118 --> 00:03:09,239
+Okay, yeah, we're fine.
+Alright.
+
+43
+00:03:09,239 --> 00:03:14,608
+So now, I will talk about a paper that
+Jonathan Chang, another Facebooker, and I
+
+44
+00:03:14,608 --> 00:03:19,512
+wrote last year on Facebook Places.
+So, this is an example of how we use
+
+45
+00:03:19,512 --> 00:03:25,013
+social network analysis to improve a
+specific product on Facebook namely the
+
+46
+00:03:25,013 --> 00:03:29,520
+Facebook Places service search ranking
+and, and crowd sourcing.
+
+47
+00:03:29,520 --> 00:03:35,949
+So if you're not familiar with it, we have
+a lot of location based now on Facebook
+
+48
+00:03:36,148 --> 00:03:41,962
+similar to Foursquare Gowalla, I guess
+doesn't exist anymore, but these services
+
+49
+00:03:41,962 --> 00:03:45,926
+all allow users to share their location to
+their friends.
+
+50
+00:03:46,204 --> 00:03:50,654
+And there's a lot of factors that affect
+where these users check in.
+
+51
+00:03:50,654 --> 00:03:56,216
+And the idea we had here when working on
+this paper, was to see if we can figure
+
+52
+00:03:56,216 --> 00:03:59,275
+out where people are going to go in the
+future.
+
+53
+00:03:59,484 --> 00:04:03,239
+So, there's a lot of pretty obvious
+implications for this.
+
+54
+00:04:03,239 --> 00:04:07,619
+One is ad targeting.
+We can, if we know where you're gonna go
+
+55
+00:04:07,619 --> 00:04:12,208
+in the future, maybe we can send you a
+coupon, or, or, or, or do something else
+
+56
+00:04:12,208 --> 00:04:17,530
+that will improve your user experience.
+If we suspect where we if we can suspect
+
+57
+00:04:17,530 --> 00:04:22,082
+where you're going to go in the future, we
+can also use that to improve search
+
+58
+00:04:22,082 --> 00:04:26,452
+ranking in your check-in flow.
+Because maybe you can just press check-in
+
+59
+00:04:26,452 --> 00:04:31,430
+and then the place where we think you're
+about to go, will just show up on the top.
+
+60
+00:04:31,430 --> 00:04:34,956
+Right.
+So, in order to do this prediction we use
+
+61
+00:04:34,956 --> 00:04:40,176
+social network analysis to extract a lot
+of features to, to use in machine
+
+62
+00:04:40,176 --> 00:04:43,915
+learning.
+So, for example, we use previous check-ins
+
+63
+00:04:44,127 --> 00:04:47,865
+that you have.
+We also use all the previous check-ins
+
+64
+00:04:47,865 --> 00:04:50,828
+that your friends have, have done
+recently.
+
+65
+00:04:51,039 --> 00:04:56,189
+And as a preliminary data analysis, we
+used an algorithm called LDA,
+
+66
+00:04:56,189 --> 00:04:59,998
+Latent Dirichlet Allocation to group
+related places.
+
+67
+00:04:59,998 --> 00:05:06,713
+So here, we consider its basically topic
+modeling, where you treat the users as
+
+68
+00:05:06,926 --> 00:05:12,415
+terms and the, the words in the places as,
+as the, as words is in the, in the
+
+69
+00:05:12,415 --> 00:05:15,979
+document.
+And if you run this algorithm then we
+
+70
+00:05:15,979 --> 00:05:19,899
+quickly see that related places pop up
+very quickly.
+
+71
+00:05:19,899 --> 00:05:25,673
+So here, we, we tied running this
+algorithm in San Francisco and when we ran
+
+72
+00:05:25,673 --> 00:05:31,090
+this, some of the topics are popped up
+where with these topics, topic one, two
+
+73
+00:05:31,090 --> 00:05:37,149
+and three where topic one looks like all
+our places within the Castro district of
+
+74
+00:05:37,149 --> 00:05:42,664
+San Francisco.
+Topic two looks like I think this place is
+
+75
+00:05:42,664 --> 00:05:48,362
+in the Marina, in San Francisco.
+And topic three are places that are not
+
+76
+00:05:48,362 --> 00:05:54,445
+really in any specific geographical area.
+But rather, they're, these are all, like,
+
+77
+00:05:54,445 --> 00:06:01,606
+Asian themed places within San Francisco.
+So these are people who check-in to any of
+
+78
+00:06:01,606 --> 00:06:06,691
+these places are highly likely to check
+into other places in, in this group.
+
+79
+00:06:06,691 --> 00:06:11,719
+So, it, it's pretty interesting to see
+what kind of data pops up just from using
+
+80
+00:06:11,719 --> 00:06:16,620
+a little bit of social network analysis,
+and some unsupervised learning.
+
+81
+00:06:17,230 --> 00:06:23,731
+So just to show some more pretty pictures.
+so we some of the other [unknown] features
+
+82
+00:06:23,731 --> 00:06:27,863
+we use around predicting check-ins was
+first demographics.
+
+83
+00:06:27,863 --> 00:06:33,010
+So here, in this heat map lighter areas
+mean more check-in activity.
+
+84
+00:06:33,010 --> 00:06:38,090
+So, if you're familiar with San Francisco,
+this is a, a map of, of the various
+
+85
+00:06:38,090 --> 00:06:43,102
+neighborhoods of San Francisco.
+And we see that males typically check into
+
+86
+00:06:43,305 --> 00:06:47,640
+the Castro District,
+Which is a very gay heavy area of San
+
+87
+00:06:47,640 --> 00:06:51,026
+Francisco.
+Whereas, the females tend to check in, in,
+
+88
+00:06:51,473 --> 00:06:57,398
+in the financial district in, in do you
+know what that neighborhood is?
+
+89
+00:06:57,642 --> 00:07:02,106
+North Beach I think, where, where a lot of
+the clubs are.
+
+90
+00:07:02,350 --> 00:07:08,867
+And therefore it's pretty striking the,
+the, how different males and females use
+
+91
+00:07:08,867 --> 00:07:12,838
+Facebook places.
+There's also a temporal feature. So, we
+
+92
+00:07:12,838 --> 00:07:17,894
+realize that most of the morning check-ins
+are around like the financial district
+
+93
+00:07:17,894 --> 00:07:21,409
+where people are just getting to work and
+checking in.
+
+94
+00:07:21,594 --> 00:07:26,897
+People don't check in as nearly as much in
+the morning as at night in, on the right
+
+95
+00:07:26,897 --> 00:07:32,200
+side of the screen where tons of check-in
+activity are to night clubs and areas
+
+96
+00:07:32,200 --> 00:07:35,530
+where night life is, is really big in San
+Francisco.
+
+97
+00:07:36,230 --> 00:07:39,543
+,, the next step is to actually predict
+check-ins.
+
+98
+00:07:39,543 --> 00:07:45,309
+So we do the standard thing in machine
+learning where we hold out some check-ins
+
+99
+00:07:45,309 --> 00:07:50,810
+and run a regression to try and predict
+where someone is going to check-in next
+
+100
+00:07:51,009 --> 00:07:54,323
+using all these features that I just
+mentioned.
+
+101
+00:07:54,522 --> 00:07:57,703
+And it turns out we can actually do pretty
+well.
+
+102
+00:07:57,703 --> 00:08:02,873
+So, if we want a recall of 60%,, we can
+actually predict with 90% precision, the
+
+103
+00:08:02,873 --> 00:08:08,109
+next place that a given user is going to
+check-in which, which was pretty
+
+104
+00:08:08,109 --> 00:08:12,648
+surprising to us cuz that is,
+It's, it means we're doing pretty well
+
+105
+00:08:12,648 --> 00:08:18,018
+with a large percentage of, of our data.
+Not surprisingly, predicting whether
+
+106
+00:08:18,018 --> 00:08:24,241
+someone will comment on this check-in is a
+lot more difficult because that's just a
+
+107
+00:08:24,241 --> 00:08:29,722
+lot of a lot of noise and a lot of just a
+lot more randomness.
+
+108
+00:08:29,722 --> 00:08:35,352
+So here, we see that with a 60% recall
+rate we can only predict with about
+
+109
+00:08:35,352 --> 00:08:40,833
+six percent precision, so this is, this is
+basically just noise, which was not too
+
+110
+00:08:40,833 --> 00:08:44,389
+surprising.
+However, we do see there are patterns.
+
+111
+00:08:44,389 --> 00:08:50,599
+So we did notice that responses are much
+more likely when someone checks in far
+
+112
+00:08:50,599 --> 00:08:54,939
+from your usual location.
+This is typically when I am going on
+
+113
+00:08:54,939 --> 00:09:00,348
+vacation and I check in to, let's say,
+Hawaii, where, whereas normally I live in
+
+114
+00:09:00,348 --> 00:09:04,021
+San Francisco.
+So my friends are much more likely to
+
+115
+00:09:04,021 --> 00:09:07,360
+comment naturally if I'm on vacation at
+Hawaii.
+
+116
+00:09:07,360 --> 00:09:13,491
+So here at the blue line is, is likes, and
+the red line is comments I believe.
+
+117
+00:09:13,491 --> 00:09:18,107
+And the x axis is the log of log of
+distance in kilometers.
+
+118
+00:09:18,107 --> 00:09:24,410
+So, the, the further away you go, the more
+feedback you get on your check-ins.
+
+119
+00:09:25,695 --> 00:09:31,385
+Not surprisingly, we also get a lot of
+boost when someone checks in close to the
+
+120
+00:09:31,385 --> 00:09:35,292
+commenter/liker.
+So if I'm if I live in San Francisco, and
+
+121
+00:09:35,292 --> 00:09:40,707
+I suddenly go to, let's say, Berkeley.
+And I'm now very close to my friend, who
+
+122
+00:09:40,707 --> 00:09:45,026
+lives at Berkeley,
+Then they are also much more likely to, to
+
+123
+00:09:45,026 --> 00:09:49,139
+comment or like my post.
+This is also not very surprising.
+
+124
+00:09:49,139 --> 00:09:54,143
+And it's good to see this, these kinds of
+things born out in the data.
+
+125
+00:09:54,143 --> 00:10:00,212
+So, whenever we're doing these kinds of
+analyses social network analysis, in
+
+126
+00:10:00,212 --> 00:10:04,610
+particular, or, or otherwise,
+It's really important to do enough just
+
+127
+00:10:04,610 --> 00:10:09,549
+background summary statistics and some
+basic plots to make sure you understand
+
+128
+00:10:09,549 --> 00:10:12,441
+your data.
+And to make sure that your data is
+
+129
+00:10:12,441 --> 00:10:15,995
+standing correct.
+And you can figure out if there's any
+
+130
+00:10:15,995 --> 00:10:20,633
+outliers you need to get rid of or
+anything else you need to clean up before
+
+131
+00:10:20,633 --> 00:10:23,654
+diving into anything deeper.
+Alright.
+
+132
+00:10:23,654 --> 00:10:27,591
+So, just to talk about some of these
+applications.
+
+133
+00:10:27,591 --> 00:10:32,514
+So we, we have this graph.
+And right now, the big focus on our team
+
+134
+00:10:32,514 --> 00:10:38,799
+is to use crowd sourcing to improve the
+graph of places, by adding metadata and
+
+135
+00:10:38,799 --> 00:10:42,206
+removing places oh, sorry, removing
+duplicates.
+
+136
+00:10:42,206 --> 00:10:47,658
+So these, these are some screenshots of
+some, some units we have on our, on our
+
+137
+00:10:47,658 --> 00:10:52,959
+home page where we, we ask users, like
+what kind of places is this cafe in
+
+138
+00:10:52,959 --> 00:10:56,821
+Seattle?
+We also have a flow where users can add
+
+139
+00:10:56,821 --> 00:05:32,012
+data like categories, name, address, city,
+town to any place that is not owned, and
+
+140
+00:11:04,431 --> 00:11:09,831
+help us fill out our graph.
+So, there's a lot of really interesting
+
+141
+00:11:09,831 --> 00:11:13,781
+work being done in this, in crowd
+sourcing, in particular.
+
+142
+00:11:13,781 --> 00:11:20,129
+Because as I touched on earlier we want to
+only accept suggestions that, that are,
+
+143
+00:11:20,129 --> 00:11:23,868
+that are good.
+And how do we figure out what's, what's
+
+144
+00:11:23,868 --> 00:11:29,723
+actually good is that we do a lot of
+analysis to use lots of social features
+
+145
+00:11:29,723 --> 00:11:34,590
+around demographics,
+Around whether you've, you've interacted
+
+146
+00:11:34,590 --> 00:11:38,681
+with this place.
+Whether your friends have interacted with
+
+147
+00:11:38,681 --> 00:11:43,744
+this place, to try and get a sense of
+whether you are likely to provide good
+
+148
+00:11:43,744 --> 00:11:47,932
+feedback cuz on a Facebook scale, we have
+users of all kinds.
+
+149
+00:11:47,932 --> 00:11:51,929
+We have spammers.
+We have we have people who just don't know
+
+150
+00:11:51,929 --> 00:11:55,101
+what they're doing.
+People who are, like, very young.
+
+151
+00:11:55,291 --> 00:12:00,621
+13-year-old girls generally don't provide
+really good crowd sourcing suggestions,
+
+152
+00:12:00,621 --> 00:12:03,983
+we've found.
+But using these social features, we
+
+153
+00:12:03,983 --> 00:12:09,470
+actually can provide some meaningful lift
+and figure out what crowd sourcing how,
+
+154
+00:12:09,470 --> 00:12:12,560
+how to use social signals to improve our
+crowd sourcing.
+
+155
+00:12:12,996 --> 00:12:18,888
+So some other applications which I touched
+on earlier is just better ranking for
+
+156
+00:12:18,888 --> 00:12:23,180
+Facebook places.
+More ad targeting and also recommending
+
+157
+00:12:23,180 --> 00:12:28,563
+places you might go in the future.
+So, these are all areas that we're, we're
+
+158
+00:12:28,563 --> 00:12:32,127
+actively working on.
+Alright. So thanks, Eric.
+
+159
+00:12:32,127 --> 00:12:37,728
+I think that was a nice broader
+introduction to data issues and useful
+
+160
+00:12:37,728 --> 00:12:39,619
+applications.
+So thanks.
+
+161
+00:12:40,201 --> 00:12:40,711
+Sure.
+Thanks.

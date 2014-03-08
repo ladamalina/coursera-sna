@@ -1,0 +1,910 @@
+
+1
+00:00:00,000 --> 00:00:07,921
+In this last segment what we'll cover are
+interactions over network topology that
+
+2
+00:00:07,921 --> 00:00:13,427
+effect how the nodes are innovating and
+solving problems.
+
+3
+00:00:13,427 --> 00:00:21,638
+As you might well imagine networks play a
+crucial role in how agile organizations
+
+4
+00:00:21,638 --> 00:00:29,511
+are, how adept they are at innovating, how
+adept they are at coordinating. And first
+
+5
+00:00:29,511 --> 00:00:35,094
+we'll look at innovation.
+And, of course, as with everything else,
+
+6
+00:00:35,094 --> 00:00:42,627
+we're going to look at a very simple model
+that we hope may represent some aspect of
+
+7
+00:00:42,627 --> 00:00:46,792
+the real world.
+And this is the basic conundrum.
+
+8
+00:00:46,792 --> 00:00:51,755
+When individuals are innovating, they can
+collaborate on.
+
+9
+00:00:52,021 --> 00:00:59,287
+One extreme end of this you have everyone
+in the same room brainstorming and that
+
+10
+00:00:59,287 --> 00:01:03,526
+can you know.
+Mean that you can really rapidly get new
+
+11
+00:01:03,526 --> 00:01:09,548
+ideas and prototypes etcetera. But you
+also have a danger of group think, right?
+
+12
+00:01:09,548 --> 00:01:15,796
+Where everyone is, starting to think the
+same thing and it may not be the very best
+
+13
+00:01:15,796 --> 00:01:21,893
+solution that they could have achieved.
+On the other extreme you have for example
+
+14
+00:01:21,893 --> 00:01:27,840
+you have, you could have a the network
+where no one is connected to anyone else.
+
+15
+00:01:27,840 --> 00:01:33,888
+And everyone is working individually.
+You might well imagine that their progress
+
+16
+00:01:33,888 --> 00:01:36,912
+would be very slow.
+Because they have to,
+
+17
+00:01:36,912 --> 00:01:41,297
+They can't take advantage of what others
+have figured out.
+
+18
+00:01:41,297 --> 00:01:45,757
+They basically have to figure out
+everything by themselves.
+
+19
+00:01:45,757 --> 00:01:51,050
+On the other hand, many people
+independently working on a, on a problem
+
+20
+00:01:51,050 --> 00:01:56,795
+means that you have many diverse
+approaches to the same problem and perhaps
+
+21
+00:01:56,795 --> 00:02:02,847
+one of those approaches will be optimal.
+So in a network context if we have most
+
+22
+00:02:02,847 --> 00:02:08,144
+individuals in the room together
+communicating, the network might look
+
+23
+00:02:08,144 --> 00:02:12,609
+something like this.
+Everyone is connected to everyone else.
+
+24
+00:02:12,609 --> 00:02:18,587
+On the other hand, and this isn't quite
+the same thing here, this individual has
+
+25
+00:02:18,587 --> 00:02:23,733
+not connected to anyone else.
+But here individuals will only talk
+
+26
+00:02:23,733 --> 00:02:28,577
+locally to a few colleagues.
+They won't be, you know, broadcasting
+
+27
+00:02:28,577 --> 00:02:31,680
+every solution throughout the company.
+So.
+
+28
+00:02:31,680 --> 00:02:38,548
+One way to model the problem space that
+these individuals are moving in is with
+
+29
+00:02:38,548 --> 00:02:42,927
+Kaufman's NK model.
+You have an n dimensional space.
+
+30
+00:02:42,927 --> 00:02:49,624
+Which just means you have a bit of, a
+string of bits that, that is zero and one.
+
+31
+00:02:49,624 --> 00:02:55,033
+So, for example, you know?
+If you, if you have a car, the first bit
+
+32
+00:02:55,033 --> 00:03:01,387
+can be, is the car black or white?
+The second bit could be, is it a sedan or
+
+33
+00:03:01,387 --> 00:03:05,680
+a station wagon?
+The third bit could be, does it.
+
+34
+00:03:05,680 --> 00:03:09,450
+Have a powerful engine, or a modest engine
+etcetera, right?
+
+35
+00:03:09,450 --> 00:03:13,790
+So they're just trying to figure out what
+the best car could.
+
+36
+00:03:13,790 --> 00:03:19,362
+B, for example.
+And the key parameter describes the
+
+37
+00:03:19,362 --> 00:03:25,141
+smoothness of the fitness landscape.
+That is, if you flipped one of those bits.
+
+38
+00:03:25,141 --> 00:03:31,220
+If you make it a sedan, as opposed to a
+station wagon, is that completely going to
+
+39
+00:03:31,220 --> 00:03:37,525
+change how well the car sells or is it
+going to be pretty similar sales based on
+
+40
+00:03:37,525 --> 00:03:43,830
+the fact that the other very mini-bits are
+the same including the engine and the
+
+41
+00:03:43,830 --> 00:03:49,459
+amount of room inside and you know,
+automatic versus manual transmission,
+
+42
+00:03:49,459 --> 00:03:50,360
+etcetera.
+So,
+
+43
+00:03:50,360 --> 00:03:55,321
+Just another way of looking at this.
+If k is large you have a very smooth
+
+44
+00:03:55,321 --> 00:03:58,379
+landscape.
+And, I can't really represent the n
+
+45
+00:03:58,379 --> 00:04:03,952
+dimensional space so this is just roughly
+so that you can imagine what's going on.
+
+46
+00:04:03,952 --> 00:04:08,444
+This means that there is some combination
+that's optimal, and if you tweak it a
+
+47
+00:04:08,444 --> 00:04:12,280
+little bit, you'll just get a little ways
+away from that optimum.
+
+48
+00:04:12,280 --> 00:04:17,545
+The more you tweak it, the more, the
+further away it will go but what this also
+
+49
+00:04:17,545 --> 00:04:21,865
+means is that, it's fairly easy to find
+what, what the optimum is,
+
+50
+00:04:21,865 --> 00:04:26,050
+Alright. So you flip the color from white
+to black, and boop,
+
+51
+00:04:26,050 --> 00:04:30,531
+Here you are, you've got in to a better
+solution etcetera.
+
+52
+00:04:30,531 --> 00:04:33,720
+It's not that you know once you put the
+color.
+
+53
+00:04:33,720 --> 00:04:38,353
+The fitness might jump over here,
+Right? If you've just slipped one bit
+
+54
+00:04:38,353 --> 00:04:43,513
+here, you're moving a little bit.
+On the other extreme, where K is small or
+
+55
+00:04:43,513 --> 00:04:47,950
+K is zero, it means that precisely this
+unpredictability happens.
+
+56
+00:04:47,950 --> 00:04:53,359
+You flip one bit and all of a sudden,
+you're in a completely, you know, you have
+
+57
+00:04:53,359 --> 00:04:58,075
+completely different fitness.
+So making a station wagon instead of a
+
+58
+00:04:58,075 --> 00:05:01,334
+sedan, means that people hate it, for
+example.
+
+59
+00:05:01,334 --> 00:05:05,009
+And then K medium means that there's some
+smoothness.
+
+60
+00:05:05,009 --> 00:05:10,210
+So if you're here and you flip a bit most
+likely, you will, you'll end up in.
+
+61
+00:05:10,210 --> 00:05:15,270
+Having somewhat similar fitness.
+Now, the general problem is that, so here
+
+62
+00:05:15,270 --> 00:05:20,823
+this solution's easy to find, because
+you're basically just doing hill climbing,
+
+63
+00:05:20,823 --> 00:05:24,126
+right?
+You, you keep flipping bits until you get
+
+64
+00:05:24,126 --> 00:05:25,305
+to the top.
+Right?
+
+65
+00:05:25,305 --> 00:05:30,510
+Over here you just don't know, right?
+You might be up here, it doesn't tell you
+
+66
+00:05:30,510 --> 00:05:33,620
+whether you're any closer to say, the
+solution.
+
+67
+00:05:33,620 --> 00:05:37,009
+Here.
+Because, you know if you flip a bit, you
+
+68
+00:05:37,009 --> 00:05:40,902
+might end up, you know, having vastly
+different fitness.
+
+69
+00:05:40,902 --> 00:05:46,238
+So, there's no way to really orient
+towards what is the ultimate goal with
+
+70
+00:05:46,238 --> 00:05:49,988
+this intermediate smoothness, it means,
+that you know.
+
+71
+00:05:49,988 --> 00:05:55,685
+You can make some progress and you can
+find a local optimum here this peak and
+
+72
+00:05:55,685 --> 00:05:58,857
+fitness.
+But this may mean that you're stuck.
+
+73
+00:05:58,857 --> 00:06:01,875
+Because if you just.
+Change one bit at a time.
+
+74
+00:06:01,875 --> 00:06:05,656
+You try going down here.
+You think, oh no, that's not going to
+
+75
+00:06:05,656 --> 00:06:07,546
+work.
+I better stay here, right.
+
+76
+00:06:07,546 --> 00:06:12,336
+So it's not as easy as here, where
+basically if you continue climbing to the
+
+77
+00:06:12,336 --> 00:06:15,108
+top you're bound to find the global
+optimum.
+
+78
+00:06:15,108 --> 00:06:20,339
+Here you can climb, climb, climb and find
+a pretty good solution but miss that there
+
+79
+00:06:20,339 --> 00:06:25,738
+was actually a better solution out here.
+So they're going to be some update rules
+
+80
+00:06:25,738 --> 00:06:31,215
+for our network such that we can simulate
+the process of either innovating or
+
+81
+00:06:31,215 --> 00:06:34,655
+imitating.
+So those are the two choices that each
+
+82
+00:06:34,655 --> 00:06:39,500
+node has, so each node is going to start
+out with a random bit string.
+
+83
+00:06:39,500 --> 00:06:44,814
+And it's going to do one of two things.
+If it notices that a node that it's
+
+84
+00:06:44,814 --> 00:06:49,632
+connected to has a better solution, it's
+going to copy that solution.
+
+85
+00:06:49,632 --> 00:06:55,301
+Otherwise, if none of its neighbors are
+doing any better, then it's going to flip
+
+86
+00:06:55,301 --> 00:07:00,474
+a random bit and see how it does.
+So, either it's going to imitate or it's
+
+87
+00:07:00,474 --> 00:07:04,413
+going to innovate.
+I've set up a simple ring lattice.
+
+88
+00:07:04,413 --> 00:07:08,879
+And each of the colors represents a
+different bit string.
+
+89
+00:07:08,879 --> 00:07:13,894
+A different solution.
+And you can see that there is variation in
+
+90
+00:07:13,894 --> 00:07:17,263
+the fitness of these different bit
+strings.
+
+91
+00:07:17,263 --> 00:07:20,710
+The highest one is point 662.
+And on average.
+
+92
+00:07:20,710 --> 00:07:24,550
+The average fitness is something like
+point five.
+
+93
+00:07:24,550 --> 00:07:29,386
+Now what we're going to do is we're going
+to allow the nodes to update according to
+
+94
+00:07:29,386 --> 00:07:32,495
+these rules.
+If one of their neighbors is doing better,
+
+95
+00:07:32,495 --> 00:07:36,814
+they're going to copy that solution.
+Otherwise, they're going to innovate on
+
+96
+00:07:36,814 --> 00:07:39,060
+their own.
+So we're going to let it run.
+
+97
+00:07:40,000 --> 00:07:43,373
+And eventually, okay.
+Right.
+
+98
+00:07:43,373 --> 00:07:47,108
+Everyone has conversed on the same
+solution.
+
+99
+00:07:47,108 --> 00:07:53,219
+But this solution you'll notice. 764. is
+higher than the original maximum.
+
+100
+00:07:53,219 --> 00:07:59,840
+So there is some innovation taking place
+and at the end all of the agents can.
+
+101
+00:08:00,224 --> 00:08:05,543
+Agents, because it's agent based modeling
+but all of the nodes converge on the same
+
+102
+00:08:05,543 --> 00:08:08,554
+solution.
+And you can see like, everyone has the
+
+103
+00:08:08,554 --> 00:08:12,015
+same fitness.
+Now, let's see if we go to somewhat of an
+
+104
+00:08:12,015 --> 00:08:14,834
+extreme here and add 1,000 additional
+edges.
+
+105
+00:08:14,834 --> 00:08:19,320
+So this is what it's going to look like.
+It's going to look very dense.
+
+106
+00:08:19,320 --> 00:08:28,746
+This time we have a best solution of 673.
+and we're going to let the nodes update
+
+107
+00:08:28,746 --> 00:08:32,479
+again.
+And you can see almost instantaneously
+
+108
+00:08:32,479 --> 00:08:38,677
+they all converged, but the value they
+converged on, let's see if you can answer
+
+109
+00:08:38,677 --> 00:08:44,025
+the quiz question.
+Relative to the regular lattice the
+
+110
+00:08:44,025 --> 00:08:48,994
+network with many additional random
+connections has on average slower
+
+111
+00:08:48,994 --> 00:08:53,963
+conversions to local optimum.
+Smaller improvement in the best solution
+
+112
+00:08:53,963 --> 00:08:58,720
+relative to the initial maximum.
+More oscillation between solutions.
+
+113
+00:08:59,800 --> 00:09:09,610
+What you should have seen was that, when
+you have many ties between the notes.
+
+114
+00:09:09,610 --> 00:09:14,438
+Let's go back.
+They actually converged more quickly.
+
+115
+00:09:14,438 --> 00:09:18,509
+But what they converged on was not as
+good.
+
+116
+00:09:18,509 --> 00:09:23,148
+Because they didn't spend enough time
+innovating.
+
+117
+00:09:23,148 --> 00:09:30,628
+So, in the assignment, you'll be trying to
+find, you know whether there's maybe a
+
+118
+00:09:30,628 --> 00:09:36,213
+sweet spot.
+For both innovation and, for this, quick
+
+119
+00:09:36,213 --> 00:09:42,945
+convergence.
+The final problem that I'll address, is
+
+120
+00:09:42,945 --> 00:09:47,999
+that of graph coloring.
+There's a very simple application of this
+
+121
+00:09:47,999 --> 00:09:51,347
+which is to coloring adjacent countries on
+a map.
+
+122
+00:09:51,552 --> 00:09:57,291
+The printer at some point only had a fixed
+number of colors that they could use, and
+
+123
+00:09:57,291 --> 00:10:02,484
+they didn't want adjacent countries to
+have the same color because then, for
+
+124
+00:10:02,484 --> 00:10:07,813
+example, you might think that, you know,
+Sweden and Norway are the same color if
+
+125
+00:10:07,813 --> 00:10:10,682
+they were both the same peach color,
+right.
+
+126
+00:10:10,682 --> 00:10:16,490
+So you might imagine that the nodes are
+countries and the edges are drawn between
+
+127
+00:10:16,490 --> 00:10:21,557
+countries that share a border.
+So, this was studied my Michael Currence,
+
+128
+00:10:21,557 --> 00:10:24,502
+who is teaching Coursera's Network For
+Life.
+
+129
+00:10:24,702 --> 00:10:30,191
+So this is ad actually for his class.
+But I feel safe doing that now, that we're
+
+130
+00:10:30,191 --> 00:10:34,942
+already in week six, and hopefully you're
+already committed to my class.
+
+131
+00:10:35,143 --> 00:10:39,092
+But they did this very neat experiment,
+with human subjects.
+
+132
+00:10:39,092 --> 00:10:44,647
+So they sat a bunch of human students in a
+lab, and each one of them was sitting in
+
+133
+00:10:44,647 --> 00:10:48,797
+front of a computer.
+And, they varied how much information they
+
+134
+00:10:48,797 --> 00:10:54,486
+could have about what color the other
+students had chosen so each student was a
+
+135
+00:10:54,486 --> 00:10:57,773
+node.
+And they were either told, you know they
+
+136
+00:10:57,773 --> 00:11:03,836
+were placed on some typology and they were
+either told what colors their neighbors
+
+137
+00:11:03,836 --> 00:11:09,752
+had, or they could actually see the colors
+and the topology for the whole network.
+
+138
+00:11:09,752 --> 00:11:14,573
+And the question is, how quickly could
+they converge on a solution.
+
+139
+00:11:14,573 --> 00:11:19,540
+And with human subjects, it turned out
+that more edges helped the,
+
+140
+00:11:19,540 --> 00:11:28,202
+The, the graph coloring problem, It helped
+it to be solved more quickly, but in scale
+
+141
+00:11:28,202 --> 00:11:33,539
+free networks, sometimes the presence of
+hubs actually made it more difficult.
+
+142
+00:11:33,539 --> 00:11:36,728
+So, I'll leave most of this for the
+assignment.
+
+143
+00:11:36,936 --> 00:11:41,511
+But here you have, you know, two adjacent
+nodes have the same color.
+
+144
+00:11:41,511 --> 00:11:45,531
+So, they need to fix that.
+And indeed in the final solution.
+
+145
+00:11:45,531 --> 00:11:48,720
+I'm not sure I'm pointing to the same one.
+Now,
+
+146
+00:11:48,720 --> 00:11:49,552
+Yes I am.
+So.
+
+147
+00:11:49,552 --> 00:11:52,671
+One of them is green and one of them is
+blue.
+
+148
+00:11:52,671 --> 00:11:56,900
+So, they, they switched.
+And this one that's also blue switched to
+
+149
+00:11:56,900 --> 00:12:02,227
+red. So here I have a small world
+topology. I can generate this a few times.
+
+150
+00:12:02,465 --> 00:12:06,282
+I can also have a very low rewiring
+probability.
+
+151
+00:12:06,282 --> 00:12:11,450
+And to start off with many neighboring
+nodes have the same color.
+
+152
+00:12:11,450 --> 00:12:20,210
+Now I'm just going to update this a couple
+of times until it settles into a solution.
+
+153
+00:12:20,210 --> 00:12:29,002
+And what you'll want to do, for example
+with the small world topology, is to vary
+
+154
+00:12:29,002 --> 00:12:36,204
+the number of you know, the amount of
+rewiring and see what happens with the
+
+155
+00:12:36,204 --> 00:12:41,672
+average time to the solution.
+So are nodes better able to solve when
+
+156
+00:12:41,672 --> 00:12:47,702
+there are fewer or more of these rewired
+links, or is there a sweet spot in
+
+157
+00:12:47,702 --> 00:12:51,159
+between?
+So let's see if we can answer this
+
+158
+00:12:51,159 --> 00:12:55,019
+question.
+As the rewiring probabilities increase
+
+159
+00:12:55,019 --> 00:13:01,451
+from zero to one, the following happens,
+the solution time decreases, the solution
+
+160
+00:13:01,451 --> 00:13:05,150
+time increases, or the solution time
+initially.
+
+161
+00:13:05,150 --> 00:13:11,731
+Decreases then increases again.
+If you, manage to get the model to run,
+
+162
+00:13:11,731 --> 00:13:17,585
+what you should see is that when it's a
+regular lattice, the amount of time it
+
+163
+00:13:17,585 --> 00:13:23,139
+takes for, you know, the solution to
+propagate all the way around, is fairly
+
+164
+00:13:23,139 --> 00:13:24,340
+long.
+As you add.
+
+165
+00:13:24,340 --> 00:13:30,215
+More edges, the solution time should drop.
+And then it increases again, interestingly
+
+166
+00:13:30,215 --> 00:13:33,258
+enough, once you have many additional
+edges.
+
+167
+00:13:33,258 --> 00:13:38,567
+Potentially because, that means that, that
+you ha, the problem itself is more
+
+168
+00:13:38,567 --> 00:13:42,531
+difficult.
+Because a node that has more neighbors has
+
+169
+00:13:42,531 --> 00:13:47,040
+a tougher time figuring out what you know,
+what color to be.
+
+170
+00:13:47,340 --> 00:13:52,971
+So just to recap, what we learned this
+week was that network topology can have a
+
+171
+00:13:52,971 --> 00:13:57,547
+profound influence on the processes that
+occur on these networks.
+
+172
+00:13:57,547 --> 00:14:03,178
+It can influence what state the nodes
+converge to, will the whole network become
+
+173
+00:14:03,178 --> 00:14:08,528
+infected or not, will they adopt one
+opinion or will many different opinions
+
+174
+00:14:08,528 --> 00:14:14,300
+persist and it can also affect how quickly
+that state is reached, you know what is
+
+175
+00:14:14,300 --> 00:14:19,017
+the time to convergence.
+And we saw different behavior depending on
+
+176
+00:14:19,017 --> 00:14:21,340
+what the process was.
+Was it just.
+
+177
+00:14:21,340 --> 00:14:25,175
+Simple diffusion or was it complex
+contagion?
+
+178
+00:14:25,175 --> 00:14:30,374
+Was there an element of coordination or
+collective action?
+
+179
+00:14:30,374 --> 00:14:36,682
+Were the nodes doing something else, for
+example learning or innovating?
+
+180
+00:14:36,682 --> 00:14:43,245
+And how did what their neighbors were
+doing influence their own their own
+
+181
+00:14:43,245 --> 00:14:47,677
+development?
+And ultimately, how well did the network
+
+182
+00:14:47,677 --> 00:14:54,667
+as a whole perform from the nodes making
+these individual yet interlinked actions?

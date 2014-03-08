@@ -1,0 +1,820 @@
+
+1
+00:00:00,000 --> 00:00:06,235
+For the first application, I'll tell you
+about some of my own work on recipe
+
+2
+00:00:06,235 --> 00:00:12,717
+recommendations, and this is joint work
+with my PhD student Edwin Teng and a
+
+3
+00:00:12,717 --> 00:00:18,461
+collaborator Yu-Ru Lin, who works with
+Davis Lazer,, whose name you've
+
+4
+00:00:18,461 --> 00:00:22,810
+encountered before at Northeastern and at
+Harvard. So,
+
+5
+00:00:22,810 --> 00:00:28,236
+What we were interested in is whether if
+one were to construct networks out of
+
+6
+00:00:28,236 --> 00:00:33,113
+ingredients based on co-occurrence
+initially and recipes, later, we also
+
+7
+00:00:33,113 --> 00:00:38,745
+looked at substitutes whether one could
+actually predict which recipe is better,
+
+8
+00:00:38,745 --> 00:00:42,111
+right?
+I had approached this as someone who's not
+
+9
+00:00:42,111 --> 00:00:46,163
+a very good cook at all.
+And, I thought, well, you know, I, I've
+
+10
+00:00:46,163 --> 00:00:51,521
+solved so many other problems in life
+using data. Maybe I can solve my cooking
+
+11
+00:00:51,521 --> 00:00:57,843
+problem by doing a bit of data analysis
+and the cooking problem is basically this.
+
+12
+00:00:57,843 --> 00:01:03,011
+If you have an expert cook, they can
+eyeball a recipe and just sort of tell,
+
+13
+00:01:03,011 --> 00:01:06,249
+okay,
+This is, going to be good or this isn't,
+
+14
+00:01:06,249 --> 00:01:11,899
+Or they can know that, you know, you can
+tweak the recipe and in which ways you can
+
+15
+00:01:11,899 --> 00:01:15,407
+tweak it,
+That would improve without, you know,
+
+16
+00:01:15,407 --> 00:01:18,812
+harming the basic substance of, of the
+food.
+
+17
+00:01:18,812 --> 00:01:24,883
+And, I just didn't know things like that,
+so I said, let's see if we can answer this
+
+18
+00:01:24,883 --> 00:01:29,495
+question with data.
+And so, the data set we gathered were over
+
+19
+00:01:29,495 --> 00:01:33,083
+40,000 recipes, from the site
+allrecipes.com.
+
+20
+00:01:33,083 --> 00:01:38,579
+And we discovered then a rich additional
+data set, which were nearly 2,000,000
+
+21
+00:01:39,189 --> 00:01:43,769
+reviews of the, the recipes, which then
+included text as well.
+
+22
+00:01:43,769 --> 00:01:49,799
+And what we wanted to know is what, what
+patterns emerge out of this aggregated
+
+23
+00:01:49,799 --> 00:01:55,448
+knowledge and how specifically can
+ingredient networks be used to predict
+
+24
+00:01:55,448 --> 00:01:57,280
+which recipe is good?
+So,
+
+25
+00:01:57,280 --> 00:02:00,993
+Out of all this data we extracted the
+cooking methods.
+
+26
+00:02:00,993 --> 00:02:05,050
+That is, are you going to boil it?
+Are you going to grill it?
+
+27
+00:02:05,256 --> 00:02:08,488
+Are you going to chop it?
+The ingredients,
+
+28
+00:02:08,694 --> 00:02:12,614
+And what ingredients are together in the
+original recipe?
+
+29
+00:02:12,614 --> 00:02:16,190
+And what modifications are suggested in
+the reviews?
+
+30
+00:02:16,190 --> 00:02:18,967
+And then we wanted to finally do a
+prediction.
+
+31
+00:02:18,967 --> 00:02:24,161
+If we have a recipe for grandma's Swedish
+meatballs, and we have another one that's
+
+32
+00:02:24,161 --> 00:02:28,751
+the Amazing Swedish meatball, and they
+have most of the same ingredients, but
+
+33
+00:02:28,751 --> 00:02:33,642
+not, not quite, and maybe the cooking
+method's a little bit different, can we
+
+34
+00:02:33,642 --> 00:02:37,991
+use network analysis to actually predict
+which one's going to be better?
+
+35
+00:02:37,991 --> 00:02:42,520
+So, on the way, we kind of did a little
+bit of exploratory data analysis, not
+
+36
+00:02:42,520 --> 00:02:47,170
+necessarily having to do with networks,
+and, for example, we found that cooking
+
+37
+00:02:47,170 --> 00:02:51,154
+methods differ by region.
+So you had the Northeast than the South
+
+38
+00:02:51,154 --> 00:02:55,463
+more likely to fry their foods,
+These, these are regions of the United
+
+39
+00:02:55,463 --> 00:02:58,806
+States.
+Grilling was more popular in the mountain
+
+40
+00:02:58,806 --> 00:03:03,372
+and West Coast regions, for example.
+So we, we kind of had a sense, okay, the,
+
+41
+00:03:03,372 --> 00:03:08,516
+there's, there's some encoding of real
+world phenomena in, in this aggregate data
+
+42
+00:03:08,516 --> 00:03:11,346
+set.
+But what we were more interested in was,
+
+43
+00:03:11,346 --> 00:03:14,625
+you know, how can we apply network
+analysis to this?
+
+44
+00:03:14,625 --> 00:03:19,834
+So, we were wondering whether there's some
+combinations of ingredients that might,
+
+45
+00:03:19,834 --> 00:03:24,766
+and this is just hypothetical, you know,
+maybe bananas and blueberries go along
+
+46
+00:03:24,766 --> 00:03:27,500
+together, but apples and corn, not as
+well.
+
+47
+00:03:27,500 --> 00:03:32,973
+So, for the complement network, what we
+did was we constructed edges using the
+
+48
+00:03:32,973 --> 00:03:38,588
+pointwise mutual information, which is
+just the log of the probability that the
+
+49
+00:03:38,588 --> 00:03:44,701
+ingredients occurred together divided by a
+product of the individual probabilities
+
+50
+00:03:44,701 --> 00:03:48,397
+that and, a particular ingredient occurs
+in a recipe.
+
+51
+00:03:48,397 --> 00:03:54,154
+And so as you might imagine, the numerator
+is higher for ingredients that tend to
+
+52
+00:03:54,154 --> 00:04:01,036
+occur together more than they occur apart.
+And, you already saw this network in your
+
+53
+00:04:01,036 --> 00:04:07,028
+assignment, and they were basically three
+main communities of sweet, savory, and
+
+54
+00:04:07,028 --> 00:04:12,875
+mixed drinks and depending on how you
+threshold, and modularity, and so on, you
+
+55
+00:04:12,875 --> 00:04:16,236
+can find some additional communities in
+there.
+
+56
+00:04:16,236 --> 00:04:22,229
+And, but we also wanted to know, you know,
+what kinds of networks can we extract out
+
+57
+00:04:22,229 --> 00:04:27,647
+of the, the reviews, and even before that,
+are the reviews tweaking, say, the
+
+58
+00:04:27,647 --> 00:04:31,482
+quantity?
+So instead of one two eggs, maybe you want
+
+59
+00:04:31,482 --> 00:04:36,950
+to put three or maybe just one.
+And maybe you want to add orange juice for
+
+60
+00:04:36,950 --> 00:04:40,359
+some reason, or not, or strawberries, or
+who knows?
+
+61
+00:04:40,359 --> 00:04:43,910
+Right?
+There, there are all sorts of things that
+
+62
+00:04:43,910 --> 00:04:49,521
+can happen when people review recipes, and
+this is kind of an interesting thing,
+
+63
+00:04:49,521 --> 00:04:55,557
+which is that right around a rating of
+four out of five, which means the person
+
+64
+00:04:55,557 --> 00:04:59,621
+likes it you see the most suggested
+modifications.
+
+65
+00:04:59,621 --> 00:05:05,809
+You know, this is good but I would add
+this or I would subtract that, or more of
+
+66
+00:05:05,809 --> 00:05:11,057
+this, or less of that, etc.
+And this is less common for those recipes
+
+67
+00:05:11,057 --> 00:05:16,618
+that get, you know, kind of a perfect five
+star rating or one's that people don't
+
+68
+00:05:16,618 --> 00:05:20,143
+like.
+If it's beyond repair, they don't really
+
+69
+00:05:20,143 --> 00:05:23,780
+bother to suggest these modifications.
+And yeah,
+
+70
+00:05:23,780 --> 00:05:29,506
+So that's the, the main thing and then you
+can look for individual ingredients.
+
+71
+00:05:29,506 --> 00:05:33,176
+You know, how, how many times are they,
+increased,
+
+72
+00:05:33,176 --> 00:05:38,021
+And you'll see things like garlic being,
+way, way up, you know,
+
+73
+00:05:38,021 --> 00:05:41,985
+More garlic good,
+But maybe, you know, white sugar, sugar,
+
+74
+00:05:41,985 --> 00:05:45,581
+butter.
+The kinds of things that get, decreased,
+
+75
+00:05:45,802 --> 00:05:50,500
+more than they get increased, potentially
+for, for health reasons.
+
+76
+00:05:50,500 --> 00:05:56,144
+And in general we can see some additional
+patterns, for example, ingredients that
+
+77
+00:05:56,144 --> 00:06:01,460
+occur in a lot of recipes, meaning they're
+pretty essential, are less likely to be
+
+78
+00:06:01,460 --> 00:06:06,907
+deleted, that is people are less likely to
+take them out, and they're less likely to
+
+79
+00:06:06,907 --> 00:06:12,092
+be added, I mean, probably, they're so
+common that if they belonged in the recipe
+
+80
+00:06:12,092 --> 00:06:17,540
+they would have been included already, and
+they're also less likely to be increased.
+
+81
+00:06:17,920 --> 00:06:23,958
+Now, lets look at specifically the parts
+that we are going to build the network out
+
+82
+00:06:23,958 --> 00:06:30,069
+of and that is we looked for patterns that
+said something like I replace the butter
+
+83
+00:06:30,069 --> 00:06:32,760
+with sour creams.
+So replace A with B,
+
+84
+00:06:32,760 --> 00:06:37,489
+Substitute B for A, B instead of A and we
+have these edge weights,
+
+85
+00:06:37,489 --> 00:06:43,673
+Which was the probability that B is going
+to be suggested every time A was mentioned
+
+86
+00:06:43,673 --> 00:06:47,820
+in as being substituted with something
+else in a comment.
+
+87
+00:06:47,820 --> 00:06:52,845
+And this again is a network that I think
+you've worked, or at least I've shown it
+
+88
+00:06:52,845 --> 00:06:56,815
+to you in lecture before.
+So if we take the substitution network
+
+89
+00:06:56,815 --> 00:07:01,716
+already, just laying it out, we can see
+pretty clear communities, and then, we can
+
+90
+00:07:01,716 --> 00:07:06,990
+apply community finding to actually have a
+network of different communities which
+
+91
+00:07:06,990 --> 00:07:11,705
+then we can look within each community and
+find, hey, these are the common
+
+92
+00:07:11,705 --> 00:07:16,396
+substitutions for milk, these are the
+common substitutions for cinnamon and
+
+93
+00:07:16,396 --> 00:07:18,830
+they, they tend to make sense.
+Okay.
+
+94
+00:07:18,830 --> 00:07:24,055
+So these communities, yes, they make
+sense, but this, do these substitutions
+
+95
+00:07:24,055 --> 00:07:29,424
+actually encode users' preference?
+And for this, we constructed another kind
+
+96
+00:07:29,424 --> 00:07:32,860
+of network, which we called a preference
+network.
+
+97
+00:07:32,860 --> 00:07:38,730
+And that is, if you have two recipes that
+overlap in ingredients somewhat, but this
+
+98
+00:07:38,730 --> 00:07:42,138
+one has one,
+Ingredient extra or has a different
+
+99
+00:07:42,138 --> 00:07:47,366
+ingredient than this other one, so for
+example one has ketchup and cheese, and
+
+100
+00:07:47,366 --> 00:07:52,332
+the other one just has pickle, and one
+gets a higher rating than another, you
+
+101
+00:07:52,332 --> 00:07:57,364
+create these pairwise preferences.
+You know ketchup to pickle cheese to
+
+102
+00:07:57,364 --> 00:08:02,331
+pickle, for example, and you aggregate
+this over all the recipe pairs with
+
+103
+00:08:02,331 --> 00:08:07,101
+sufficient overlap to see whether in
+general there's a preference of one
+
+104
+00:08:07,101 --> 00:08:12,434
+ingredient over another.
+And, what you end up seeing is that there
+
+105
+00:08:12,434 --> 00:08:19,753
+is a correlation between the substitutions
+that are suggested in the comments and the
+
+106
+00:08:19,753 --> 00:08:24,465
+differences in ratings of recipes that
+overlapping ingredients.
+
+107
+00:08:24,465 --> 00:08:30,225
+Except, you know, you would get one recipe
+out of another if you just did that
+
+108
+00:08:30,225 --> 00:08:34,114
+substitution.
+And so, we have a very high correlation,
+
+109
+00:08:34,114 --> 00:08:38,527
+which tells us that these networks encode
+user preferences.
+
+110
+00:08:38,527 --> 00:08:44,442
+So, let's see if we can predict you know,
+given two different related dishes that
+
+111
+00:08:44,442 --> 00:08:48,953
+are somewhat different. Can we predict
+which one is going to get the higher
+
+112
+00:08:48,953 --> 00:08:51,599
+rating?
+And so, we're going to use a baseline,
+
+113
+00:08:51,599 --> 00:08:55,689
+which is just the cooking method.
+The preparation time, the number of
+
+114
+00:08:55,689 --> 00:08:59,478
+servings you get.
+We're going to use just the raw ingredient
+
+115
+00:08:59,478 --> 00:09:02,261
+list, so the thousand most popular
+ingredients,
+
+116
+00:09:02,261 --> 00:09:06,688
+We get like a little prediction
+coefficient for each one of those, so may
+
+117
+00:09:06,688 --> 00:09:11,600
+be having chocolate makes the, makes the
+recipe better and actually there is very
+
+118
+00:09:11,600 --> 00:09:15,117
+little signal in that, just having an
+ingredient or not.
+
+119
+00:09:15,117 --> 00:09:20,150
+The nutrition information and then we are
+going to include our ingredient networks
+
+120
+00:09:20,150 --> 00:09:23,000
+and finally we are going to combine
+everything.
+
+121
+00:09:23,000 --> 00:09:28,206
+So for the prediction task, we gathered a
+bunch of pairs of recipes that were
+
+122
+00:09:28,206 --> 00:09:31,586
+related enough that you could really
+compare them,
+
+123
+00:09:31,586 --> 00:09:35,576
+So you weren't comparing pizza with the
+recipe for ice cream.
+
+124
+00:09:35,576 --> 00:09:40,850
+You're comparing, say, two beef dishes
+that, you know, two stir fry beef dishes.
+
+125
+00:09:40,850 --> 00:09:46,774
+And, we wanted to be able to really tell
+this one is better than another one.
+
+126
+00:09:46,774 --> 00:09:52,621
+And the way that we did this was, we
+looked for recipe pairs where the same
+
+127
+00:09:52,621 --> 00:09:57,364
+people rated both recipes and tended to
+prefer one over the other.
+
+128
+00:09:57,364 --> 00:10:02,976
+So we had a ranking and then, we had you,
+you know for, for each pair we saw how
+
+129
+00:10:02,976 --> 00:10:07,251
+well could we predict.
+If we would just guessing it at random, we
+
+130
+00:10:07,251 --> 00:10:12,662
+would be right 50% of the time, right, cuz
+one of the recipes is going to be better.
+
+131
+00:10:12,662 --> 00:10:18,074
+So we like to know are we going to do even
+better than that and we tried various
+
+132
+00:10:18,074 --> 00:10:22,549
+machine learning techniques.
+The, the gradient boosting tree was the
+
+133
+00:10:22,549 --> 00:10:27,659
+one that worked the best.
+And, we saw an improvement over the
+
+134
+00:10:27,659 --> 00:10:32,672
+baseline, which was about 72% correct to
+about 78, 79%.
+
+135
+00:10:32,672 --> 00:10:40,141
+And especially, the ingredient networks
+gave us a lot of predictive power in
+
+136
+00:10:40,141 --> 00:10:46,075
+figuring out which recipe is better.
+You can also delve down into the
+
+137
+00:10:46,075 --> 00:10:51,200
+individual features to see which ones
+contribute more towards the prediction.
+
+138
+00:10:51,200 --> 00:10:56,673
+And the single individual features
+actually have, the first three had to do
+
+139
+00:10:56,673 --> 00:11:02,288
+with the cooking effort and nutrition, but
+pretty soon thereafter you see the
+
+140
+00:11:02,288 --> 00:11:06,077
+ingredient network features playing a role
+as well.
+
+141
+00:11:06,077 --> 00:11:11,551
+Looking within the network features you
+can see that the substitution network
+
+142
+00:11:11,551 --> 00:11:15,832
+actually counts the most.
+This is, you know, I would substitute
+
+143
+00:11:15,832 --> 00:11:21,235
+applesauce for oil just the raw
+co-occurrence and the, and the complement
+
+144
+00:11:21,235 --> 00:11:25,472
+are also important and,
+And, and, in a sense, complementary to the
+
+145
+00:11:25,472 --> 00:11:30,165
+substitution network.
+You can further perform a dimensionality
+
+146
+00:11:30,165 --> 00:11:36,268
+reduction and find which ingredients are
+grouped together under a common feature.
+
+147
+00:11:36,268 --> 00:11:41,617
+And you see that, for example, this
+dimension here then contains splenda,
+
+148
+00:11:41,617 --> 00:11:46,213
+which is a sugar substitute, olive oil,
+applesauce, honey, butter.
+
+149
+00:11:46,213 --> 00:11:51,412
+So it seems to have the sugars and, in
+fact, although, in general, these
+
+150
+00:11:51,412 --> 00:11:56,686
+dimensions are kind of abstract, but it's
+still nice to see which, you know, once
+
+151
+00:11:56,686 --> 00:12:01,850
+you collapse the network,
+Which ingredients end up being placed
+
+152
+00:12:01,850 --> 00:12:05,584
+together.
+So, just to conclude, you can have fun by
+
+153
+00:12:05,584 --> 00:12:10,912
+creating a network out of something that,
+normally, maybe, is not considered a
+
+154
+00:12:10,912 --> 00:12:11,893
+network.
+Right?
+
+155
+00:12:11,893 --> 00:12:17,011
+Recipes, are just lists of ingredients.
+But, you, you get to decide, you know,
+
+156
+00:12:17,011 --> 00:12:20,516
+what, what brings different ingredient
+together?
+
+157
+00:12:20,516 --> 00:12:23,600
+Is it that, they co-occur in the same
+recipe?
+
+158
+00:12:23,600 --> 00:12:28,087
+Is it that they co-occur more often than
+what would be expected?
+
+159
+00:12:28,087 --> 00:12:32,714
+Is it that, one is recommended as the
+substitute for another, often,
+
+160
+00:12:32,714 --> 00:12:35,939
+And, you can then construct all these
+networks.
+
+161
+00:12:35,939 --> 00:12:39,323
+And then,
+And the fun thing to do is actually to see
+
+162
+00:12:39,323 --> 00:12:44,348
+whether you can predict something about
+the world using the information of how
+
+163
+00:12:44,348 --> 00:12:48,849
+this network is structured and this is
+exactly what we did with recipes.
+
+164
+00:12:48,849 --> 00:12:53,601
+We showed that you can predict which is a
+better recipe based on ingredient

@@ -1,0 +1,784 @@
+
+1
+00:00:00,000 --> 00:00:06,475
+Now that I've hopefully convinced you that
+finding communities in a network is a
+
+2
+00:00:06,475 --> 00:00:13,431
+useful and noble endeavor, let's see if we
+can figure out what a community really is.
+
+3
+00:00:13,431 --> 00:00:18,476
+So, what makes a community?
+Perhaps, it's mutuality of ties, so that
+
+4
+00:00:18,476 --> 00:00:23,117
+everyone within a community has edges to
+each, to one another.
+
+5
+00:00:23,117 --> 00:00:28,594
+Maybe we don't want to be so stringent.
+Not everyone has to have an edge,
+
+6
+00:00:28,594 --> 00:00:34,147
+But everyone should know at least K other
+individuals within a community.
+
+7
+00:00:34,147 --> 00:00:39,867
+That's what makes a community.
+Maybe we're more interested in information
+
+8
+00:00:39,867 --> 00:00:43,545
+flow.
+So, for what we may want is that everyone
+
+9
+00:00:43,545 --> 00:00:50,420
+is reachable from anyone else in a short
+number of hops, and we determine what that
+
+10
+00:00:50,420 --> 00:00:53,629
+number is.
+And finally, maybe we don't want to set
+
+11
+00:00:53,629 --> 00:00:57,027
+that it's, you know, K other individuals
+that you know,
+
+12
+00:00:57,027 --> 00:01:01,352
+But just that you know a certain
+proportion of individuals within the
+
+13
+00:01:01,352 --> 00:01:04,899
+community.
+Okay. So, before we get started, I think
+
+14
+00:01:04,899 --> 00:01:10,759
+the very important point to note is that,
+part of the reason why we see this
+
+15
+00:01:10,759 --> 00:01:16,155
+community structure is because it arises
+out of a bipartite structure.
+
+16
+00:01:16,155 --> 00:01:22,400
+A bipartite network is one where you have
+two different kinds of nodes, say, these
+
+17
+00:01:22,400 --> 00:01:25,870
+are all individuals and these are all
+events.
+
+18
+00:01:25,870 --> 00:01:31,498
+And so, then, you link all individuals who
+went to the same event together.
+
+19
+00:01:31,498 --> 00:01:36,095
+So, for example, here.
+The first four individuals went to this
+
+20
+00:01:36,095 --> 00:01:39,915
+first event and that puts them in the same
+clique.
+
+21
+00:01:39,915 --> 00:01:46,026
+For example, if the edge signifies, did
+the two individuals attend the same event?
+
+22
+00:01:46,026 --> 00:01:51,933
+And this could then be embedded in you
+know, communication frequency, etc.
+
+23
+00:01:51,933 --> 00:01:57,251
+So, yes. They probably all communicated
+because they went to the same event.
+
+24
+00:01:57,251 --> 00:02:01,347
+So, when we go about this task of
+discovering communities.
+
+25
+00:02:01,347 --> 00:02:05,587
+What we may actually be finding are the
+different contexts.
+
+26
+00:02:05,587 --> 00:02:08,820
+Whether it's events or affiliations in
+clubs.
+
+27
+00:02:09,036 --> 00:02:14,425
+For example, for boards of directors, do
+the directors sit on the same board?
+
+28
+00:02:14,425 --> 00:02:18,450
+Well then, they're linked in the, in the
+director network.
+
+29
+00:02:18,450 --> 00:02:22,131
+And so, it's something to keep in mind,
+right?
+
+30
+00:02:22,131 --> 00:02:28,742
+That this one mode representation of who
+talks to whom, in this case, for social
+
+31
+00:02:28,742 --> 00:02:33,010
+networks.
+Is it really an embedding of sorts of a
+
+32
+00:02:33,010 --> 00:02:37,361
+more multidimensional network that exists
+out there.
+
+33
+00:02:37,361 --> 00:02:42,550
+And so, we're recovering some of it by
+doing community finding.
+
+34
+00:02:42,550 --> 00:02:48,302
+Let's look at the first definition, that
+everyone should know everyone else within
+
+35
+00:02:48,517 --> 00:02:52,328
+the same community,
+This is the definition of a Clique.
+
+36
+00:02:52,328 --> 00:02:55,492
+It's a fully completely connected sub
+graph.
+
+37
+00:02:55,492 --> 00:02:58,943
+And when we look at the cliques, they can
+overlap.
+
+38
+00:02:58,943 --> 00:03:03,832
+So here, we have two cliques,
+Each with three members that happened to
+
+39
+00:03:03,832 --> 00:03:07,715
+overlap within the cleek.
+Everyone knows everyone else,
+
+40
+00:03:07,715 --> 00:03:11,957
+It's just a closed triad.
+Here we have a clique of size four.
+
+41
+00:03:11,957 --> 00:03:16,200
+Again, each of these four individuals
+knows the other three.
+
+42
+00:03:18,320 --> 00:03:27,032
+Lets go back to that community structure
+we saw in the opinion formation example
+
+43
+00:03:27,032 --> 00:03:35,245
+and see whether we can figure out how
+common cliques are within networks or
+
+44
+00:03:35,245 --> 00:03:42,656
+community structure as opposed to the
+equivalent Erdos-Renyi random graph.
+
+45
+00:03:42,656 --> 00:03:48,080
+So, we can find it.
+Okay, great.
+
+46
+00:03:48,080 --> 00:03:53,343
+So, here we are. And all you're going to
+be doing,
+
+47
+00:03:53,343 --> 00:03:58,885
+I guess not that.
+Okay, we're going to set up here and we're
+
+48
+00:03:59,274 --> 00:04:06,565
+going to, you can layout the network.
+And then, we are going to highlight the
+
+49
+00:04:06,565 --> 00:04:11,330
+maximal clique.
+So, here is the Erdos-Renyi version.
+
+50
+00:04:11,330 --> 00:04:16,190
+So we can set up some more,
+Highlight the maximal clique,
+
+51
+00:04:16,450 --> 00:04:20,790
+Or we can see the familiar community
+structure,
+
+52
+00:04:20,790 --> 00:04:27,473
+And again look for a maximal clique.
+And you can click this multiple times if
+
+53
+00:04:27,473 --> 00:04:32,160
+they're the same multiple cliques of the
+same size.
+
+54
+00:04:35,810 --> 00:04:42,005
+Okay.
+So, that's your quiz question and moving
+
+55
+00:04:42,005 --> 00:04:47,040
+on.
+So, how meaningful are these cliques?
+
+56
+00:04:47,680 --> 00:04:53,409
+For one, they're not really robust.
+So, let's say, two people are not friends,
+
+57
+00:04:53,409 --> 00:04:57,357
+or didn't talk at the party, or something
+like that,
+
+58
+00:04:57,357 --> 00:05:03,396
+That invalidates that whole clique.
+It's no longer a clique and maybe you then
+
+59
+00:05:03,396 --> 00:05:07,500
+miss the fact that it's, that it's really
+a community.
+
+60
+00:05:07,500 --> 00:05:12,674
+The second part is that, maybe it's the
+clique itself is not that interesting
+
+61
+00:05:12,674 --> 00:05:15,765
+because everyone's connected to everyone
+else.
+
+62
+00:05:15,765 --> 00:05:20,939
+You don't have a densely connected core
+and then more peripheral individuals,
+
+63
+00:05:20,939 --> 00:05:23,895
+All you have is that density connected
+core.
+
+64
+00:05:23,895 --> 00:05:29,271
+And there's, there's no point in running
+any centrality measures on this because
+
+65
+00:05:29,271 --> 00:05:34,646
+the, everyone has the same degreea any
+other centrality measure you would like to
+
+66
+00:05:34,646 --> 00:05:37,794
+apply.
+And, finally, how cliques overlap may be
+
+67
+00:05:37,794 --> 00:05:43,988
+more interesting than simply the fact that
+they exist. And in the last segment of
+
+68
+00:05:43,988 --> 00:05:49,618
+this week's lectures, we'll talk about a
+clique percolation algorithm that takes
+
+69
+00:05:49,618 --> 00:05:55,615
+advantage of exactly this fact.
+So, let's be a little bit less stringent.
+
+70
+00:05:55,615 --> 00:06:01,670
+K cores, say that, unlike cliques, you
+don't need to know everyone in your K
+
+71
+00:06:01,670 --> 00:06:04,740
+core,
+You just need to know K of them.
+
+72
+00:06:04,740 --> 00:06:11,625
+So, looking at this network then, can you
+tell me what is the K for the core circled
+
+73
+00:06:11,625 --> 00:06:15,109
+in red?
+Or depending on your quiz question,
+
+74
+00:06:15,109 --> 00:06:19,340
+[LAUGH] what is the K for the core circled
+in blue?
+
+75
+00:06:19,720 --> 00:06:24,057
+Indeed, you should've found that this is a
+three core.
+
+76
+00:06:24,057 --> 00:06:30,849
+So, every node on this side is connected
+to at least three other individuals within
+
+77
+00:06:30,849 --> 00:06:35,758
+that same three core.
+And the one on the left is a four core
+
+78
+00:06:35,758 --> 00:06:40,177
+because every one's connected to at least
+four others.
+
+79
+00:06:40,177 --> 00:06:46,969
+What makes K cores also not that robust is
+this example down here, where you have a
+
+80
+00:06:46,969 --> 00:06:53,270
+node that really should rightly belong
+with all the other nodes in this four
+
+81
+00:06:53,270 --> 00:06:56,617
+core,
+But it has only two edges. And so, it
+
+82
+00:06:56,617 --> 00:07:02,247
+can't be part of a four core.
+It would need at least four edges to do
+
+83
+00:07:02,247 --> 00:07:06,000
+that.
+And so, the next core that it can join is
+
+84
+00:07:06,000 --> 00:07:10,814
+a two core that then envelopes both of
+these communities.
+
+85
+00:07:10,814 --> 00:07:14,826
+And so we would,
+Incorrectly, you know, really leave this
+
+86
+00:07:14,826 --> 00:07:19,129
+one out if we were looking for kind of
+meaningful communities.
+
+87
+00:07:19,129 --> 00:07:24,611
+Of course, if you want to stick to the
+definition for core robust, then yes, that
+
+88
+00:07:24,611 --> 00:07:29,053
+node should be left out.
+But is that really what you want to get
+
+89
+00:07:29,053 --> 00:07:38,358
+out of your community finding exercise?
+As I mentioned before, sometimes you want
+
+90
+00:07:38,358 --> 00:07:42,821
+to just look for potential for information
+to flow.
+
+91
+00:07:42,821 --> 00:07:50,347
+In this case, we may just be interested in
+a set of nodes such that, for example, any
+
+92
+00:07:50,347 --> 00:07:55,423
+node is reachable from any other node
+within two, two hops.
+
+93
+00:07:55,423 --> 00:08:01,811
+And so, in this case, these are two, two
+cliques because everyone can reach
+
+94
+00:08:01,811 --> 00:08:08,273
+everyone else within just two hops.
+And, there's some problems with this.
+
+95
+00:08:08,509 --> 00:08:14,739
+The first is that, even though two nodes,
+For example, these two, may be reachable
+
+96
+00:08:14,739 --> 00:08:19,312
+in two hops,
+That other node may be outside of this two
+
+97
+00:08:19,312 --> 00:08:23,413
+clique, right?
+And so, the actual diameter of this two
+
+98
+00:08:23,413 --> 00:08:26,646
+clique is greater.
+Actually, it's this one.
+
+99
+00:08:26,646 --> 00:08:29,011
+It's the diameter three,
+Right?
+
+100
+00:08:29,011 --> 00:08:33,743
+The longest path between any two nodes is
+called a diameter.
+
+101
+00:08:33,743 --> 00:08:38,080
+And here, it's actually larger than the n
+of the clique.
+
+102
+00:08:38,080 --> 00:08:42,740
+And, it's also not so great that we have
+left this node out.
+
+103
+00:08:42,740 --> 00:08:47,480
+So, these n-cliques can also be somewhat
+funny animals.
+
+104
+00:08:48,560 --> 00:08:54,133
+The final definition will examine our
+p-cliques. This is where, instead of
+
+105
+00:08:54,133 --> 00:08:59,858
+saying you have to know K of the other
+individuals, you have to at least the
+
+106
+00:08:59,858 --> 00:09:03,700
+proportion P of the individuals with,
+within the cluster.
+
+107
+00:09:05,320 --> 00:09:14,680
+So, all of these methods that we talked
+about really focus on networks that don't
+
+108
+00:09:14,680 --> 00:09:18,075
+have any sort of distinction between the
+edges.
+
+109
+00:09:18,075 --> 00:09:23,358
+So, all edges are weighted equally.
+This is kind of the minimum information
+
+110
+00:09:23,358 --> 00:09:29,319
+scenario and you're actually better off if
+you know how frequently individuals
+
+111
+00:09:29,319 --> 00:09:35,432
+communicate. Because very likely, those
+within the same community are talking more
+
+112
+00:09:35,432 --> 00:09:38,903
+often.
+And so, if you're lucky, you can actually
+
+113
+00:09:38,903 --> 00:09:42,450
+just use this information directly.
+For example,
+
+114
+00:09:42,450 --> 00:09:46,006
+You could eliminate highs that are not
+reciprocal.
+
+115
+00:09:46,006 --> 00:09:51,128
+So, going back to the dining table
+partners' data set, you could just say,
+
+116
+00:09:51,128 --> 00:09:56,891
+well, if two girls did not reciprocally
+name each other as someone they wanted to
+
+117
+00:09:56,891 --> 00:10:00,732
+sit with at dinner, well, then let's toss
+out that edge.
+
+118
+00:10:00,732 --> 00:10:06,494
+And that will reduce the network, and
+you'll be able to see more, more coherent
+
+119
+00:10:06,494 --> 00:10:10,620
+communities.
+Another thing you can do is keep the edges
+
+120
+00:10:10,620 --> 00:10:14,106
+above a certain threshold and throw out
+the rest.
+
+121
+00:10:14,106 --> 00:10:18,320
+So,
+That's what I'm going to attempt to do now
+
+122
+00:10:18,320 --> 00:10:25,908
+in [UNKNOWN]. these are political blogs
+from a long, long time ago I was studying
+
+123
+00:10:25,908 --> 00:10:30,530
+these. And, let me just try and fit all of
+this on my screen.
+
+124
+00:10:30,530 --> 00:10:35,752
+Great.
+So, I sort of artificially removed the
+
+125
+00:10:35,752 --> 00:10:39,447
+weights and any sort of partition just so
+you can see that,
+
+126
+00:10:39,447 --> 00:10:44,458
+You know, and, of course, if this wasn't
+laid out, you may have trouble seeing that
+
+127
+00:10:44,458 --> 00:10:48,842
+there are two communities in here.
+In any case, this looks very densely
+
+128
+00:10:48,842 --> 00:10:54,041
+connected and it's not that clear that you
+know, these kind of clique algorithms,
+
+129
+00:10:54,041 --> 00:10:59,051
+they would probably lump everything
+together because it is just such a dense
+
+130
+00:10:59,051 --> 00:11:01,682
+network.
+All of these political blogs were
+
+131
+00:11:01,682 --> 00:11:07,670
+mentioning each other, left and right.
+But, let's see if we can tell left and
+
+132
+00:11:07,670 --> 00:11:11,788
+right apart.
+So what I have done is, sort of
+
+133
+00:11:11,788 --> 00:11:17,876
+artificially removed the weight.
+So, what I'ld like to do is move the
+
+134
+00:11:17,876 --> 00:11:24,347
+mentions into weight.
+So, I want to take mentions, and copy data
+
+135
+00:11:24,347 --> 00:11:28,141
+from mentions into weight.
+Okay.
+
+136
+00:11:28,508 --> 00:11:35,729
+Hopefully, that worked.
+[laugh] So, if we go back to overview.
+
+137
+00:11:35,729 --> 00:11:40,747
+Great.
+So now, we can see that, in fact, the,
+
+138
+00:11:40,747 --> 00:11:46,744
+what, what we perceived to be the two
+communities.
+
+139
+00:11:46,744 --> 00:11:55,662
+And actually, let me color them now so you
+have the conservatives and the liberals.
+
+140
+00:11:55,662 --> 00:12:00,752
+And you, in fact, do see the, the
+conservatives tend to talk to each other
+
+141
+00:12:00,752 --> 00:12:05,417
+more often and the liberals tend to talk
+to each other more often.
+
+142
+00:12:05,417 --> 00:12:11,743
+And now, we are ready to apply filter so
+I'm going to do that, and we can increase
+
+143
+00:12:11,743 --> 00:12:15,659
+the filter.
+So, for example, maybe they have to have
+
+144
+00:12:15,659 --> 00:12:22,080
+mentioned each other at least four times.
+And this already thins out the network a
+
+145
+00:12:22,080 --> 00:12:27,249
+lot, but still, you have most of the
+liberals connected, most of the
+
+146
+00:12:27,249 --> 00:12:32,260
+conservatives connected.
+If we increase this a little bit more, a
+
+147
+00:12:32,260 --> 00:12:35,550
+little more, a little more.
+[laugh] Come on.
+
+148
+00:12:36,300 --> 00:12:40,523
+Okay.
+For the most part, with the exception of,
+
+149
+00:12:40,523 --> 00:12:48,961
+let's see who these people are, Talking
+Points Memo and Wiz Bang Blog who mention
+
+150
+00:12:48,961 --> 00:12:53,702
+each other a lot.
+For the most part, you see two separate
+
+151
+00:12:53,702 --> 00:12:59,152
+communities and I didn't apply any sort of
+community detection algorithm,
+
+152
+00:12:59,152 --> 00:13:04,304
+No cliques, no K cores, no nothing.
+All I did was threshold the weights.
+
+153
+00:13:04,304 --> 00:13:10,502
+But in the next segment, we'll be talking
+about what you can do when you don't know
+
+154
+00:13:10,502 --> 00:13:16,251
+the number of communities there are,
+whether the, they will be cliquish or not.
+
+155
+00:13:16,251 --> 00:13:22,196
+How can you automatically, in a, in a
+systematic principled way discover
+
+156
+00:13:22,196 --> 00:13:26,395
+community structure, especially in large
+networks.
+
+157
+00:13:26,395 --> 00:13:28,880
+So that's what we'll do next.

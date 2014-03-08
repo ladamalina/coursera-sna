@@ -1,0 +1,1319 @@
+
+1
+00:00:00,000 --> 00:00:06,534
+Even though it may not have seemed that
+way, so far we've only considered simple
+
+2
+00:00:06,534 --> 00:00:10,536
+contagion.
+And by simple I mean that if one of my
+
+3
+00:00:10,536 --> 00:00:14,877
+friends is infected,
+That's enough for me to become infected as
+
+4
+00:00:14,877 --> 00:00:17,396
+well.
+Of course there are parameters, the
+
+5
+00:00:17,396 --> 00:00:22,559
+probability per time period that my friend
+infects me, whether they'll recover before
+
+6
+00:00:22,559 --> 00:00:27,911
+they have a chance to infect me, etcetera.
+But the main thing that makes it simple is
+
+7
+00:00:27,911 --> 00:00:30,934
+that it's just between me and one of my
+friends.
+
+8
+00:00:30,934 --> 00:00:35,656
+And this makes sense for things such as
+viruses that are diffusing or even
+
+9
+00:00:35,656 --> 00:00:40,001
+information that's diffusing.
+It's enough for one person to tall me a
+
+10
+00:00:40,001 --> 00:00:45,023
+piece of information and then I know it.
+On the other hand, there're other
+
+11
+00:00:45,023 --> 00:00:48,513
+processes,
+For example, the adoption of certain
+
+12
+00:00:48,513 --> 00:00:54,051
+behaviors or the, the making of purchases,
+where you may want to consider what
+
+13
+00:00:54,051 --> 00:00:59,817
+multiple of your friends are doing.
+So, for example, say I'm an impressionable
+
+14
+00:00:59,817 --> 00:01:05,280
+teenager in high school and I, I see one
+of my friends wearing red pants.
+
+15
+00:01:05,280 --> 00:01:11,024
+I'm not going to run out and buy red pants
+just because one of my friends did.
+
+16
+00:01:11,024 --> 00:01:16,916
+I want to make sure that several of my
+friends are wearing red pants before I'm
+
+17
+00:01:16,916 --> 00:01:22,808
+really convinced that that's the cool
+thing to do, and then I'll go ahead and do
+
+18
+00:01:22,808 --> 00:01:26,048
+it.
+And as you might imagine, this has rather
+
+19
+00:01:26,048 --> 00:01:31,793
+different dynamics, so let's go back to
+that small world topology and see what
+
+20
+00:01:31,793 --> 00:01:34,300
+that does.
+So, here I am in that logo.
+
+21
+00:01:34,300 --> 00:01:39,886
+I have created a slightly smaller network
+so we can better see what's going on.
+
+22
+00:01:39,886 --> 00:01:45,471
+And what we're going to do, is we're going
+to do this complex contagion process on
+
+23
+00:01:45,471 --> 00:01:50,579
+top of the network, where the rules are
+that a node will look around to its
+
+24
+00:01:50,579 --> 00:01:56,233
+neighbors and it will adopt the behavior,
+that is, it'll become yellow if it decides
+
+25
+00:01:56,233 --> 00:01:59,723
+to buy.
+Red pants, and it will do so only if at
+
+26
+00:01:59,723 --> 00:02:03,510
+least two of its friends have done this
+already.
+
+27
+00:02:03,510 --> 00:02:09,924
+So to begin with we are going to infect
+two neighboring nodes, because unless we
+
+28
+00:02:09,924 --> 00:02:16,416
+do this the, the infection is kind of dead
+from the get go, so no one is going to buy
+
+29
+00:02:16,416 --> 00:02:22,753
+red pants if only one node in the network
+has fought red pants, according to these
+
+30
+00:02:22,753 --> 00:02:26,702
+rules.
+And now, we're going to allow this, you
+
+31
+00:02:26,702 --> 00:02:32,606
+know, red pant crazed spread.
+I'm going to reinfect a few times, just so
+
+32
+00:02:32,606 --> 00:02:38,510
+you can see what's going on.
+And I'd like you to pay attention to both
+
+33
+00:02:38,510 --> 00:02:44,752
+what is the structure like, where the
+infection is stopped, and also, is the
+
+34
+00:02:44,752 --> 00:02:51,246
+infection successfully using the short
+range ties, I mean, the long range ties,
+
+35
+00:02:51,500 --> 00:02:59,052
+So we can, and let this run a little bit
+and hopefully this is enough information,
+
+36
+00:02:59,052 --> 00:03:04,832
+otherwise, you're very welcome to play
+with the model yourself.
+
+37
+00:03:04,832 --> 00:03:10,061
+So, here is our question,
+Relative to the simple contagion process,
+
+38
+00:03:10,061 --> 00:03:14,890
+the complex contagion process, is it
+better able to use shortcuts, does it
+
+39
+00:03:14,890 --> 00:03:19,983
+advance more rapidly through the network,
+and does it infect a greater number of
+
+40
+00:03:19,983 --> 00:03:25,139
+nodes?
+Complex contagion, even though it has the
+
+41
+00:03:25,139 --> 00:03:29,127
+name complex, has.
+In this case, it had a very simple rule,
+
+42
+00:03:29,127 --> 00:03:34,315
+that is, it was a threshold model, and the
+threshold was just in terms of the number
+
+43
+00:03:34,315 --> 00:03:37,752
+of your neighbors that have adopted a
+certain behavior.
+
+44
+00:03:37,752 --> 00:03:42,627
+However, sometimes what you're really
+playing is a coordination game, where you
+
+45
+00:03:42,627 --> 00:03:46,877
+have two different choices and you're
+trying to decide between them.
+
+46
+00:03:46,877 --> 00:03:51,440
+And as I said in the previous segment,
+this could be, for example, deciding
+
+47
+00:03:51,440 --> 00:03:56,002
+between different chat, online chat
+clients, and it depends on how many of
+
+48
+00:03:56,002 --> 00:04:00,690
+your friends are using each of them.
+So it's not that two friends are using it,
+
+49
+00:04:01,281 --> 00:04:07,268
+but, are more friends using one versus the
+other. And also importantly how good or
+
+50
+00:04:07,268 --> 00:04:13,060
+those, those chat clients, so let's switch
+the context a bit and say we're still
+
+51
+00:04:13,060 --> 00:04:18,310
+choosing between two things, and let's
+just call them basketball and soccer.
+
+52
+00:04:18,310 --> 00:04:23,760
+And,
+If a friend chooses to play basketball, as
+
+53
+00:04:23,760 --> 00:04:30,097
+well, so they're making choice A,
+I will get payoff A every time, for each
+
+54
+00:04:30,097 --> 00:04:35,290
+friend. And if my friends choose B then I
+will get payoff B.
+
+55
+00:04:35,290 --> 00:04:41,195
+And, if, you know, I just have one friend
+and they choose the opposite of what I
+
+56
+00:04:41,195 --> 00:04:46,444
+chose then my payoff is zero, right?
+I get no enjoyment if I want to play
+
+57
+00:04:46,444 --> 00:04:52,130
+soccer and I can't play on my own and my
+friend only wants to play basketball.
+
+58
+00:04:52,130 --> 00:04:57,161
+So let's see how this plays out.
+This note in the middle is trying to
+
+59
+00:04:57,161 --> 00:05:03,742
+decide between playing basketball,
+Which three of his friends play basketball
+
+60
+00:05:03,742 --> 00:05:06,878
+or playing soccer.
+Two of his friends play soccer,
+
+61
+00:05:06,878 --> 00:05:11,615
+But that's not the only variable, right.
+And so sure, three-fifths of his network
+
+62
+00:05:11,615 --> 00:05:15,026
+is basketball, and two-fifths of his
+network is soccer.
+
+63
+00:05:15,026 --> 00:05:19,700
+But there's also the question of which one
+of these sports he enjoys more?
+
+64
+00:05:19,700 --> 00:05:24,247
+So how, is he going to do this, this
+calculation deciding between the two
+
+65
+00:05:24,247 --> 00:05:26,942
+sports.
+Well, this is the formulation.
+
+66
+00:05:26,942 --> 00:05:32,768
+He has d neighbors or d friends and a
+fraction p of them are going to play
+
+67
+00:05:32,768 --> 00:05:37,195
+basketball.
+This is the three-fifths and one - p, p
+
+68
+00:05:37,195 --> 00:05:42,236
+fraction of them are going to play soccer.
+This is the two-fifths.
+
+69
+00:05:42,244 --> 00:05:48,613
+And if he chooses to play basketball, his
+payoff is the number of his friends who
+
+70
+00:05:48,613 --> 00:05:55,168
+are playing basketball, which is just p 
+d  a, which is the payoff he gets per
+
+71
+00:05:55,168 --> 00:06:00,333
+each friend who plays basketball.
+Similarly for soccer, the payoff, if you,
+
+72
+00:06:00,333 --> 00:06:05,928
+if you are to choose to play soccer, the
+payoff would be 1-p<i>d, that's the number</i>
+
+73
+00:06:05,928 --> 00:06:11,308
+of friends who are playing soccer,  b,
+the payoff he gets or the enjoyment he
+
+74
+00:06:11,308 --> 00:06:14,392
+gets from playing soccer with each of
+them.
+
+75
+00:06:14,392 --> 00:06:19,485
+So, this means that he should choose a if
+pd<i>a </i> d  a is greater than or equal to
+
+76
+00:06:19,485 --> 00:06:21,637
+1d<i>b.
+</i> p  d  b, this, you know, payoff from
+
+77
+00:06:21,637 --> 00:06:28,107
+soccer and payoff from basketball, and you
+can reformulate this so that it's, he will
+
+78
+00:06:28,107 --> 00:06:34,992
+be playing basketball if the proportion of
+his friends playing basketball is greater
+
+79
+00:06:34,992 --> 00:06:38,961
+than or equal to b, which is the payoff
+for soccer / ab.
+
+80
+00:06:38,961 --> 00:06:42,930
++ b, kind of the sum of the payoffs for
+either choice.
+
+81
+00:06:42,930 --> 00:06:46,039
+And there are two equilibria in this
+problem.
+
+82
+00:06:46,039 --> 00:06:51,982
+The first is that everyone decides to play
+basketball and what an equilibria means is
+
+83
+00:06:51,982 --> 00:06:57,303
+that no individual, given the current
+situation, would want to switch, right?
+
+84
+00:06:57,303 --> 00:07:02,832
+Because if everyone's playing basketball,
+you would get zero payoff from playing
+
+85
+00:07:02,832 --> 00:07:08,291
+soccer because you, there are no other
+soccer players, so it's just not possible.
+
+86
+00:07:08,291 --> 00:07:13,474
+You get to have zero from each of your
+friends because they're all playing
+
+87
+00:07:13,474 --> 00:07:17,308
+basketball.
+Similarly, everyone could decide to play
+
+88
+00:07:17,308 --> 00:07:23,510
+soccer, in which case no single individual
+would choose to play basketball instead.
+
+89
+00:07:23,510 --> 00:07:29,045
+But what happens in between, right?
+You have these equilibria, which is that
+
+90
+00:07:29,045 --> 00:07:34,431
+everyone's just doing one thing.
+But, what if, for some reason, you had two
+
+91
+00:07:34,431 --> 00:07:38,994
+of the nodes switched,
+There could be some external reason.
+
+92
+00:07:38,994 --> 00:07:44,380
+So, let's see a particular example.
+Let's say that, the payoff for playing
+
+93
+00:07:44,380 --> 00:07:50,589
+basketball with a friend is three, and the
+playoff for playing soccer with a friend
+
+94
+00:07:50,589 --> 00:07:57,316
+is two and we have the, the payoff, that
+means that the payoff for nodes who are
+
+95
+00:07:57,316 --> 00:08:03,885
+both playing basketball is three halves as
+large as what they get if they both choose
+
+96
+00:08:03,885 --> 00:08:08,009
+to play soccer.
+So they get like, a 50%, you know, greater
+
+97
+00:08:08,009 --> 00:08:11,293
+payoff.
+And, this also means that nodes will
+
+98
+00:08:11,293 --> 00:08:17,983
+switch from soccer to basketball, if at
+least two-fifths of their friends are, you
+
+99
+00:08:17,983 --> 00:08:21,937
+know, not using a, or, or, or, are playing
+basketball.
+
+100
+00:08:21,937 --> 00:08:29,292
+So it means you know it can be a minority,
+it can be two-fifths of your friends were
+
+101
+00:08:29,292 --> 00:08:34,433
+playing, so much more appealing than
+soccer that you will switch once you pass
+
+102
+00:08:34,433 --> 00:08:39,612
+that threshold.
+So let's see how this cascade might occur.
+
+103
+00:08:39,612 --> 00:08:47,596
+Suppose you have some devious company that
+comes and says we'll give you free shoes.
+
+104
+00:08:47,596 --> 00:08:54,250
+You know, named branded with some
+basketball player's name if you play
+
+105
+00:08:54,250 --> 00:09:01,854
+basketball and you don't play soccer.
+And so, these two nodes then start playing
+
+106
+00:09:01,854 --> 00:09:06,411
+basketball.
+Now, this node is looking and it's finding
+
+107
+00:09:06,411 --> 00:09:12,013
+that half of its friends, so two out of
+four, are playing basketball,
+
+108
+00:09:12,013 --> 00:09:19,371
+And since the threshold for switching over
+is two-fifths, now this node as well is
+
+109
+00:09:19,371 --> 00:09:24,286
+playing basketball.
+Now the quiz question is, can you figure
+
+110
+00:09:24,286 --> 00:09:29,525
+out which node or nodes will switch to
+playing basketball next?
+
+111
+00:09:29,525 --> 00:09:35,680
+Is it going to be just A, just B, just C,
+Or some combination of these three?
+
+112
+00:09:36,400 --> 00:09:40,185
+Okay.
+Hopefully, you figured out that it was B
+
+113
+00:09:40,185 --> 00:09:44,980
+who would switch next,
+Because it was looking at its four
+
+114
+00:09:44,980 --> 00:09:51,289
+neighbors, two of whom had switched
+versus, at that point, you know,if you, if
+
+115
+00:09:51,289 --> 00:09:56,477
+you exclude B,
+A was looking at three neighbors, only one
+
+116
+00:09:56,477 --> 00:10:01,517
+of which had switched to basketball.
+And so that's, that's 1/3,.
+
+117
+00:10:01,973 --> 00:10:07,523
+Which is less than, than two-fifths.
+So, it wasn't sufficient to flip either A
+
+118
+00:10:07,523 --> 00:10:13,149
+or C was in a symmetric situation.
+But now that B has flipped, both A and C
+
+119
+00:10:13,149 --> 00:10:16,722
+also find it favorable to switch to
+basketball.
+
+120
+00:10:16,722 --> 00:10:21,360
+And so, what you just saw was a cascade
+going through the network,
+
+121
+00:10:21,360 --> 00:10:27,455
+Even though it just started with two nodes
+changing their minds or having their minds
+
+122
+00:10:27,455 --> 00:10:31,849
+changed for them,
+And then everyone goes ahead and switches
+
+123
+00:10:31,849 --> 00:10:35,817
+to basketball,
+Which presumably is good, because it seems
+
+124
+00:10:35,817 --> 00:10:41,487
+like the payoff for basketball in this,
+you know, fake scenario is higher than it
+
+125
+00:10:41,487 --> 00:10:46,231
+is for soccer.
+There's a NetLogo app, which you will be
+
+126
+00:10:46,231 --> 00:10:50,640
+exploring a little bit more in your
+assignment,
+
+127
+00:10:50,921 --> 00:10:55,048
+That allows you to try different
+topologies,
+
+128
+00:10:55,048 --> 00:11:02,530
+And what you'll be doing is allocating an
+initial opinion, but your nodes are going
+
+129
+00:11:02,530 --> 00:11:07,952
+to be flipping, a biased coin deciding.
+Actually, I think it's an unbiased coin.
+
+130
+00:11:07,952 --> 00:11:14,453
+So, 50/50, whether they are red or they're
+blue and then you can update their opinion
+
+131
+00:11:14,453 --> 00:11:21,075
+according to these rules and these
+payoffs, they can try this several times
+
+132
+00:11:21,075 --> 00:11:28,225
+just to see how the structure plays out as
+to what the stable configuration is.
+
+133
+00:11:28,225 --> 00:11:35,200
+That is nodes, individual node would like
+to switch given their current payoffs.
+
+134
+00:11:38,540 --> 00:11:43,684
+There are of course, implications for
+viral marketing.
+
+135
+00:11:43,684 --> 00:11:50,921
+If you really can influence some subset of
+the nodes, whether by paying them off or
+
+136
+00:11:50,921 --> 00:11:57,810
+giving them a free product samples, which
+individuals would you want to pick?
+
+137
+00:11:57,810 --> 00:12:03,845
+And so using the same,
+App, you can kind of take turns, if you
+
+138
+00:12:03,845 --> 00:12:09,979
+find someone to play this with,
+Otherwise, you can kind of play against
+
+139
+00:12:09,979 --> 00:12:15,412
+yourself if you like.
+So you can take turns selecting which
+
+140
+00:12:15,412 --> 00:12:20,320
+nodes you initially infect, and then you
+can see how the,
+
+141
+00:12:20,589 --> 00:12:27,063
+What the payoff is as far as how many
+individuals eventually adopt your,
+
+142
+00:12:27,332 --> 00:12:30,209
+product,
+Whether its red or blue.
+
+143
+00:12:30,209 --> 00:12:34,075
+So you would select blue and say I want
+to,
+
+144
+00:12:34,075 --> 00:12:39,650
+Well, now it's red's turn,
+And red says, well I want to be right
+
+145
+00:12:39,650 --> 00:12:44,864
+here, and blue might pick here.
+Oh, sorry, we did another red.
+
+146
+00:12:45,134 --> 00:12:46,752
+No matter.
+[laugh].
+
+147
+00:12:46,752 --> 00:12:53,811
+And here is blue and now we can do
+successive updates and just see how things
+
+148
+00:12:53,811 --> 00:12:58,720
+play out.
+In this case, poor red did not choose very
+
+149
+00:12:58,720 --> 00:13:02,993
+wisely.
+So, the question is, you know, what is the
+
+150
+00:13:02,993 --> 00:13:10,357
+stable set of traces and how might you
+optimally select your initial set such
+
+151
+00:13:10,630 --> 00:13:15,630
+that you would maximize your influence
+within a number.
+
+152
+00:13:15,630 --> 00:13:20,561
+So, having seen several of these
+demonstrations, let's see if you've built
+
+153
+00:13:20,561 --> 00:13:23,534
+up enough intuition to answer the
+following.
+
+154
+00:13:23,534 --> 00:13:27,115
+What is the role of communities in complex
+contagion?
+
+155
+00:13:27,115 --> 00:13:32,452
+Do they enable ideas to spread in the
+presence of thresholds or do they create
+
+156
+00:13:32,452 --> 00:13:37,587
+isolated pockets of nodes within the
+network that are impervious to outside
+
+157
+00:13:37,587 --> 00:13:40,627
+ideas?
+Or, do they allow different opinions to
+
+158
+00:13:40,627 --> 00:13:43,600
+take hold in different parts of the
+network?
+
+159
+00:13:44,020 --> 00:13:48,083
+Hopefully, you realized that they actually
+do all three.
+
+160
+00:13:48,083 --> 00:13:54,289
+In the first case, complex contagion means
+that you need to observe multiple of your
+
+161
+00:13:54,289 --> 00:14:00,421
+neighbors doing some action, or that you
+are going to decide based on your fraction
+
+162
+00:14:00,421 --> 00:14:05,150
+of your network that is doing one thing as
+opposed to the other.
+
+163
+00:14:05,150 --> 00:14:10,987
+And for this community structure is very
+crucial, because it provides the dense
+
+164
+00:14:10,987 --> 00:14:16,707
+linking around the ego that is the node,
+that allows them to observe similar
+
+165
+00:14:16,707 --> 00:14:22,261
+behavior among their friends.
+Similarly, though, it can create isolated
+
+166
+00:14:22,261 --> 00:14:28,158
+pockets of nodes who are holding on to one
+opinion or one way of doing things,
+
+167
+00:14:28,158 --> 00:14:34,311
+because they are seeing that where most of
+the friends within the community are doing
+
+168
+00:14:34,311 --> 00:14:40,111
+something one way, and it would just be
+too inefficient or too costly to switch to
+
+169
+00:14:40,111 --> 00:14:44,001
+something that someone is bringing in from
+the outside.
+
+170
+00:14:44,001 --> 00:14:49,094
+So on the one hand, it facilitates
+adaption with in the community but, it
+
+171
+00:14:49,094 --> 00:14:54,470
+makes it hard for new things to come in to
+the community in the first place.
+
+172
+00:14:54,470 --> 00:15:00,584
+It also then consequencely, consequently
+allows different opinions to take hold in
+
+173
+00:15:00,584 --> 00:15:05,804
+different parts of the network.
+Because each community may independent,
+
+174
+00:15:05,804 --> 00:15:11,620
+not independently, but they may, it may
+seem as if those they independently can
+
+175
+00:15:11,620 --> 00:15:16,391
+hold onto their beliefs.
+One last wrinkle that I would like to
+
+176
+00:15:16,391 --> 00:15:23,137
+introduce and this you can read about in
+the Easley/Kleinberg Chapter nineteen, is
+
+177
+00:15:23,137 --> 00:15:28,080
+that of bilingual nodes.
+Now, what are you, what are you talking
+
+178
+00:15:28,080 --> 00:15:32,630
+about? What are
+We haven't been talking about languages?
+
+179
+00:15:32,630 --> 00:15:37,585
+Well, in this case, it might mean if you,
+actually, are bi sporty.
+
+180
+00:15:37,585 --> 00:15:41,885
+[laugh] That is you play basketball and
+you play soccer.
+
+181
+00:15:41,885 --> 00:15:47,716
+Well, that's great, then you can play with
+everyone who plays basketball and with
+
+182
+00:15:47,716 --> 00:15:52,381
+everyone who plays soccer.
+However, typically in these situations,
+
+183
+00:15:52,381 --> 00:15:56,316
+there's some cost.
+So, besides the actual cost of maybe
+
+184
+00:15:56,316 --> 00:16:02,293
+needing a pair of cleats for soccer and a
+pair of basketball shoes for basketball,
+
+185
+00:16:02,293 --> 00:16:08,237
+Perhaps the cost is your time. You simply
+have to spend more time playing both
+
+186
+00:16:08,237 --> 00:16:14,086
+sports, and you may not get as good as,
+you know, if you weren't splitting your
+
+187
+00:16:14,086 --> 00:16:19,784
+time between the two activities.
+So in this case being bilingual comes with
+
+188
+00:16:19,784 --> 00:16:23,582
+a cost.
+Similarly, the earlier example of instant
+
+189
+00:16:23,582 --> 00:16:27,793
+messaging clients.
+You know, just having the overhead of
+
+190
+00:16:27,793 --> 00:16:33,268
+having two messaging clients open or
+setting up a single messaging client to
+
+191
+00:16:33,268 --> 00:16:38,457
+talk with two different services, and
+then, you know, having to manage your
+
+192
+00:16:38,457 --> 00:16:42,581
+identity on two different clients as well
+can be a hassle,
+
+193
+00:16:42,581 --> 00:16:45,709
+Right?
+So there's some cost, but, you may very
+
+194
+00:16:45,709 --> 00:16:51,468
+well be willing to pay that cost because
+it means that you can now interact with
+
+195
+00:16:51,468 --> 00:16:56,018
+more parts of your network.
+Even though they may have the making
+
+196
+00:16:56,018 --> 00:16:59,805
+different decisions,
+So let's try this on the line.
+
+197
+00:16:59,805 --> 00:17:05,563
+So, switching back over to NetLogo.
+I'm going to first of all, I'm going to
+
+198
+00:17:05,563 --> 00:17:10,216
+turn off bilingual,
+And I'm going to, well, this, this is what
+
+199
+00:17:10,216 --> 00:17:16,682
+you might foresee when you do set up line.
+But if you just lay out, you'll see that
+
+200
+00:17:16,682 --> 00:17:22,597
+it's a nice ring lattice in fact.
+And we can allocate the opinion at random
+
+201
+00:17:22,597 --> 00:17:26,935
+and then we can update,
+So just observe what's going on.
+
+202
+00:17:26,935 --> 00:17:29,380
+We allocate again, right?
+And so,
+
+203
+00:17:29,683 --> 00:17:34,231
+Great,
+So we have A is the payoff for playing
+
+204
+00:17:34,231 --> 00:17:41,913
+blue, and in this case the payoff for blue
+is higher than the payoff for red.
+
+205
+00:17:41,913 --> 00:17:49,644
+Now, I'm going to turn on bilingual,
+Which means a node can choose to be able
+
+206
+00:17:49,644 --> 00:17:55,323
+to interact with both the red and blue,
+however it will have to be this additional
+
+207
+00:17:55,323 --> 00:17:58,925
+cost of two.
+So, I am going to allocate the opinion and
+
+208
+00:17:58,925 --> 00:18:04,812
+then I am going to update and you can see
+several bilingual nodes cropping up where
+
+209
+00:18:04,812 --> 00:18:10,700
+they would like to talk to someone who is
+red and someone who is blue and now we can
+
+210
+00:18:10,700 --> 00:18:14,098
+keep updating.
+So, let's just do that again,
+
+211
+00:18:14,098 --> 00:18:18,088
+So we have initially nodes using red and
+blue.
+
+212
+00:18:18,088 --> 00:18:22,338
+Now, we update.
+So see if you can answer this quiz
+
+213
+00:18:22,338 --> 00:18:27,183
+question, which is, what is the presence
+of the bilingual node to do?
+
+214
+00:18:27,183 --> 00:18:32,478
+Does it help the superior solution to
+spread throughout the network, or does it
+
+215
+00:18:32,478 --> 00:18:35,694
+help inferior options to persist in the
+network,
+
+216
+00:18:35,694 --> 00:18:40,520
+Or does it cause everyone in the network
+to eventually become bilingual?
+
+217
+00:18:42,260 --> 00:18:48,501
+What you could have concluded from the
+demonstration in that logo, let me maybe
+
+218
+00:18:48,501 --> 00:18:53,098
+go back to it,
+Is that these bilingual nodes are allowing
+
+219
+00:18:53,098 --> 00:18:58,979
+the inferior solution, that is red, to
+persist versus when we didn't have
+
+220
+00:18:58,979 --> 00:19:05,677
+bilingual nodes everything turned blue
+eventually because it was, it simply had
+
+221
+00:19:05,677 --> 00:19:10,578
+the greater payoff.
+So, bilingual nodes are good in that they
+
+222
+00:19:10,578 --> 00:19:17,276
+bridge, but in the long run, they may keep
+the superior solution from really taking
+
+223
+00:19:17,276 --> 00:19:26,684
+over in the network.
+One last type of complex contagion that
+
+224
+00:19:26,684 --> 00:19:30,966
+we'll talk about and that is collective
+action.
+
+225
+00:19:30,966 --> 00:19:37,926
+So previously we talked about,
+In complex contagion that you may wait for
+
+226
+00:19:37,926 --> 00:19:44,053
+a couple of your friends to wear.
+Red pants, and then on subsequent days you
+
+227
+00:19:44,053 --> 00:19:49,407
+might start wearing red pants as well.
+However, in some situations, you may want
+
+228
+00:19:49,407 --> 00:19:53,320
+to coordinate ahead of time, because that
+first person to.
+
+229
+00:19:53,320 --> 00:19:59,863
+Show up to school in red pants, may very
+well not have a very good time, because
+
+230
+00:19:59,863 --> 00:20:03,471
+people might ridicule them.
+On the other hand,
+
+231
+00:20:03,471 --> 00:20:08,565
+If three of your friends all, you and
+three of your friends all decide to show
+
+232
+00:20:08,565 --> 00:20:12,679
+up to school in red pants.
+Well, people can try and ridicule you,
+
+233
+00:20:12,679 --> 00:20:17,968
+But you have strength and numbers and you
+can kind of, hold together, and, and be
+
+234
+00:20:17,968 --> 00:20:21,810
+just fine.
+So, another example of where this can crop
+
+235
+00:20:21,810 --> 00:20:26,274
+up is in protests.
+If you go out and protest on your own,
+
+236
+00:20:26,274 --> 00:20:31,534
+sure you might feel silly if you're the
+only holding up a sign.
+
+237
+00:20:31,534 --> 00:20:38,229
+But also, if for example, your protesting
+in you know, against an oppressive regime,
+
+238
+00:20:38,229 --> 00:20:43,082
+it may be very well be dangerous,
+So there's strength in numbers.
+
+239
+00:20:43,082 --> 00:20:49,247
+If you're one of many people protesting
+then you're you know, it's like slightly
+
+240
+00:20:49,247 --> 00:20:53,835
+that you got in trouble,
+So you may want to coordinate with your
+
+241
+00:20:53,835 --> 00:20:57,347
+friends.
+So just to sum up, you want to coordinate
+
+242
+00:20:57,347 --> 00:21:03,369
+that you don't end up here being the lone
+protester, and that instead you're with
+
+243
+00:21:03,369 --> 00:21:07,400
+your friends and happily protesting.
+So,
+
+244
+00:21:07,400 --> 00:21:11,779
+In general, though, different people might
+have different thresholds.
+
+245
+00:21:11,779 --> 00:21:16,617
+So, here is a node who would go and
+protest only if four people or more in
+
+246
+00:21:16,617 --> 00:21:20,213
+total would go.
+So, he would need three other friends to
+
+247
+00:21:20,213 --> 00:21:24,658
+say, yes, we're going to go protest and
+then he would be happy going and
+
+248
+00:21:24,658 --> 00:21:27,861
+protesting.
+However, he only has two friends which
+
+249
+00:21:27,861 --> 00:21:32,830
+means that he doesn't even have a chance
+of doing a coordination among four.
+
+250
+00:21:32,830 --> 00:21:36,720
+This node would go if three people in
+total would go,
+
+251
+00:21:36,720 --> 00:21:40,463
+So, he would go if this node and this node
+would go.
+
+252
+00:21:40,463 --> 00:21:44,280
+However, we already know that this node
+would not go.
+
+253
+00:21:44,280 --> 00:21:50,519
+Now, this node, in turn, would go if just
+one other person went cuz its threshold is
+
+254
+00:21:50,519 --> 00:21:53,455
+two,
+So it and a friend would happily go.
+
+255
+00:21:53,455 --> 00:21:59,400
+But now, this one isn't going because this
+one isn't going, and so, nobody goes and,
+
+256
+00:21:59,620 --> 00:22:04,896
+you know, no one goes out and protests.
+In this network, on the other hand, you
+
+257
+00:22:04,896 --> 00:22:08,691
+would get partial turnout.
+This node doesn't have a chance.
+
+258
+00:22:08,691 --> 00:22:13,533
+It wants to coordinate with three other
+people, but it only has one friend.
+
+259
+00:22:13,533 --> 00:22:18,309
+So, yeah, they're not going to go out.
+But these three nodes each have this
+
+260
+00:22:18,309 --> 00:22:23,674
+threshold of three and they're all talking
+to each other, and hence, they'll all go
+
+261
+00:22:23,674 --> 00:22:28,211
+and turnout.
+So see if you can answer this question
+
+262
+00:22:28,211 --> 00:22:34,174
+about the network here.
+And we're, what we're looking for is
+
+263
+00:22:34,174 --> 00:22:42,445
+whether this network is going to mobilize,
+whether at least a fraction of the nodes
+
+264
+00:22:42,445 --> 00:22:43,696
+will protest.

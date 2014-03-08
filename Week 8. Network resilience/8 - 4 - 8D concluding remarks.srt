@@ -1,0 +1,370 @@
+
+1
+00:00:00,000 --> 00:00:06,480
+As we part, I'd like to congratulate you
+for sticking with this course throughout
+
+2
+00:00:06,480 --> 00:00:11,040
+its eight weeks.
+I hope that you have a good sense about
+
+3
+00:00:11,040 --> 00:00:14,822
+networks.
+What I, what I hope you got out of it is
+
+4
+00:00:14,822 --> 00:00:20,862
+understanding what are the key properties
+of empirically observed networks, what are
+
+5
+00:00:20,862 --> 00:00:26,973
+the processes that shape them that help us
+to understand what those empirical numbers
+
+6
+00:00:26,973 --> 00:00:32,582
+mean, and what implications this has for
+various functions that the network is
+
+7
+00:00:32,582 --> 00:00:37,543
+supposed to be carrying out.
+For example, whether it's enabling people
+
+8
+00:00:37,543 --> 00:00:41,570
+to communicate or to search and, and find
+one another,
+
+9
+00:00:41,570 --> 00:00:47,960
+Or, you know, some of the cool and unusual
+applications where the nodes might be
+
+10
+00:00:47,960 --> 00:00:54,350
+different products in a product space that
+different countries participate and
+
+11
+00:00:54,350 --> 00:00:58,143
+compete in.
+At the same time, we've in a sense just
+
+12
+00:00:58,143 --> 00:01:04,471
+scratched the surface of all of the
+wonderful research and learning that you
+
+13
+00:01:04,471 --> 00:01:09,513
+can do in this area.
+One thing that I haven't covered at all
+
+14
+00:01:09,513 --> 00:01:16,371
+are biological networks and this is one of
+the largest application areas with many
+
+15
+00:01:16,371 --> 00:01:22,734
+fascinating findings, ranging from
+understanding how different functions have
+
+16
+00:01:22,982 --> 00:01:28,270
+evolved to how cells work to I mean, it
+just goes on and on.
+
+17
+00:01:28,270 --> 00:01:32,650
+It's, it's really,
+I mean, things like the relationship
+
+18
+00:01:32,650 --> 00:01:40,137
+between genetics and disease, all of this
+now is heavily influenced by our
+
+19
+00:01:40,137 --> 00:01:44,910
+understanding of how things are networked
+together.
+
+20
+00:01:44,910 --> 00:01:50,623
+Similarly, there's so many other
+application areas that we haven't, that
+
+21
+00:01:50,623 --> 00:01:55,772
+you wouldn't even imagine.
+For example, network analysis of space
+
+22
+00:01:55,772 --> 00:02:01,888
+that architects use to understand which
+spaces are going to be conducive to
+
+23
+00:02:02,129 --> 00:02:08,566
+individuals flowing through, which spaces
+are going to allow them to communicate.
+
+24
+00:02:08,808 --> 00:02:15,659
+Just things of that sort.
+We also have not used some of the tools
+
+25
+00:02:15,659 --> 00:02:22,072
+that are heavily used in some domains.
+So, for example, there is a most excellent
+
+26
+00:02:22,072 --> 00:02:29,226
+book by Mark Newman, who's also faculty at
+the University of Michigan, called
+
+27
+00:02:29,226 --> 00:02:35,887
+Introduction to Networks and, it's really
+a tome, it's a, it's a very thick book,
+
+28
+00:02:35,887 --> 00:02:42,794
+where he shows you how using, you know,
+some heavy-duty math and analytics you can
+
+29
+00:02:43,451 --> 00:02:50,217
+derive many network properties from
+knowledge of simple things such as the
+
+30
+00:02:50,217 --> 00:02:55,139
+degree distribution.
+So you can actually derive what the size
+
+31
+00:02:55,139 --> 00:03:01,595
+of the giant component will be given the
+degree distribution of the network, for
+
+32
+00:03:01,595 --> 00:03:05,145
+example.
+It also looks a lot at different
+
+33
+00:03:05,145 --> 00:03:10,797
+algorithms for detecting community
+structure and really grounds such
+
+34
+00:03:10,797 --> 00:03:17,918
+approaches on, you know, kind of, in a, in
+a statistical way where you're looking at
+
+35
+00:03:17,918 --> 00:03:24,393
+ensembles of many different network
+instantiations and looking at whether what
+
+36
+00:03:24,393 --> 00:03:30,786
+you observe is actually significantly
+different from what you would see at
+
+37
+00:03:30,786 --> 00:03:34,594
+random.
+On the economic side of things, Matthew
+
+38
+00:03:34,594 --> 00:03:41,064
+Jackson, who's faculty at Stanford, has
+written an excellent book Social and
+
+39
+00:03:41,064 --> 00:03:46,040
+Economic Networks,
+And things that we really didn't get into
+
+40
+00:03:46,040 --> 00:03:52,758
+that much are, but that the book covers,
+are things like, what strategically, if
+
+41
+00:03:52,758 --> 00:03:59,560
+you have, if the nodes are self-interested
+and maximizing the utility that they get
+
+42
+00:03:59,560 --> 00:04:03,252
+from the network,
+How will the network be wired?
+
+43
+00:04:03,252 --> 00:04:08,960
+Or if you're playing certain games,
+I mean we did this simple cascade model
+
+44
+00:04:08,960 --> 00:04:13,602
+but what if you were playing prisoner's
+dilemma on a network.
+
+45
+00:04:13,602 --> 00:04:17,330
+.
+How does the network topology affect the
+
+46
+00:04:17,330 --> 00:04:18,624
+outcomes?
+.
+
+47
+00:04:19,081 --> 00:04:25,853
+Then Laszlo Barabasi and his collaborators
+are writing more chapters of the wonderful
+
+48
+00:04:26,081 --> 00:04:31,271
+Network Science Book,
+That which is aimed more at, at a beginner
+
+49
+00:04:31,271 --> 00:04:37,985
+audience. So I think you would you could
+probably understand, no matter your, your
+
+50
+00:04:37,985 --> 00:04:44,699
+background, a great portion of that book.
+So other topics that we didn't get to this
+
+51
+00:04:44,699 --> 00:04:48,602
+time around, include how networks evolve
+over time.
+
+52
+00:04:48,602 --> 00:04:55,160
+So, Gephi actually has some functionality
+for visualizing how networks evolve.
+
+53
+00:04:55,394 --> 00:04:59,220
+But questions that you might be interested
+in is,
+
+54
+00:04:59,220 --> 00:05:05,450
+Does the community structure teach?
+Does the network densify that is this will
+
+55
+00:05:05,450 --> 00:05:10,003
+become denser over time?
+You can track centralities,
+
+56
+00:05:10,003 --> 00:05:16,793
+So are there different nodes that emerge
+as being important during different time
+
+57
+00:05:16,793 --> 00:05:20,548
+periods.
+So that's a whole area, which, it's sort
+
+58
+00:05:20,548 --> 00:05:25,900
+of easy to extrapolate from where we are
+now to doing it over time.
+
+59
+00:05:25,900 --> 00:05:32,130
+But, I'm just sorry, I didn't get a chance
+to do that with you this time around.
+
+60
+00:05:32,370 --> 00:05:37,018
+So,
+No, another very fruitful part are these
+
+61
+00:05:37,781 --> 00:05:44,225
+p-star models where you statistically
+determine factors that are affecting
+
+62
+00:05:44,225 --> 00:05:50,498
+network formations, so rather than saying
+oh, okay it's going, it'll, it's going to
+
+63
+00:05:50,498 --> 00:05:54,653
+have this probability of preferential
+attachment,
+
+64
+00:05:54,653 --> 00:06:01,510
+You're going to actually run an analysis
+that's going to extract that from the
+
+65
+00:06:01,510 --> 00:06:05,051
+observed data.
+You know, is the network going
+
+66
+00:06:05,051 --> 00:06:10,363
+preferentially or not?
+Is triadic closure a large factor in how
+
+67
+00:06:10,363 --> 00:06:15,353
+this network has formed?
+And finally, you know, cool and unusual
+
+68
+00:06:15,353 --> 00:06:19,700
+applications, they're happening every day
+all the time,
+
+69
+00:06:20,460 --> 00:06:25,497
+Whether you want to understand what's
+happening in politics,
+
+70
+00:06:25,748 --> 00:06:27,763
+In, education.
+[laugh].
+
+71
+00:06:28,015 --> 00:06:34,395
+Really, there, there's no limit to where
+you can apply, network analysis.
+
+72
+00:06:34,395 --> 00:06:41,447
+So I do hope you, have found this class
+useful and that now you will go forth and
+
+73
+00:06:41,447 --> 00:06:46,568
+apply social network analysis to whatever
+might interest you.
+
+74
+00:06:46,568 --> 00:06:50,850
+So, thanks for sticking with me through
+these weeks.
